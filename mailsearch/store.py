@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from collections import Counter, defaultdict
 from datetime import date, timedelta
+from hashlib import file_digest
 import json
 from pathlib import Path
 import re
@@ -19,8 +20,12 @@ _IDENTIFIER = re.compile(r"\bSYN-[0-9a-f]{6,}\b", re.I)
 _AMOUNT = re.compile(r"(?:сумм[ау]|стоимость)\s*[—–:\-]?\s*[\d\s]+[.,]\d\d", re.I)
 
 
-def load_jsonl(path: Path) -> list[dict]:
+def load_jsonl(path: Path, *, expected_sha256: str | None = None) -> list[dict]:
     with path.open(encoding="utf-8") as source:
+        if expected_sha256 is not None:
+            if file_digest(source.buffer, "sha256").hexdigest() != expected_sha256:
+                raise ValueError("Для публичного демо нужен исходный синтетический корпус VK.")
+            source.seek(0)
         return [json.loads(line) for line in source if line.strip()]
 
 

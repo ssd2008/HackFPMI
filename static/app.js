@@ -14,6 +14,8 @@ const ui = {
 const inboxPageSize = 25;
 const searchPageSize = 15;
 const searchLimit = 30;
+const apiConfig = document.querySelector('meta[name="mailsearch-api-origin"]');
+const apiOrigin = apiConfig.hasAttribute('data-external') ? apiConfig.content : location.origin;
 const state = {
   boxes: [], mailbox: '', date: '', query: '', offset: 0, total: 0,
   items: [], searchResults: [], lastAnswer: null, lastDates: new Map()
@@ -39,7 +41,7 @@ function icon(name) {
   graphic.classList.add('icon');
   graphic.setAttribute('aria-hidden', 'true');
   const use = document.createElementNS(svgNs, 'use');
-  use.setAttribute('href', '/static/icons.svg#' + name);
+  use.setAttribute('href', './static/icons.svg#' + name);
   graphic.append(use);
   return graphic;
 }
@@ -89,7 +91,7 @@ async function fetchJSON(path, controller, body) {
     options.headers = {'Content-Type': 'application/json'};
     options.body = JSON.stringify(body);
   }
-  const response = await fetch(path, options);
+  const response = await fetch(new URL(path, apiOrigin), options);
   if (!response.ok) {
     const error = new Error('HTTP ' + response.status);
     error.status = response.status;
@@ -205,7 +207,10 @@ async function loadMailboxes() {
     openMailbox(chosen.id, data.default_date || chosen.latest_date);
   } catch (error) {
     if (!current('boxes', controller)) return;
-    showListError('Не удалось открыть архив', 'Проверьте, что локальный сервер запущен.', loadMailboxes);
+    const detail = apiOrigin === location.origin
+      ? 'Проверьте, что локальный сервер запущен.'
+      : 'Сервер демо недоступен. Попробуйте ещё раз.';
+    showListError('Не удалось открыть архив', detail, loadMailboxes);
   }
 }
 function setMode() {
@@ -566,4 +571,9 @@ document.addEventListener('keydown', event => {
   event.preventDefault();
   ui.input.focus();
 });
-loadMailboxes();
+if (apiOrigin) {
+  loadMailboxes();
+} else {
+  ui.list.setAttribute('aria-busy', 'false');
+  ui.list.replaceChildren(messageState('Сервер демо ещё не подключён', '', 'archive'));
+}

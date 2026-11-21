@@ -24,6 +24,46 @@
 .venv/bin/python -m mailsearch
 ```
 
+## Командное демо на GitHub Pages
+
+[Командное демо](https://ssd2008.github.io/HackFPMI-demo/) читает API на Mac через HTTPS-туннель. Отдельная копия `~/HackFPMI-preview` обслуживает демонстрацию из `main`. В рабочей копии агент может проверять незакоммиченные правки через `./run.sh --port 8766`. Публичный API при запуске проверяет контрольную сумму исходного синтетического корпуса VK.
+
+### Настройка Mac один раз
+
+На Mac с Apple Silicon и macOS 14+ нужен Homebrew, доступ к приватному `HackFPMI` и право Write в `HackFPMI-demo`. Для коммитов Pages настройте в Git имя и подтверждённый на GitHub адрес почты.
+
+```sh
+brew install gh uv tmux cloudflared
+gh auth login --hostname github.com --git-protocol https
+gh auth setup-git
+git clone https://github.com/ssd2008/HackFPMI.git ~/HackFPMI-preview
+tmux new-session -d -s hackfpmi-tunnel 'cloudflared tunnel --url http://127.0.0.1:8765'
+tmux capture-pane -pt hackfpmi-tunnel -S -80
+```
+
+`tmux` (terminal multiplexer) держит процессы в отдельных сессиях после закрытия терминала. Возьмите из вывода `cloudflared` HTTPS-адрес и подставьте его при первом деплое. Если порт 8765 занимает старый ручной запуск, сначала остановите его.
+
+```sh
+~/HackFPMI-preview/scripts/deploy_preview.sh --api-origin https://ВАШ-АДРЕС.trycloudflare.com
+```
+
+На первом запуске будут скачаны модели и построен индекс. Журнал сервера находится в `~/HackFPMI-preview/.cache/preview-backend.log`.
+
+### После изменений в `main`
+
+```sh
+~/HackFPMI-preview/scripts/deploy_preview.sh
+```
+
+Команда подтягивает `main`, при изменении бэкенда перезапускает API и дожидается ответа от него. Затем она публикует закоммиченные файлы интерфейса из `static/` в [HackFPMI-demo](https://github.com/ssd2008/HackFPMI-demo). При обновлении интерфейса адрес API сохраняется. GitHub Pages публикует коммит из `main` репозитория демо.
+
+```sh
+git -C ~/HackFPMI-preview rev-parse HEAD
+curl -fsS https://ssd2008.github.io/HackFPMI-demo/version.txt
+```
+
+Идентификаторы должны совпасть после завершения [деплоя Pages](https://github.com/ssd2008/HackFPMI-demo/actions). Откройте демо, выполните поиск и откройте письмо. После перезапуска Quick Tunnel получит новый адрес. Повторите команду с `--api-origin`, чтобы его обновить. Держите Mac включённым и подключённым к сети. Для стабильного адреса можно использовать [именованный Cloudflare Tunnel](https://developers.cloudflare.com/tunnel/get-started/).
+
 ## Что показать на демо
 
 1. Откройте ящик 10. Кнопка **Сумма заказа** подставляет запрос «Какова сумма заказа SYN-077f40913b?» и дату 19 декабря 2027 года. Нажмите **Получить ответ**. Письмо содержит сумму **431,03 рубля**. Ссылка **[1]** откроет оригинал с номером заказа и суммой. Это отдельный пример работы RAG, которого нет в публичных запросах. [Пример ответа в интерфейсе](results/demo.jpg)

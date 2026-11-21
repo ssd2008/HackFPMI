@@ -2,9 +2,11 @@ from __future__ import annotations
 
 from contextlib import asynccontextmanager
 from datetime import date as Date
+from os import getenv
 from time import perf_counter
 
 from fastapi import FastAPI, HTTPException, Query
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, ConfigDict, Field
@@ -12,11 +14,17 @@ from pydantic import BaseModel, ConfigDict, Field
 from .store import CACHE, DATA, ROOT, MailStore, load_jsonl
 
 
+frontend_origin = getenv("MAILSEARCH_FRONTEND_ORIGIN", "").strip()
+DEMO_CORPUS_SHA256 = "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5"
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    expected_sha256 = DEMO_CORPUS_SHA256 if frontend_origin else None
+    documents = load_jsonl(DATA / "documents.jsonl", expected_sha256=expected_sha256)
+
     from .retrieval import SearchEngine
 
-    documents = load_jsonl(DATA / "documents.jsonl")
     app.state.store = MailStore(documents)
     app.state.search_engine = SearchEngine(documents, CACHE)
     yield
@@ -45,6 +53,13 @@ class SearchTiming:
         await self.app(scope, receive, timed_send)
 
 
+if frontend_origin:
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=[frontend_origin],
+        allow_methods=["GET", "POST"],
+        allow_headers=["Content-Type"],
+    )
 app.add_middleware(SearchTiming)
 app.mount("/static", StaticFiles(directory=ROOT / "static"), name="static")
 
