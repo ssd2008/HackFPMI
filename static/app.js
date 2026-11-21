@@ -346,10 +346,21 @@ function renderList() {
   ui.count.hidden = false;
   ui.order.hidden = !state.items.length;
   if (!state.items.length) {
-    const reset = searching ? action('Во входящие', 'secondary', showInbox) : undefined;
-    ui.list.replaceChildren(searching
-      ? messageState('Подходящих писем не найдено', 'Измените запрос или дату поиска.', 'search', reset)
-      : messageState('На эту дату писем нет', 'Выберите другую дату или другой ящик.', 'inbox'));
+    const unquoted = state.query.replace(/«([^«»]*)»|"([^"]*)"/g, (_, left, right) => left ?? right).trim();
+    let empty;
+    if (unquoted && unquoted !== state.query) {
+      const broaden = action('Искать без кавычек', 'secondary', () => {
+        ui.input.value = unquoted;
+        showSearch(unquoted);
+      });
+      empty = messageState('Совпадений по точной фразе нет', 'Без кавычек поиск учитывает словоформы и смысл.', 'search', broaden);
+    } else if (searching) {
+      empty = messageState('Подходящих писем не найдено', 'Измените запрос или дату поиска.', 'search',
+        action('Во входящие', 'secondary', showInbox));
+    } else {
+      empty = messageState('На эту дату писем нет', 'Выберите другую дату или другой ящик.', 'inbox');
+    }
+    ui.list.replaceChildren(empty);
     ui.paging.hidden = true;
     announce(searching ? 'Подходящих писем не найдено.' : 'На выбранную дату писем нет.');
     return;

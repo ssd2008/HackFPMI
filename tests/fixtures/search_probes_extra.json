@@ -1,0 +1,266 @@
+{
+  "name": "Independent content probes, second freeze",
+  "documents_sha256": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+  "provenance": "Manually written from public corpus text before observing any search results for these queries. Positive evidence is checked by conjunction in the visible mailbox and, where specified, in the stated receipt window. Negative evidence includes corpus-wide absence checks. The earlier fixture was consulted only to intersect its expected document identifiers.",
+  "cases": [
+    {
+      "id": "extra-packaging-contract",
+      "family": "accounting contract error",
+      "mailbox": "box-fda57474896e",
+      "date": "2029-12-31",
+      "query": "У кого в базе пропало поле, когда оформляли соглашение на закупку упаковки?",
+      "expected": [
+        "L-d352bc3f184695d6a85d"
+      ],
+      "evidence_all": [
+        "закупк[аи] упаковк",
+        "соглашение об условиях закупок",
+        "поле объекта не обнаружено"
+      ]
+    },
+    {
+      "id": "extra-small-turnover",
+      "family": "merchant settlement statement",
+      "mailbox": "box-2d28af4e4602",
+      "date": "2029-12-31",
+      "query": "Где сводка магазина «Сервис Горизонт» с оборотом ровно пятьсот рублей и банковской комиссией меньше двух?",
+      "expected": [
+        "L-2626eb6eda7e5108b675"
+      ],
+      "evidence_all": [
+        "реестр платежей",
+        "сервис горизонт",
+        "сумма всех операций.{0,16}500\\s*руб",
+        "комиссия банка.{0,14}1[.,]9\\s*руб"
+      ]
+    },
+    {
+      "id": "extra-certificate-agent",
+      "family": "voucher and agent fee",
+      "mailbox": "box-2d28af4e4602",
+      "date": "2029-12-31",
+      "query": "Чем оплатили покупку, где в одном списке сертификат и вознаграждение посредника?",
+      "expected": [
+        "L-e4d79640eea39287fc05"
+      ],
+      "evidence_all": [
+        "сертификат на",
+        "вознаграждение агента",
+        "FasterPayments"
+      ]
+    },
+    {
+      "id": "extra-bicycle-tube",
+      "family": "inflatable valve tool",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2029-12-31",
+      "query": "Найди инструмент для выкручивания сердечника клапана у велосипеда и надувного тюбинга.",
+      "expected": [
+        "L-2b45421037ebd0bc580f"
+      ],
+      "evidence_all": [
+        "велосипед",
+        "тюбинг",
+        "золотник",
+        "ниппел"
+      ]
+    },
+    {
+      "id": "extra-almond-soap",
+      "family": "scent and volume",
+      "mailbox": "box-90560850fd8e",
+      "date": "2028-07-10",
+      "query": "Какие письма про пятилитровое мыло с миндальным ароматом пришли в июне 2028 года?",
+      "expected": [
+        "L-7fd2dee114d2ff1bee9d",
+        "L-82cca76b28ce78fe4841",
+        "L-d4a5548125098080d13d"
+      ],
+      "evidence_all": [
+        "мыл",
+        "миндальн",
+        "(?<!\\d)5\\s*(?:л\\b|литр)"
+      ],
+      "received": [
+        "2028-06-01",
+        "2028-06-30"
+      ]
+    },
+    {
+      "id": "extra-electronics-bundle",
+      "family": "several consumer devices together",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2029-12-31",
+      "query": "Где часы Apple, телевизор Samsung и пылесос Dyson были в одной покупке?",
+      "expected": [
+        "L-6fea65941bddbe231ced"
+      ],
+      "evidence_all": [
+        "Apple Watch",
+        "Samsung QLED",
+        "Dyson"
+      ]
+    },
+    {
+      "id": "extra-brush-and-solvent",
+      "family": "two positions in a warehouse list",
+      "mailbox": "box-f9410417c091",
+      "date": "2029-12-31",
+      "query": "В какой складской ведомости одновременно были кисть из натуральной щетины для радиаторов и апельсиновый очиститель следов от наклеек?",
+      "expected": [
+        "L-38bca1ac8c66037000ef"
+      ],
+      "evidence_all": [
+        "кисть радиаторная",
+        "натуральная щетина",
+        "очиститель этикеток и клея",
+        "апельсинка"
+      ]
+    },
+    {
+      "id": "extra-slim-light",
+      "family": "vehicle accessory at end of message",
+      "mailbox": "box-f9410417c091",
+      "date": "2029-12-31",
+      "query": "Где упоминали квадратный дополнительный свет для УАЗа в исполнении SLIM?",
+      "expected": [
+        "L-599d7993b8ee5597eb1b"
+      ],
+      "evidence_all": [
+        "квадратный SLIM",
+        "спецсветильник",
+        "уаз"
+      ]
+    },
+    {
+      "id": "extra-edi-recipient",
+      "family": "distinct recipient and purchaser",
+      "mailbox": "box-d7961fc39a68",
+      "date": "2029-12-31",
+      "query": "Найди извещение по «Пятёрочке», где получателем был «Экспресс-Курьер», а покупателем — «Агроторг».",
+      "expected": [
+        "L-a9bda5deee81981536c1"
+      ],
+      "evidence_all": [
+        "получатель.{0,12}экспресс-курьер",
+        "покупатель.{0,12}агроторг",
+        "[пП]ят[её]рочка"
+      ]
+    },
+    {
+      "id": "extra-tracking-access",
+      "family": "blocked tracking subscription",
+      "mailbox": "box-84bd433469cb",
+      "date": "2029-12-31",
+      "query": "Чью подписку на отслеживание контейнера заблокировали в 19:05?",
+      "expected": [
+        "L-0c84d9c36990ff5bf8b4"
+      ],
+      "evidence_all": [
+        "контейнерная подписка",
+        "заблокирована",
+        "19:05:23"
+      ]
+    },
+    {
+      "id": "extra-erp-read-lock",
+      "family": "record lock in an HTTP service",
+      "mailbox": "box-fda57474896e",
+      "date": "2029-12-31",
+      "query": "Из-за чьей блокировки в ERP нельзя было начать чтение записи через HTTP?",
+      "expected": [
+        "L-9f162f63f15bb5d7e6a6"
+      ],
+      "evidence_all": [
+        "НачатьЧтение",
+        "заблокирован пользователем",
+        "соединение с HTTP-сервисом"
+      ]
+    },
+    {
+      "id": "extra-absent-interpreting",
+      "family": "language interpreting",
+      "mailbox": "box-fda57474896e",
+      "date": "2029-12-31",
+      "query": "Где договаривались о синхронном переводе лекции на исландский?",
+      "expected": [],
+      "evidence_all": [
+        "синхронн",
+        "исланд"
+      ]
+    },
+    {
+      "id": "extra-absent-cello",
+      "family": "music versus industrial supplies",
+      "mailbox": "box-f9410417c091",
+      "date": "2029-12-31",
+      "query": "Ищу советы, какую канифоль подобрать для виолончельного смычка.",
+      "expected": [],
+      "evidence_all": [
+        "канифол",
+        "виолончел",
+        "смычк"
+      ]
+    },
+    {
+      "id": "extra-absent-diving",
+      "family": "experience voucher",
+      "mailbox": "box-2d28af4e4602",
+      "date": "2029-12-31",
+      "query": "Найди сертификат на пробное погружение с аквалангом под присмотром инструктора.",
+      "expected": [],
+      "evidence_all": [
+        "сертификат",
+        "акваланг|дайвинг",
+        "инструктор"
+      ]
+    },
+    {
+      "id": "extra-absent-cocoa",
+      "family": "commodity futures",
+      "mailbox": "box-12259a301ee2",
+      "date": "2029-12-31",
+      "query": "Найди биржевое извещение о фьючерсном контракте на какао.",
+      "expected": [],
+      "evidence_all": [
+        "фьючерс",
+        "какао"
+      ]
+    }
+  ],
+  "global_anchors": [
+    {
+      "literal": "исланд",
+      "documents": []
+    },
+    {
+      "literal": "синхронн",
+      "documents": []
+    },
+    {
+      "literal": "виолончел",
+      "documents": []
+    },
+    {
+      "literal": "смычк",
+      "documents": []
+    },
+    {
+      "literal": "акваланг",
+      "documents": []
+    },
+    {
+      "literal": "дайвинг",
+      "documents": []
+    },
+    {
+      "literal": "фьючерс",
+      "documents": []
+    },
+    {
+      "literal": "какао",
+      "documents": []
+    }
+  ],
+  "read_checks": []
+}

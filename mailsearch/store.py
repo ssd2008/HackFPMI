@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from collections import Counter, defaultdict
 from datetime import date, timedelta
-from hashlib import file_digest
+import hashlib
 import json
 from pathlib import Path
 import re
@@ -23,10 +23,38 @@ _AMOUNT = re.compile(r"(?:сумм[ау]|стоимость)\s*[—–:\-]?\s*[\
 def load_jsonl(path: Path, *, expected_sha256: str | None = None) -> list[dict]:
     with path.open(encoding="utf-8") as source:
         if expected_sha256 is not None:
-            if file_digest(source.buffer, "sha256").hexdigest() != expected_sha256:
+            if hashlib.file_digest(source.buffer, "sha256").hexdigest() != expected_sha256:
                 raise ValueError("Для публичного демо нужен исходный синтетический корпус VK.")
             source.seek(0)
         return [json.loads(line) for line in source if line.strip()]
+
+
+def load_corpus(path: Path) -> tuple[list[dict], str]:
+    """Hash exactly the bytes used for these documents, including line endings."""
+    digest = hashlib.sha256()
+    documents = []
+    with path.open("rb") as source:
+        for line in source:
+            digest.update(line)
+            if line.strip():
+                documents.append(json.loads(line))
+    return documents, digest.hexdigest()
+
+
+def verify_manifest(data: Path) -> dict:
+    """A supplied manifest is authoritative. A corpus may also be supplied on its own."""
+    path = data / "manifest.json"
+    if not path.is_file():
+        return {}
+    manifest = json.loads(path.read_text(encoding="utf-8"))
+    for filename, expected in manifest.get("sha256", {}).items():
+        target = (data / filename).resolve()
+        if not target.is_relative_to(data.resolve()):
+            raise ValueError(f"Файл манифеста находится за пределами набора: {filename}")
+        with target.open("rb") as source:
+            if hashlib.file_digest(source, "sha256").hexdigest() != expected:
+                raise ValueError(f"Неверная контрольная сумма у {filename}")
+    return manifest
 
 
 def shorten(text: str, limit: int) -> str:

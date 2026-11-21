@@ -23,6 +23,22 @@ _YEAR_SUFFIX = r"(?:\s*(?:года?|г\.?))?"
 _WORD_DATE = rf"\d{{1,2}}\s+{_MONTH}(?:\s+\d{{4}}{_YEAR_SUFFIX})?"
 _ATOM = rf"(?:\d{{4}}-\d{{2}}-\d{{2}}|\d{{1,2}}[./]\d{{1,2}}[./]\d{{4}}|{_WORD_DATE})"
 _DAYS = {"сегодня": 0, "вчера": 1, "позавчера": 2}
+# Deadlines and dates quoted from the subject/body can coexist with a receipt-date filter.
+_EVENT = (
+    r"(?:(?:срок(?:ом|и)?|дат[аыуе])\s+(?:оплаты|отгрузки|доставки|вылета|выезда|встречи)(?:\s+заказа)?|"
+    r"оплатить|отгрузить|доставить|вылететь|отправить\s+заказ|"
+    r"(?:доставк(?:а|ой|у)|вылет|выезд|встреч[ау])(?=\s+(?:на|к|до)\s))"
+)
+_FIELD = r"в\s+(?:теме|заголовке|тексте|теле)"
+_CONTENT_DATE = re.compile(
+    rf"\b(?:{_EVENT}\s*[:—–-]?\s*(?:(?:назначен[ао]?\s+)?(?:на|к|до|после)\s+)?{_ATOM}|"
+    rf"{_FIELD}\s+(?:письм[ае]\s+)?(?:(?:указан[ао]?|упомянут[ао]?|содержится|есть|стоит)\s+)?"
+    rf"(?:дат[ауы]\s*)?[:—–-]?\s*{_ATOM}|(?:дат(?:а|у|ой)\s+)?{_ATOM}\s+{_FIELD})(?!\w)"
+)
+_YEAR = re.compile(
+    r"\b(?:за|в)\s+(\d{4})\b(?![.,]\d|\s*(?:[₽€$%]|руб\w*|доллар\w*|евро|rub\b|usd\b|eur\b))"
+    r"(?:\s*(?:год(?:у|а)?\b|г\.))?"
+)
 
 
 @dataclass(frozen=True)
@@ -62,10 +78,12 @@ def _read_day(raw: str, reference: date) -> date:
 
 
 def parse_date_scope(query: str, reference: date) -> DateScope:
-    text = " ".join(unicodedata.normalize("NFKC", query).lower().replace("ё", "е").split())
+    original = " ".join(unicodedata.normalize("NFKC", query).lower().replace("ё", "е").split())
+    # Preserve offsets so only a receipt-date expression can be removed from the original terms.
+    text = _CONTENT_DATE.sub(lambda m: " " * len(m[0]), original)
 
     def scope(match: re.Match, start: date | None, end: date | None) -> DateScope:
-        return DateScope((text[:match.start()] + " " + text[match.end():]).strip(), start, end)
+        return DateScope((original[:match.start()] + " " + original[match.end():]).strip(), start, end)
 
     try:
         match = re.search(rf"\bс\s+(\d{{1,2}})\s+(?:по|до)\s+({_WORD_DATE})(?!\w)", text)
@@ -138,11 +156,11 @@ def parse_date_scope(query: str, reference: date) -> DateScope:
             year = int(match[2]) if match[2] else reference.year - int(month > reference.month)
             return scope(match, date(year, month, 1), date(year, month, calendar.monthrange(year, month)[1]))
 
-        match = re.search(r"\b(?:за|в)\s+(\d{4})\s*(?:году|год|г\.)?\b", text)
+        match = _YEAR.search(text)
         if match:
             year = int(match[1])
             return scope(match, date(year, 1, 1), date(year, 12, 31))
     except (ValueError, OverflowError):
         # An invalid explicit date is an unsatisfiable request.
-        return DateScope(text, date.max, date.min)
-    return DateScope(text)
+        return DateScope(original, date.max, date.min)
+    return DateScope(original)

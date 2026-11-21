@@ -11,7 +11,7 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, ConfigDict, Field
 
-from .store import CACHE, DATA, ROOT, MailStore, load_jsonl
+from .store import CACHE, DATA, ROOT, MailStore, load_corpus
 
 
 frontend_origin = getenv("MAILSEARCH_FRONTEND_ORIGIN", "").strip()
@@ -20,8 +20,10 @@ DEMO_CORPUS_SHA256 = "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    expected_sha256 = DEMO_CORPUS_SHA256 if frontend_origin else None
-    documents = load_jsonl(DATA / "documents.jsonl", expected_sha256=expected_sha256)
+    data = getattr(app.state, "data_dir", DATA)
+    documents, app.state.corpus_sha256 = load_corpus(data / "documents.jsonl")
+    if frontend_origin and app.state.corpus_sha256 != DEMO_CORPUS_SHA256:
+        raise ValueError("Для публичного демо нужен исходный синтетический корпус VK.")
 
     from .retrieval import SearchEngine
 
@@ -98,7 +100,9 @@ def index():
 def mailboxes():
     boxes = app.state.store.mailboxes
     default = max(boxes, key=lambda box: box["count"])
-    return {"mailboxes": boxes, "default_mailbox": default["id"], "default_date": default["latest_date"]}
+    return {"mailboxes": boxes, "default_mailbox": default["id"],
+            "default_date": default["latest_date"] or Date.today().isoformat(),
+            "corpus_sha256": app.state.corpus_sha256}
 
 
 @app.get("/api/inbox")
@@ -106,7 +110,7 @@ def inbox(mailbox: str, date: Date, offset: int = Query(0, ge=0), limit: int = Q
     return checked_store(mailbox).inbox(mailbox, date.isoformat(), offset, limit)
 
 
-@app.get("/api/mail/{doc_id}")
+@app.get("/api/mail/{doc_id:path}")
 def message(doc_id: str, mailbox: str, date: Date):
     store = checked_store(mailbox)
     if not store.visible(mailbox, date.isoformat(), doc_id):

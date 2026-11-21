@@ -80,6 +80,21 @@ class ScopeAndAnswerTests(unittest.TestCase):
         self.assertEqual(answer["mode"], "no_evidence")
         self.assertEqual(answer["sources"], [])
 
+    def test_failed_payment_returns_declines_and_a_grounded_status(self):
+        context = {"mailbox": "box-a971835ab404", "date": "2028-01-27"}
+        request = {**context, "query": "Покажи сообщения о том, что платёж не прошёл, полученные 26 января 2028 года."}
+        results = api("/api/search", post=request)["items"]
+        self.assertGreaterEqual(len(results), 3)
+        for item in results[:3]:
+            self.assertRegex(item["subject"].lower(), "отклон|отказ")
+        answer = api("/api/answer", post=request)
+        self.assertIn(answer["mode"], {"generative", "extractive"})
+        self.assertRegex(answer["answer"].lower(), "отклон|отказ")
+        self.assertTrue(answer["sources"])
+        for cited in answer["sources"]:
+            original = api("/api/mail/" + cited["id"], params=context)
+            self.assertRegex(original["body"].lower(), "отклон|отказ")
+
 
 if __name__ == "__main__":
     unittest.main()

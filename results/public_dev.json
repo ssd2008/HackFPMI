@@ -4,12 +4,16 @@
     "queries": 99,
     "qrels": 565,
     "sha256": {
-      "README.md": "237ecc95e3db0e959edb073acd4ddf287248524e9c725f6897921d4a19cddb0b",
       "documents.jsonl": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
-      "qrels_dev.jsonl": "826362ae5592d58b3bb1cd382103dc0aef151cf014025258f0cddba0fefa0dd4",
-      "queries_dev.jsonl": "7a5b587ee7361ca2e35e1929cbbfdcc3154b4302b6fb830ae1c41846518d6017"
-    }
+      "queries": "7a5b587ee7361ca2e35e1929cbbfdcc3154b4302b6fb830ae1c41846518d6017",
+      "qrels": "826362ae5592d58b3bb1cd382103dc0aef151cf014025258f0cddba0fefa0dd4"
+    },
+    "queries_file": "queries_dev.jsonl",
+    "qrels_file": "qrels_dev.jsonl",
+    "server_corpus_check": "sha256"
   },
+  "quality_queries": 99,
+  "queries_without_positive_judgments": 0,
   "single_relevant_queries": 42,
   "recall_upper_bound": {
     "1": 0.561654,
@@ -18,45 +22,45 @@
   },
   "quality_first_pass": {
     "1": {
-      "recall": 0.55492,
-      "ndcg": 0.979798,
+      "recall": 0.561654,
+      "ndcg": 1.0,
       "mrr_single": 1.0
     },
     "5": {
-      "recall": 0.859615,
-      "ndcg": 0.991076,
+      "recall": 0.862982,
+      "ndcg": 0.999051,
       "mrr_single": 1.0
     },
     "10": {
       "recall": 0.937564,
-      "ndcg": 0.992764,
+      "ndcg": 0.999051,
       "mrr_single": 1.0
     }
   },
   "timing": {
-    "search_calls": 297,
+    "search_calls": 495,
     "top_k": 10,
-    "repeats": 3,
+    "repeats": 5,
     "concurrent_clients": 1,
     "seed": 2026,
     "quantile": "nearest rank",
     "server_ms": {
-      "p50": 4.525,
-      "p95": 4.971,
-      "p99": 5.518,
-      "max": 7.011
+      "p50": 2.22,
+      "p95": 2.66,
+      "p99": 2.891,
+      "max": 4.08
     },
     "server_first_pass_ms": {
-      "p50": 4.481,
-      "p95": 5.028,
-      "p99": 7.011,
-      "max": 7.011
+      "p50": 2.289,
+      "p95": 2.825,
+      "p99": 3.377,
+      "max": 3.377
     },
     "loopback_http_ms": {
-      "p50": 4.964,
-      "p95": 5.483,
-      "p99": 6.075,
-      "max": 13.806
+      "p50": 2.619,
+      "p95": 3.105,
+      "p99": 3.37,
+      "max": 4.532
     },
     "ranking_changes_on_repeats": 0,
     "platform": "macOS-26.6.2-arm64-arm-64bit",
@@ -70,10 +74,10 @@
         "L-5b7a5e4c10aafe25f738",
         "L-fdc4bda76c27a82215e4",
         "L-616629cddcc0fee0a465",
-        "L-ced61eba2715e69e79a6",
-        "L-73658f21c4c5e694508a",
         "L-4eabaf4d1fd6ffc7704e",
+        "L-ced61eba2715e69e79a6",
         "L-c5e3282b363845ba00aa",
+        "L-73658f21c4c5e694508a",
         "L-842320cb44c1c246acc4"
       ],
       "relevant": 1,
@@ -124,12 +128,12 @@
         "L-c3e224bc7a642e05737a",
         "L-c81f9e5b87bffca3f484",
         "L-71f8b0659bd2baccd226",
-        "L-51e946a760eb43670499",
         "L-4efa81f8491866729c63",
+        "L-51e946a760eb43670499",
         "L-2fe4a98ba8b781fd81b5",
-        "L-831588a0a4a58cc8b008",
         "L-3c1459e312b23cc05106",
-        "L-312764535f6cba7f3c86"
+        "L-ec36637f713730144af3",
+        "L-831588a0a4a58cc8b008"
       ],
       "relevant": 1,
       "scores": {
@@ -228,14 +232,14 @@
       "ranked_ids": [
         "L-84702af7ec9185195c74",
         "L-e0723c207f87d76d24bb",
-        "L-51cca4897c4e359f2e4a",
-        "L-3959a6a6c452344dd4e9",
         "L-5dcd32a76aa1bc3fe6c4",
+        "L-51cca4897c4e359f2e4a",
         "L-63a59dad40c70e470215",
+        "L-3959a6a6c452344dd4e9",
         "L-70a24b0fd718032ac84b",
         "L-a2bc116e425657c6bfc7",
-        "L-7f30dfd89a18af3cae7f",
-        "L-b9afc7e23832a9acdc9a"
+        "L-b9afc7e23832a9acdc9a",
+        "L-7f30dfd89a18af3cae7f"
       ],
       "relevant": 65,
       "scores": {
@@ -259,12 +263,12 @@
         "L-8ffb8f2f38b06560720a",
         "L-01c9fa38b87d6d375d4d",
         "L-d4b60dc431f88cb26748",
-        "L-378f6333a0a89e85dca5",
+        "L-b293172fb374b85f1dac",
         "L-7327ecc60da3f878f067",
+        "L-378f6333a0a89e85dca5",
         "L-fce138193fabf290e304",
         "L-03975eaa22e26c42a8f5",
-        "L-d34c35376af5aa8c275b",
-        "L-b293172fb374b85f1dac"
+        "L-d34c35376af5aa8c275b"
       ],
       "relevant": 21,
       "scores": {
@@ -329,10 +333,10 @@
       "ranked_ids": [
         "L-c8c2757e4ce90dfa4131",
         "L-c4d9f2e5979fb7e6ab02",
+        "L-2f8b2b5dc1bb142a861e",
         "L-20d617f31dd5468b7271",
         "L-cc5e3a2ddd9c33e81eec",
         "L-40a8a34f9199b338356a",
-        "L-2f8b2b5dc1bb142a861e",
         "L-f5b62f35092a4ca93652",
         "L-bceb04865280f973f8de",
         "L-5a520f56b8b84015c78d",
@@ -363,9 +367,9 @@
         "L-a05829aeb0e97b62be24",
         "L-103dd9b770e42e5669d2",
         "L-fb65106ec41bea173f7e",
-        "L-79370b69971c08839357",
+        "L-c379e414f0c957817e4f",
         "L-4cd7e55d96809e4a7d8a",
-        "L-c379e414f0c957817e4f"
+        "L-79370b69971c08839357"
       ],
       "relevant": 1,
       "scores": {
@@ -389,15 +393,15 @@
     "H-28089e075440151eaf13": {
       "ranked_ids": [
         "L-0725658860585da4ff39",
-        "L-bc8823c6ac42da3e8ed0",
         "L-0dd7354b4500424498f7",
         "L-ca388521000ce574cded",
         "L-8c3103813d3405bc5e3b",
+        "L-bc8823c6ac42da3e8ed0",
         "L-bcba4e459763fb41d5d6",
+        "L-f229bb5a7614f37755d2",
+        "L-94dc08c4524233b63cc4",
         "L-d2e454c06766dd5f9e90",
-        "L-7a7b3da8838895772d9c",
-        "L-89864d9d37e1d6fedfd1",
-        "L-10e5bc43e4cecd641810"
+        "L-89864d9d37e1d6fedfd1"
       ],
       "relevant": 1,
       "scores": {
@@ -420,9 +424,9 @@
     },
     "H-d60cf706badd91a4e721": {
       "ranked_ids": [
-        "L-f0d241937f5ffe2a2cce",
         "L-bbad38332007245887e2",
         "L-065e9c13f39ed6fa37c0",
+        "L-f0d241937f5ffe2a2cce",
         "L-7bcc21e95b4186359ebd",
         "L-626d1bb04a932b83af55",
         "L-c48418e8b2f5d94f2db9",
@@ -474,8 +478,8 @@
         "L-8d11fe7fbe46533436d6",
         "L-0760b4687dc3dbfbe9e5",
         "L-5e095210e809b1e19a0b",
-        "L-89851983ae3ab29c4fd7",
         "L-e0852cc1b60d9bf44ca8",
+        "L-89851983ae3ab29c4fd7",
         "L-7191ecf5c8777a4b76fb",
         "L-00ecfc2fd51ad9834d47",
         "L-680dbba379cd06ccc1a1"
@@ -546,15 +550,15 @@
     "H-e0a89c82eabee234cdd1": {
       "ranked_ids": [
         "L-b1ede462ca9d768bbd19",
-        "L-c742371661757fa46dcd",
         "L-45a8923e47a0b88217e8",
+        "L-c742371661757fa46dcd",
         "L-128cef8e37cb32317ae3",
         "L-653852952c77b7311952",
         "L-d84f8dc3faece19fcaa2",
         "L-dbd57ae4ad376fe2abaa",
         "L-805c8615c478ea28d767",
         "L-b8d3dc5247569bc8ee42",
-        "L-1b1d723382b45c713903"
+        "L-4315e477c713df5ba69b"
       ],
       "relevant": 3,
       "scores": {
@@ -574,16 +578,16 @@
     },
     "H-d523a339e5767794ded5": {
       "ranked_ids": [
-        "L-2e60971fe991caa69843",
-        "L-0c136dee3fef12e6c718",
-        "L-d22c15fcd5eb40166f62",
-        "L-587a374c7c24f87ad433",
         "L-805ffc3c686714a00771",
+        "L-d22c15fcd5eb40166f62",
+        "L-e942dceb41c903614bdd",
+        "L-87b6bf7079757eebedce",
+        "L-4b05c7421ac8dd95cdfe",
+        "L-2e60971fe991caa69843",
+        "L-587a374c7c24f87ad433",
+        "L-0c136dee3fef12e6c718",
         "L-b502ee075a508d87ca7f",
-        "L-8bb2acff69c97a83d5f0",
-        "L-006041c6fa636ce076b0",
-        "L-01f160c20a46c031e379",
-        "L-3ca71382a04ed35f2b14"
+        "L-8bb2acff69c97a83d5f0"
       ],
       "relevant": 21,
       "scores": {
@@ -700,11 +704,11 @@
         "L-7c175f5376dafa62c5ae",
         "L-a0ea27708273a0028a69",
         "L-a33b8739e1b7e09e1726",
-        "L-21865623b6a520d32af1",
-        "L-88e7ac9e91b04e362fb2",
-        "L-a4b79de18cefbb71d1f0",
-        "L-620f81baaf923ccce8d5",
-        "L-4e8b85cb0d0c7576e66a"
+        "L-15d278ecaacaf21c23a6",
+        "L-4e8b85cb0d0c7576e66a",
+        "L-8e01c75374cf450889c1",
+        "L-13b64f9a865e72e2bd22",
+        "L-14c67c81e9f6609d3d6e"
       ],
       "relevant": 4,
       "scores": {
@@ -803,15 +807,15 @@
     "H-91635f29cd1535edaa65": {
       "ranked_ids": [
         "L-6614cefa3ff28903d6f8",
+        "L-050dbcaa5f6c7dab6a25",
         "L-71ce3b46e0b138a4fb89",
         "L-075da2a86d6df26dc450",
-        "L-27799ba201dd540c530f",
         "L-68bcfcce07c6d3116aa7",
-        "L-5b7b04db8acb2e4de7ee",
+        "L-27799ba201dd540c530f",
         "L-d5020a1964e1ac2091f3",
+        "L-5b7b04db8acb2e4de7ee",
         "L-f88c13a5b657faed803b",
-        "L-25050de7de6beefaa801",
-        "L-9e8bf74a7de18bfa35dd"
+        "L-25050de7de6beefaa801"
       ],
       "relevant": 18,
       "scores": {
@@ -831,16 +835,16 @@
     },
     "H-1ff5058ab44a64f0e249": {
       "ranked_ids": [
+        "L-fefed5861f8a12df37f6",
+        "L-12875dd9c2d2076af5df",
+        "L-2ee67754af640ef52973",
         "L-a05841da33a7b9486cb5",
         "L-b1e280170a22ee44a216",
         "L-ff70f9e69f07e6fbae88",
-        "L-fefed5861f8a12df37f6",
-        "L-587ca0bcb7636ea34cf9",
         "L-43091e09c3ec1e4f3f5e",
-        "L-4bf0f178df8fa4525285",
-        "L-634751187a3e3feb7f30",
+        "L-587ca0bcb7636ea34cf9",
         "L-a2f6769a25d1ea1211b6",
-        "L-c8dad064883a1e57edfd"
+        "L-634751187a3e3feb7f30"
       ],
       "relevant": 18,
       "scores": {
@@ -893,10 +897,10 @@
         "L-0d6ef025f2a39f7cb930",
         "L-34a0feb5feba9618a550",
         "L-4b0c9d691f5277895ab3",
-        "L-e36a33d09c9ddbc8f7fa",
         "L-51d8e413fdce84c85218",
+        "L-e36a33d09c9ddbc8f7fa",
         "L-14ba91950ab27ae9b117",
-        "L-f57cfebb4ab3483da59d"
+        "L-914180a120bda3b3ab31"
       ],
       "relevant": 1,
       "scores": {
@@ -922,8 +926,8 @@
         "L-f2842118c7388426ae5f",
         "L-3182d20c96d0ecc14c21",
         "L-c867b6954d02eddcfff8",
-        "L-ec5c3f17324225de3fd9",
         "L-99eaa15f48f87a3aa511",
+        "L-ec5c3f17324225de3fd9",
         "L-1b13abffa00261abcf17",
         "L-f991fa15b1255e633713"
       ],
@@ -975,8 +979,8 @@
         "L-3f69dc7ca8017738648e",
         "L-19f8392e3cb784e29a62",
         "L-302907cbe93aa156052a",
-        "L-d3f83e7a3ae1a05d0037",
         "L-9b927f47995aee499a6e",
+        "L-d3f83e7a3ae1a05d0037",
         "L-ce64577b91aa2d08bcef"
       ],
       "relevant": 3,
@@ -1113,11 +1117,11 @@
         "L-175a5a85fd2787cb7a1c",
         "L-110b94555ee8fd166d0b",
         "L-8dd9cfdbda70f5d553c8",
+        "L-8261760b36b323093c5f",
         "L-2312a0e8e825a1f3592a",
         "L-0c7e79dc7efffda0f20f",
         "L-ffd355cd4506b46dc106",
         "L-954cc30da372178227e9",
-        "L-8261760b36b323093c5f",
         "L-ab79f58d495ce3bb7524",
         "L-e06c6ba09e6d79f7e460"
       ],
@@ -1171,7 +1175,7 @@
         "L-975302efe53b550e6268",
         "L-05d0878f5b679db4fca4",
         "L-d4e43fd43b6cf7d48647",
-        "L-c46a7dd074b612846e8f"
+        "L-bcba4e459763fb41d5d6"
       ],
       "relevant": 2,
       "scores": {
@@ -1191,16 +1195,16 @@
     },
     "H-00d886ad4b22c127fa0f": {
       "ranked_ids": [
-        "L-0a10151f7c5c4c12bffa",
-        "L-db177dc097f64df008e1",
-        "L-fc14ae5d089cfec4426a",
         "L-d2b293ff8e00ffe8990e",
+        "L-db177dc097f64df008e1",
+        "L-0a10151f7c5c4c12bffa",
+        "L-fc14ae5d089cfec4426a",
         "L-df419857b1dfebb57d0d",
         "L-d3172f3e1734b68d5f99",
-        "L-4969f406db4733eb63df",
         "L-16acdedd395a9b788a58",
-        "L-73f81bfe3fc476a46552",
-        "L-e06ff17e99e45fe5313a"
+        "L-4969f406db4733eb63df",
+        "L-e06ff17e99e45fe5313a",
+        "L-282332bc196cb87bf3dd"
       ],
       "relevant": 8,
       "scores": {
@@ -1274,14 +1278,14 @@
       "ranked_ids": [
         "L-652480948bb0d8e2af62",
         "L-9cd4a5e6cb74b2a21fa8",
-        "L-218adcd58098a6a9901b",
         "L-6ce7c89955d23eebf9b4",
+        "L-218adcd58098a6a9901b",
         "L-b31f632ea1e80dcc772b",
         "L-f1cb319172e29a608140",
         "L-7f0f5c39d2c777d9c23f",
-        "L-f3a83a6e73983d6362e4",
         "L-10e7845efad751b455ed",
-        "L-94cc2e9e2fdb9f294076"
+        "L-f3a83a6e73983d6362e4",
+        "L-71daeb1dfb0b87f4bd0f"
       ],
       "relevant": 55,
       "scores": {
@@ -1326,10 +1330,10 @@
       "ranked_ids": [
         "L-3687fd467aac4b05bca6",
         "L-3b302eaba80062b0624d",
+        "L-e643f2f1f47d19d2374d",
         "L-903eb2a1fed8721e8a98",
         "L-b1e0a4fcc3fd0ca7d874",
         "L-0a85382a8eff2b965f8f",
-        "L-e643f2f1f47d19d2374d",
         "L-f0eb2a76a9e0f7117797",
         "L-10461ab934a50297881d",
         "L-0b859d062da682ba0b51",
@@ -1403,8 +1407,8 @@
         "L-f72b0693b2aadac98db6",
         "L-8a9fbd6a3354ead96b04",
         "L-e730e70b36228bb7ab02",
-        "L-0fd951172c464d67301c",
-        "L-abbda8e0b818e0bf2f6f"
+        "L-abbda8e0b818e0bf2f6f",
+        "L-0fd951172c464d67301c"
       ],
       "relevant": 5,
       "scores": {
@@ -1447,16 +1451,16 @@
     },
     "H-6f1839b2094abab2d9d7": {
       "ranked_ids": [
-        "L-f0227a694823b270d902",
         "L-3355cce2b41bc9359b30",
+        "L-f0227a694823b270d902",
         "L-3fb64eedb871ed3a395f",
         "L-8685be35b3000a14d871",
         "L-0a1f3c27533663d02037",
         "L-bf72181d39602880c5af",
+        "L-086e8c89ded836f9be92",
         "L-35e0b38aa6e4c4d35423",
         "L-467e4e048067ab585ada",
-        "L-086e8c89ded836f9be92",
-        "L-284578421fcc5f329917"
+        "L-1fc11a5bf68e87be0d75"
       ],
       "relevant": 14,
       "scores": {
@@ -1507,8 +1511,8 @@
         "L-5cfcf80f6b7dfb4ddbbd",
         "L-3b086870ce5ff894cc02",
         "L-4a30a21e57a030853610",
-        "L-0983fb16434c02b421b9",
-        "L-a559369da153889ccae8"
+        "L-a559369da153889ccae8",
+        "L-0983fb16434c02b421b9"
       ],
       "relevant": 5,
       "scores": {
@@ -1530,9 +1534,9 @@
       "ranked_ids": [
         "L-89f61f3b6b0ebaa1885e",
         "L-23d10d7be1b2eb9a27b7",
-        "L-731cc02624813780f93b",
         "L-705fcb106125060525f8",
         "L-f0eba752effe60ca3de0",
+        "L-731cc02624813780f93b",
         "L-ee5d1ff3f99a32a5453a",
         "L-40c4fefb3ecdc4c2653a",
         "L-a8274f74661ced26566b",
@@ -1558,15 +1562,15 @@
     "H-4d221a3275e4f0f2827a": {
       "ranked_ids": [
         "L-df8f8608cf088e43663d",
-        "L-b6b0cd7b81ee5ea73941",
         "L-ec6eb540f7eb89d6d294",
+        "L-b6b0cd7b81ee5ea73941",
         "L-9430888be155cb9c1ad9",
-        "L-334814eb323909034610",
         "L-871ac90696e695c2b01e",
         "L-ec6e319df0c7a9324013",
-        "L-903eb2a1fed8721e8a98",
-        "L-36d3190dec532e01cd74",
-        "L-3b302eaba80062b0624d"
+        "L-334814eb323909034610",
+        "L-a714aeef52318841b98b",
+        "L-3b302eaba80062b0624d",
+        "L-3687fd467aac4b05bca6"
       ],
       "relevant": 1,
       "scores": {
@@ -1641,15 +1645,15 @@
     "H-124bc9656e09acbcf2fc": {
       "ranked_ids": [
         "L-74f3dc91fce6d46520ba",
-        "L-de81a549f275de01c611",
         "L-0720bc00dcf1157874a8",
+        "L-de81a549f275de01c611",
         "L-4f0e2b619e37a9dd98f6",
         "L-22ebe879aa6275217ec2",
         "L-175a5a85fd2787cb7a1c",
         "L-378cfa8718be112284a0",
-        "L-5cacba3476536524a3b1",
         "L-110b94555ee8fd166d0b",
-        "L-3f1a51a570af3b32a626"
+        "L-5cacba3476536524a3b1",
+        "L-afb6aa76c8d112435f30"
       ],
       "relevant": 5,
       "scores": {
@@ -1671,13 +1675,13 @@
       "ranked_ids": [
         "L-2a204f0e8b5fcfeadb78",
         "L-0f0dbdfa760950d6b12a",
-        "L-1ba621cfc422b706104f",
-        "L-ab644c3f434cb2434435",
         "L-91f998f4035191b00d44",
+        "L-0978fcaf46bfb05973c9",
+        "L-ab644c3f434cb2434435",
+        "L-315234701bba29aa7a69",
+        "L-1ba621cfc422b706104f",
         "L-21e7195bf8479eec0286",
         "L-f8d4674866e1bc3c0129",
-        "L-0978fcaf46bfb05973c9",
-        "L-315234701bba29aa7a69",
         "L-9273da17dadded729271"
       ],
       "relevant": 11,
@@ -1776,13 +1780,13 @@
         "L-c8f76a22d252034a82c6",
         "L-4e90c3a75f3bd86d8928",
         "L-c527884b8e89c08189e2",
-        "L-5eed48df977437574305",
         "L-7c6c83449788e345abf2",
-        "L-50f49833bf546185ea92",
+        "L-5eed48df977437574305",
         "L-05f1c52cab005bc31161",
         "L-cec6301eece26dccfebd",
-        "L-183d2f2e41dfc1005b92",
-        "L-25439a19d5e123f3864b"
+        "L-50f49833bf546185ea92",
+        "L-25439a19d5e123f3864b",
+        "L-183d2f2e41dfc1005b92"
       ],
       "relevant": 2,
       "scores": {
@@ -1883,10 +1887,10 @@
     },
     "H-ab890ffc34d25c1cd4e8": {
       "ranked_ids": [
+        "L-a5b13e1aa076b3812ad6",
         "L-603626ffaee2de3a7ccc",
         "L-0e910975ff5abefd996b",
         "L-f88b040f21be0816a228",
-        "L-a5b13e1aa076b3812ad6",
         "L-df419857b1dfebb57d0d",
         "L-73f81bfe3fc476a46552",
         "L-5cfcf80f6b7dfb4ddbbd",
@@ -1897,31 +1901,31 @@
       "relevant": 3,
       "scores": {
         "1": {
-          "recall": 0.0,
-          "ndcg": 0.0
+          "recall": 0.3333333333333333,
+          "ndcg": 1.0
         },
         "5": {
           "recall": 1.0,
-          "ndcg": 0.7328286204777911
+          "ndcg": 0.9060254355346823
         },
         "10": {
           "recall": 1.0,
-          "ndcg": 0.7328286204777911
+          "ndcg": 0.9060254355346823
         }
       }
     },
     "H-e78b25a116be82858185": {
       "ranked_ids": [
         "L-ee36b7ba3c11dc2bb130",
+        "L-0273124a9e7a24d04566",
+        "L-0acf4fee7b3850b874ed",
+        "L-220a351ebca066b37840",
+        "L-a0e5c83b310fdd95e5c5",
         "L-9350b8fe134f6b51e221",
         "L-a1d91ce533cf28d5fac4",
-        "L-0273124a9e7a24d04566",
         "L-a160082e0df2edda2612",
-        "L-0acf4fee7b3850b874ed",
         "L-a08b91892b057580d57c",
-        "L-4ee9286002abece3043d",
-        "L-a0e5c83b310fdd95e5c5",
-        "L-4c36d51ec271d45689f6"
+        "L-4ee9286002abece3043d"
       ],
       "relevant": 17,
       "scores": {
@@ -1945,12 +1949,12 @@
         "L-2eedbc3a72f1bcd911b1",
         "L-af1bb1fdf95c5c4bfc6f",
         "L-dca3d6d00d3b76fd8f68",
+        "L-f468f49cff386dd5d3a5",
         "L-689b51f77222cc4f86f6",
         "L-a33d16c53e11f60a0717",
-        "L-f468f49cff386dd5d3a5",
         "L-8e6f536bdcb95f92acff",
         "L-f7455348b982405c1c7a",
-        "L-6d421bb06b1aede40318"
+        "L-a652b7466fc56b05ea9b"
       ],
       "relevant": 4,
       "scores": {
@@ -1972,14 +1976,14 @@
       "ranked_ids": [
         "L-b4f81f3e145fb8f128e1",
         "L-f9a86473d579fb07afc0",
-        "L-0443697de67459dd1861",
         "L-3344fbe3dd3a3d19b085",
+        "L-0443697de67459dd1861",
         "L-eb4e7468b86367e6a474",
         "L-f4168d993dc808c2686b",
         "L-8bfee3f4c2f73d9b8322",
         "L-c69db64f537695734505",
-        "L-75dd8da36d7a8424bce8",
-        "L-faef7008b3d636eff68c"
+        "L-faef7008b3d636eff68c",
+        "L-75dd8da36d7a8424bce8"
       ],
       "relevant": 4,
       "scores": {
@@ -2051,9 +2055,7 @@
       "ranked_ids": [
         "L-72a36f882225d9110a34",
         "L-ecd02e94da9c3e7da190",
-        "L-b0f9083fef4af4f3463a",
-        "L-6a2990575dc05720b13f",
-        "L-d7b7e3e00cb894ce7af9"
+        "L-b0f9083fef4af4f3463a"
       ],
       "relevant": 3,
       "scores": {
@@ -2097,15 +2099,15 @@
     "H-4519ace06f566a9f1637": {
       "ranked_ids": [
         "L-58fdaa280d0d26b6e76f",
-        "L-f8c64820792ebfeb44bc",
         "L-98fd9829ed145baa309c",
+        "L-f8c64820792ebfeb44bc",
         "L-fe188eee1ddd3a5d2f94",
         "L-d45dc0122ea3e8a8a5f6",
         "L-09bf08ef003d7715287d",
         "L-1b4fba651bf1e52d5db9",
         "L-fdef2feb00384ab78a93",
         "L-7c1a3896929e1c61c035",
-        "L-f5fe00c7942dbea20e87"
+        "L-aec3a54baae9606900fb"
       ],
       "relevant": 4,
       "scores": {
@@ -2218,13 +2220,13 @@
     },
     "H-cf13f62178c5b81140c8": {
       "ranked_ids": [
-        "L-f656aaa3ab7cae63de65",
-        "L-b37dd8b2755cbc2f1c5c",
-        "L-43687ead7118f38ca6bd",
         "L-c2a5f55276af7e9b3dad",
         "L-42c39168fe1de2e7dc06",
         "L-9e721150de9da54b46a1",
+        "L-f656aaa3ab7cae63de65",
+        "L-43687ead7118f38ca6bd",
         "L-9df7d161164c1b561c24",
+        "L-b37dd8b2755cbc2f1c5c",
         "L-d45dc0122ea3e8a8a5f6",
         "L-58fdaa280d0d26b6e76f",
         "L-1b4fba651bf1e52d5db9"
@@ -2232,31 +2234,31 @@
       "relevant": 3,
       "scores": {
         "1": {
-          "recall": 0.0,
-          "ndcg": 0.0
+          "recall": 0.3333333333333333,
+          "ndcg": 1.0
         },
         "5": {
-          "recall": 0.6666666666666666,
-          "ndcg": 0.38364913903790027
+          "recall": 1.0,
+          "ndcg": 1.0
         },
         "10": {
           "recall": 1.0,
-          "ndcg": 0.5508095940041026
+          "ndcg": 1.0
         }
       }
     },
     "H-858ce7fee338506cefbe": {
       "ranked_ids": [
-        "L-e17faa5d749cf8afa6bb",
         "L-0395182baf691b682e20",
-        "L-f377e13ba8aebdddfca0",
-        "L-0e003598eab415f57395",
-        "L-9c5272d772d39c2299cb",
-        "L-0935723e62a090c33f5f",
-        "L-51246c1ab3f1d218079c",
         "L-ffc588d5044c76d82ba2",
+        "L-e17faa5d749cf8afa6bb",
+        "L-0e003598eab415f57395",
+        "L-f377e13ba8aebdddfca0",
+        "L-0935723e62a090c33f5f",
+        "L-9c5272d772d39c2299cb",
+        "L-51246c1ab3f1d218079c",
         "L-e39c6678736de99e8e46",
-        "L-12701ff34c88f3577a21"
+        "L-073d2d371f6b09055cde"
       ],
       "relevant": 12,
       "scores": {
@@ -2364,16 +2366,16 @@
     },
     "H-78c01f45929428ddc3ff": {
       "ranked_ids": [
-        "L-cf99fcf98cd11ff2c04e",
         "L-a62bf45c7126c8be4498",
-        "L-cb7f60fd48e606a6f05d",
+        "L-a7e9ea13fa623fc4633b",
+        "L-fd6b1609d7be5609b499",
+        "L-cf99fcf98cd11ff2c04e",
         "L-204355b5d0b545bad027",
         "L-a11d9a8fdcd45b08012f",
+        "L-cb7f60fd48e606a6f05d",
         "L-52b3e0d292525afaec40",
         "L-e71316a070367d5cf773",
-        "L-6dcfc28025fc15a7db9f",
-        "L-a7e9ea13fa623fc4633b",
-        "L-642bfa76d9e5c8aa93a2"
+        "L-6dcfc28025fc15a7db9f"
       ],
       "relevant": 16,
       "scores": {
@@ -2470,8 +2472,8 @@
         "L-08b2d1a01e9444f3d419",
         "L-e2ebe335af6e2e7ff129",
         "L-6bfafd8fceea4de77160",
-        "L-9b5ddf45201fbe4e5862",
-        "L-6acbff281fba5eac63bf"
+        "L-6acbff281fba5eac63bf",
+        "L-1dfad13d08a9d03d1789"
       ],
       "relevant": 7,
       "scores": {
@@ -2590,9 +2592,9 @@
       "ranked_ids": [
         "L-30510b7cf3756caa6b86",
         "L-70908aca9ea7f3dfefd2",
+        "L-acb13dba2ae7b93ee87a",
         "L-9e8a52c28baa6f99ca71",
         "L-e880ebccf685056a0378",
-        "L-acb13dba2ae7b93ee87a",
         "L-9cc80b3d44a942875bba",
         "L-f65b559afb78ae9797d6",
         "L-dddc1279fe80b9a9ed03",

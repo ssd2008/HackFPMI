@@ -1,0 +1,286 @@
+{
+  "name": "Independent content probes, second freeze",
+  "tested_at_utc": "2026-11-21T10:42:40.739101+00:00",
+  "url": "http://127.0.0.1:8766",
+  "request_limit": 10,
+  "fixture_sha256": "0697ec493732fdd24156b99f39d42a3a823b765bc20900cc500f7b17eddd36ad",
+  "documents_sha256": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+  "metrics": {
+    "positive_queries": 11,
+    "hit_at_1": 8,
+    "hit_at_5": 10,
+    "empty_queries": 4,
+    "correctly_empty": 4,
+    "returned_items": 94,
+    "invalid_mailbox_or_asof_items": 0,
+    "outside_explicit_received_window_items": 0,
+    "read_checks": 0,
+    "correct_reads": 0
+  },
+  "cases": [
+    {
+      "id": "extra-packaging-contract",
+      "family": "accounting contract error",
+      "expected": [
+        "L-d352bc3f184695d6a85d"
+      ],
+      "results": [
+        "L-d352bc3f184695d6a85d",
+        "L-8576c1c909aa9ffee5b8",
+        "L-95f7b82a8f6e95993da7",
+        "L-31fdbe45d1db387606b4",
+        "L-bad727a9d38d893f887d",
+        "L-959376faa49fd4a90609",
+        "L-553add8b7ed33107ce39",
+        "L-596095ab7d52d20ea43e",
+        "L-c17f0347383d0417be23",
+        "L-42d7e367461913068fd5"
+      ],
+      "first_expected_rank": 1,
+      "invalid_mailbox_or_asof": [],
+      "outside_received_window": []
+    },
+    {
+      "id": "extra-small-turnover",
+      "family": "merchant settlement statement",
+      "expected": [
+        "L-2626eb6eda7e5108b675"
+      ],
+      "results": [
+        "L-6ef76cb2454b202fd143",
+        "L-b1d62e54e55f21817de7",
+        "L-c8ae61bbc0c9476a564e",
+        "L-2626eb6eda7e5108b675",
+        "L-89d98d767bf95ecebcb4",
+        "L-e688af5943a6238ba20c",
+        "L-0bb66231762b7b852413",
+        "L-b7764627eab699154015",
+        "L-00d21f866b84209e1096",
+        "L-879cc535c05cd789ecfc"
+      ],
+      "first_expected_rank": 4,
+      "invalid_mailbox_or_asof": [],
+      "outside_received_window": []
+    },
+    {
+      "id": "extra-certificate-agent",
+      "family": "voucher and agent fee",
+      "expected": [
+        "L-e4d79640eea39287fc05"
+      ],
+      "results": [
+        "L-e4d79640eea39287fc05",
+        "L-db0f5701136744af0b00",
+        "L-852323e7a807f2d66d29",
+        "L-d07a7da86f085792c0f5",
+        "L-5f2db533e133fdb2c0ee",
+        "L-65fa83379c0da592ea3f",
+        "L-faa6987eed66a1a36a4a",
+        "L-fad6a4eafc320d177f24",
+        "L-508e4db8fad07b6befcc",
+        "L-d6bde3cf974ca12ee331"
+      ],
+      "first_expected_rank": 1,
+      "invalid_mailbox_or_asof": [],
+      "outside_received_window": []
+    },
+    {
+      "id": "extra-bicycle-tube",
+      "family": "inflatable valve tool",
+      "expected": [
+        "L-2b45421037ebd0bc580f"
+      ],
+      "results": [
+        "L-2b45421037ebd0bc580f",
+        "L-bdabbaaab47405e37d12",
+        "L-1ac60921946fc0855685",
+        "L-9f0676c894e2374c22ea",
+        "L-292dd9cb4c4c9b1930d9",
+        "L-df3902781ea7306d0bfa",
+        "L-42bf4efb55440e9c2600",
+        "L-10239560b0d54ba2b650",
+        "L-e8df9dcf91f71819e3a4",
+        "L-f029b453bdc607e0c8b8"
+      ],
+      "first_expected_rank": 1,
+      "invalid_mailbox_or_asof": [],
+      "outside_received_window": []
+    },
+    {
+      "id": "extra-almond-soap",
+      "family": "scent and volume",
+      "expected": [
+        "L-7fd2dee114d2ff1bee9d",
+        "L-82cca76b28ce78fe4841",
+        "L-d4a5548125098080d13d"
+      ],
+      "results": [
+        "L-d4a5548125098080d13d",
+        "L-7fd2dee114d2ff1bee9d",
+        "L-82cca76b28ce78fe4841",
+        "L-8fea202d6d36d950ed13",
+        "L-16ec64b7c7d78523163c",
+        "L-4dc629f52cc83b662100",
+        "L-d3d41072d8921673d3cf",
+        "L-c6f287541c820eaddabe",
+        "L-e38660f172165d8b1be2",
+        "L-8e8b8560bb667f15747f"
+      ],
+      "first_expected_rank": 1,
+      "invalid_mailbox_or_asof": [],
+      "outside_received_window": []
+    },
+    {
+      "id": "extra-electronics-bundle",
+      "family": "several consumer devices together",
+      "expected": [
+        "L-6fea65941bddbe231ced"
+      ],
+      "results": [
+        "L-6fea65941bddbe231ced",
+        "L-3c0a60cd8eaafa1158d7",
+        "L-f84fad20e110b4c19ea1",
+        "L-03960d11bbe61a061deb",
+        "L-f552917c19f49e91fa9c",
+        "L-95fb7a85a24d9f67ebbc",
+        "L-f7cf1614406562934198"
+      ],
+      "first_expected_rank": 1,
+      "invalid_mailbox_or_asof": [],
+      "outside_received_window": []
+    },
+    {
+      "id": "extra-brush-and-solvent",
+      "family": "two positions in a warehouse list",
+      "expected": [
+        "L-38bca1ac8c66037000ef"
+      ],
+      "results": [
+        "L-8383daa8a3d898d2fae5",
+        "L-856f638b2b14cd6a9749",
+        "L-6629a9b07626e4b888f8",
+        "L-38bca1ac8c66037000ef",
+        "L-018c13625a2150e9797d",
+        "L-d740bdfcd7a8f08ffbc9",
+        "L-7cae1755b585f1bca7c6",
+        "L-41fb3c978edcf816f936",
+        "L-49e69f05c12b23f498d9",
+        "L-48a6110a6b621ae5a464"
+      ],
+      "first_expected_rank": 4,
+      "invalid_mailbox_or_asof": [],
+      "outside_received_window": []
+    },
+    {
+      "id": "extra-slim-light",
+      "family": "vehicle accessory at end of message",
+      "expected": [
+        "L-599d7993b8ee5597eb1b"
+      ],
+      "results": [
+        "L-599d7993b8ee5597eb1b",
+        "L-f1cc43ea47093818e2f4",
+        "L-a92df1ec9f318cad4ab6",
+        "L-b6762a8990212705fbe0",
+        "L-b15bcb54aaa95baee638",
+        "L-71f97b04c42261e39eee",
+        "L-79370b69971c08839357"
+      ],
+      "first_expected_rank": 1,
+      "invalid_mailbox_or_asof": [],
+      "outside_received_window": []
+    },
+    {
+      "id": "extra-edi-recipient",
+      "family": "distinct recipient and purchaser",
+      "expected": [
+        "L-a9bda5deee81981536c1"
+      ],
+      "results": [],
+      "first_expected_rank": null,
+      "invalid_mailbox_or_asof": [],
+      "outside_received_window": []
+    },
+    {
+      "id": "extra-tracking-access",
+      "family": "blocked tracking subscription",
+      "expected": [
+        "L-0c84d9c36990ff5bf8b4"
+      ],
+      "results": [
+        "L-0c84d9c36990ff5bf8b4",
+        "L-6ad7a43807ba4458a860",
+        "L-35f5bcc5489e4a0eb972",
+        "L-78287608d3c642d45817",
+        "L-699cdb37ecaa8d566d95",
+        "L-e06ff17e99e45fe5313a",
+        "L-f73a637663e1b3fe50ca",
+        "L-4e8b85cb0d0c7576e66a",
+        "L-08b6c372d55a8b725eb9",
+        "L-3b302eaba80062b0624d"
+      ],
+      "first_expected_rank": 1,
+      "invalid_mailbox_or_asof": [],
+      "outside_received_window": []
+    },
+    {
+      "id": "extra-erp-read-lock",
+      "family": "record lock in an HTTP service",
+      "expected": [
+        "L-9f162f63f15bb5d7e6a6"
+      ],
+      "results": [
+        "L-9f162f63f15bb5d7e6a6",
+        "L-3f157ff1385f97e089d6",
+        "L-dd421f9053397744fc60",
+        "L-a99191ee5235ab33c6b3",
+        "L-35756e64be78dd276be2",
+        "L-60e80675560a37042a34",
+        "L-d02f5f13a68b5ad6d71a",
+        "L-5e80965a3b98eb92dcbf",
+        "L-cd2de3f29a170f337767",
+        "L-119cce291acce22e84bc"
+      ],
+      "first_expected_rank": 1,
+      "invalid_mailbox_or_asof": [],
+      "outside_received_window": []
+    },
+    {
+      "id": "extra-absent-interpreting",
+      "family": "language interpreting",
+      "expected": [],
+      "results": [],
+      "first_expected_rank": null,
+      "invalid_mailbox_or_asof": [],
+      "outside_received_window": []
+    },
+    {
+      "id": "extra-absent-cello",
+      "family": "music versus industrial supplies",
+      "expected": [],
+      "results": [],
+      "first_expected_rank": null,
+      "invalid_mailbox_or_asof": [],
+      "outside_received_window": []
+    },
+    {
+      "id": "extra-absent-diving",
+      "family": "experience voucher",
+      "expected": [],
+      "results": [],
+      "first_expected_rank": null,
+      "invalid_mailbox_or_asof": [],
+      "outside_received_window": []
+    },
+    {
+      "id": "extra-absent-cocoa",
+      "family": "commodity futures",
+      "expected": [],
+      "results": [],
+      "first_expected_rank": null,
+      "invalid_mailbox_or_asof": [],
+      "outside_received_window": []
+    }
+  ],
+  "read_checks": []
+}

@@ -1,0 +1,490 @@
+{
+  "schema": 2,
+  "protocol": {
+    "evaluation": "Самостоятельные диагностические наборы. Для этих архивов нет внешней разметки релевантности.",
+    "positive_technical": "Искомые фрагменты темы и тела встречаются ровно в одном письме всего соответствующего корпуса. Часть запросов также ограничивает даты получения.",
+    "positive_natural_language": "Формулировки составлены вручную без просмотра выдачи. Релевантные примеры выбраны автоматически по явным признакам темы. Ручной оценки писем не проводилось; другие релевантные письма возможны.",
+    "ranking": "Для положительных запросов учитывается попадание хотя бы одного подтверждённого письма в первые 1 и 5.",
+    "negative": "Строго пустая выдача требуется для отсутствующего буквального маркера либо для уникального фрагмента из будущего или другого ящика.",
+    "scope": "Независимая проверка каждого возвращённого ID по корпусу, ящику, дате запроса и явно указанному периоду. Всегда запрашивалось не более 10 писем.",
+    "timing": "Один последовательный проход по зафиксированным запросам каждого архива после запуска сервера. Миллисекунды из Server-Timing, ближайший ранг. Замеры по архивам выполнялись по очереди.",
+    "iterations": "В первой итерации все 103 запроса были новыми; по результатам добавлен поиск буквальной фразы в парных кавычках. Во второй итерации те же 103 запроса измерены повторно, а 29 новых технических проверок заморожены до нового прогона.",
+    "fresh_quoted_controls": "Новые письма для положительных проверок не пересекаются с целями прошлых наборов. Для этих проверок проверяется и наличие целевого письма, и отсутствие лишних результатов при однозначном буквальном совпадении."
+  },
+  "source_sha256": {
+    "first_iteration": {
+      "retrieval": "93e475250605d17ba1b8740d7d552eaea4d1340a999c3349d8ea2a695141599f",
+      "dates": "075f5b619f2fbe5d43a67d37d70d6c063fa4736f15fe478f270555fb4811eeb2",
+      "spelling": "3124106924b3a5fa731a2ab15953f58bda21d981ca0ff94bf85fb46fd3a8cf38",
+      "dense": "ee8bedb08b502c94b65169cd7d18dc2dbef10edce10c5d717fd1e648e1c5d4ed",
+      "app": "b1130afed9ce982dded3b5ec3b27def96cc7551c247b0d55f4d825cf72f441bb"
+    },
+    "quoted_phrase_iteration": {
+      "retrieval": "d747e72ddb05772213a7042f8cc5372e07b2d274b9c45ed0cda4db7bba56ac29",
+      "dates": "075f5b619f2fbe5d43a67d37d70d6c063fa4736f15fe478f270555fb4811eeb2",
+      "spelling": "3124106924b3a5fa731a2ab15953f58bda21d981ca0ff94bf85fb46fd3a8cf38",
+      "dense": "ee8bedb08b502c94b65169cd7d18dc2dbef10edce10c5d717fd1e648e1c5d4ed",
+      "app": "b1130afed9ce982dded3b5ec3b27def96cc7551c247b0d55f4d825cf72f441bb"
+    }
+  },
+  "corpora": [
+    {
+      "corpus": "raw_export",
+      "input_messages": 5939,
+      "mailboxes": 1,
+      "missing_dates": 0,
+      "original_date_changed_by_timezone": 263,
+      "calendar_day_policy": "UTC timestamps to Europe/Moscow calendar dates",
+      "first_iteration_unseen": {
+        "frozen_probe_file_sha256": "ea071255d2f61a22204dfdae8409314be1c2f34320ec4e51db4b49cc4c5e9ca4",
+        "search_requests": 52,
+        "technical": {
+          "queries": 32,
+          "hit_at_1": 24,
+          "hit_at_5": 29
+        },
+        "natural_language_silver": {
+          "queries": 12,
+          "hit_at_1": 0,
+          "hit_at_5": 4
+        },
+        "negative": {
+          "queries": 8,
+          "correctly_empty": 2
+        },
+        "positive_by_probe_family": {
+          "exact_body": {
+            "queries": 8,
+            "hit_at_1": 4,
+            "hit_at_5": 7
+          },
+          "exact_body_after_1900": {
+            "queries": 6,
+            "hit_at_1": 2,
+            "hit_at_5": 4
+          },
+          "exact_subject": {
+            "queries": 10,
+            "hit_at_1": 10,
+            "hit_at_5": 10
+          },
+          "exact_with_received_period": {
+            "queries": 8,
+            "hit_at_1": 8,
+            "hit_at_5": 8
+          }
+        },
+        "negative_by_probe_family": {
+          "absent_literal": {
+            "queries": 4,
+            "correctly_empty": 2
+          },
+          "unique_phrase_before_receipt": {
+            "queries": 4,
+            "correctly_empty": 0
+          }
+        },
+        "scope": {
+          "returned_items": 406,
+          "invalid_mailbox_or_asof_items": 0,
+          "outside_explicit_received_window_items": 0
+        },
+        "direct_reads": {
+          "checks": 9,
+          "passed": 9
+        },
+        "inbox_smoke": {
+          "mailboxes_opened": 1,
+          "sorted_pages_checked": true,
+          "original_message_checked": true,
+          "empty_snapshot_checked": true,
+          "nonexistent_document_returns_404": true,
+          "rag_without_evidence_has_no_sources": true
+        },
+        "sequential_server_ms": {
+          "p50_ms": 4.339,
+          "p95_ms": 5.209,
+          "p99_ms": 8.766
+        }
+      },
+      "quoted_phrase_iteration": {
+        "reused": {
+          "frozen_probe_file_sha256": "ea071255d2f61a22204dfdae8409314be1c2f34320ec4e51db4b49cc4c5e9ca4",
+          "search_requests": 52,
+          "technical": {
+            "queries": 32,
+            "hit_at_1": 32,
+            "hit_at_5": 32
+          },
+          "negative": {
+            "queries": 8,
+            "correctly_empty": 8
+          },
+          "positive_by_probe_family": {
+            "exact_body": {
+              "queries": 8,
+              "hit_at_1": 8,
+              "hit_at_5": 8
+            },
+            "exact_body_after_1900": {
+              "queries": 6,
+              "hit_at_1": 6,
+              "hit_at_5": 6
+            },
+            "exact_subject": {
+              "queries": 10,
+              "hit_at_1": 10,
+              "hit_at_5": 10
+            },
+            "exact_with_received_period": {
+              "queries": 8,
+              "hit_at_1": 8,
+              "hit_at_5": 8
+            }
+          },
+          "negative_by_probe_family": {
+            "absent_literal": {
+              "queries": 4,
+              "correctly_empty": 4
+            },
+            "unique_phrase_before_receipt": {
+              "queries": 4,
+              "correctly_empty": 4
+            }
+          },
+          "scope": {
+            "returned_items": 106,
+            "invalid_mailbox_or_asof_items": 0,
+            "outside_explicit_received_window_items": 0
+          },
+          "sequential_server_ms": {
+            "p50_ms": 4.234,
+            "p95_ms": 7.508,
+            "p99_ms": 9.487
+          },
+          "technical_exact_set": {
+            "positive_queries": 32,
+            "returned_only_unique_expected_document": 32
+          },
+          "natural_language_silver": {
+            "queries": 12,
+            "hit_at_1": 0,
+            "hit_at_5": 4
+          },
+          "direct_reads": {
+            "checks": 9,
+            "passed": 9
+          },
+          "inbox_smoke": {
+            "mailboxes_checked": 1,
+            "page_and_original_mail_checked": true,
+            "unavailable_document_returns_404": true,
+            "empty_snapshot_rag_returns_no_sources": true
+          }
+        },
+        "fresh_unseen": {
+          "frozen_probe_file_sha256": "4a1572601b8f1d321bc4a298a40d94a10fc5cc302598d708316abd66d3886b1b",
+          "search_requests": 14,
+          "technical": {
+            "queries": 8,
+            "hit_at_1": 8,
+            "hit_at_5": 8
+          },
+          "negative": {
+            "queries": 6,
+            "correctly_empty": 6
+          },
+          "positive_by_probe_family": {
+            "new_exact_body": {
+              "queries": 1,
+              "hit_at_1": 1,
+              "hit_at_5": 1
+            },
+            "new_exact_body_late": {
+              "queries": 2,
+              "hit_at_1": 2,
+              "hit_at_5": 2
+            },
+            "new_exact_subject": {
+              "queries": 3,
+              "hit_at_1": 3,
+              "hit_at_5": 3
+            },
+            "new_two_literals": {
+              "queries": 2,
+              "hit_at_1": 2,
+              "hit_at_5": 2
+            }
+          },
+          "negative_by_probe_family": {
+            "new_absent_word_order": {
+              "queries": 2,
+              "correctly_empty": 2
+            },
+            "new_future_literal": {
+              "queries": 1,
+              "correctly_empty": 1
+            },
+            "new_incompatible_literals": {
+              "queries": 2,
+              "correctly_empty": 2
+            },
+            "new_one_letter_difference": {
+              "queries": 1,
+              "correctly_empty": 1
+            }
+          },
+          "scope": {
+            "returned_items": 8,
+            "invalid_mailbox_or_asof_items": 0,
+            "outside_explicit_received_window_items": 0
+          },
+          "sequential_server_ms": {
+            "p50_ms": 5.652,
+            "p95_ms": 8.542,
+            "p99_ms": 8.542
+          },
+          "technical_exact_set": {
+            "positive_queries": 8,
+            "returned_only_unique_expected_document": 8
+          }
+        }
+      }
+    },
+    {
+      "corpus": "native_export",
+      "input_messages": 3427,
+      "mailboxes": 2,
+      "missing_dates": 0,
+      "original_date_changed_by_timezone": 0,
+      "calendar_day_policy": "supplied YYYY-MM-DD, original partitions and IDs retained",
+      "first_iteration_unseen": {
+        "frozen_probe_file_sha256": "f994b6d35c2edd3829d2491f82038335ce1fdf89a60ff5f2d9811b49065f63da",
+        "search_requests": 51,
+        "technical": {
+          "queries": 32,
+          "hit_at_1": 30,
+          "hit_at_5": 31
+        },
+        "natural_language_silver": {
+          "queries": 7,
+          "hit_at_1": 2,
+          "hit_at_5": 2
+        },
+        "negative": {
+          "queries": 12,
+          "correctly_empty": 2
+        },
+        "positive_by_probe_family": {
+          "exact_body": {
+            "queries": 8,
+            "hit_at_1": 6,
+            "hit_at_5": 7
+          },
+          "exact_body_after_1900": {
+            "queries": 6,
+            "hit_at_1": 6,
+            "hit_at_5": 6
+          },
+          "exact_subject": {
+            "queries": 10,
+            "hit_at_1": 10,
+            "hit_at_5": 10
+          },
+          "exact_with_received_period": {
+            "queries": 8,
+            "hit_at_1": 8,
+            "hit_at_5": 8
+          }
+        },
+        "negative_by_probe_family": {
+          "absent_literal": {
+            "queries": 4,
+            "correctly_empty": 2
+          },
+          "unique_phrase_before_receipt": {
+            "queries": 4,
+            "correctly_empty": 0
+          },
+          "unique_phrase_in_other_mailbox": {
+            "queries": 4,
+            "correctly_empty": 0
+          }
+        },
+        "scope": {
+          "returned_items": 391,
+          "invalid_mailbox_or_asof_items": 0,
+          "outside_explicit_received_window_items": 0
+        },
+        "direct_reads": {
+          "checks": 9,
+          "passed": 9
+        },
+        "inbox_smoke": {
+          "mailboxes_opened": 2,
+          "sorted_pages_checked": true,
+          "original_message_checked": true,
+          "empty_snapshot_checked": true,
+          "nonexistent_document_returns_404": true,
+          "rag_without_evidence_has_no_sources": true
+        },
+        "sequential_server_ms": {
+          "p50_ms": 3.616,
+          "p95_ms": 4.215,
+          "p99_ms": 5.502
+        }
+      },
+      "quoted_phrase_iteration": {
+        "reused": {
+          "frozen_probe_file_sha256": "f994b6d35c2edd3829d2491f82038335ce1fdf89a60ff5f2d9811b49065f63da",
+          "search_requests": 51,
+          "technical": {
+            "queries": 32,
+            "hit_at_1": 32,
+            "hit_at_5": 32
+          },
+          "negative": {
+            "queries": 12,
+            "correctly_empty": 12
+          },
+          "positive_by_probe_family": {
+            "exact_body": {
+              "queries": 8,
+              "hit_at_1": 8,
+              "hit_at_5": 8
+            },
+            "exact_body_after_1900": {
+              "queries": 6,
+              "hit_at_1": 6,
+              "hit_at_5": 6
+            },
+            "exact_subject": {
+              "queries": 10,
+              "hit_at_1": 10,
+              "hit_at_5": 10
+            },
+            "exact_with_received_period": {
+              "queries": 8,
+              "hit_at_1": 8,
+              "hit_at_5": 8
+            }
+          },
+          "negative_by_probe_family": {
+            "absent_literal": {
+              "queries": 4,
+              "correctly_empty": 4
+            },
+            "unique_phrase_before_receipt": {
+              "queries": 4,
+              "correctly_empty": 4
+            },
+            "unique_phrase_in_other_mailbox": {
+              "queries": 4,
+              "correctly_empty": 4
+            }
+          },
+          "scope": {
+            "returned_items": 63,
+            "invalid_mailbox_or_asof_items": 0,
+            "outside_explicit_received_window_items": 0
+          },
+          "sequential_server_ms": {
+            "p50_ms": 2.956,
+            "p95_ms": 5.065,
+            "p99_ms": 5.374
+          },
+          "technical_exact_set": {
+            "positive_queries": 32,
+            "returned_only_unique_expected_document": 32
+          },
+          "natural_language_silver": {
+            "queries": 7,
+            "hit_at_1": 2,
+            "hit_at_5": 2
+          },
+          "direct_reads": {
+            "checks": 9,
+            "passed": 9
+          },
+          "inbox_smoke": {
+            "mailboxes_checked": 2,
+            "page_and_original_mail_checked": true,
+            "unavailable_document_returns_404": true,
+            "empty_snapshot_rag_returns_no_sources": true
+          }
+        },
+        "fresh_unseen": {
+          "frozen_probe_file_sha256": "721e4204982ee0707f6270ebdc7397cc981163054b0b1af5765477bb0106bf35",
+          "search_requests": 15,
+          "technical": {
+            "queries": 8,
+            "hit_at_1": 8,
+            "hit_at_5": 8
+          },
+          "negative": {
+            "queries": 7,
+            "correctly_empty": 7
+          },
+          "positive_by_probe_family": {
+            "new_exact_body": {
+              "queries": 1,
+              "hit_at_1": 1,
+              "hit_at_5": 1
+            },
+            "new_exact_body_late": {
+              "queries": 2,
+              "hit_at_1": 2,
+              "hit_at_5": 2
+            },
+            "new_exact_subject": {
+              "queries": 3,
+              "hit_at_1": 3,
+              "hit_at_5": 3
+            },
+            "new_two_literals": {
+              "queries": 2,
+              "hit_at_1": 2,
+              "hit_at_5": 2
+            }
+          },
+          "negative_by_probe_family": {
+            "new_absent_word_order": {
+              "queries": 2,
+              "correctly_empty": 2
+            },
+            "new_future_literal": {
+              "queries": 1,
+              "correctly_empty": 1
+            },
+            "new_incompatible_literals": {
+              "queries": 2,
+              "correctly_empty": 2
+            },
+            "new_one_letter_difference": {
+              "queries": 1,
+              "correctly_empty": 1
+            },
+            "new_other_mailbox_literal": {
+              "queries": 1,
+              "correctly_empty": 1
+            }
+          },
+          "scope": {
+            "returned_items": 8,
+            "invalid_mailbox_or_asof_items": 0,
+            "outside_explicit_received_window_items": 0
+          },
+          "sequential_server_ms": {
+            "p50_ms": 3.989,
+            "p95_ms": 5.618,
+            "p99_ms": 5.618
+          },
+          "technical_exact_set": {
+            "positive_queries": 8,
+            "returned_only_unique_expected_document": 8
+          }
+        }
+      }
+    }
+  ]
+}
