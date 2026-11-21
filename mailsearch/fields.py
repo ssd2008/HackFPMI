@@ -130,11 +130,6 @@ class MailFields:
             if subject:
                 postings["subject", subject].append(i)
             if sender:
-                # Undated messages are visible at every mailbox snapshot.
-                received = date.fromisoformat(doc["doc_dt"]) if doc.get("doc_dt") else date.min
-                mailbox = doc.get("synthetic_user")
-                if mailbox is not None and received <= self.first_sender.get(mailbox, date.max):
-                    self.first_sender[mailbox] = received
                 terms = set()
                 for name, address in getaddresses([sender]):
                     address = normalize(address)
@@ -144,6 +139,13 @@ class MailFields:
                         terms.add(("domain", address.rsplit("@", 1)[1]))
                     if name:
                         terms.add(("name", normalize(name)))
+                # A prose line starting with "From:" alone is not an envelope.
+                explicit = sender in (doc.get("sender"), doc.get("from"))
+                if explicit or subject or any(kind == "address" for kind, _ in terms):
+                    received = date.fromisoformat(doc["doc_dt"]) if doc.get("doc_dt") else date.min
+                    mailbox = doc.get("synthetic_user")
+                    if mailbox is not None and received <= self.first_sender.get(mailbox, date.max):
+                        self.first_sender[mailbox] = received
                 for term in terms:
                     postings[term].append(i)
         self.postings = {key: np.asarray(rows, dtype=np.int32) for key, rows in postings.items()}

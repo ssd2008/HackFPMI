@@ -64,6 +64,7 @@ class VisibleSenderTests(unittest.TestCase):
             {"doc": "From: Writer <example@test.invalid>", "synthetic_user": "a", "doc_dt": "2026-03-01"},
             {"doc": "A message without a date", "sender": "Writer", "synthetic_user": "b"},
             {"doc": "Subject: An article without a sender", "synthetic_user": "c"},
+            {"doc": "From: a history of technology", "synthetic_user": "c"},
         ])
         self.assertFalse(fields.has_visible_sender("a", date(2026, 2, 28)))
         self.assertTrue(fields.has_visible_sender("a", date(2026, 3, 1)))
