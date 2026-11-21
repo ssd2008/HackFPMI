@@ -1,0 +1,2640 @@
+{
+  "dataset": {
+    "documents": 16376,
+    "queries": 99,
+    "qrels": 565,
+    "sha256": {
+      "README.md": "237ecc95e3db0e959edb073acd4ddf287248524e9c725f6897921d4a19cddb0b",
+      "documents.jsonl": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+      "qrels_dev.jsonl": "826362ae5592d58b3bb1cd382103dc0aef151cf014025258f0cddba0fefa0dd4",
+      "queries_dev.jsonl": "7a5b587ee7361ca2e35e1929cbbfdcc3154b4302b6fb830ae1c41846518d6017"
+    }
+  },
+  "single_relevant_queries": 42,
+  "recall_upper_bound": {
+    "1": 0.561654,
+    "5": 0.862982,
+    "10": 0.937564
+  },
+  "quality_first_pass": {
+    "1": {
+      "recall": 0.55492,
+      "ndcg": 0.979798,
+      "mrr_single": 1.0
+    },
+    "5": {
+      "recall": 0.859615,
+      "ndcg": 0.991076,
+      "mrr_single": 1.0
+    },
+    "10": {
+      "recall": 0.937564,
+      "ndcg": 0.992764,
+      "mrr_single": 1.0
+    }
+  },
+  "timing": {
+    "search_calls": 297,
+    "top_k": 10,
+    "repeats": 3,
+    "concurrent_clients": 1,
+    "seed": 2026,
+    "quantile": "nearest rank",
+    "server_ms": {
+      "p50": 4.525,
+      "p95": 4.971,
+      "p99": 5.518,
+      "max": 7.011
+    },
+    "server_first_pass_ms": {
+      "p50": 4.481,
+      "p95": 5.028,
+      "p99": 7.011,
+      "max": 7.011
+    },
+    "loopback_http_ms": {
+      "p50": 4.964,
+      "p95": 5.483,
+      "p99": 6.075,
+      "max": 13.806
+    },
+    "ranking_changes_on_repeats": 0,
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python": "3.12.13"
+  },
+  "queries": {
+    "H-95e1712dc7fb8841b458": {
+      "ranked_ids": [
+        "L-e76c5f182c99a9b123f0",
+        "L-6caee637097c17ccf9b6",
+        "L-5b7a5e4c10aafe25f738",
+        "L-fdc4bda76c27a82215e4",
+        "L-616629cddcc0fee0a465",
+        "L-ced61eba2715e69e79a6",
+        "L-73658f21c4c5e694508a",
+        "L-4eabaf4d1fd6ffc7704e",
+        "L-c5e3282b363845ba00aa",
+        "L-842320cb44c1c246acc4"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-805ba1134cd6be3479bc": {
+      "ranked_ids": [
+        "L-e264ead41730b565aa4f"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-bd3ef39cbc82aacc8bda": {
+      "ranked_ids": [
+        "L-dc83c2a83dcddcdc9efc",
+        "L-c3e224bc7a642e05737a",
+        "L-c81f9e5b87bffca3f484",
+        "L-71f8b0659bd2baccd226",
+        "L-51e946a760eb43670499",
+        "L-4efa81f8491866729c63",
+        "L-2fe4a98ba8b781fd81b5",
+        "L-831588a0a4a58cc8b008",
+        "L-3c1459e312b23cc05106",
+        "L-312764535f6cba7f3c86"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-c413a2949694d80bce71": {
+      "ranked_ids": [
+        "L-69f1f69fbd2a2970086b"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-8a52f19bb09882009987": {
+      "ranked_ids": [
+        "L-65fa83379c0da592ea3f"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-71baff97faa4b4ddedd4": {
+      "ranked_ids": [
+        "L-7db8560b381ca2f5b5e0",
+        "L-eff55c817000c80462ff",
+        "L-3c04aa52347cedd2480c",
+        "L-b004fec138d134e38197",
+        "L-46b6c6901e3162cac2d9",
+        "L-ad55feaad0e5649c2f8e"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-e15a571ba6733c1c7996": {
+      "ranked_ids": [
+        "L-84702af7ec9185195c74",
+        "L-e0723c207f87d76d24bb",
+        "L-51cca4897c4e359f2e4a",
+        "L-3959a6a6c452344dd4e9",
+        "L-5dcd32a76aa1bc3fe6c4",
+        "L-63a59dad40c70e470215",
+        "L-70a24b0fd718032ac84b",
+        "L-a2bc116e425657c6bfc7",
+        "L-7f30dfd89a18af3cae7f",
+        "L-b9afc7e23832a9acdc9a"
+      ],
+      "relevant": 65,
+      "scores": {
+        "1": {
+          "recall": 0.015384615384615385,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 0.07692307692307693,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 0.15384615384615385,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-c09c0c6f82df8a016912": {
+      "ranked_ids": [
+        "L-82aae4334a3b9bf98074",
+        "L-8ffb8f2f38b06560720a",
+        "L-01c9fa38b87d6d375d4d",
+        "L-d4b60dc431f88cb26748",
+        "L-378f6333a0a89e85dca5",
+        "L-7327ecc60da3f878f067",
+        "L-fce138193fabf290e304",
+        "L-03975eaa22e26c42a8f5",
+        "L-d34c35376af5aa8c275b",
+        "L-b293172fb374b85f1dac"
+      ],
+      "relevant": 21,
+      "scores": {
+        "1": {
+          "recall": 0.047619047619047616,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 0.23809523809523808,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 0.47619047619047616,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-92a890e2b6226d9a3ba0": {
+      "ranked_ids": [
+        "L-e7dda1d7814a8428ce33",
+        "L-d6bde3cf974ca12ee331",
+        "L-f2b5c606cc1d6f23c229"
+      ],
+      "relevant": 3,
+      "scores": {
+        "1": {
+          "recall": 0.3333333333333333,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-69c89eadad29ee8cc230": {
+      "ranked_ids": [
+        "L-faa6987eed66a1a36a4a",
+        "L-ff714ea92c60e57716b4"
+      ],
+      "relevant": 2,
+      "scores": {
+        "1": {
+          "recall": 0.5,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-8e4cdfaa5894abff2eaa": {
+      "ranked_ids": [
+        "L-c8c2757e4ce90dfa4131",
+        "L-c4d9f2e5979fb7e6ab02",
+        "L-20d617f31dd5468b7271",
+        "L-cc5e3a2ddd9c33e81eec",
+        "L-40a8a34f9199b338356a",
+        "L-2f8b2b5dc1bb142a861e",
+        "L-f5b62f35092a4ca93652",
+        "L-bceb04865280f973f8de",
+        "L-5a520f56b8b84015c78d",
+        "L-8345b6dd5146ab5b3f3f"
+      ],
+      "relevant": 6,
+      "scores": {
+        "1": {
+          "recall": 0.16666666666666666,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 0.8333333333333334,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-c3dbc4221930739783ee": {
+      "ranked_ids": [
+        "L-f9284d4d5cc0810ceae8",
+        "L-607e8dad600043573826",
+        "L-1ddef7bf710aa97b2faf",
+        "L-4074a3902c6ed658db58",
+        "L-a05829aeb0e97b62be24",
+        "L-103dd9b770e42e5669d2",
+        "L-fb65106ec41bea173f7e",
+        "L-79370b69971c08839357",
+        "L-4cd7e55d96809e4a7d8a",
+        "L-c379e414f0c957817e4f"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-28089e075440151eaf13": {
+      "ranked_ids": [
+        "L-0725658860585da4ff39",
+        "L-bc8823c6ac42da3e8ed0",
+        "L-0dd7354b4500424498f7",
+        "L-ca388521000ce574cded",
+        "L-8c3103813d3405bc5e3b",
+        "L-bcba4e459763fb41d5d6",
+        "L-d2e454c06766dd5f9e90",
+        "L-7a7b3da8838895772d9c",
+        "L-89864d9d37e1d6fedfd1",
+        "L-10e5bc43e4cecd641810"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-d60cf706badd91a4e721": {
+      "ranked_ids": [
+        "L-f0d241937f5ffe2a2cce",
+        "L-bbad38332007245887e2",
+        "L-065e9c13f39ed6fa37c0",
+        "L-7bcc21e95b4186359ebd",
+        "L-626d1bb04a932b83af55",
+        "L-c48418e8b2f5d94f2db9",
+        "L-8afb04643886e746ccbf"
+      ],
+      "relevant": 7,
+      "scores": {
+        "1": {
+          "recall": 0.14285714285714285,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 0.7142857142857143,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-9bf9d551a88f414e1533": {
+      "ranked_ids": [
+        "L-7decab81d38618fb05b0"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-c520a90e0f715e6cd77d": {
+      "ranked_ids": [
+        "L-3165fee07648b2f2f384",
+        "L-2ea52497ccbae25ebd1c",
+        "L-8d11fe7fbe46533436d6",
+        "L-0760b4687dc3dbfbe9e5",
+        "L-5e095210e809b1e19a0b",
+        "L-89851983ae3ab29c4fd7",
+        "L-e0852cc1b60d9bf44ca8",
+        "L-7191ecf5c8777a4b76fb",
+        "L-00ecfc2fd51ad9834d47",
+        "L-680dbba379cd06ccc1a1"
+      ],
+      "relevant": 12,
+      "scores": {
+        "1": {
+          "recall": 0.08333333333333333,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 0.4166666666666667,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 0.8333333333333334,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-269dfc4a89f6ce5171df": {
+      "ranked_ids": [
+        "L-2f3e44e2f0bbf2642f9c",
+        "L-508c5a5dcae928f549e5"
+      ],
+      "relevant": 2,
+      "scores": {
+        "1": {
+          "recall": 0.5,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-8fffd97d149338a5fb31": {
+      "ranked_ids": [
+        "L-f991fa15b1255e633713",
+        "L-c867b6954d02eddcfff8",
+        "L-3182d20c96d0ecc14c21",
+        "L-ec5c3f17324225de3fd9"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-e0a89c82eabee234cdd1": {
+      "ranked_ids": [
+        "L-b1ede462ca9d768bbd19",
+        "L-c742371661757fa46dcd",
+        "L-45a8923e47a0b88217e8",
+        "L-128cef8e37cb32317ae3",
+        "L-653852952c77b7311952",
+        "L-d84f8dc3faece19fcaa2",
+        "L-dbd57ae4ad376fe2abaa",
+        "L-805c8615c478ea28d767",
+        "L-b8d3dc5247569bc8ee42",
+        "L-1b1d723382b45c713903"
+      ],
+      "relevant": 3,
+      "scores": {
+        "1": {
+          "recall": 0.3333333333333333,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-d523a339e5767794ded5": {
+      "ranked_ids": [
+        "L-2e60971fe991caa69843",
+        "L-0c136dee3fef12e6c718",
+        "L-d22c15fcd5eb40166f62",
+        "L-587a374c7c24f87ad433",
+        "L-805ffc3c686714a00771",
+        "L-b502ee075a508d87ca7f",
+        "L-8bb2acff69c97a83d5f0",
+        "L-006041c6fa636ce076b0",
+        "L-01f160c20a46c031e379",
+        "L-3ca71382a04ed35f2b14"
+      ],
+      "relevant": 21,
+      "scores": {
+        "1": {
+          "recall": 0.047619047619047616,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 0.23809523809523808,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 0.47619047619047616,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-f138aeed2f6b400bba48": {
+      "ranked_ids": [
+        "L-54782d4f068d9ae71e2c"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-3c98fa4bf29e69b4bf23": {
+      "ranked_ids": [
+        "L-f302443a86919b34aca8"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-012df59077167bfec30e": {
+      "ranked_ids": [
+        "L-103e4847640573580e6c"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-c0b6f84b79eba1edda1f": {
+      "ranked_ids": [
+        "L-6b8aedb7d6f397f088f5"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-2b6de91c0dab98bc9cb4": {
+      "ranked_ids": [
+        "L-a897df2a3b6de1d45353",
+        "L-f1b2aec8739bf7eb5720",
+        "L-7c175f5376dafa62c5ae",
+        "L-a0ea27708273a0028a69",
+        "L-a33b8739e1b7e09e1726",
+        "L-21865623b6a520d32af1",
+        "L-88e7ac9e91b04e362fb2",
+        "L-a4b79de18cefbb71d1f0",
+        "L-620f81baaf923ccce8d5",
+        "L-4e8b85cb0d0c7576e66a"
+      ],
+      "relevant": 4,
+      "scores": {
+        "1": {
+          "recall": 0.25,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-f5c6f1ad46d5c9df7cac": {
+      "ranked_ids": [
+        "L-7bae4217fad3f341bf2f",
+        "L-37bf7acc4a28c27bdc29",
+        "L-2fcb3c41239a9fa1dd3e",
+        "L-c5f601b403390bdcf269",
+        "L-63fee1bc7bc535433a78",
+        "L-4561f3f7221740baa749",
+        "L-d463da9609bc1b66a43c",
+        "L-66156fa3dacd54fb3a40",
+        "L-aa9d92b5c6b9dda36698",
+        "L-d882f349e54c58548d33"
+      ],
+      "relevant": 2,
+      "scores": {
+        "1": {
+          "recall": 0.5,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-ff32ab10e74ee71987b2": {
+      "ranked_ids": [
+        "L-e6d311c8265b6dabfb4e",
+        "L-58c95a060a3adccfc1a1",
+        "L-7547822e895c41824ce2",
+        "L-d0b7691b59f46b26279f",
+        "L-1033df261c449a13472c",
+        "L-2e867e3f6ce6b2c27883",
+        "L-54ce2f763702b6ecfb3f"
+      ],
+      "relevant": 5,
+      "scores": {
+        "1": {
+          "recall": 0.2,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-d80b250c130d0d169ce5": {
+      "ranked_ids": [
+        "L-0d7d248e18a4bc788b3a"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-91635f29cd1535edaa65": {
+      "ranked_ids": [
+        "L-6614cefa3ff28903d6f8",
+        "L-71ce3b46e0b138a4fb89",
+        "L-075da2a86d6df26dc450",
+        "L-27799ba201dd540c530f",
+        "L-68bcfcce07c6d3116aa7",
+        "L-5b7b04db8acb2e4de7ee",
+        "L-d5020a1964e1ac2091f3",
+        "L-f88c13a5b657faed803b",
+        "L-25050de7de6beefaa801",
+        "L-9e8bf74a7de18bfa35dd"
+      ],
+      "relevant": 18,
+      "scores": {
+        "1": {
+          "recall": 0.05555555555555555,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 0.2777777777777778,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 0.5555555555555556,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-1ff5058ab44a64f0e249": {
+      "ranked_ids": [
+        "L-a05841da33a7b9486cb5",
+        "L-b1e280170a22ee44a216",
+        "L-ff70f9e69f07e6fbae88",
+        "L-fefed5861f8a12df37f6",
+        "L-587ca0bcb7636ea34cf9",
+        "L-43091e09c3ec1e4f3f5e",
+        "L-4bf0f178df8fa4525285",
+        "L-634751187a3e3feb7f30",
+        "L-a2f6769a25d1ea1211b6",
+        "L-c8dad064883a1e57edfd"
+      ],
+      "relevant": 18,
+      "scores": {
+        "1": {
+          "recall": 0.05555555555555555,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 0.2777777777777778,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 0.5555555555555556,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-27202d6f9d538e1fee46": {
+      "ranked_ids": [
+        "L-803d4c3ce31cc978b5d0",
+        "L-0ebed84f8066e69fe541",
+        "L-4d20534b05eb1776ce23",
+        "L-aeb34b708311375a985f",
+        "L-ea6b9109f27d29804e79",
+        "L-ba2336e156db1472c3d4",
+        "L-072dd2bf78c5b41f2c07",
+        "L-9c85d4ba633d0ce20b46"
+      ],
+      "relevant": 8,
+      "scores": {
+        "1": {
+          "recall": 0.125,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 0.625,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-370c651816c078415a7d": {
+      "ranked_ids": [
+        "L-6f0897786b3950109aca",
+        "L-0a7ea343d3d4644f6b41",
+        "L-3d4d9e8f949a5198ac53",
+        "L-0d6ef025f2a39f7cb930",
+        "L-34a0feb5feba9618a550",
+        "L-4b0c9d691f5277895ab3",
+        "L-e36a33d09c9ddbc8f7fa",
+        "L-51d8e413fdce84c85218",
+        "L-14ba91950ab27ae9b117",
+        "L-f57cfebb4ab3483da59d"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-014061ae61905c415f3f": {
+      "ranked_ids": [
+        "L-f2842118c7388426ae5f",
+        "L-3182d20c96d0ecc14c21",
+        "L-c867b6954d02eddcfff8",
+        "L-ec5c3f17324225de3fd9",
+        "L-99eaa15f48f87a3aa511",
+        "L-1b13abffa00261abcf17",
+        "L-f991fa15b1255e633713"
+      ],
+      "relevant": 6,
+      "scores": {
+        "1": {
+          "recall": 0.16666666666666666,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 0.8333333333333334,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-0cd67c437c10c65654d5": {
+      "ranked_ids": [
+        "L-eda623999a30ecb04a77"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-b1fd1d2aa7fc4b4a7a7a": {
+      "ranked_ids": [
+        "L-0fca2479bc3256c502b0",
+        "L-ee0660add627f74f2fe0",
+        "L-539aca8416efa7842a7b",
+        "L-0c84d9c36990ff5bf8b4",
+        "L-3f69dc7ca8017738648e",
+        "L-19f8392e3cb784e29a62",
+        "L-302907cbe93aa156052a",
+        "L-d3f83e7a3ae1a05d0037",
+        "L-9b927f47995aee499a6e",
+        "L-ce64577b91aa2d08bcef"
+      ],
+      "relevant": 3,
+      "scores": {
+        "1": {
+          "recall": 0.3333333333333333,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-4bf66905298157b11c51": {
+      "ranked_ids": [
+        "L-6f1a804eab806f7b354c"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-f7df24b1753a0d02751a": {
+      "ranked_ids": [
+        "L-64dee7f17b0ece778e26",
+        "L-e4cbbcabd1b13c9b97b0"
+      ],
+      "relevant": 2,
+      "scores": {
+        "1": {
+          "recall": 0.5,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-fec3ca797b16a44cd908": {
+      "ranked_ids": [
+        "L-8299d4e7176b4964365d"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-8d0f3bdcd564c20c8476": {
+      "ranked_ids": [
+        "L-4f924773c201c7455af1"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-d44d9649992120760d24": {
+      "ranked_ids": [
+        "L-d07a7da86f085792c0f5"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-41f5e484948f2ab2bfa5": {
+      "ranked_ids": [
+        "L-175a5a85fd2787cb7a1c",
+        "L-110b94555ee8fd166d0b",
+        "L-8dd9cfdbda70f5d553c8",
+        "L-2312a0e8e825a1f3592a",
+        "L-0c7e79dc7efffda0f20f",
+        "L-ffd355cd4506b46dc106",
+        "L-954cc30da372178227e9",
+        "L-8261760b36b323093c5f",
+        "L-ab79f58d495ce3bb7524",
+        "L-e06c6ba09e6d79f7e460"
+      ],
+      "relevant": 11,
+      "scores": {
+        "1": {
+          "recall": 0.09090909090909091,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 0.45454545454545453,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 0.9090909090909091,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-4cdc6eb005231127037f": {
+      "ranked_ids": [
+        "L-5f8d2aea95d7da30e10d"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-b376c0a8bd6e89e51519": {
+      "ranked_ids": [
+        "L-ca388521000ce574cded",
+        "L-0dd7354b4500424498f7",
+        "L-44f70683b769ee62e1f5",
+        "L-a9de5fa2f709db3e5e1d",
+        "L-bb2c3909879692e8354e",
+        "L-89864d9d37e1d6fedfd1",
+        "L-975302efe53b550e6268",
+        "L-05d0878f5b679db4fca4",
+        "L-d4e43fd43b6cf7d48647",
+        "L-c46a7dd074b612846e8f"
+      ],
+      "relevant": 2,
+      "scores": {
+        "1": {
+          "recall": 0.5,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-00d886ad4b22c127fa0f": {
+      "ranked_ids": [
+        "L-0a10151f7c5c4c12bffa",
+        "L-db177dc097f64df008e1",
+        "L-fc14ae5d089cfec4426a",
+        "L-d2b293ff8e00ffe8990e",
+        "L-df419857b1dfebb57d0d",
+        "L-d3172f3e1734b68d5f99",
+        "L-4969f406db4733eb63df",
+        "L-16acdedd395a9b788a58",
+        "L-73f81bfe3fc476a46552",
+        "L-e06ff17e99e45fe5313a"
+      ],
+      "relevant": 8,
+      "scores": {
+        "1": {
+          "recall": 0.125,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 0.625,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-f9e862f98790acdb9c63": {
+      "ranked_ids": [
+        "L-682c6be64e42308f72bd",
+        "L-72290f2e3d44bfae67d2",
+        "L-3d2993d53d968af0cd8e",
+        "L-7bb062361937255bdac2"
+      ],
+      "relevant": 4,
+      "scores": {
+        "1": {
+          "recall": 0.25,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-680ce1212552516e8903": {
+      "ranked_ids": [
+        "L-fdef2feb00384ab78a93",
+        "L-f5fe00c7942dbea20e87",
+        "L-b8ae4164920e735fb3aa",
+        "L-05020c45cd164a682d8b",
+        "L-6298cc5af46d55d81ec3",
+        "L-09bf08ef003d7715287d",
+        "L-7c1a3896929e1c61c035",
+        "L-3593acd9a57de195c2b1",
+        "L-c94e9c8bb63f3e0a06dd",
+        "L-3635940bf945d2dff2e3"
+      ],
+      "relevant": 5,
+      "scores": {
+        "1": {
+          "recall": 0.2,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-4413e1d14feece8a14bc": {
+      "ranked_ids": [
+        "L-652480948bb0d8e2af62",
+        "L-9cd4a5e6cb74b2a21fa8",
+        "L-218adcd58098a6a9901b",
+        "L-6ce7c89955d23eebf9b4",
+        "L-b31f632ea1e80dcc772b",
+        "L-f1cb319172e29a608140",
+        "L-7f0f5c39d2c777d9c23f",
+        "L-f3a83a6e73983d6362e4",
+        "L-10e7845efad751b455ed",
+        "L-94cc2e9e2fdb9f294076"
+      ],
+      "relevant": 55,
+      "scores": {
+        "1": {
+          "recall": 0.01818181818181818,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 0.09090909090909091,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 0.18181818181818182,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-5dba0b5af406db4d46ea": {
+      "ranked_ids": [
+        "L-3a537f6ed80e0b596fe4"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-828bf793964cb3bb99e8": {
+      "ranked_ids": [
+        "L-3687fd467aac4b05bca6",
+        "L-3b302eaba80062b0624d",
+        "L-903eb2a1fed8721e8a98",
+        "L-b1e0a4fcc3fd0ca7d874",
+        "L-0a85382a8eff2b965f8f",
+        "L-e643f2f1f47d19d2374d",
+        "L-f0eb2a76a9e0f7117797",
+        "L-10461ab934a50297881d",
+        "L-0b859d062da682ba0b51",
+        "L-7754983b68bd152d9665"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-4900a2e5cc9c09fddd53": {
+      "ranked_ids": [
+        "L-9d12b32764dfee7ce9d0",
+        "L-ae8d82d387e965cde038"
+      ],
+      "relevant": 2,
+      "scores": {
+        "1": {
+          "recall": 0.5,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-e800fd8a44e2618dff83": {
+      "ranked_ids": [
+        "L-9e3651ab512567a14208"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-86c5f97dafded9493988": {
+      "ranked_ids": [
+        "L-f72b0693b2aadac98db6",
+        "L-8a9fbd6a3354ead96b04",
+        "L-e730e70b36228bb7ab02",
+        "L-0fd951172c464d67301c",
+        "L-abbda8e0b818e0bf2f6f"
+      ],
+      "relevant": 5,
+      "scores": {
+        "1": {
+          "recall": 0.2,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-fa7c1c74a00ff852c670": {
+      "ranked_ids": [
+        "L-cbe98715aeb370c17022"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-6f1839b2094abab2d9d7": {
+      "ranked_ids": [
+        "L-f0227a694823b270d902",
+        "L-3355cce2b41bc9359b30",
+        "L-3fb64eedb871ed3a395f",
+        "L-8685be35b3000a14d871",
+        "L-0a1f3c27533663d02037",
+        "L-bf72181d39602880c5af",
+        "L-35e0b38aa6e4c4d35423",
+        "L-467e4e048067ab585ada",
+        "L-086e8c89ded836f9be92",
+        "L-284578421fcc5f329917"
+      ],
+      "relevant": 14,
+      "scores": {
+        "1": {
+          "recall": 0.07142857142857142,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 0.35714285714285715,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 0.7142857142857143,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-897cee85fae472edd3f0": {
+      "ranked_ids": [
+        "L-6075f3128d4231a404d8"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-549005a76cc00372cb32": {
+      "ranked_ids": [
+        "L-e3363282bb2cee115f93",
+        "L-699cdb37ecaa8d566d95",
+        "L-29bc343529b7489fa407",
+        "L-40b5ad81007f4e7b0878",
+        "L-c2aeb4d95a35082cd79f",
+        "L-5cfcf80f6b7dfb4ddbbd",
+        "L-3b086870ce5ff894cc02",
+        "L-4a30a21e57a030853610",
+        "L-0983fb16434c02b421b9",
+        "L-a559369da153889ccae8"
+      ],
+      "relevant": 5,
+      "scores": {
+        "1": {
+          "recall": 0.2,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-28caa9ba8ebb01e3a98e": {
+      "ranked_ids": [
+        "L-89f61f3b6b0ebaa1885e",
+        "L-23d10d7be1b2eb9a27b7",
+        "L-731cc02624813780f93b",
+        "L-705fcb106125060525f8",
+        "L-f0eba752effe60ca3de0",
+        "L-ee5d1ff3f99a32a5453a",
+        "L-40c4fefb3ecdc4c2653a",
+        "L-a8274f74661ced26566b",
+        "L-3d7fc665183858f4964d",
+        "L-0da6e159260ab04404f8"
+      ],
+      "relevant": 5,
+      "scores": {
+        "1": {
+          "recall": 0.2,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-4d221a3275e4f0f2827a": {
+      "ranked_ids": [
+        "L-df8f8608cf088e43663d",
+        "L-b6b0cd7b81ee5ea73941",
+        "L-ec6eb540f7eb89d6d294",
+        "L-9430888be155cb9c1ad9",
+        "L-334814eb323909034610",
+        "L-871ac90696e695c2b01e",
+        "L-ec6e319df0c7a9324013",
+        "L-903eb2a1fed8721e8a98",
+        "L-36d3190dec532e01cd74",
+        "L-3b302eaba80062b0624d"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-37331e6948fece5ff495": {
+      "ranked_ids": [
+        "L-6a2990575dc05720b13f",
+        "L-d7b7e3e00cb894ce7af9",
+        "L-72a36f882225d9110a34",
+        "L-ecd02e94da9c3e7da190",
+        "L-b0f9083fef4af4f3463a"
+      ],
+      "relevant": 2,
+      "scores": {
+        "1": {
+          "recall": 0.5,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-fce276dacbc2c7ffdb1a": {
+      "ranked_ids": [
+        "L-b2688b930f4a21cf4c6a",
+        "L-3f77e2fe3a07cf723d5c",
+        "L-b02db43213f5de670f75",
+        "L-9f7f948a4c63e37c8d78",
+        "L-c1dd522d391e4b9fd11a",
+        "L-d22c90127eacf805586e",
+        "L-4ae77545a52cb9996e2a",
+        "L-c57fbaaa99b33715d5f4"
+      ],
+      "relevant": 8,
+      "scores": {
+        "1": {
+          "recall": 0.125,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 0.625,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-124bc9656e09acbcf2fc": {
+      "ranked_ids": [
+        "L-74f3dc91fce6d46520ba",
+        "L-de81a549f275de01c611",
+        "L-0720bc00dcf1157874a8",
+        "L-4f0e2b619e37a9dd98f6",
+        "L-22ebe879aa6275217ec2",
+        "L-175a5a85fd2787cb7a1c",
+        "L-378cfa8718be112284a0",
+        "L-5cacba3476536524a3b1",
+        "L-110b94555ee8fd166d0b",
+        "L-3f1a51a570af3b32a626"
+      ],
+      "relevant": 5,
+      "scores": {
+        "1": {
+          "recall": 0.2,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-bbc9bc678aba515467f5": {
+      "ranked_ids": [
+        "L-2a204f0e8b5fcfeadb78",
+        "L-0f0dbdfa760950d6b12a",
+        "L-1ba621cfc422b706104f",
+        "L-ab644c3f434cb2434435",
+        "L-91f998f4035191b00d44",
+        "L-21e7195bf8479eec0286",
+        "L-f8d4674866e1bc3c0129",
+        "L-0978fcaf46bfb05973c9",
+        "L-315234701bba29aa7a69",
+        "L-9273da17dadded729271"
+      ],
+      "relevant": 11,
+      "scores": {
+        "1": {
+          "recall": 0.09090909090909091,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 0.45454545454545453,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 0.9090909090909091,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-f3404b55d6a511de876b": {
+      "ranked_ids": [
+        "L-1536360b880b011d7a53"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-b14bc1c93dbdc0cbc5ad": {
+      "ranked_ids": [
+        "L-a33d16c53e11f60a0717",
+        "L-689b51f77222cc4f86f6",
+        "L-f7455348b982405c1c7a",
+        "L-8e6f536bdcb95f92acff",
+        "L-667f85df3ac3769d1c51",
+        "L-62ffaa92aa5ace2db159",
+        "L-6d421bb06b1aede40318",
+        "L-885441a691ee2d398434",
+        "L-3e4540afb6dd8c784684",
+        "L-0494e67cc1d453752089"
+      ],
+      "relevant": 3,
+      "scores": {
+        "1": {
+          "recall": 0.3333333333333333,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-485e5fba640a58a7ac34": {
+      "ranked_ids": [
+        "L-fb7494b8241f418a7878"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-7344cf0d5bc0d9edb0c5": {
+      "ranked_ids": [
+        "L-c8f76a22d252034a82c6",
+        "L-4e90c3a75f3bd86d8928",
+        "L-c527884b8e89c08189e2",
+        "L-5eed48df977437574305",
+        "L-7c6c83449788e345abf2",
+        "L-50f49833bf546185ea92",
+        "L-05f1c52cab005bc31161",
+        "L-cec6301eece26dccfebd",
+        "L-183d2f2e41dfc1005b92",
+        "L-25439a19d5e123f3864b"
+      ],
+      "relevant": 2,
+      "scores": {
+        "1": {
+          "recall": 0.5,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-ad1b042c390177db6338": {
+      "ranked_ids": [
+        "L-e6ec4a42cb9c16f7ca3d"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-130688ab3eeb3b8dc034": {
+      "ranked_ids": [
+        "L-6acbff281fba5eac63bf",
+        "L-6bfafd8fceea4de77160",
+        "L-1dfad13d08a9d03d1789",
+        "L-ccd03b3a7a9bb7d20cdf",
+        "L-15f5c46e74dbb4f5f4e5",
+        "L-94479c8b7e60275da623",
+        "L-120fca5a3bc3e6a70f5a",
+        "L-80c295501fac15cc00d0",
+        "L-c0bbd1c5b233fb2b70d8",
+        "L-3162bafb8d706dbe3cd8"
+      ],
+      "relevant": 10,
+      "scores": {
+        "1": {
+          "recall": 0.1,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 0.5,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-e15a2fa422d9f852aef1": {
+      "ranked_ids": [
+        "L-09bf08ef003d7715287d",
+        "L-3593acd9a57de195c2b1",
+        "L-c94e9c8bb63f3e0a06dd",
+        "L-7c1a3896929e1c61c035",
+        "L-3635940bf945d2dff2e3",
+        "L-e6400c51363d03c52c26",
+        "L-f1d77643d19a59e7d828",
+        "L-dd01836cbac59d9be5ff",
+        "L-6a3473017b8a225fb5e1",
+        "L-4ede55f6877b633b3996"
+      ],
+      "relevant": 5,
+      "scores": {
+        "1": {
+          "recall": 0.2,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-ab890ffc34d25c1cd4e8": {
+      "ranked_ids": [
+        "L-603626ffaee2de3a7ccc",
+        "L-0e910975ff5abefd996b",
+        "L-f88b040f21be0816a228",
+        "L-a5b13e1aa076b3812ad6",
+        "L-df419857b1dfebb57d0d",
+        "L-73f81bfe3fc476a46552",
+        "L-5cfcf80f6b7dfb4ddbbd",
+        "L-42a0c03aa4512e27943a",
+        "L-29bc343529b7489fa407",
+        "L-05c1043e749e5079a35a"
+      ],
+      "relevant": 3,
+      "scores": {
+        "1": {
+          "recall": 0.0,
+          "ndcg": 0.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 0.7328286204777911
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 0.7328286204777911
+        }
+      }
+    },
+    "H-e78b25a116be82858185": {
+      "ranked_ids": [
+        "L-ee36b7ba3c11dc2bb130",
+        "L-9350b8fe134f6b51e221",
+        "L-a1d91ce533cf28d5fac4",
+        "L-0273124a9e7a24d04566",
+        "L-a160082e0df2edda2612",
+        "L-0acf4fee7b3850b874ed",
+        "L-a08b91892b057580d57c",
+        "L-4ee9286002abece3043d",
+        "L-a0e5c83b310fdd95e5c5",
+        "L-4c36d51ec271d45689f6"
+      ],
+      "relevant": 17,
+      "scores": {
+        "1": {
+          "recall": 0.058823529411764705,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 0.29411764705882354,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 0.5882352941176471,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-43fb323d1e05016bc6d6": {
+      "ranked_ids": [
+        "L-0494e67cc1d453752089",
+        "L-2eedbc3a72f1bcd911b1",
+        "L-af1bb1fdf95c5c4bfc6f",
+        "L-dca3d6d00d3b76fd8f68",
+        "L-689b51f77222cc4f86f6",
+        "L-a33d16c53e11f60a0717",
+        "L-f468f49cff386dd5d3a5",
+        "L-8e6f536bdcb95f92acff",
+        "L-f7455348b982405c1c7a",
+        "L-6d421bb06b1aede40318"
+      ],
+      "relevant": 4,
+      "scores": {
+        "1": {
+          "recall": 0.25,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-d307d39328da45a87643": {
+      "ranked_ids": [
+        "L-b4f81f3e145fb8f128e1",
+        "L-f9a86473d579fb07afc0",
+        "L-0443697de67459dd1861",
+        "L-3344fbe3dd3a3d19b085",
+        "L-eb4e7468b86367e6a474",
+        "L-f4168d993dc808c2686b",
+        "L-8bfee3f4c2f73d9b8322",
+        "L-c69db64f537695734505",
+        "L-75dd8da36d7a8424bce8",
+        "L-faef7008b3d636eff68c"
+      ],
+      "relevant": 4,
+      "scores": {
+        "1": {
+          "recall": 0.25,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-d5db790a049dde6f4e92": {
+      "ranked_ids": [
+        "L-2e9cd35839439807012b",
+        "L-ee91d92142ba4a12fbf0",
+        "L-0799878549c17bae8392",
+        "L-320863526dfe856d92d7",
+        "L-9c4c69a25015fc162793",
+        "L-f360bf04f5c4ed874adf",
+        "L-249c14a4cbdc75366de4",
+        "L-98c34ffb05bbdb1415b5",
+        "L-05a30580abba4bb3b836",
+        "L-fde4b26e82b0c0e780a4"
+      ],
+      "relevant": 13,
+      "scores": {
+        "1": {
+          "recall": 0.07692307692307693,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 0.38461538461538464,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 0.7692307692307693,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-91bde5fc099890a9dabd": {
+      "ranked_ids": [
+        "L-3b37d31243415dc6ce54",
+        "L-508e4db8fad07b6befcc"
+      ],
+      "relevant": 2,
+      "scores": {
+        "1": {
+          "recall": 0.5,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-d6683f03cca44a37eddb": {
+      "ranked_ids": [
+        "L-72a36f882225d9110a34",
+        "L-ecd02e94da9c3e7da190",
+        "L-b0f9083fef4af4f3463a",
+        "L-6a2990575dc05720b13f",
+        "L-d7b7e3e00cb894ce7af9"
+      ],
+      "relevant": 3,
+      "scores": {
+        "1": {
+          "recall": 0.3333333333333333,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-bedc577fecb613a4fe31": {
+      "ranked_ids": [
+        "L-1bd2b09428efb845be60"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-4519ace06f566a9f1637": {
+      "ranked_ids": [
+        "L-58fdaa280d0d26b6e76f",
+        "L-f8c64820792ebfeb44bc",
+        "L-98fd9829ed145baa309c",
+        "L-fe188eee1ddd3a5d2f94",
+        "L-d45dc0122ea3e8a8a5f6",
+        "L-09bf08ef003d7715287d",
+        "L-1b4fba651bf1e52d5db9",
+        "L-fdef2feb00384ab78a93",
+        "L-7c1a3896929e1c61c035",
+        "L-f5fe00c7942dbea20e87"
+      ],
+      "relevant": 4,
+      "scores": {
+        "1": {
+          "recall": 0.25,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-d4d8f8d94810e0efcfa8": {
+      "ranked_ids": [
+        "L-5a7de37fd00b007b2d3e"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-4b35b0ae76e9b5da16d5": {
+      "ranked_ids": [
+        "L-4239005829661e40af99"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-0411ea4a25402070a382": {
+      "ranked_ids": [
+        "L-dece27079f806e34db05",
+        "L-a61ed9a006b82cede296",
+        "L-88b71db3edf8bd8cfe96",
+        "L-bb73474b3d078a43ab3c",
+        "L-7f8ff9663e5c907afed1"
+      ],
+      "relevant": 5,
+      "scores": {
+        "1": {
+          "recall": 0.2,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-e785745160df644052ec": {
+      "ranked_ids": [
+        "L-1429f0bec6a8b6661d8d"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-cf13f62178c5b81140c8": {
+      "ranked_ids": [
+        "L-f656aaa3ab7cae63de65",
+        "L-b37dd8b2755cbc2f1c5c",
+        "L-43687ead7118f38ca6bd",
+        "L-c2a5f55276af7e9b3dad",
+        "L-42c39168fe1de2e7dc06",
+        "L-9e721150de9da54b46a1",
+        "L-9df7d161164c1b561c24",
+        "L-d45dc0122ea3e8a8a5f6",
+        "L-58fdaa280d0d26b6e76f",
+        "L-1b4fba651bf1e52d5db9"
+      ],
+      "relevant": 3,
+      "scores": {
+        "1": {
+          "recall": 0.0,
+          "ndcg": 0.0
+        },
+        "5": {
+          "recall": 0.6666666666666666,
+          "ndcg": 0.38364913903790027
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 0.5508095940041026
+        }
+      }
+    },
+    "H-858ce7fee338506cefbe": {
+      "ranked_ids": [
+        "L-e17faa5d749cf8afa6bb",
+        "L-0395182baf691b682e20",
+        "L-f377e13ba8aebdddfca0",
+        "L-0e003598eab415f57395",
+        "L-9c5272d772d39c2299cb",
+        "L-0935723e62a090c33f5f",
+        "L-51246c1ab3f1d218079c",
+        "L-ffc588d5044c76d82ba2",
+        "L-e39c6678736de99e8e46",
+        "L-12701ff34c88f3577a21"
+      ],
+      "relevant": 12,
+      "scores": {
+        "1": {
+          "recall": 0.08333333333333333,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 0.4166666666666667,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 0.8333333333333334,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-839f7c5c7c9477b13aae": {
+      "ranked_ids": [
+        "L-e1ef8895978b65b63dc2"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-61c6a92d704e52d0ff9f": {
+      "ranked_ids": [
+        "L-969bdfc9fd4ab756c513"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-13bf279075424f9d062c": {
+      "ranked_ids": [
+        "L-ae68ec40362b0ca71844",
+        "L-ce0b19016001ef68d15a"
+      ],
+      "relevant": 2,
+      "scores": {
+        "1": {
+          "recall": 0.5,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-44c1d81209f1973c2f94": {
+      "ranked_ids": [
+        "L-5c9bb063bdd444b67268",
+        "L-37e4f26917e953bf3518"
+      ],
+      "relevant": 2,
+      "scores": {
+        "1": {
+          "recall": 0.5,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-78c01f45929428ddc3ff": {
+      "ranked_ids": [
+        "L-cf99fcf98cd11ff2c04e",
+        "L-a62bf45c7126c8be4498",
+        "L-cb7f60fd48e606a6f05d",
+        "L-204355b5d0b545bad027",
+        "L-a11d9a8fdcd45b08012f",
+        "L-52b3e0d292525afaec40",
+        "L-e71316a070367d5cf773",
+        "L-6dcfc28025fc15a7db9f",
+        "L-a7e9ea13fa623fc4633b",
+        "L-642bfa76d9e5c8aa93a2"
+      ],
+      "relevant": 16,
+      "scores": {
+        "1": {
+          "recall": 0.0625,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 0.3125,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 0.625,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-c57d21c51672612ec132": {
+      "ranked_ids": [
+        "L-94f5ccd78ef1b2fa426e"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-ea60254178c21d7ab3a3": {
+      "ranked_ids": [
+        "L-5bbe067510b28f739f87"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-5c39ab08b6f0c3c9bf6a": {
+      "ranked_ids": [
+        "L-d16c5e5f82dce347f570"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-c355f723bea47a8d02ed": {
+      "ranked_ids": [
+        "L-8ddf2fcf5add084533af",
+        "L-5ac0ea7ef2176cd11e36",
+        "L-6e1f05c5e46cb7c53987",
+        "L-4915cb9bd94bc7be31e1",
+        "L-5fceac15e8fc44c2174c",
+        "L-08b2d1a01e9444f3d419",
+        "L-e2ebe335af6e2e7ff129",
+        "L-6bfafd8fceea4de77160",
+        "L-9b5ddf45201fbe4e5862",
+        "L-6acbff281fba5eac63bf"
+      ],
+      "relevant": 7,
+      "scores": {
+        "1": {
+          "recall": 0.14285714285714285,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 0.7142857142857143,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-50e2d11d835592b1c2fe": {
+      "ranked_ids": [
+        "L-14f22d24f4c5cf008432"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-746cb14175b115e23160": {
+      "ranked_ids": [
+        "L-353fbfefa55e01aa1857",
+        "L-964f1ab4ed0ff4edce8c",
+        "L-21786ec5f42c635a9973",
+        "L-3936f7ec6ea74e86078b",
+        "L-5347805d1112c778af89",
+        "L-ca55733cab14a1a7f6f6",
+        "L-49b9c70e3c021453c1c7",
+        "L-222285086a58bfb67ea6",
+        "L-f294a5fcb4eb41ba192a",
+        "L-1307a2d2a2f94538de10"
+      ],
+      "relevant": 42,
+      "scores": {
+        "1": {
+          "recall": 0.023809523809523808,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 0.11904761904761904,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 0.23809523809523808,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-b7a3354578462ebe7d7b": {
+      "ranked_ids": [
+        "L-2d7b427554d1fcdd6b2a"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "H-7631815d9be3295a022e": {
+      "ranked_ids": [
+        "L-9e54eb08c628721b5925",
+        "L-6e26152355846411adb9",
+        "L-087237f091be9ad24f12"
+      ],
+      "relevant": 3,
+      "scores": {
+        "1": {
+          "recall": 0.3333333333333333,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-90999e1248f84980b386": {
+      "ranked_ids": [
+        "L-30510b7cf3756caa6b86",
+        "L-70908aca9ea7f3dfefd2",
+        "L-9e8a52c28baa6f99ca71",
+        "L-e880ebccf685056a0378",
+        "L-acb13dba2ae7b93ee87a",
+        "L-9cc80b3d44a942875bba",
+        "L-f65b559afb78ae9797d6",
+        "L-dddc1279fe80b9a9ed03",
+        "L-7a21a7cd6391dc6f4043",
+        "L-e06c6ba09e6d79f7e460"
+      ],
+      "relevant": 9,
+      "scores": {
+        "1": {
+          "recall": 0.1111111111111111,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 0.5555555555555556,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    },
+    "H-e943c32b752bffb933db": {
+      "ranked_ids": [
+        "L-e7d63764a9c72a84d8d0",
+        "L-737d220edc78aaf3d12e"
+      ],
+      "relevant": 2,
+      "scores": {
+        "1": {
+          "recall": 0.5,
+          "ndcg": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      }
+    }
+  }
+}
