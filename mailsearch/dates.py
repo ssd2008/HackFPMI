@@ -132,14 +132,16 @@ def parse_date_scope(query: str, reference: date) -> DateScope:
             return scope(match, reference - timedelta(days=count - 1), reference)
 
         match = re.search(
-            r"\b(?:за|на|в)\s+(?:(прошлую|прошлой|минувшую|этой|эту|текущую|последнюю|"
-            r"прошлый|прошлом|этом|этот|текущий|последний)\s+)?(недел[юеи]|месяц[е]?)\b", text
+            r"\b(?:за|на|в)\s+(?:(?P<period>прошл(?:ую|ой|ый|ом)|минувш(?:ую|ей|ий|ем)|"
+            r"эт(?:у|ой|от|ом)|текущ(?:ую|ей|ий|ем)|последн(?:юю|ей|ий|ем))\s+)?"
+            r"(?:(?P<calendar>календарн(?:ую|ой|ый|ом))\s+)?(?P<unit>недел[юеи]|месяце?)\b", text
         )
         if match:
-            period = match[1] or ""
-            previous = period.startswith(("прошл", "минувш"))
-            current = period.startswith(("эт", "текущ"))
-            if match[2].startswith("недел"):
+            period = match["period"] or ""
+            calendar_period = bool(match["calendar"])
+            previous = period.startswith(("прошл", "минувш")) or (calendar_period and period.startswith("последн"))
+            current = period.startswith(("эт", "текущ")) or (calendar_period and not period)
+            if match["unit"].startswith("недел"):
                 monday = reference - timedelta(days=reference.weekday())
                 if previous:
                     return scope(match, monday - timedelta(days=7), monday - timedelta(days=1))

@@ -14,6 +14,21 @@ from tools.import_mail_export import write_corpus
 
 
 class ReceiptDates(unittest.TestCase):
+    def test_calendar_periods_across_a_year_boundary(self):
+        at = date(2025, 1, 3)  # Friday
+        for expression, start, end in (
+            ("за прошлую календарную неделю", date(2024, 12, 23), date(2024, 12, 29)),
+            ("за последний календарный месяц", date(2024, 12, 1), date(2024, 12, 31)),
+            ("в минувшем календарном месяце", date(2024, 12, 1), date(2024, 12, 31)),
+            ("на текущей календарной неделе", date(2024, 12, 30), at),
+            ("за календарный месяц", date(2025, 1, 1), at),
+            ("за последнюю неделю", date(2024, 12, 28), at),
+        ):
+            with self.subTest(expression=expression):
+                scope = parse_date_scope("Уведомления " + expression, at)
+                self.assertEqual((scope.start, scope.end), (start, end))
+                self.assertEqual(scope.text, "уведомления")
+
     def test_price_is_not_a_year(self):
         at = date(2028, 12, 22)
         self.assertFalse(parse_date_scope("Квитанция за 2300 рублей", at).bounded)

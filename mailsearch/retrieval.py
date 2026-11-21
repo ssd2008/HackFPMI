@@ -116,6 +116,43 @@ _CONDITIONAL = re.compile(
     r"\b(?:если|бы|ли|мож(?:ет|но|ете)|возмож[а-я]*|вероятно|вдруг|чтобы|"
     r"при условии|при отказе|будет|будут)\b|\?"
 )
+# A completed order cancellation and a warning about one share almost every
+# content word. This check is deliberately limited to an explicit order reference.
+_CANCEL_ROOT = re.compile(r"\b(?:отмен|аннулир)")
+_CANCEL_PAST = r"(?:отмен(?:ен(?:н[а-я]+|[аоы])?|ил[аио]?)|аннулирова(?:н(?:н[а-я]+|[аоы])?|л[аио]?))"
+_CANCEL_NOUN = r"(?:отмен[аеуы]|аннулировани[еяю])"
+_ORDER_MOD = r"(?:(?:уже|все[ -]таки|действительно|фактически|окончательно|был[аи]?|наш|ваш|этот|мой)\s+)*"
+_ORDER_LINK = r"(?:\s*(?:номер|№|no\.?)?\s*[:#–-]?\s*<ref>)?"
+_COMPLETED_ORDER = re.compile(
+    rf"\bзаказ(?:ы)?\b{_ORDER_LINK}\s+{_ORDER_MOD}{_CANCEL_PAST}\b|"
+    rf"\b{_CANCEL_PAST}\s+{_ORDER_MOD}(?:заказ(?:ы)?|его)\b|"
+    rf"\bего\s+{_ORDER_MOD}{_CANCEL_PAST}\b"
+)
+_CANCEL_ORDER_NOUN = re.compile(rf"\b{_CANCEL_NOUN}\s+(?:(?:этого|моего|нашего|вашего)\s+)?заказ(?:а|ов)\b")
+_EVIDENCE_REQUEST = re.compile(
+    r"\b(?:подтвержд[а-я]*|фактическ[а-я]*|состоявш[а-я]*|совершивш[а-я]*|"
+    r"(?:письм[оае]|уведомлени[ея]|сообщени[ея]|извещени[ея])\s+об)\b"
+)
+_ORDER_MENTION = re.compile(
+    r"\bзаказ(?:а|у|е|ом|ы|ов)?\b\s*(?:(?:с\s+)?номер(?:ом)?|№|no\.?)?\s*[:#–-]?\s*"
+    r"(?P<id><ref>|(?=[\w/-]*\d)[\w/-]{4,64})"
+)
+_WARNING = re.compile(
+    r"\b(?:если|иначе|чтобы|придется|мож(?:ет|ем|но)|могут|буд(?:ет|ут|ем)|"
+    r"возможн[а-я]*|риск[а-я]*|при\s+(?:не[а-я]*|отсутствии)|"
+    r"(?:отмен|аннулиру)(?:ят|им|ит|ится|ятся|ют|ем|ет|ется|ются))\b"
+)
+_UNASSERTED = re.compile(r"\bли\b|\bне\s+(?:был[аои]?\s+)?(?:отмен|аннулир|подтвержд)|\?")
+_CANCEL_VERB = r"(?:отмен[а-я]*|аннулир[а-я]*)"
+_WARNING_ORDER = re.compile(
+    rf"\b(?:заказ(?:ы)?\b{_ORDER_LINK}|его|он)\s+"
+    rf"(?:(?:буд[а-я]*|мож[а-я]*|могут|быть|автоматически|придется|нам|мы|тогда)\s+){{0,5}}{_CANCEL_VERB}\b|"
+    rf"\b{_CANCEL_VERB}\s+(?:(?:этот|ваш|наш|мой)\s+)?(?:заказ(?:ы)?|его)\b"
+)
+_CANCEL_CLAUSE = re.compile(r"[\r\n,;]+|(?<=[.!?])\s+|\b(?:но|однако|затем)\b")
+_CONFIRM_CANCEL = re.compile(
+    r"\b(?:отмен[ау]\s+(?:уже\s+|была\s+)?подтвер[жд][а-я]*|подтвер[жд][а-я]*\s+отмен[ауые])\b"
+)
 _SELECT_REQUEST = re.compile(r"^\s*(?:найди(?:те)?|покажи(?:те)?|какие|каких|перечисли)\b")
 _REQUEST_WORDS = {
     _stem(w) for w in (
@@ -187,6 +224,48 @@ def _features(words: list[str], *, query: bool = False) -> list[str]:
             continue
         result.append(_ALIAS.get(stem, stem).replace(",", "."))
     return result
+
+
+def _warning_without_confirmation(text: str, reference: re.Pattern) -> bool:
+    """Remove only an identified order's warning, preserving ambiguous or mixed mail."""
+    text = reference.sub("<ref>", text.lower().replace("ё", "е"))
+    active = False
+    warned = False
+    for clause in _CANCEL_CLAUSE.split(text):
+        refs = {match["id"] for match in _ORDER_MENTION.finditer(clause)}
+        if refs:
+            if "<ref>" in refs and len(refs) > 1:
+                return False  # Two orders in one clause have ambiguous ownership.
+            active = "<ref>" in refs
+        if not active or not _CANCEL_ROOT.search(clause):
+            continue
+        if _WARNING.search(clause) and (_WARNING_ORDER.search(clause) or _CANCEL_ORDER_NOUN.search(clause)):
+            warned = True
+            continue
+        if "?" in clause and _COMPLETED_ORDER.search(clause):
+            return False
+        if (_COMPLETED_ORDER.search(clause) or _CANCEL_ORDER_NOUN.search(clause) or
+                _CONFIRM_CANCEL.search(clause)) and not _UNASSERTED.search(clause):
+            return False
+    return warned
+
+
+def _completed_order_reference(query: str, identifiers: list[str]) -> re.Pattern | None:
+    if len(identifiers) != 1 or "@" in identifiers[0] or not _CANCEL_ROOT.search(query):
+        return None
+    identifier = identifiers[0].removeprefix("code:")
+    reference = re.compile(rf"(?<![\w-]){re.escape(identifier)}(?![\w-])", re.I)
+    marked = reference.sub("<ref>", query)
+    if _WARNING.search(marked) or re.search(r"\b(?:ли|риск[а-я]*|предупреж[а-я]+)\b", marked):
+        return None
+    if "?" in marked and not re.search(r"\b(?:найди|покажи|где|в каком письме)\b", marked):
+        return None
+    plain = marked.replace("?", "")
+    if _UNASSERTED.search(plain):
+        return None
+    if _COMPLETED_ORDER.search(plain) or (_CANCEL_ORDER_NOUN.search(plain) and _EVIDENCE_REQUEST.search(plain)):
+        return reference
+    return None
 
 
 def _decisions(clauses: list[str]) -> tuple[int, set[str]]:
@@ -336,6 +415,7 @@ class SearchEngine:
     def __init__(self, documents: list[dict], cache_dir: Path):
         self.ids = [doc["doc_id"] for doc in documents]
         self.by_id = {doc_id: i for i, doc_id in enumerate(self.ids)}
+        self.documents = documents
         # The public format embeds its subject in doc. A separate subject field
         # in an imported mailbox is searchable without inventing adjacent words.
         self.literal_texts = [
@@ -421,6 +501,16 @@ class SearchEngine:
                 return []
             if not len(rows):
                 return []
+        if identifiers and not phrases:
+            reference = _completed_order_reference(query.lower().replace("ё", "е"), identifiers)
+            if reference:
+                rows = np.asarray([
+                    row for row in rows if not _warning_without_confirmation(
+                        (self.documents[row].get("subject") or "") + "\n" + self.documents[row]["doc"], reference
+                    )
+                ], dtype=rows.dtype)
+                if not len(rows):
+                    return []
         if identifiers and len(rows) == 1:
             return [(self.ids[rows[0]], 1.0)]
         if articles and set(features) == set(articles):
