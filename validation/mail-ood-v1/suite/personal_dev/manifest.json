@@ -1,0 +1,38 @@
+{
+  "documents": 9366,
+  "queries": 1815,
+  "qrels": 7565,
+  "primary_tasks": 1967,
+  "empty": 152,
+  "variants": 2212,
+  "reviewed_primary": 15,
+  "semantic_silver": 277,
+  "rag_answerable": 1,
+  "rag_unanswerable": 0,
+  "families": {
+    "sender": 1065,
+    "subject": 460,
+    "semantic": 239,
+    "future_subject": 150,
+    "semantic_no_date": 38,
+    "reviewed_semantic": 15
+  },
+  "positive_links": 4530,
+  "positive_documents": 2737,
+  "mailboxes": [
+    "box-37e4ff4a5a57"
+  ],
+  "single": 972,
+  "multiple": 843,
+  "sha256": {
+    "cases.jsonl": "af937d83c534f5971d25c45292bed5cba77d3c5caf5cf1cf583f1e55c6234995",
+    "documents.jsonl": "f882a2fe4f490127fe48feb9c44bfa76ef32d48a6971aa401561582ba8110998",
+    "qrels_dev.jsonl": "32373a3f49d1a3024b9319c21ca6f1e04612692fd39465496b42875b18d6c743",
+    "qrels_empty.jsonl": "f8c14bee1c791015e2cf7c69ebc4b462368aff4dd826ed09f82ce8ad25942a57",
+    "qrels_variants.jsonl": "465419d9c9dba51781cb4896ffd30af50c12c6022fe6ef55a223d492cb0390ae",
+    "queries_dev.jsonl": "3039f2a4eb2607845dd511f879d47887e3a30698553f5c68a0370c945187614b",
+    "queries_empty.jsonl": "e5111cf441243b1b264d35533037235ab816b61320326211046d12cf67f2de02",
+    "queries_variants.jsonl": "dffa24f4d24ed4a8207528e302d7a893b22567622e20c5e6d385bc3a43ecd73b",
+    "review_queue.jsonl": "ac97de1c3b4b125594cc7dcde6371e95bc6d153cde318b9a650070fa11a46b94"
+  }
+}

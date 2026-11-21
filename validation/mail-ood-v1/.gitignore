@@ -1,0 +1,3 @@
+suite/*/documents.jsonl
+reports/
+__pycache__/
