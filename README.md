@@ -19,6 +19,26 @@
 .venv/bin/python -m mailsearch
 ```
 
+## Запуск демо с GitHub Pages
+
+На Mac с Apple Silicon и macOS 14 или новее установите `uv` и `cloudflared` через Homebrew. Запустите FastAPI из корня проекта, указав origin сайта Pages — схему и домен без пути репозитория и без завершающего слэша.
+
+```sh
+brew install uv cloudflared
+MAILSEARCH_FRONTEND_ORIGIN=https://ssd2008.github.io ./run.sh
+```
+
+Когда приложение запустится, откройте второй терминал.
+
+```sh
+curl -fsS http://127.0.0.1:8765/api/mailboxes -o /dev/null
+cloudflared tunnel --url http://127.0.0.1:8765
+```
+
+В [HackFPMI-demo](https://github.com/ssd2008/HackFPMI-demo) укажите HTTPS-адрес из вывода `cloudflared` в атрибуте `content` у тега `<meta name="mailsearch-api-origin">` в корневом `index.html`. После пуша в `main` GitHub Pages опубликует обновление. При переносе изменений интерфейса из `static/` сохраните адрес API в корневом `index.html` сайта.
+
+Quick Tunnel работает, пока запущен `cloudflared`. После перезапуска туннеля обновите адрес в `index.html`. Для постоянного адреса можно использовать [именованный Cloudflare Tunnel](https://developers.cloudflare.com/tunnel/get-started/).
+
 ## Что показать на демо
 
 1. Откройте ящик 10. Кнопка **Сумма заказа** подставляет запрос «Какова сумма заказа SYN-077f40913b?» и дату 19 декабря 2027 года. Нажмите **Получить ответ**. Письмо содержит сумму **431,03 рубля**. Ссылка **[1]** откроет оригинал с номером заказа и суммой. Это отдельный пример работы RAG, которого нет в публичных запросах. [Пример ответа в интерфейсе](results/demo.jpg)
