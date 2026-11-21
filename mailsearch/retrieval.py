@@ -7,31 +7,26 @@ from collections import Counter, defaultdict
 from datetime import date
 from pathlib import Path
 import re
-import threading
 
 import numpy as np
 from scipy.sparse import csr_matrix
-import snowballstemmer
 
 from .dates import parse_date_scope
 from .dense import DenseIndex
-from .private_cache import text_cache
+from .private_cache import stem_word, text_cache
 
 
 _EMAIL = r"[a-z0-9_.+%-]+@[a-z0-9.-]+\.[a-z]{2,}"
 _OPAQUE = r"(?:syn|l)-[a-z0-9]+(?:-[a-z0-9]+)*"
 _TOKEN = re.compile(rf"{_EMAIL}|{_OPAQUE}|\d+(?:[.,:/-]\d+)+|[а-я]+|[a-z_][a-z_\d]*|\d+")
 _SUBJECT = re.compile(r"(?im)^\s*(?:тема|subject)\s*:\s*([^\r\n]+)")
-_LOCAL = threading.local()
 
 
 @text_cache(maxsize=80_000)
 def _stem(word: str) -> str:
     if word.isascii() or len(word) < 3:
         return word
-    if not hasattr(_LOCAL, "stemmer"):
-        _LOCAL.stemmer = snowballstemmer.stemmer("russian")
-    return _LOCAL.stemmer.stemWord(word)
+    return stem_word("russian", word)
 
 
 # Snowball removes endings; these common nominalizations, synonyms and aspect

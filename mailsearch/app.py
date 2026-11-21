@@ -14,13 +14,13 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, ConfigDict, Field
 
 from .assistant import assist, watch_matches
-from .visitor_api import VisitorAccess, router as visitor_router
+from .visitor_api import VisitorAccess, frontend_origin as parse_frontend_origin, router as visitor_router
 from .visitor_inbox import VisitorInbox
 from .store import CACHE, DATA, ROOT, MailStore, load_jsonl
 from .visitor_mail import VisitorError, Visitors
 
 
-frontend_origin = getenv("MAILSEARCH_FRONTEND_ORIGIN", "").strip()
+frontend_origin = parse_frontend_origin(getenv("MAILSEARCH_FRONTEND_ORIGIN", ""))
 DEMO_CORPUS_SHA256 = "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5"
 
 

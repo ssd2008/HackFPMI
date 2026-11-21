@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 from copy import copy
-
 import hashlib
 import os
 from pathlib import Path
@@ -17,6 +16,7 @@ from filelock import FileLock
 from transformers import AutoModel, AutoTokenizer
 
 from . import E5_MODEL as MODEL, E5_REVISION as REVISION
+from .private_cache import protect_tokenizer
 
 DIMENSION = 384
 TOKEN_LIMIT = 120
@@ -74,6 +74,7 @@ class DenseIndex:
 
     @torch.inference_mode()
     def _encode(self, texts: list[str], device: str) -> np.ndarray:
+        protect_tokenizer(self.tokenizer)
         batch = self.tokenizer(
             texts, max_length=TOKEN_LIMIT, padding=True, truncation=True, return_tensors="pt"
         ).to(device)

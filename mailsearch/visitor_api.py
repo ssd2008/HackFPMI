@@ -17,6 +17,23 @@ from .visitor_mail import RELOGIN, SYNC_SECONDS, VisitorError
 _FORWARDED = {"forwarded", "x-forwarded-for", "x-forwarded-host", "x-forwarded-proto", "cf-connecting-ip", "x-real-ip"}
 
 
+def frontend_origin(value):
+    if not value.strip():
+        return ""
+    try:
+        parsed = urlsplit(value.strip())
+        host, port = parsed.hostname, parsed.port
+        if (not host or "*" in value or any(ord(c) < 32 for c in value) or parsed.username is not None
+                or parsed.password is not None or parsed.path not in {"", "/"} or parsed.query or parsed.fragment
+                or not (parsed.scheme == "https" or parsed.scheme == "http" and host in {"localhost", "127.0.0.1", "::1"})):
+            raise ValueError
+    except ValueError:
+        raise ValueError("MAILSEARCH_FRONTEND_ORIGIN должен содержать точный HTTPS-адрес сайта.") from None
+    host = "[" + host + "]" if ":" in host else host
+    default_port = 443 if parsed.scheme == "https" else 80
+    return f"{parsed.scheme}://{host}" + (f":{port}" if port is not None and port != default_port else "")
+
+
 def _loopback(scope, headers):
     try:
         peer = ip_address(scope["client"][0])
@@ -80,6 +97,29 @@ class VisitorAccess:
         elif visitor_path and not create:
             return await deny(401, RELOGIN)
 
+        downstream_receive = receive
+        if visitor_path and scope["method"] == "POST":
+            # Connecting requires just three small fields. Bound chunked requests as well as Content-Length.
+            data = bytearray()
+            while True:
+                part = await receive()
+                if part["type"] == "http.disconnect":
+                    return
+                chunk = part.get("body", b"")
+                if len(data) + len(chunk) > 16_384:
+                    return await deny(413, "Слишком большой запрос подключения.")
+                data.extend(chunk)
+                if not part.get("more_body"):
+                    break
+            body = bytes(data)
+
+            async def downstream_receive():
+                nonlocal body
+                if body is None:
+                    return await receive()
+                result, body = body, None
+                return {"type": "http.request", "body": result, "more_body": False}
+
         # A logout or expiry while search/generation is running must also suppress its pending output.
         visitor = state["visitor"]
         discarded = False
@@ -94,7 +134,7 @@ class VisitorAccess:
 
         protect_response = visitor is not None and path != "/api/visitor/logout"
         with private_request() if visitor else nullcontext():
-            return await self.app(scope, receive, owned_send if protect_response else private_send)
+            return await self.app(scope, downstream_receive, owned_send if protect_response else private_send)
 
 
 class Empty(BaseModel):

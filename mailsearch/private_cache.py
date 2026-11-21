@@ -46,3 +46,13 @@ def stem_word(language, word):
         import snowballstemmer
         caches[language] = snowballstemmer.stemmer(language)
     return caches[language].stemWord(word)
+
+
+def protect_tokenizer(tokenizer):
+    """The resident fast tokenizers also memoize input pieces internally."""
+    if _private.get() is None or getattr(tokenizer, "_mailsearch_private_ready", False):
+        return
+    model = tokenizer.backend_tokenizer.model
+    model._resize_cache(0)
+    model._clear_cache()
+    tokenizer._mailsearch_private_ready = True

@@ -4,7 +4,7 @@ import asyncio
 import imaplib
 from pathlib import Path
 from tempfile import TemporaryDirectory
-from threading import Event
+from threading import Event, Thread
 from time import monotonic, sleep
 import unittest
 from unittest.mock import Mock, patch
@@ -187,6 +187,10 @@ class VisitorTests(unittest.TestCase):
         self.assertEqual(self.visitors.row_count, 0)
 
     def test_cross_origin_tls_request_headers_limits_and_password_redaction(self):
+        for configured in ["*", "https://*.example", "http://public.example", "https://demo.example/path"]:
+            with self.assertRaises(ValueError):
+                api.parse_frontend_origin(configured)
+        self.assertEqual(api.parse_frontend_origin(ORIGIN + "/"), ORIGIN)
         self.app.state.public_profile = True
         origin = {"Origin": ORIGIN}
         path = "/api/visitor/session"
@@ -198,6 +202,8 @@ class VisitorTests(unittest.TestCase):
         self.assertIn("no-store", preflight.headers["cache-control"])
         self.assertEqual(self.remote.post(path, json={}, headers=origin).status_code, 403)
         self.assertEqual(self.remote.post(path, content="{}", headers={**origin, **EDIT}).status_code, 403)
+        oversized = self.remote.post(path, json={"padding": "x" * 20_000}, headers={**origin, **EDIT})
+        self.assertEqual(oversized.status_code, 413)
         self.assertEqual(self.remote.post(path, json={}, headers={**EDIT, "Origin": "https://other.example"}).status_code, 403)
         self.assertEqual(self.remote.get("/api/visitor/accounts", headers=origin).headers["access-control-allow-origin"], ORIGIN)
         headers = self.session(self.remote, {**origin, **EDIT})
@@ -242,6 +248,33 @@ class VisitorTests(unittest.TestCase):
         self.app.state.visitors = fresh
         self.assertEqual(self.local.get("/api/visitor/accounts", headers=second).status_code, 401)
         self.assertFalse(fresh.sessions)
+
+    def test_logout_suppresses_a_read_that_has_not_yet_returned(self):
+        headers = self.session()
+        box = self.connect(headers, "first-app").json()["account"]["id"]
+        self.synced(headers)
+        owner = self.visitors.resolve(headers["Authorization"].split()[1])
+        store = self.visitors.inbox(owner, box)
+        entered, release = Event(), Event()
+        responses = []
+
+        def paused(*args):
+            entered.set()
+            release.wait(5)
+            return {"sensitive_fixture_value": "private"}
+
+        with patch.object(store, "inbox", side_effect=paused):
+            worker = Thread(target=lambda: responses.append(self.local.get(
+                "/api/inbox", params={"mailbox": box, "date": DATE}, headers=headers)))
+            worker.start()
+            try:
+                self.assertTrue(entered.wait(2))
+                self.local.post("/api/visitor/logout", json={}, headers={**headers, **EDIT})
+            finally:
+                release.set()
+                worker.join(5)
+        self.assertEqual(responses[0].status_code, 401)
+        self.assertNotIn("sensitive_fixture_value", responses[0].text)
 
     def test_worker_honours_process_budget_and_reconciles_expunged_uids(self):
         headers = self.session()
