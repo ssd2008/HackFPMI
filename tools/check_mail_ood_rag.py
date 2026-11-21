@@ -1,4 +1,4 @@
-"""Run the two open mail OOD RAG fixtures over loopback, caching private rows locally."""
+"""Run mail OOD RAG fixtures over loopback, caching private rows locally."""
 import argparse
 from collections import Counter
 from hashlib import sha256
@@ -14,6 +14,8 @@ ROOT = Path(__file__).resolve().parents[1]
 PRIVATE = ROOT / ".cache/ood-mail"
 ORIGINAL_REPORT = ROOT / "results/ood_mail_rag.json"
 DEFAULT_VERSIONS = {"before": "5fe3f5d", "after": "b37c309"}
+HOLDOUT_FIXTURES = {"vk": "98d6d16bcc54c184669afb1c45c5ca673c339e6c7d8b4aff09b0bf77dc12e94f",
+                    "personal": "5b5e3255dbcf66afe0fd211fc0bc992f2a2a6722e9d35259b7d973d76710e15a"}
 
 
 def digest(path):
@@ -25,11 +27,13 @@ def read_lines(path):
         return [json.loads(line) for line in source if line.strip()]
 
 
-def load_inputs(pool, source):
-    split = source + "_dev"
-    fixture = pool / "rag" / (split + ".json")
-    panel_path = pool / "panels" / (split + ".jsonl")
-    folder = pool / "suite" / split
+def load_inputs(pool, source, split="dev"):
+    suite = f"{source}_{split}"
+    fixture = pool / "rag" / (suite + ".json")
+    panel_path = pool / "panels" / (suite + ".jsonl")
+    folder = pool / "suite" / suite
+    if split == "holdout" and digest(fixture) != HOLDOUT_FIXTURES[source]:
+        raise ValueError("The supplied holdout RAG fixture changed.")
     docs_path = folder / "documents.jsonl"
     definition = json.loads(fixture.read_text())
     assert definition["corpus_sha256"] == digest(docs_path)
@@ -60,8 +64,8 @@ def server_check(url, data):
     return "sha256"
 
 
-def acquire(pool, urls, phase, cache, versions):
-    inputs = {s: load_inputs(pool, s) for s in ("vk", "personal")}
+def acquire(pool, urls, phase, cache, versions, split="dev"):
+    inputs = {s: load_inputs(pool, s, split) for s in ("vk", "personal")}
     cache.mkdir(mode=0o700, parents=True, exist_ok=True)
     checks = {(s, v): server_check(urls[s, v], inputs[s]) for s in inputs for v in versions}
     for s, data in inputs.items():
@@ -74,7 +78,7 @@ def acquire(pool, urls, phase, cache, versions):
                 raise ValueError("Cached run uses a different frozen input or revision.")
             path.write_text(json.dumps(stamp) + "\n")
     for current_phase in (("panel", "remaining") if phase == "all" else (phase,)):
-        # Personal has a single case. Finish that independent stratum first.
+        # Finish the smaller personal stratum first.
         for source in ("personal", "vk"):
             data = inputs[source]
             ids = data["panel"] if current_phase == "panel" else [i for i in data["cases"] if i not in set(data["panel"])]
@@ -265,13 +269,13 @@ def reply_signature(row):
     return (row["mode"], row["answer"], tuple(row["opened_source_ids"]))
 
 
-def control_changes(pool, urls, cache, versions, note):
+def control_changes(pool, urls, cache, versions, note, split="dev"):
     """Repeat only previously changed responses, sequentially in opposite version orders."""
     location = cache / "load-control"
     location.mkdir(mode=0o700, exist_ok=True)
     overall = {"versions": versions, "protocol": "Both versions' exact top five are fetched for every changed first-pass response. Each changed case is re-run twice per version in a single client. The second repetition reverses version order. The original primary measurements are preserved.", "operational_note": note, "sources": {}}
     for source in ("vk", "personal"):
-        data = load_inputs(pool, source)
+        data = load_inputs(pool, source, split)
         for v in versions:
             server_check(urls[source, v], data)
         folder = location / source
@@ -319,7 +323,7 @@ def control_changes(pool, urls, cache, versions, note):
     (location / "summary.json").write_text(json.dumps(overall, ensure_ascii=False, indent=2) + "\n")
 
 
-def evaluation(pool, output, cache, versions):
+def evaluation(pool, output, cache, versions, split="dev"):
     result = {"status": "complete", "versions": versions, "method": {
         "scope": "Original open RAG fixtures only. The authored retrieval panels are reported by intersection with these fixtures. All remaining open cases are evaluated once in the full section. Panels are subsets of the full rows.",
         "comparison": "Each query is posted unchanged to both real /api/answer endpoints with its own mailbox and as-of date. One request at a time, original response cache, two pinned local model services. Baseline reports mailbox counts, candidate confirms the corpus digest.",
@@ -327,8 +331,12 @@ def evaluation(pool, output, cache, versions):
         "unanswerable": "The referenced order letter is present but omits the requested tracking number. Reporting another number as tracking is distinct from a real excerpt about the order that fails to answer.",
         "privacy": "Published aggregates only. Raw responses, source IDs and resumed inputs stay in the private local cache."
     }, "sources": {}}
+    full_section = "full_open" if split == "dev" else "full_holdout"
+    if split == "holdout":
+        result["split"] = split
+        result["method"]["scope"] = "The supplied holdout RAG fixtures are evaluated in full. Author-panel rows are a subset."
     for source in ("vk", "personal"):
-        data = load_inputs(pool, source)
+        data = load_inputs(pool, source, split)
         parsed = {}
         corpus_checks = {}
         for v in versions:
@@ -345,7 +353,7 @@ def evaluation(pool, output, cache, versions):
                     assert row["id"] == cid
                     parsed[v][cid] = grade(row, case, data["metadata"][cid], data["docs"])
         subsets = {}
-        for key, selected in (("author_panel", data["panel"]), ("full_open", list(data["cases"]))):
+        for key, selected in (("author_panel", data["panel"]), (full_section, list(data["cases"]))):
             common = [i for i in selected if all(i in parsed[v] for v in versions)]
             if len(common) != len(selected):
                 result["status"] = "in_progress"
@@ -381,7 +389,7 @@ def evaluation(pool, output, cache, versions):
             counts[source] = len(files)
         result["method"]["reused_baseline_api_responses"] = counts
     if result["status"] == "complete" and any(
-        cohort["full_open"][v]["all"]["counts_by_outcome"].get("requires_review", 0)
+        cohort[full_section][v]["all"]["counts_by_outcome"].get("requires_review", 0)
         for cohort in result["sources"].values() for v in versions
     ):
         result["status"] = "needs_manual_review"
@@ -398,6 +406,7 @@ def evaluation(pool, output, cache, versions):
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--pool", type=Path, required=True)
+    p.add_argument("--split", choices=("dev", "holdout"), default="dev")
     p.add_argument("--phase", choices=("panel", "remaining", "all"), default="all")
     p.add_argument("--score-only", action="store_true", help="Recompute aggregates from saved local responses.")
     p.add_argument("--control-changes", action="store_true",
@@ -414,8 +423,10 @@ def main():
     versions = {"before": a.baseline_revision, "after": a.candidate_revision}
     if not all(label.strip() for label in versions.values()):
         p.error("Both revision identifiers must be nonempty.")
-    original = versions == DEFAULT_VERSIONS
+    original = versions == DEFAULT_VERSIONS and a.split == "dev"
     signature = sha256(json.dumps(versions, sort_keys=True).encode()).hexdigest()[:12]
+    if a.split == "holdout":
+        signature = f"holdout-{signature}"
     cache = (a.cache or (PRIVATE / ("rag" if original else f"rag-{signature}"))).resolve()
     if cache.is_relative_to(ROOT) and not cache.is_relative_to((ROOT / ".cache").resolve()):
         p.error("For a cache inside this repository, choose the ignored .cache directory for raw responses.")
@@ -425,10 +436,10 @@ def main():
     urls = {(s, v): getattr(a, s + "_" + v).rstrip("/") for s in ("vk", "personal") for v in versions}
     os.umask(0o077)
     if not a.score_only:
-        acquire(a.pool, urls, a.phase, cache, versions)
+        acquire(a.pool, urls, a.phase, cache, versions, a.split)
     if a.control_changes:
-        control_changes(a.pool, urls, cache, versions, a.control_note)
-    evaluation(a.pool, output, cache, versions)
+        control_changes(a.pool, urls, cache, versions, a.control_note, a.split)
+    evaluation(a.pool, output, cache, versions, a.split)
 
 
 if __name__ == "__main__":
