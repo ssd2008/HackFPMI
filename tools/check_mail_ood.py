@@ -1,4 +1,4 @@
-"""Evaluate the two released mail OOD dev suites on paired /api/search rankings.
+"""Evaluate mail OOD suites on paired /api/search rankings.
 
 Supply --pool with the distributed validation/mail-ood-v1 folder (including
 both documents.jsonl snapshots) and --runs with a local private directory.
@@ -36,6 +36,14 @@ SOURCE = "9aa8aa1173ce3257af22fedf59cc8f3948044653"
 BEFORE = "5fe3f5d3739ac523d0b4088f15eef4b50391dd28"
 AFTER = "b37c309ff3d9e83f80a726325a3b9b0ee56c33c1"
 SUITES = ("vk_dev", "personal_dev")
+# The additional splits are local releases. Pin the manifests and panel lists,
+# which do not contain recoverable message or query text in this repository.
+LOCAL_FINGERPRINTS = {
+    "vk_holdout": ("7636c274c33ab1c58e2add793bc238f42bd24a045a077aab824770fae6e9207b",
+                   "150802da79054d6ce1607224615eea87f2da453fa6490034373ae7d6ba122157"),
+    "personal_holdout": ("32f83d8b5f3a10c1cadc97619da5d011f2c80b98f4997323cbdf62232bd6adde",
+                         "297a9cd9eb9ff6a6864c949a0321685a96721e2799615ccfd5a046f17a06c5ba"),
+}
 SIDES = ("before", "after")
 SEED = 2026
 RESAMPLES = 10_000
@@ -79,8 +87,11 @@ def check_inputs(pool, name):
     ds = pool / "suite" / name
     manifest = ds / "manifest.json"
     panel = pool / "panels" / (name + ".jsonl")
-    for file, rel in ((manifest, f"suite/{name}/manifest.json"), (panel, f"panels/{name}.jsonl")):
-        pinned(file, SOURCE, "validation/mail-ood-v1/" + rel)
+    if name in LOCAL_FINGERPRINTS:
+        confirm((digest(manifest), digest(panel)) == LOCAL_FINGERPRINTS[name], f"Local release changed: {name}")
+    else:
+        for file, rel in ((manifest, f"suite/{name}/manifest.json"), (panel, f"panels/{name}.jsonl")):
+            pinned(file, SOURCE, "validation/mail-ood-v1/" + rel)
     declared = json.loads(manifest.read_bytes())
     for file, expected in declared["sha256"].items():
         confirm(digest(ds / file) == expected, f"{name}: checksum mismatch for {file}")
@@ -106,7 +117,7 @@ def run_http(pool, runs, urls, workers):
 
     with ThreadPoolExecutor(max_workers=4) as group:
         for panel in (False, True):
-            list(group.map(evaluate, ((name, side, urls[name][side], panel) for name in SUITES for side in SIDES)))
+            list(group.map(evaluate, ((name, side, urls[name][side], panel) for name in urls for side in SIDES)))
 
 
 def archive_evidence(runs, url, revision, documents_sha):
@@ -348,7 +359,7 @@ def verify_endpoints(pool, runs, urls):
     from urllib.parse import quote, urlencode
     from urllib.request import urlopen
 
-    for name in SUITES:
+    for name in urls:
         ds = pool / "suite" / name
         documents = {row["doc_id"]: row for row in lines(ds / "documents.jsonl")}
         queries = keyed(lines(ds / "queries_dev.jsonl"), "positive queries")
@@ -381,6 +392,8 @@ def main():
     parser.add_argument("--baseline-revision", default=BEFORE)
     parser.add_argument("--candidate-revision", default=AFTER)
     parser.add_argument("--run", action="store_true")
+    parser.add_argument("--split", choices=("dev", "holdout", "all"), default="dev",
+                        help="Both splits share one byte-identical corpus and server per mail source.")
     parser.add_argument("--verify-servers", action="store_true", help="Read a sample of released target documents via HTTP.")
     parser.add_argument("--workers", type=int, default=2)
     ports = {"vk_dev": [18773, 8766], "personal_dev": [18777, 18776]}
@@ -392,19 +405,21 @@ def main():
         parser.error("workers must be positive")
     os.umask(0o077)
     revisions = {"before": commit_id(args.baseline_revision), "after": commit_id(args.candidate_revision)}
-    urls = {name: {side: getattr(args, f"{name}_{side}") for side in SIDES} for name in SUITES}
+    suites = [f"{source}_{split}" for split in (("dev", "holdout") if args.split == "all" else (args.split,))
+              for source in ("vk", "personal")]
+    urls = {name: {side: getattr(args, f"{name.split('_')[0]}_dev_{side}") for side in SIDES} for name in suites}
     if args.run or args.verify_servers:
-        for endpoint in urls["personal_dev"].values():
+        for endpoint in (args.personal_dev_before, args.personal_dev_after):
             confirm(urlparse(endpoint).hostname in {"localhost", "127.0.0.1", "::1"},
                     "Personal-mail queries and source checks require a loopback endpoint.")
-    manifests = {name: check_inputs(args.pool, name) for name in SUITES}
+    manifests = {name: check_inputs(args.pool, name) for name in suites}
     if args.run:
         args.runs.mkdir(parents=True, exist_ok=True)
         run_http(args.pool, args.runs, urls, args.workers)
     if args.run or args.verify_servers:
         verify_endpoints(args.pool, args.runs, urls)
-    datasets = {name: results(args.pool, args.runs, name, manifests[name], revisions) for name in SUITES}
-    for name in SUITES:
+    datasets = {name: results(args.pool, args.runs, name, manifests[name], revisions) for name in suites}
+    for name in suites:
         for side in SIDES:
             proof = archive_evidence(args.runs, urls[name][side], revisions[side],
                                      datasets[name]["corpus_sha256"])
@@ -419,7 +434,7 @@ def main():
     report = {
         "protocol": {"suite_revision": SOURCE, "baseline_revision": revisions["before"], "candidate_revision": revisions["after"],
                      "http_endpoint": "POST /api/search", "repeats": 1, "depth": 10,
-                     "scope_order": ["before", "after"], "target": "open_development_only",
+                     "scope_order": ["before", "after"], "target": args.split, "suites": suites,
                      "ranking": "Primary and variant queries were requested on both revisions. Panel metrics use the declared subset of full-run rankings. A separate HTTP panel repeat, when present, must return every ranking identically.",
                      "judgments": "Strong combines exact rules and assistant-reviewed windows. Semantic silver uses incomplete category rules. Unjudged results give no ranking gain.",
                      "metrics": "Query macro means. nDCG uses exponential gain; known recall counts all graded positives. MRR and success apply only to known items. Judged@10 is the judged fraction of returned documents on positive, nonempty rankings.",

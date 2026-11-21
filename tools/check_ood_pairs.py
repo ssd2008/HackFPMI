@@ -1,7 +1,7 @@
 """Check both halves of the publisher's independent VK event and date diagnostics.
 
 Use --pool with the local OOD package and pass two VK API endpoints in revision
-order. Only queries from the published development mailboxes are eligible.
+order. Select --all-mailboxes to include the entire supplied diagnostic set.
 """
 
 import argparse
@@ -18,7 +18,7 @@ from check_rubq import read_lines, write_json
 from check_mail_ood import AFTER, BEFORE, check_inputs, commit_id, digest
 
 
-def development_pairs(pool):
+def development_pairs(pool, all_mailboxes=False):
     release = pool / "suite" / "vk_dev"
     diagnostic = pool / "diagnostics"
     check_inputs(pool, "vk_dev")
@@ -26,6 +26,9 @@ def development_pairs(pool):
         release, diagnostic / "queries.jsonl", diagnostic / "qrels.jsonl"
     )
     boxes = {q["synthetic_user"] for q in read_lines(release / "queries_dev.jsonl")}
+    if all_mailboxes:
+        check_inputs(pool, "vk_holdout")
+        boxes.update(q["synthetic_user"] for q in read_lines(pool / "suite/vk_holdout/queries_dev.jsonl"))
     by_id = {q["query_id"]: q for q in queries}
     pairs = defaultdict(dict)
     seen = set()
@@ -89,13 +92,16 @@ def measure(url, docs, corpus_sha, families):
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--pool", type=Path, required=True)
+    p.add_argument("--all-mailboxes", action="store_true")
     p.add_argument("--baseline-url", default="http://127.0.0.1:18773")
     p.add_argument("--current-url", default="http://127.0.0.1:8766")
     p.add_argument("--baseline-revision", default=BEFORE)
     p.add_argument("--current-revision", default=AFTER)
     p.add_argument("--output", type=Path, default=ROOT / "results" / "ood_event_pairs.json")
     args = p.parse_args()
-    docs, families, reserved, hashes = development_pairs(args.pool)
+    docs, families, reserved, hashes = development_pairs(args.pool, args.all_mailboxes)
+    if args.all_mailboxes and reserved:
+        raise ValueError("Some diagnostic mailboxes are missing from the supplied suites.")
     with ThreadPoolExecutor(max_workers=2) as executor:
         jobs = [executor.submit(measure, url, docs, hashes["documents.jsonl"], families)
                 for url in (args.baseline_url, args.current_url)]
@@ -108,8 +114,8 @@ def main():
     write_json(args.output, {
         "engines": {"baseline": commit_id(args.baseline_revision), "current": commit_id(args.current_revision)},
         "sha256": hashes, "cutoff": 10,
-        "selection": "Both halves of every supplied diagnostic pair whose mailbox is in vk_dev. "
-                     "All other pairs remain reserved for the final evaluation.",
+        "selection": ("Both halves of every supplied diagnostic pair." if args.all_mailboxes else
+                      "Both halves of every supplied diagnostic pair whose mailbox is in vk_dev."),
         "reserved_pairs_by_family": dict(reserved), "baseline": baseline, "current": current,
         "paired_changes_both_conditions": changes,
     })
