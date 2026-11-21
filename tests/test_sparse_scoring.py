@@ -2,10 +2,28 @@ import unittest
 
 import numpy as np
 
-from mailsearch.retrieval import LexicalIndex, _features, _words
+from mailsearch.retrieval import LexicalIndex, _extract_phrases, _features, _words
 
 
 class SparseScoring(unittest.TestCase):
+    def test_title_in_sentence_can_inflect_but_verbatim_quote_keeps_its_spelling(self):
+        corpus = "объявление: программа «новый маяк» открыта"
+        for query, found in (
+            ("Расскажи о «Новом маяке»", True),
+            ("Расскажи о «Маяке новом»", False),
+            ("Найди дословное упоминание о «Новом маяке»", False),
+            ("Найди фразу «Новом маяке»", False),
+        ):
+            with self.subTest(query=query):
+                _, phrases = _extract_phrases(query)
+                self.assertEqual(phrases[0].matches(corpus), found)
+
+    def test_nautical_terms_retain_the_action_and_identify_its_context(self):
+        document = _features(_words("Судозаход зарегистрирован, буксир ошвартован."))
+        for term in ("причал", "судно", "швартовка"):
+            self.assertIn(_features(_words(term), query=True)[0], document)
+        self.assertNotIn(_features(["швартовка"], query=True)[0], _features(["причал"]))
+
     def test_request_for_an_event_preserves_plans_as_secondary_evidence(self):
         index = LexicalIndex([
             {"doc": "Заявка поставщика на отгрузку партии."},

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from array import array
 from collections import Counter, defaultdict
+from dataclasses import dataclass
 from datetime import date
 from functools import lru_cache
 from pathlib import Path
@@ -47,6 +48,8 @@ _PLANNED_ACTION = re.compile(
 )
 _PLAN_REQUEST = re.compile(rf"\b(?:{_PLAN_NOUN}|разреш[а-я]*|запланир[а-я]*|предстоящ[а-я]*)\b")
 _QUOTED = re.compile(r'«([^«»]*)»|"([^"]*)"')
+_NAME_PREPOSITION = re.compile(r"\b(?:об?|про|к|с|из|для|у|по|над|перед|от)\s*$", re.I)
+_VERBATIM = re.compile(r"\b(?:дослов[а-я]*|букваль[а-я]*|точн[а-я]*\s+(?:фраз[а-я]*|цитат[а-я]*|текст[а-я]*))\b", re.I)
 _LOCAL = threading.local()
 
 
@@ -70,6 +73,7 @@ _FAMILIES = (
     "завершение завершен окончание окончен закончен закончить закончился выполнен исполнен "
     "состоялся завершили прошел прошла прошли успех успешный одобрен одобрено одобрение проведен",
     "прибытие прибыли прибыла прибывает приезд приехал приехала",
+    "швартовка пришвартован пришвартовался ошвартован швартоваться причаливание причалил причалить",
     "автомашина автомашины автомобиль машина грузовик",
     "погрузка погрузить погружен погрузили погружали загружен загрузка",
     "выгрузка выгрузить выгружен выгрузили выгружать разгрузка разгрузили разгружен",
@@ -88,6 +92,11 @@ _FAMILIES = (
 )
 _ALIAS = {
     _stem(word): _stem(group.split()[0]) for group in _FAMILIES for word in group.split()
+}
+# These words in a message also identify the objects involved in a port call.
+_PORT_CONTEXT = {
+    _stem("судозаход"): (_stem("судно"),),
+    _stem("швартовка"): (_stem("причал"),),
 }
 _STOP = frozenset("""
     и а но или на над о об обо к ко из за у под по с со от в во для при до сам
@@ -182,17 +191,44 @@ def _literal_text(text: str) -> str:
     return " ".join(text.casefold().replace("ё", "е").split())
 
 
-def _extract_phrases(query: str) -> tuple[str, list[tuple[str, re.Pattern]]]:
+@dataclass(frozen=True)
+class QuotedPhrase:
+    literal: str
+    exact: re.Pattern
+    title_stems: tuple[str, ...]
+    inflected: re.Pattern | None
+
+    def matches(self, text: str) -> bool:
+        if self.literal in text and self.exact.search(text):
+            return True
+        if self.inflected:
+            for match in self.inflected.finditer(text):
+                if tuple(_stem(word) for word in match[0].split()) == self.title_stems:
+                    return True
+        return False
+
+
+def _extract_phrases(query: str) -> tuple[str, list[QuotedPhrase]]:
     phrases = []
+    verbatim = _VERBATIM.search(query)
 
     def extract(match):
-        phrase = _literal_text(match[match.lastindex])
+        original = match[match.lastindex]
+        phrase = _literal_text(original)
         if phrase:
             # Preserve punctuation literally. Only alphanumeric/underscore
             # endpoints require a boundary to prevent a match inside a word.
             left = r"(?<!\w)" if re.match(r"\w", phrase[0]) else ""
             right = r"(?!\w)" if re.match(r"\w", phrase[-1]) else ""
-            phrases.append((phrase, re.compile(left + re.escape(phrase) + right)))
+            stems, inflected = (), None
+            if (not verbatim and original[:1].isupper() and _NAME_PREPOSITION.search(query[:match.start()])
+                    and re.fullmatch(r"[а-я]+(?: [а-я]+){1,7}", phrase)):
+                # A proper name in running Russian prose follows its governing
+                # preposition. Keep word order and check every complete stem.
+                stems = tuple(_stem(word) for word in phrase.split())
+                pattern = r"\s+".join(re.escape(stem) + "[а-я]*" for stem in stems)
+                inflected = re.compile(r"(?<!\w)" + pattern + r"(?!\w)")
+            phrases.append(QuotedPhrase(phrase, re.compile(left + re.escape(phrase) + right), stems, inflected))
         return " "
 
     return _QUOTED.sub(extract, query), phrases
@@ -232,7 +268,10 @@ def _features(words: list[str], *, query: bool = False) -> list[str]:
         negation = False
         if word in _STOP or (query and stem in _REQUEST_WORDS):
             continue
-        result.append(_ALIAS.get(stem, stem).replace(",", "."))
+        term = _ALIAS.get(stem, stem).replace(",", ".")
+        result.append(term)
+        if not query and term in _PORT_CONTEXT:
+            result.extend(_PORT_CONTEXT[term])
     return result
 
 
@@ -541,8 +580,7 @@ class SearchEngine:
         if phrases:
             rows = np.asarray([
                 row for row in rows
-                if all(phrase in self.literal_texts[row] and pattern.search(self.literal_texts[row])
-                       for phrase, pattern in phrases)
+                if all(phrase.matches(self.literal_texts[row]) for phrase in phrases)
             ], dtype=box.dtype)
         if not len(rows):
             return []
