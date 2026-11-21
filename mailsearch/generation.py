@@ -235,6 +235,103 @@ def _relevant_sentence(sentences: list[str], query: str) -> int:
     return max(enumerate(sentences), key=score)[0]
 
 
+# A requested field must be present in a cited passage, even on the fast path
+# used while another thread is running the language model.
+_TRACK_LABEL = r"(?:трек(?:инг)?[\s‐‑–—-]?(?:номер|код)|(?:номер|код)\s+(?:для\s+)?отслеживания|почтовый идентификатор|tracking\s*(?:number|id|code))"
+_TRACK_QUESTION = re.compile(_TRACK_LABEL, re.I)
+_TRACK_VALUE = re.compile(_TRACK_LABEL + r"\s*(?:(?:отправления|посылки|shipment)\s*)?(?:[:№#—–=\-]\s*)?(?:is\s+)?([a-zа-я0-9][a-zа-я0-9-]{3,})\b", re.I)
+_CLOCK_QUESTION = re.compile(r"во сколько|(?:до |к |в )?како(?:е|му|го)\s+врем[ея]|(?:в котором|к которому) часу|время\s+(?:начала|открытия|закрытия|окончания|встречи|старта)", re.I)
+_CLOCK_VALUE = re.compile(r"(?<![\d:.])(?:[01]?\d|2[0-3]):[0-5]\d(?![:\d])")
+_MEASURE_QUESTION = re.compile(r"(?:как\w+|назов\w*|укаж\w*)\s+(?:у\s+\w+\s+)?(?:длин\w*|ширин\w*|высот\w*|размер\w*|диаметр\w*)", re.I)
+_MEASURE_VALUE = re.compile(r"(?<!\w)\d+(?:[.,]\d+)?\s*(?:мм|см|дм|м|км|mm|cm|m|km)\b", re.I)
+_PRICE_NUMBER = r"(?<![\d.,])(?:\d{1,3}(?:[ \u00a0\u202f]\d{3})+|\d+)(?:[.,]\d{1,2})?(?!\d|[.,]\d)"
+_PRICE_VALUE = re.compile(_PRICE_NUMBER + r"\s*(?:₽|€|\$|руб(?:л\w*)?\b|rub\b|eur\b|usd\b|доллар\w*|евро)", re.I)
+_LABELED_PRICE = re.compile(r"(?:сумм[ауы]|итого|цен[ауые]|стоимость)\s*(?:[:—–=\-]|состав\w*)?\s*(" + _PRICE_NUMBER + r")", re.I)
+_DECIMAL = re.compile(r"(?<![\d.,])\d+[.,]\d{2}(?!\d|[.,]\d)")
+
+
+def _measurements(text: str) -> set[str]:
+    return {re.sub(r"\s+", "", _normal(value)).replace(",", ".") for value in _MEASURE_VALUE.findall(text)}
+
+
+def _requested_field(query: str) -> str | None:
+    if _list_request(query) or len(_question_parts(query)) > 1:
+        return None
+    if _TRACK_QUESTION.search(query):
+        return "tracking"
+    if _AMOUNT_QUESTION.search(query):
+        return "price"
+    if _CLOCK_QUESTION.search(query):
+        return "clock"
+    if _MEASURE_QUESTION.search(query):
+        return "measure"
+    return None
+
+
+def _specific_letters(query: str, documents: list[dict]) -> list[dict]:
+    """When several hits share boilerplate, prefer matches to the distinguishing words."""
+    if len(documents) < 2 or _list_request(query):
+        return documents
+    general = _terms("заказ письмо сообщение уведомление вчерашний сумма рубль стоимость цена стоить "
+                     "время номер указать получить прийти отправить отправление показать")
+    content = _terms(_ID.sub("", query)) - general
+    matches = [content & _terms(d["doc"]) for d in documents]
+    # Terms common to all candidate letters carry no evidence for choosing between them.
+    frequency = {w: sum(w in terms for terms in matches) for w in set().union(*matches)}
+    scores = [sum(1 / frequency[w] for w in terms if frequency[w] < len(documents)) for terms in matches]
+    best = max(scores)
+    return [d for d, score in zip(documents, scores) if score >= 0.75 * best]
+
+
+def _field_evidence(field: str, query: str, document: dict) -> tuple[str, set[str]] | None:
+    sentences = _sentences(document["doc"])
+    choices = []
+    for sentence in sentences:
+        if field == "tracking":
+            values = [m[1] for m in _TRACK_VALUE.finditer(sentence) if re.search(r"\d", m[1])]
+        elif field == "clock":
+            values = _CLOCK_VALUE.findall(sentence)
+        elif field == "measure":
+            values = _MEASURE_VALUE.findall(sentence)
+        else:
+            values = _PRICE_VALUE.findall(sentence) or _LABELED_PRICE.findall(sentence)
+            if not values and re.search(r"\bсч[её]т\b", sentence, re.I):
+                values = _DECIMAL.findall(sentence)
+        if values:
+            choices.append((sentence, values))
+    if not choices:
+        return None
+    if field == "clock":
+        # The sent timestamp and the start of an event are different fields.
+        start_words = r"начал|начн|начин|старт|откро|opens?|starts?"
+        end_words = r"закры|заверш|оконч|ends?|closes?"
+        sent_words = r"отправлено|дата отправки|sent at|время отправки"
+        temporal_roles = ((start_words, start_words, end_words), (end_words, end_words, start_words),
+                          (r"\bдо\b|крайн|дедлайн", r"\bдо\b|не позднее|крайн|дедлайн|deadline|by", start_words))
+        for asked, related, opposite in temporal_roles:
+            if re.search(asked, query, re.I):
+                direct = [row for row in choices if re.search(related, row[0], re.I)]
+                if direct:
+                    choices = direct
+                elif len(choices) != 1 or re.search(f"{sent_words}|{opposite}", choices[0][0], re.I):
+                    return None
+                break
+    index = _relevant_sentence([s for s, _ in choices], query)
+    sentence, values = choices[index]
+    # Keep the value itself when a large table or a forwarded email occupies one long line.
+    if len(sentence) > 370:
+        start = max(0, sentence.index(values[0]) - 130)
+        end = min(len(sentence), max(start + 280, sentence.rindex(values[-1]) + len(values[-1]) + 35))
+        while start and not sentence[start-1].isspace():
+            start -= 1
+        while end < len(sentence) and not sentence[end].isspace():
+            end += 1
+        sentence = sentence[start:end].strip()
+    tokens = ({_normal(value) for value in values} if field == "tracking"
+              else set().union(*[_numbers(value) for value in values]))
+    return sentence, tokens
+
+
 def _passage(document: dict, query: str) -> str:
     text = document["doc"].strip()
     if len(text) > MAX_PASSAGE_CHARS:
@@ -446,10 +543,24 @@ def answer_question(query: str, documents: list[dict]) -> dict:
             continue
         if _is_related(query, document["doc"]):
             selected.append(document)
-        if len(selected) == MAX_SOURCES:
-            break
     empty = {"answer": "В найденных письмах недостаточно сведений для ответа.",
              "sources": [], "mode": "no_evidence"}
+    field = _requested_field(query)
+    evidence = {}
+    if field:
+        # Entity and value must belong to the same letter. A receipt from another
+        # order, or an order identifier in place of a shipment number, is insufficient.
+        selected = _specific_letters(query, selected)
+        for doc in selected:
+            fact = _field_evidence(field, query, doc)
+            if fact:
+                evidence[doc["doc_id"]] = fact
+        selected = [d for d in selected if d["doc_id"] in evidence]
+        if len({frozenset(values) for _, values in evidence.values()}) > 1:
+            return empty
+        selected = selected[:1]
+    else:
+        selected = selected[:MAX_SOURCES]
     if not selected:
         return empty
     passages = [_passage(document, query) for document in selected]
@@ -462,6 +573,27 @@ def answer_question(query: str, documents: list[dict]) -> dict:
             LOG.warning("RAG inference unavailable (%s)", type(exc).__name__)
         finally:
             _inference_lock.release()
+    if field:
+        document = selected[0]
+        quote, expected = evidence[document["doc_id"]]
+        claim = raw[0] if raw else ""
+        has_value = (all(value in _normal(claim) for value in expected)
+                     if field == "tracking" else bool(expected) and expected <= _numbers(claim))
+        # Additional figures from other lines can belong to a different charge or
+        # event. Values already present in the user's description may identify the item.
+        has_value &= _numbers(claim) <= (_numbers(quote) | _numbers(query))
+        if field == "measure":
+            has_value &= _measurements(claim) == _measurements(quote)
+        elif field == "price":
+            has_value &= all(bool(currency.search(_normal(claim))) == bool(currency.search(_normal(quote)))
+                             for currency in _CURRENCIES)
+        elif field == "clock":
+            has_value &= set(_CLOCK_VALUE.findall(claim)) == expected
+        if has_value:
+            grounded = _cited_answer([claim], selected, passages)
+            if grounded:
+                return grounded
+        return {"answer": f"«{quote}» [1].", "sources": [document["doc_id"]], "mode": "extractive"}
     if _missing_part_with_evidence(query, raw[0] if raw else "", selected[0]):
         return _extractive(query, selected[:1])
     if raw:
