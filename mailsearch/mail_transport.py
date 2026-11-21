@@ -18,6 +18,8 @@ import logging
 import re
 import ssl
 
+import certifi
+
 
 _HOSTS = {"gmail": "imap.gmail.com", "yandex": "imap.yandex.ru"}
 _LOGGER = logging.getLogger(__name__)
@@ -92,7 +94,9 @@ def _inbox(provider: str, address: str, password: str):
     client = None
     stage = "connect"
     try:
-        client = imaplib.IMAP4_SSL(_HOSTS[provider], 993, ssl_context=ssl.create_default_context(), timeout=_TIMEOUT)
+        # The public IMAP providers use public roots, even if the Python install has no CA store.
+        context = ssl.create_default_context(cafile=certifi.where())
+        client = imaplib.IMAP4_SSL(_HOSTS[provider], 993, ssl_context=context, timeout=_TIMEOUT)
         client.debug = 0
         # imaplib quotes the password. Escape the username if it is not an IMAP atom.
         if re.search(r'[ (){%*"\\\]]', login):
@@ -113,7 +117,9 @@ def _inbox(provider: str, address: str, password: str):
         stage = "read"
         yield client, int(selected[0])
     except (imaplib.IMAP4.error, OSError, EOFError, UnicodeError) as error:
-        _LOGGER.warning("IMAP provider=%s stage=%s error=%s", provider, stage, type(error).__name__)
+        verify_code = getattr(error, "verify_code", None)
+        diagnostics = f" verify_code={verify_code}" if verify_code is not None else ""
+        _LOGGER.warning("IMAP provider=%s stage=%s error=%s%s", provider, stage, type(error).__name__, diagnostics)
         raise TransportError("Не удалось соединиться с сервером входящей почты.") from None
     finally:
         if client is not None:

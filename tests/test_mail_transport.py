@@ -2,6 +2,7 @@
 from email import policy
 from email.message import EmailMessage
 import imaplib
+import os
 import ssl
 import unittest
 from unittest.mock import patch
@@ -106,6 +107,13 @@ class MailTransportTests(unittest.TestCase):
         transport.verify_account('yandex', 'office@hosted.example', 'pass')
         self.assert_tls(self.imap_factory, 'imap.yandex.ru', 993, 'ssl_context')
         self.assertIn(('login', 'office@hosted.example', 'pass'), self.imap.calls)
+
+    @patch.dict(os.environ, {"SSL_CERT_FILE": os.devnull, "SSL_CERT_DIR": os.devnull})
+    def test_explicit_ca_bundle_when_python_has_no_default_roots(self):
+        transport.verify_account("yandex", "me@yandex.ru", "test-app-pass")
+        self.assert_tls(self.imap_factory, "imap.yandex.ru", 993, "ssl_context")
+        context = self.imap_factory.call_args.kwargs["ssl_context"]
+        self.assertGreater(context.cert_store_stats()["x509_ca"], 0)
 
     def test_newest_first_then_background_batches_and_epoch_change(self):
         first = self.fetch(known_uids={5})
