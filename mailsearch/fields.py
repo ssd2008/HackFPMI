@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from collections import defaultdict
+from datetime import date
 from email.utils import getaddresses
 import re
 import unicodedata
@@ -123,11 +124,17 @@ class MailFields:
     def __init__(self, documents):
         postings = defaultdict(list)
         self.addressed_subjects = {}
+        self.first_sender: dict[str, date] = {}
         for i, doc in enumerate(documents):
             subject, sender = headers(doc)
             if subject:
                 postings["subject", subject].append(i)
             if sender:
+                # Undated messages are visible at every mailbox snapshot.
+                received = date.fromisoformat(doc["doc_dt"]) if doc.get("doc_dt") else date.min
+                mailbox = doc.get("synthetic_user")
+                if mailbox is not None and received <= self.first_sender.get(mailbox, date.max):
+                    self.first_sender[mailbox] = received
                 terms = set()
                 for name, address in getaddresses([sender]):
                     address = normalize(address)
@@ -140,6 +147,10 @@ class MailFields:
                 for term in terms:
                     postings[term].append(i)
         self.postings = {key: np.asarray(rows, dtype=np.int32) for key, rows in postings.items()}
+
+    def has_visible_sender(self, mailbox: str, at: date) -> bool:
+        first = self.first_sender.get(mailbox)
+        return first is not None and first <= at
 
     def restrict(self, query, box):
         """Return residual text and candidates. A bare email still follows normal retrieval."""

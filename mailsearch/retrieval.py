@@ -638,7 +638,9 @@ class SearchEngine:
             return [(self.ids[rows[i]], 1.0) for i in order]
 
         lexical_scale = None
-        if not scope.bounded and not phrases and not identifiers:
+        # In correspondence, exact names and nearby details distinguish otherwise similar messages.
+        if (not scope.bounded and not phrases and not identifiers
+                and not self.fields.has_visible_sender(synthetic_user, query_date)):
             lexical_scale = semantic_lexical_scale(text)
         # Natural questions retain casing, punctuation and their original phrasing for E5.
         terms = text if lexical_scale is not None else " ".join(w for w in words if _stem(w) not in _REQUEST_WORDS)

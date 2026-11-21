@@ -55,5 +55,22 @@ class MailFieldTest(unittest.TestCase):
         self.assertEqual(self.ids('«проекты от anna@team.test»'), {'other'})
 
 
+class VisibleSenderTests(unittest.TestCase):
+    def test_only_headers_visible_in_the_requested_mailbox_change_ranking_context(self):
+        from mailsearch.fields import MailFields
+
+        fields = MailFields([
+            {"doc": "An article title\nFrom: a quotation in the text", "synthetic_user": "a"},
+            {"doc": "From: Writer <example@test.invalid>", "synthetic_user": "a", "doc_dt": "2026-03-01"},
+            {"doc": "A message without a date", "sender": "Writer", "synthetic_user": "b"},
+            {"doc": "Subject: An article without a sender", "synthetic_user": "c"},
+        ])
+        self.assertFalse(fields.has_visible_sender("a", date(2026, 2, 28)))
+        self.assertTrue(fields.has_visible_sender("a", date(2026, 3, 1)))
+        self.assertTrue(fields.has_visible_sender("b", date.min))
+        self.assertFalse(fields.has_visible_sender("c", date.max))
+
+
+
 if __name__ == '__main__':
     unittest.main()
