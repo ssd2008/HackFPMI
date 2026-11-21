@@ -1,7 +1,6 @@
 """Recognize an explicit count of a named unit in Russian or mixed-script mail."""
-from functools import lru_cache
+from .private_cache import stem_word, text_cache
 import re
-import threading
 
 _UNIT_QUESTION = re.compile(r"\bскольк(?:о|их)\s+((?:[а-яёa-z-]+\s*){1,2})", re.I)
 _NUMBER_UNIT = re.compile(r"(?<![\w.,:/-])(\d+(?:[.,]\d+)?)(?!\d|[.,:/-]\d)[ \t]+"
@@ -11,18 +10,14 @@ _MODIFIER = re.compile(r"free|additional|extra|unused|new|bonus|trial|paid|[a-z]
 _TRANSLITERATE = str.maketrans(dict(zip("абвгдежзийклмнопрстуфхцчшщъыьэюя", (
     "a", "b", "v", "g", "d", "e", "zh", "z", "i", "i", "k", "l", "m", "n", "o", "p", "r", "s",
     "t", "u", "f", "h", "ts", "ch", "sh", "sh", "", "y", "", "e", "yu", "ya"), strict=True)))
-_thread = threading.local()
 
 
-@lru_cache(maxsize=8000)
+@text_cache(maxsize=8000)
 def stem(word: str) -> str:
-    if not hasattr(_thread, "stemmer"):
-        import snowballstemmer
-        _thread.stemmer = snowballstemmer.stemmer("russian")
-    return _thread.stemmer.stemWord(word)
+    return stem_word("russian", word)
 
 
-@lru_cache(maxsize=1024)
+@text_cache(maxsize=1024)
 def _units(query: str) -> frozenset[str]:
     question = _UNIT_QUESTION.search(query.casefold().replace("ё", "е"))
     if not question:

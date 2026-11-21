@@ -1,47 +1,40 @@
-"""TLS-only IMAP and SMTP for locally connected Gmail and Yandex accounts."""
+"""Read-only TLS access to a provider-selected IMAP inbox."""
 from __future__ import annotations
 
 from collections.abc import Iterator
-from contextlib import ExitStack, contextmanager, suppress
+from contextlib import contextmanager, suppress
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from email import errors, policy
 from email.headerregistry import Address
 from email.message import EmailMessage
 from email.parser import BytesParser
-from email.utils import format_datetime, parsedate_to_datetime
+from email.utils import parsedate_to_datetime
 import hashlib
 import heapq
 from html.parser import HTMLParser
 import imaplib
 import re
-import smtplib
 import ssl
 
 
-_HOSTS = {"gmail": ("imap.gmail.com", "smtp.gmail.com"),
-          "yandex": ("imap.yandex.ru", "smtp.yandex.ru")}
+_HOSTS = {"gmail": "imap.gmail.com", "yandex": "imap.yandex.ru"}
 _TIMEOUT = 30
-_SMTP_PRIMARY_TIMEOUT = 3
-_SMTP_FALLBACK_TIMEOUT = 10
+MAX_MIME_BYTES = 256 * 1024
+MAX_BODY_CHARS = 16_384
 _UID = re.compile(rb"\bUID (\d+)\b", re.I)
 _SIZE = re.compile(rb"\bRFC822\.SIZE (\d+)\b", re.I)
 _DATE = re.compile(rb'\bINTERNALDATE "([^"]+)"', re.I)
 _HEADER_CONTROL = re.compile(r"[\x00-\x1f\x7f-\x9f\u2028\u2029]")
 _DOMAIN_LABEL = re.compile(r"[a-z\d](?:[a-z\d-]{0,61}[a-z\d])?", re.I | re.ASCII)
-_MSG_ID = re.compile(r"[a-z\d!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z\d!#$%&'*+/=?^_`{|}~-]+)*@[a-z\d-]+(?:\.[a-z\d-]+)*", re.I | re.ASCII)
 
 
 class TransportError(Exception):
-    """Safe for display. An SMTP transaction in this state has not been accepted."""
+    """The message is safe to display and contains no credentials or provider reply."""
 
 
 class AuthenticationError(TransportError):
     """The provider rejected the supplied credentials."""
-
-
-class DeliveryUncertain(TransportError):
-    """The provider may have accepted the body. Do not automatically resubmit."""
 
 
 @dataclass
@@ -50,6 +43,7 @@ class SyncBatch:
     current_uids: set[int]
     messages: dict[int, dict]
     remaining: int
+    total_available: int | None = None
 
 
 def parse_address(value: str) -> Address:
@@ -95,7 +89,7 @@ def _inbox(provider: str, address: str, password: str):
     _, login, password = _account(provider, address, password)
     client = None
     try:
-        client = imaplib.IMAP4_SSL(_HOSTS[provider][0], 993, ssl_context=ssl.create_default_context(), timeout=_TIMEOUT)
+        client = imaplib.IMAP4_SSL(_HOSTS[provider], 993, ssl_context=ssl.create_default_context(), timeout=_TIMEOUT)
         client.debug = 0
         # imaplib quotes the password. Escape the username if it is not an IMAP atom.
         if re.search(r'[ (){%*"\\\]]', login):
@@ -125,10 +119,15 @@ def verify_account(provider: str, address: str, password: str) -> None:
         pass
 
 
-def _uid_set(client, selected_size: int) -> set[int]:
+def _uid_set(client, selected_size: int, max_messages: int | None = None) -> set[int]:
     # Very large SEARCH replies exceed imaplib's single-line limit. FETCH UID emits a short line per message.
-    if selected_size > 60_000:
-        rows = _ok(client.uid("FETCH", "1:*", "(UID)"))
+    window = max_messages is not None and selected_size > max_messages
+    if window or selected_size > 60_000:
+        if window:
+            # IMAP message sequence numbers ascend with UIDs. Request only metadata for the latest window.
+            rows = _ok(client.fetch(f"{selected_size - max_messages + 1}:{selected_size}", "(UID)"))
+        else:
+            rows = _ok(client.uid("FETCH", "1:*", "(UID)"))
         if not rows:
             raise TransportError("Почтовый сервер не вернул полный список входящих писем.")
         current = set()
@@ -221,19 +220,22 @@ def _day(internal_date: str, message_date: str) -> str | None:
     return None
 
 
-def _document(raw: bytes, metadata: bytes, mailbox: str, validity: str, uid: int) -> dict:
+def _document(raw: bytes, metadata: bytes, mailbox: str, validity: str, uid: int, clipped: bool = False) -> dict:
     message = BytesParser(policy=policy.default).parsebytes(raw)
     def head(name):
-        return " ".join(str(message.get(name, "")).split())
+        return " ".join(str(message.get(name, "")).split())[:512]
     internal_date = _DATE.search(metadata)
     day = _day(internal_date[1].decode("ascii", "replace") if internal_date else "", head("Date"))
     key = hashlib.sha256(f"{mailbox}\0{validity}\0{uid}".encode()).hexdigest()
-    return {"doc_id": "mail-" + key, "synthetic_user": mailbox, "doc_dt": day,
-            "doc": f"От: {head('From')}\nТема: {head('Subject')}\nТекст письма:\n{_body(message)}"}
+    body = _body(message)
+    result = {"doc_id": "mail-" + key, "synthetic_user": mailbox, "doc_dt": day,
+              "doc": f"От: {head('From')}\nТема: {head('Subject')}\nТекст письма:\n{body[:MAX_BODY_CHARS]}"}
+    if clipped or len(body) > MAX_BODY_CHARS:
+        result["truncated"] = True
+    return result
 
 
-def _groups(client, wanted: list[int]) -> Iterator[list[int]]:
-    # Fetch large attachments one message at a time. Only decoded body text is returned to storage.
+def _groups(client, wanted: list[int]) -> Iterator[tuple[list[int], bool]]:
     sequence = ",".join(map(str, wanted))
     sizes = {}
     for row in _ok(client.uid("FETCH", sequence, "(UID RFC822.SIZE)")):
@@ -242,14 +244,17 @@ def _groups(client, wanted: list[int]) -> Iterator[list[int]]:
     limit = 4 * 1024 * 1024
     group, size = [], 0
     for uid in wanted:
-        length = sizes.get(uid, limit)
+        length = sizes.get(uid)
+        if length is None or length > MAX_MIME_BYTES:
+            yield [uid], True
+            continue
         if group and (size + length > limit or len(group) >= 20):
-            yield group
+            yield group, False
             group, size = [], 0
         group.append(uid)
         size += length
     if group:
-        yield group
+        yield group, False
 
 
 def _literals(rows):
@@ -270,130 +275,38 @@ def _literals(rows):
 
 
 def fetch_inbox(provider: str, address: str, password: str, *, mailbox: str, known_validity: str | None,
-                known_uids: set[int], batch_size: int = 100) -> SyncBatch:
+                known_uids: set[int], batch_size: int = 100, max_messages: int | None = None) -> SyncBatch:
     """Fetch one newest-first batch. Repeat with the committed UID set while remaining is positive."""
     if type(batch_size) is not int or batch_size < 1:
         raise ValueError("Размер порции должен быть положительным целым числом.")
+    if max_messages is not None and (type(max_messages) is not int or max_messages < 1):
+        raise ValueError("Размер окна должен быть положительным целым числом.")
     with _inbox(provider, address, password) as (client, selected_size):
         _, epoch = client.response("UIDVALIDITY")
         if (not epoch or not isinstance(epoch[0], bytes) or not re.fullmatch(rb"[1-9]\d{0,9}", epoch[0])
                 or int(epoch[0]) >= 2**32):
             raise TransportError("Почтовый сервер не подтвердил версию папки входящих.")
         validity = epoch[0].decode("ascii")
-        current = _uid_set(client, selected_size)
+        current = _uid_set(client, selected_size, max_messages)
         known = known_uids if validity == known_validity else set()
         wanted = heapq.nlargest(batch_size, current - known)
         messages = {}
         if wanted:
-            for group in _groups(client, wanted):
-                data = _ok(client.uid("FETCH", ",".join(map(str, group)), "(UID INTERNALDATE BODY.PEEK[])"))
+            for group, clipped in _groups(client, wanted):
+                span = f"<0.{MAX_MIME_BYTES}>" if clipped else ""
+                data = _ok(client.uid("FETCH", ",".join(map(str, group)), f"(UID INTERNALDATE BODY.PEEK[]{span})"))
                 for metadata, raw in _literals(data):
                     uid = _UID.search(metadata)
                     if uid and int(uid[1]) in group:
-                        full = re.search(rb"\bBODY\[\]\s+\{(\d+)\}", metadata, re.I)
+                        full = re.search(rb"\bBODY\[\](?:<0>)?\s+\{(\d+)\}", metadata, re.I)
                         if not full or not isinstance(raw, bytes) or int(full[1]) != len(raw):
                             continue
                         ident = int(uid[1])
-                        messages[ident] = _document(raw, metadata, mailbox, validity, ident)
+                        messages[ident] = _document(raw, metadata, mailbox, validity, ident, clipped)
             if set(wanted) != messages.keys():
                 # EXPUNGE may race with SEARCH. Surviving missing literals must be retried as a whole batch.
-                current = _uid_set(client, selected_size)
+                current = _uid_set(client, selected_size, max_messages)
                 if (set(wanted) & current) - messages.keys():
                     raise TransportError("Не все письма удалось получить. Повторите синхронизацию.")
                 messages = {uid: row for uid, row in messages.items() if uid in current}
-        return SyncBatch(validity, current, messages, len(current - known - messages.keys()))
-
-
-def _close_smtp(client):
-    with suppress(OSError, smtplib.SMTPException):
-        client.close()
-
-
-@contextmanager
-def _submission(host: str):
-    """Yield a TLS-verified connection. Port selection ends before credentials or mail are sent."""
-    context = ssl.create_default_context()
-    with ExitStack() as connections:
-        try:
-            smtp = smtplib.SMTP_SSL(host, 465, context=context, timeout=_SMTP_PRIMARY_TIMEOUT)
-            connections.callback(_close_smtp, smtp)
-            smtp.set_debuglevel(0)
-            smtp.ehlo_or_helo_if_needed()
-        except ssl.SSLCertVerificationError:
-            raise
-        except (OSError, smtplib.SMTPException, EOFError):
-            connections.close()
-            try:
-                smtp = smtplib.SMTP(host, 587, timeout=_SMTP_FALLBACK_TIMEOUT)
-            except (OSError, smtplib.SMTPException, EOFError):
-                raise TransportError("Не удалось подключиться к серверу отправки по портам 465 и 587.") from None
-            connections.callback(_close_smtp, smtp)
-            smtp.set_debuglevel(0)
-            code, _ = smtp.ehlo()
-            if code != 250 or not smtp.has_extn("starttls"):
-                raise TransportError("Сервер отправки не предложил защищённое соединение STARTTLS.")
-            code, _ = smtp.starttls(context=context)
-            if code != 220:
-                raise TransportError("Сервер отправки отказался установить TLS.")
-            code, _ = smtp.ehlo()
-            if code != 250:
-                raise TransportError("Сервер не подтвердил почтовый протокол после установки TLS.")
-        smtp.sock.settimeout(_TIMEOUT)
-        yield smtp
-
-
-def send_message(provider: str, address: str, password: str, *, to: list[str], subject: str,
-                 body: str, message_id: str) -> None:
-    sender, login, password = _account(provider, address, password)
-    if not isinstance(to, list) or not to:
-        raise TransportError("Укажите получателя письма.")
-    recipients = [parse_address(value) for value in to]
-    if not isinstance(subject, str) or _HEADER_CONTROL.search(subject) or not isinstance(body, str):
-        raise TransportError("Проверьте тему и текст письма.")
-    ident = message_id if isinstance(message_id, str) else ""
-    if ident.startswith("<") and ident.endswith(">"):
-        ident = ident[1:-1]
-    if not _MSG_ID.fullmatch(ident):
-        raise TransportError("Некорректный идентификатор исходящего письма.")
-    envelope = list(dict.fromkeys(recipient.addr_spec for recipient in recipients))
-    international = any(not spec.isascii() for spec in [sender.addr_spec, *envelope])
-    try:
-        msg = EmailMessage(policy=policy.SMTPUTF8 if international else policy.SMTP)
-        msg["From"], msg["To"], msg["Subject"] = sender, recipients, subject
-        msg["Date"], msg["Message-ID"] = format_datetime(datetime.now(timezone.utc)), f"<{ident}>"
-        msg.set_content(body, cte="quoted-printable")
-        # SMTP DATA transparency and exactly one end-of-data line, independent of the body supplied by the user.
-        wire = re.sub(rb"(?m)^\.", b"..", msg.as_bytes())
-    except (ValueError, errors.MessageError):
-        raise TransportError("Не удалось подготовить заголовки или текст письма.") from None
-    wire += (b"" if wire.endswith(b"\r\n") else b"\r\n") + b".\r\n"
-    try:
-        with _submission(_HOSTS[provider][1]) as smtp:
-            smtp.login(login, password)
-            if international and not smtp.has_extn("smtputf8"):
-                raise TransportError("Сервер не поддерживает этот международный почтовый адрес.")
-            code, _ = smtp.mail(sender.addr_spec, options=("SMTPUTF8",) if international else ())
-            if code != 250:
-                raise TransportError("Почтовый сервер отклонил адрес отправителя.")
-            for recipient in envelope:
-                code, _ = smtp.rcpt(recipient)
-                if code not in (250, 251, 252):
-                    raise TransportError("Сервер отклонил адрес получателя. Письмо не отправлено.")
-            code, _ = smtp.docmd("DATA")
-            if code != 354:
-                raise TransportError("Почтовый сервер отказался принять письмо.")
-            try:
-                smtp.send(wire)
-                code, _ = smtp.getreply()
-            except (OSError, smtplib.SMTPException, EOFError):
-                raise DeliveryUncertain("Сервер не подтвердил отправку. Проверьте отправленные письма перед повтором.") from None
-            if 400 <= code < 600:
-                raise TransportError("Почтовый сервер не принял отправленное письмо.")
-            if not 200 <= code < 300:
-                raise DeliveryUncertain("Получен неоднозначный ответ сервера. Проверьте отправленные письма.")
-    except ssl.SSLCertVerificationError:
-        raise TransportError("Не удалось проверить сертификат почтового сервера.") from None
-    except smtplib.SMTPAuthenticationError:
-        raise AuthenticationError("Проверьте пароль приложения и разрешение на отправку.") from None
-    except (OSError, smtplib.SMTPException, EOFError, UnicodeError):
-        raise TransportError("Не удалось соединиться с сервером исходящей почты.") from None
+        return SyncBatch(validity, current, messages, len(current - known - messages.keys()), selected_size)

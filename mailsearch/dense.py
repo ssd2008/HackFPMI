@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+from copy import copy
 import os
 from pathlib import Path
 import re
@@ -115,6 +116,21 @@ class DenseIndex:
             os.replace(temporary, path)
         finally:
             Path(temporary).unlink(missing_ok=True)
+
+    def memory_index(self, documents: list[dict]) -> DenseIndex:
+        """Use the resident E5 encoder for a visitor snapshot; only its vectors are new."""
+        index = copy(self)
+        index.vectors = np.empty((len(documents), DIMENSION), dtype=np.float32)
+        for start in range(0, len(documents), 12):
+            texts = ["passage: " + semantic_text(d["doc"][:2600]) for d in documents[start:start + 12]]
+            with self._tokenizer_lock:
+                batch = self.tokenizer(texts, max_length=TOKEN_LIMIT, truncation=True, padding=True,
+                                       return_token_type_ids=True, return_tensors="np")
+            hidden = self.query_model.run(["last_hidden_state"], dict(batch))[0]
+            mask = batch["attention_mask"][..., None].astype(np.float32)
+            means = (hidden * mask).sum(axis=1) / mask.sum(axis=1).clip(min=1)
+            index.vectors[start:start + len(texts)] = means / np.linalg.norm(means, axis=1, keepdims=True).clip(min=1e-12)
+        return index
 
     def query(self, text: str) -> np.ndarray:
         # The tokenizer mutates truncation settings. Inference can run concurrently

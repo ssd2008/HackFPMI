@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="./static/style.css">
   <script src="./static/demo.js" defer></script>
   <script src="./static/personal.js" defer></script>
+  <script src="./static/visitor.js" defer></script>
   <script src="./static/local.js" defer></script>
   <script src="./static/app.js" defer></script>
 </head>
@@ -43,6 +44,9 @@
     </header>
 
     <aside class="sidebar" aria-label="Навигация по почте">
+      <a href="#accounts" id="visitor-open" class="visitor-open" aria-haspopup="dialog" hidden>
+        <svg class="icon" aria-hidden="true"><use href="./static/icons.svg#user"></use></svg><span>Подключить свою почту</span>
+      </a>
       <div class="local-controls" id="local-controls" hidden>
         <button type="button" class="primary" id="compose-open" aria-haspopup="dialog">
           <svg class="icon" aria-hidden="true"><use href="./static/icons.svg#compose"></use></svg>Написать
@@ -249,6 +253,41 @@
         </form>
       </details>
       <p id="accounts-feedback" class="mail-feedback" role="status" hidden></p>
+    </div>
+  </dialog>
+  <dialog id="visitor-accounts-dialog" class="mail-dialog visitor-dialog" aria-labelledby="visitor-accounts-heading">
+    <div class="mail-dialog-head">
+      <h2 id="visitor-accounts-heading">Моя почта</h2>
+      <button type="button" class="icon-button" id="visitor-accounts-close" aria-label="Закрыть настройки почты">
+        <svg class="icon" aria-hidden="true"><use href="./static/icons.svg#close"></use></svg>
+      </button>
+    </div>
+    <div class="accounts-content">
+      <p class="account-access">Сервер читает по IMAP до 500 последних входящих из вашего ящика. Письма и пароль приложения хранятся в памяти сервера до выхода, максимум один час.</p>
+      <p id="visitor-accounts-frequency" class="account-caption" hidden></p>
+      <div id="visitor-accounts-list" aria-live="polite"></div>
+      <div class="accounts-load-error" id="visitor-accounts-load-error" hidden>
+        <p id="visitor-accounts-error-text" class="mail-feedback" role="status"></p>
+        <button type="button" id="visitor-accounts-retry" class="text-action">Обновить список</button>
+      </div>
+      <details id="visitor-account-add" class="account-add">
+        <summary><svg class="icon" aria-hidden="true"><use href="./static/icons.svg#plus"></use></svg>Подключить свой ящик</summary>
+        <form id="visitor-account-form" autocomplete="off">
+          <fieldset id="visitor-account-provider" class="visitor-providers">
+            <legend>Почтовый сервис</legend>
+            <div class="visitor-provider-options">
+              <label><input type="radio" name="provider" value="gmail" checked>Gmail</label>
+              <label><input type="radio" name="provider" value="yandex">Яндекс.Почта</label>
+            </div>
+          </fieldset>
+          <label>Ваш адрес почты<input type="email" id="visitor-account-address" required autocomplete="off" autocapitalize="none" spellcheck="false"></label>
+          <label>Ваш пароль приложения для IMAP<input type="password" id="visitor-account-password" required autocomplete="off" aria-describedby="visitor-account-password-help"></label>
+          <p class="account-caption" id="visitor-account-password-help">Используйте отдельный пароль приложения. Обычный пароль от аккаунта сюда вводить не нужно. <a id="visitor-account-password-link" href="https://myaccount.google.com/apppasswords" target="_blank" rel="noopener noreferrer">Создать пароль приложения Google</a></p>
+          <button type="submit" id="visitor-account-connect" class="primary">Подключить</button>
+        </form>
+      </details>
+      <p id="visitor-accounts-feedback" class="mail-feedback" role="status" hidden></p>
+      <button type="button" id="visitor-accounts-logout" class="secondary logout-button" hidden>Выйти и отключить почту</button>
     </div>
   </dialog>
   <div class="sr-only" role="status" aria-live="polite" id="announce"></div>

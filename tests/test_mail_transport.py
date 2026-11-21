@@ -1,13 +1,10 @@
-"""Protocol-boundary tests. IMAP and SMTP constructors are always replaced with fakes."""
+"""Protocol-boundary tests. The IMAP connection is replaced with a fake."""
 from email import policy
 from email.message import EmailMessage
-from email.parser import BytesParser
-from email.utils import parsedate_to_datetime
 import imaplib
-import smtplib
 import ssl
 import unittest
-from unittest.mock import Mock, patch
+from unittest.mock import patch
 
 from mailsearch import mail_transport as transport
 from mailsearch.store import describe
@@ -33,6 +30,13 @@ class FakeIMAP:
     def response(self, item):
         return item, [self.epoch]
 
+    def fetch(self, sequence, query):
+        assert query == "(UID)"
+        self.calls.append(("sequence", sequence, query))
+        first, last = map(int, sequence.split(":"))
+        return "OK", [f"{i} (UID {uid})".encode() for i, uid in enumerate(sorted(self.records), 1)
+                      if first <= i <= last]
+
     def uid(self, command, ids, query):
         self.calls.append((command, ids, query))
         if command == 'SEARCH':
@@ -47,7 +51,10 @@ class FakeIMAP:
             if query == '(UID RFC822.SIZE)':
                 rows.append(meta + f'RFC822.SIZE {len(body)})'.encode())
                 continue
-            assert query == '(UID INTERNALDATE BODY.PEEK[])'
+            partial = query == f'(UID INTERNALDATE BODY.PEEK[]<0.{transport.MAX_MIME_BYTES}>)'
+            assert partial or query == '(UID INTERNALDATE BODY.PEEK[])'
+            if partial:
+                body = body[:transport.MAX_MIME_BYTES]
             if uid in self.vanished:
                 del self.records[uid]
                 continue
@@ -55,7 +62,7 @@ class FakeIMAP:
                 self.missing_once.remove(uid)
                 continue
             # Exercise both permitted orders of the literal and UID/INTERNALDATE.
-            literal = b'BODY[] {' + str(len(body)).encode() + b'}'
+            literal = (b'BODY[]<0> {' if partial else b'BODY[] {') + str(len(body)).encode() + b'}'
             if uid % 2:
                 rows.extend([(meta + b'INTERNALDATE ' + self.date + b' ' + literal, body), b')'])
             else:
@@ -65,72 +72,6 @@ class FakeIMAP:
 
     def logout(self):
         self.calls.append(('logout',))
-
-
-class FakeSMTP:
-    def __init__(self, *, implicit_tls=True):
-        self.tls = implicit_tls
-        self.offers_starttls = True
-        self.sock = Mock()
-        self.events = []
-        self.login_args = None
-        self.mail_args = None
-        self.destinations = []
-        self.codes = []
-        self.raw = None
-        self.begin_data = 354
-        self.reply = 250
-        self.closed = False
-        self.international = True
-
-    def set_debuglevel(self, n):
-        assert n == 0
-
-    def ehlo_or_helo_if_needed(self):
-        self.ehlo()
-
-    def ehlo(self):
-        self.events.append('ehlo_tls' if self.tls else 'ehlo_plain')
-        return 250, b''
-
-    def starttls(self, *, context):
-        assert context.check_hostname and context.verify_mode == ssl.CERT_REQUIRED
-        self.events.append('starttls')
-        self.tls = True
-        return 220, b''
-
-    def login(self, login, password):
-        assert self.tls
-        self.events.append('login')
-        self.login_args = login, password
-
-    def has_extn(self, opt):
-        if opt == 'starttls':
-            return self.offers_starttls
-        return self.international and opt == 'smtputf8'
-
-    def mail(self, address, options):
-        self.mail_args = address, options
-        return 250, b''
-
-    def rcpt(self, address):
-        self.destinations.append(address)
-        return self.codes.pop(0) if self.codes else 250, b''
-
-    def docmd(self, command):
-        assert command == 'DATA'
-        return self.begin_data, b''
-
-    def send(self, raw):
-        self.raw = raw
-
-    def getreply(self):
-        if isinstance(self.reply, Exception):
-            raise self.reply
-        return self.reply, b'private content from a provider'
-
-    def close(self):
-        self.closed = True
 
 
 def raw_letter(body='Проверка почты'):
@@ -145,20 +86,11 @@ def raw_letter(body='Проверка почты'):
 class MailTransportTests(unittest.TestCase):
     def setUp(self):
         self.imap = FakeIMAP({n: raw_letter(f'Номер {n}').as_bytes() for n in (2, 5, 9, 11)})
-        self.smtp = FakeSMTP()
-        self.alternate = FakeSMTP(implicit_tls=False)
-        self.alternate_factory = self.enterContext(patch.object(transport.smtplib, 'SMTP', return_value=self.alternate))
         self.imap_factory = self.enterContext(patch.object(transport.imaplib, 'IMAP4_SSL', return_value=self.imap))
-        self.smtp_factory = self.enterContext(patch.object(transport.smtplib, 'SMTP_SSL', return_value=self.smtp))
 
     def fetch(self, *, known_validity='7', known_uids=None, batch_size=2, mailbox='local-a'):
         return transport.fetch_inbox('gmail', 'me@example.test', 'test-app-pass', mailbox=mailbox,
                                      known_validity=known_validity, known_uids=known_uids or set(), batch_size=batch_size)
-
-    def send(self, **changes):
-        values = dict(to=['Редактор <news+list@example.test>', 'editor@sub.example.test'],
-                      subject='Письмо о прототипе', body='Строка\n.\n..после точки', message_id='<local-7@example.test>')
-        transport.send_message('yandex', 'test@yandex.ru', 'test-app-pass', **{**values, **changes})
 
     def assert_tls(self, factory, host, port, key):
         args, kwargs = factory.call_args
@@ -246,139 +178,27 @@ class MailTransportTests(unittest.TestCase):
             with self.assertRaises(transport.TransportError):
                 transport._uid_set(self.imap, 70000)
 
-    def test_smtp_envelope_encoded_headers_dot_transparency_and_yandex_login(self):
-        self.send()
-        self.assert_tls(self.smtp_factory,'smtp.yandex.ru',465,'context')
-        self.assertEqual(self.smtp.login_args,('test','test-app-pass'))
-        self.assertEqual(self.smtp.mail_args,('test@yandex.ru',()))
-        self.assertEqual(self.smtp.destinations,['news+list@example.test','editor@sub.example.test'])
-        self.assertTrue(self.smtp.raw.endswith(b'\r\n.\r\n'))
-        self.assertIn(b'\r\n..\r\n...', self.smtp.raw)
-        unstuffed = self.smtp.raw[:-3].replace(b'\r\n..', b'\r\n.')
-        msg = BytesParser(policy=policy.default).parsebytes(unstuffed)
-        self.assertEqual(str(msg['Subject']),'Письмо о прототипе')
-        self.assertEqual(str(msg['Message-ID']),'<local-7@example.test>')
-        self.assertIsNotNone(parsedate_to_datetime(str(msg['Date'])).tzinfo)
-        self.assertEqual(msg['To'].addresses[0].display_name,'Редактор')
-        self.assertIn('.\r\n..после точки',msg.get_content())
-        self.assertTrue(self.smtp.closed)
-        self.alternate_factory.assert_not_called()
-
-    def test_short_initial_wait_then_starttls_before_authentication_on_both_providers(self):
-        self.smtp_factory.side_effect = TimeoutError()
-        for provider in ('gmail', 'yandex'):
-            with self.subTest(provider=provider):
-                alternate = FakeSMTP(implicit_tls=False)
-                self.alternate_factory.return_value = alternate
-                transport.send_message(provider, 'sender@example.test', 'test-password', to=['reader@example.test'],
-                                       subject='Обновления', body='Тест', message_id='round@example.test')
-                host = 'smtp.gmail.com' if provider == 'gmail' else 'smtp.yandex.ru'
-                self.assert_tls(self.smtp_factory, host, 465, 'context')
-                self.assertLess(self.smtp_factory.call_args.kwargs['timeout'], self.alternate_factory.call_args.kwargs['timeout'])
-                self.assertEqual(self.alternate_factory.call_args.args, (host, 587))
-                self.assertEqual(alternate.events, ['ehlo_plain', 'starttls', 'ehlo_tls', 'login'])
-                alternate.sock.settimeout.assert_called_once_with(transport._TIMEOUT)
-                self.assertTrue(alternate.closed)
-
-    def test_unreachable_ports_report_connection_failure_without_authentication(self):
-        self.smtp_factory.side_effect = TimeoutError('hidden detail')
-        self.alternate_factory.side_effect = ConnectionRefusedError('hidden detail')
-        with self.assertRaises(transport.TransportError) as failure:
-            self.send()
-        self.assertIs(type(failure.exception), transport.TransportError)
-        self.assertIn('465 и 587', str(failure.exception))
-        self.assertNotIn('hidden', str(failure.exception))
-        self.assertIsNone(self.smtp.login_args)
-        self.assertIsNone(self.alternate.login_args)
-
-    def test_pre_authentication_disconnect_releases_primary_before_fallback(self):
-        with patch.object(self.smtp, 'ehlo_or_helo_if_needed', side_effect=smtplib.SMTPServerDisconnected()):
-            self.send()
-        self.assertIsNone(self.smtp.login_args)
-        self.assertTrue(self.smtp.closed)
-        self.assertEqual(self.alternate.events[-1], 'login')
-
-    def test_optional_or_invalid_tls_never_receives_credentials(self):
-        self.smtp_factory.side_effect = ConnectionRefusedError()
-        self.alternate.offers_starttls = False
-        with self.assertRaises(transport.TransportError):
-            self.send()
-        self.assertEqual(self.alternate.events, ['ehlo_plain'])
-        self.assertIsNone(self.alternate.login_args)
-        self.assertTrue(self.alternate.closed)
-        self.alternate.offers_starttls = True
-        with patch.object(self.alternate, 'starttls', side_effect=ssl.SSLCertVerificationError('private details')):
-            with self.assertRaises(transport.TransportError) as error:
-                self.send()
-        self.assertNotIn('private', str(error.exception))
-        self.assertIsNone(self.alternate.login_args)
-        self.assertIsNone(self.alternate.raw)
-
-    def test_primary_certificate_or_auth_failure_never_retries_on_another_port(self):
-        self.smtp_factory.side_effect = ssl.SSLCertVerificationError()
-        with self.assertRaises(transport.TransportError):
-            self.send()
-        self.smtp_factory.side_effect = None
-        with patch.object(self.smtp, 'login', side_effect=smtplib.SMTPServerDisconnected('private details')):
-            with self.assertRaises(transport.TransportError):
-                self.send()
-        self.alternate_factory.assert_not_called()
-
-    def test_recipients_are_accepted_as_one_transaction(self):
-        self.smtp.codes = [250,550]
-        with self.assertRaises(transport.TransportError) as failure:
-            self.send()
-        self.assertNotIsInstance(failure.exception,transport.DeliveryUncertain)
-        self.assertIsNone(self.smtp.raw)
-        self.assertTrue(self.smtp.closed)
-
-    def test_failure_before_body_definite_after_body_uncertain_unless_rejected(self):
-        for stage, code, expected in [('begin_data', 421, transport.TransportError),('reply', 553, transport.TransportError),
-                                     ('reply', smtplib.SMTPServerDisconnected('secret'), transport.DeliveryUncertain),
-                                     ('reply', -1, transport.DeliveryUncertain)]:
-            with self.subTest(stage=stage,code=repr(code)):
-                self.smtp.begin_data = 354
-                self.smtp.reply = 250
-                self.smtp.raw = None
-                setattr(self.smtp,stage,code)
-                with self.assertRaises(expected) as error:
-                    self.send()
-                self.assertIs(type(error.exception),expected)
-                self.assertNotIn('secret',str(error.exception))
-                self.assertNotIn('private',str(error.exception))
-                self.assertEqual(self.smtp.raw is None,stage=='begin_data')
-        self.alternate_factory.assert_not_called()
-
-    def test_reject_header_injection_before_any_connection(self):
-        for kwargs in (dict(subject='subject\r\nBcc: x@example.test'),dict(to=['a@example.test\nCc: x@example.test']),
-                       dict(message_id='<id@example.test>\nBcc: x'),dict(to=['a@example.test, b@example.test']),
-                       dict(to=['not-an-address'])):
-            with self.subTest(kwargs=kwargs),self.assertRaises(transport.TransportError):
-                self.send(**kwargs)
-        self.smtp_factory.assert_not_called()
-        with self.assertRaises(transport.TransportError):
-            transport.verify_account('unlisted', 'user@example.test', 'pass')
-        self.imap_factory.assert_not_called()
-
-    def test_international_domain_encoded_and_unicode_mailbox_negotiated(self):
-        self.send(to=['Олег <name@пример.рф>', 'm+case@example.test'])
-        self.assertEqual(self.smtp.destinations[0], 'name@xn--e1afmkfd.xn--p1ai')
-        self.send(to=['пользователь@example.test'])
-        self.assertEqual(self.smtp.mail_args[1], ('SMTPUTF8',))
-        self.smtp.international = False
-        with self.assertRaises(transport.TransportError):
-            self.send(to=['пользователь@example.test'])
-
     def test_authentication_and_network_errors_are_sanitized(self):
         with patch.object(self.imap,'login',side_effect=imaplib.IMAP4.error('private-user private-password')):
             with self.assertRaises(transport.AuthenticationError) as error:
                 self.fetch()
             self.assertNotIn('private-', str(error.exception))
-        with patch.object(self.smtp,'login',side_effect=smtplib.SMTPAuthenticationError(535,b'private-password')):
-            with self.assertRaises(transport.AuthenticationError) as error:
-                self.send()
-            self.assertNotIn('private-', str(error.exception))
+
+    def test_capped_window_uses_only_recent_uids_and_never_fetches_a_whole_oversize_message(self):
+        msg = raw_letter("Начало письма. " + "x" * 1000)
+        msg.add_attachment(b"z" * 1024, maintype="application", subtype="octet-stream", filename="unused.bin")
+        self.imap.records[15] = msg.as_bytes()
+        with patch.object(transport, "MAX_MIME_BYTES", 1500), patch.object(transport, "MAX_BODY_CHARS", 60):
+            batch = transport.fetch_inbox("gmail", "reader@example.test", "fake", mailbox="account-fixture",
+                                         known_validity="7", known_uids={9}, max_messages=3)
+        self.assertEqual((batch.current_uids, set(batch.messages), batch.total_available, batch.remaining),
+                         ({9, 11, 15}, {11, 15}, 5, 0))
+        self.assertIn(("sequence", "3:5", "(UID)"), self.imap.calls)
+        self.assertIn(("FETCH", "15", "(UID INTERNALDATE BODY.PEEK[]<0.1500>)"), self.imap.calls)
+        self.assertTrue(batch.messages[15]["truncated"])
+        self.assertIn("Начало письма", batch.messages[15]["doc"])
+        self.assertNotIn("x" * 61, batch.messages[15]["doc"])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

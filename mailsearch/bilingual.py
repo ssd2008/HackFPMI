@@ -4,13 +4,12 @@ from __future__ import annotations
 
 from collections import defaultdict
 from functools import lru_cache
+from .private_cache import stem_word, text_cache
 import gzip
 from pathlib import Path
 import re
-import threading
 
 import numpy as np
-import snowballstemmer
 
 from .quantities import has_counted_quantity
 
@@ -28,7 +27,6 @@ _TOPIC = re.compile(
 _WORD = re.compile(r"[a-z]+|[а-яё]+", re.I)
 _ENGLISH = re.compile("[a-z]{2,}", re.I)
 _BODY = re.compile(r"^\s*(?:текст письма|body)\s*:", re.M | re.I)
-_LOCAL = threading.local()
 _CYRILLIC = re.compile("[а-яё]{2,}", re.I)
 _BOILERPLATE = frozenset("переписка переписку переписке письма письме сообщения уведомления найди покажи ищу "
                          "пришедшие получили полученные мне нужны нужна мой моей на эту тему о об с по про или либо "
@@ -52,11 +50,9 @@ def dictionary():
         return {ru: en.split("|") for ru, en in (line.rstrip("\n").split("\t") for line in file)}
 
 
-@lru_cache(maxsize=64000)
+@text_cache(maxsize=64000)
 def _en_stem(word):
-    if not hasattr(_LOCAL, "stemmer"):
-        _LOCAL.stemmer = snowballstemmer.stemmer("english")
-    return _LOCAL.stemmer.stemWord(word)
+    return stem_word("english", word)
 
 
 class BilingualMail:

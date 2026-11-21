@@ -6,14 +6,12 @@ from array import array
 from collections import Counter, defaultdict
 from dataclasses import dataclass
 from datetime import date
-from functools import lru_cache
+from .private_cache import stem_word, text_cache
 from pathlib import Path
 import re
-import threading
 
 import numpy as np
 from scipy.sparse import csr_matrix
-import snowballstemmer
 
 from .dates import parse_date_scope
 from .dense import DenseIndex
@@ -51,16 +49,13 @@ _PLAN_REQUEST = re.compile(rf"\b(?:{_PLAN_NOUN}|разреш[а-я]*|запла�
 _QUOTED = re.compile(r'«([^«»]*)»|"([^"]*)"')
 _NAME_PREPOSITION = re.compile(r"\b(?:об?|про|к|с|из|для|у|по|над|перед|от)\s*$", re.I)
 _VERBATIM = re.compile(r"\b(?:дослов[а-я]*|букваль[а-я]*|точн[а-я]*\s+(?:фраз[а-я]*|цитат[а-я]*|текст[а-я]*))\b", re.I)
-_LOCAL = threading.local()
 
 
-@lru_cache(maxsize=80_000)
+@text_cache(maxsize=80_000)
 def _stem(word: str) -> str:
     if word.isascii() or len(word) < 3:
         return word
-    if not hasattr(_LOCAL, "stemmer"):
-        _LOCAL.stemmer = snowballstemmer.stemmer("russian")
-    return _LOCAL.stemmer.stemWord(word)
+    return stem_word("russian", word)
 
 
 # Snowball removes endings; these common nominalizations, synonyms and aspect
@@ -519,7 +514,7 @@ class LexicalIndex:
 
 
 class SearchEngine:
-    def __init__(self, documents: list[dict], cache_dir: Path):
+    def __init__(self, documents: list[dict], cache_dir: Path | None, *, encoder=None):
         self.ids = [doc["doc_id"] for doc in documents]
         self.by_id = {doc_id: i for i, doc_id in enumerate(self.ids)}
         self.documents = documents
@@ -545,7 +540,8 @@ class SearchEngine:
         self.boxes = {key: np.asarray(rows, dtype=np.int32) for key, rows in boxes.items()}
         self.spelling = CorpusSpelling((d["doc"] for d in documents), _stem)
         self.lexical = LexicalIndex(documents)
-        self.dense = DenseIndex(documents, Path(cache_dir))
+        self.dense = (encoder.memory_index(documents) if encoder is not None
+                      else DenseIndex(documents, Path(cache_dir)))
 
     def search(
         self, synthetic_user: str, query: str, query_date: date, limit: int = 10

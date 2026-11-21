@@ -89,15 +89,27 @@ function current(kind, controller) {
 }
 async function fetchJSON(path, controller, body) {
   if (state.demo) return demoApi(path, body);
-  const options = {signal: controller.signal, cache: 'no-store'};
+  const url = new URL(path, apiOrigin);
+  if (url.origin !== new URL(apiOrigin).origin || !url.pathname.startsWith('/api/')) {
+    throw new Error('Некорректный адрес почтового сервера.');
+  }
+  const token = url.pathname === '/api/visitor/session' ? '' : visitorMail.token();
+  const headers = {};
+  if (token) headers.Authorization = 'Bearer ' + token;
+  const options = {signal: controller.signal, cache: 'no-store', headers, redirect: 'error', credentials: 'omit', referrerPolicy: 'no-referrer'};
   if (body !== undefined) {
     options.method = 'POST';
-    options.headers = {'Content-Type': 'application/json'};
+    headers['Content-Type'] = 'application/json';
+    if (url.pathname.startsWith('/api/visitor/') || token) headers['X-Mailsearch-Visitor'] = '1';
     options.body = JSON.stringify(body);
   }
-  const response = await fetch(new URL(path, apiOrigin), options);
+  let response;
+  try { response = await fetch(url, options); }
+  catch { throw new Error('Не удалось связаться с почтовым сервером.'); }
   if (!response.ok) {
-    const error = new Error('HTTP ' + response.status);
+    if (token && response.status === 401) visitorMail.end(token, 'Сессия завершена.');
+    const data = await response.json().catch(() => null);
+    const error = new Error(typeof data?.detail === 'string' ? data.detail : 'Почтовый сервер вернул ошибку ' + response.status + '.');
     error.status = response.status;
     throw error;
   }
@@ -183,7 +195,7 @@ function openMailbox(id, initialDate) {
   closeReader();
   clearAnswer();
   state.mailbox = id;
-  const isLive = localMail.enabled() && (box.kind === 'live' || localMail.hasAccount(id));
+  const isLive = box.kind === 'live' || (localMail.enabled() && localMail.hasAccount(id));
   let defaultDate = initialDate || box.latest_date || state.date;
   if (isLive) defaultDate = localMail.today();
   else if (box.kind === 'archive' && box.latest_date) defaultDate = box.latest_date;
@@ -206,16 +218,23 @@ async function loadMailboxes({preserve = false} = {}) {
     if (!current('boxes', controller)) return false;
     const active = getBox(state.mailbox);
     const local = data.local_mail === true && !state.demo && apiOrigin === location.origin && !apiConfig.hasAttribute('data-external');
-    const sorted = [...data.mailboxes].sort((a, b) => {
-      const namedFirst = local ? Number(Boolean(b.label)) - Number(Boolean(a.label)) : 0;
-      return namedFirst || a.id.localeCompare(b.id);
-    });
+    const visitor = !state.demo && data.visitor_mail === true;
+    const legacyLocal = local && !Object.hasOwn(data, 'visitor_mail');
+    if (data.visitor_mail === false && visitorMail.token()) {
+      visitorMail.end(visitorMail.token(), 'Подключение личной почты отключено.');
+      return false;
+    }
+    const visible = data.mailboxes.filter(box => (box.kind !== 'archive' || local) &&
+      (box.kind !== 'live' || legacyLocal || (visitor && visitorMail.token())));
+    const priority = box => box.kind === 'live' ? 0 : box.kind === 'archive' ? 1 : 2;
+    const sorted = visible.sort((a, b) => priority(a) - priority(b) || a.id.localeCompare(b.id));
     let anonymous = 0;
     state.boxes = sorted.map(box => ({
       ...box, name: state.demo ? box.name : box.label || 'Ящик ' + String(++anonymous).padStart(2, '0')
     }));
     populateMailboxes();
-    localMail.setEnabled(local);
+    localMail.setEnabled(legacyLocal);
+    visitorMail.setAvailable(visitor);
     if (!sorted.length) {
       state.mailbox = '';
       ui.list.setAttribute('aria-busy', 'false');
@@ -597,6 +616,7 @@ function renderMail(mail) {
   const readable = cleanBody(original);
   const body = node('div', 'message-body', readable);
   ui.readerContent.replaceChildren(badge, title, meta, personal.mailControls(mail));
+  if (mail.truncated) ui.readerContent.append(node('p', 'account-caption', 'Длинное письмо загружено частично. Ниже показано его начало.'));
   if (original !== readable) {
     const toggle = action('Показать исходный текст', 'body-toggle', () => {
       const showOriginal = toggle.getAttribute('aria-pressed') === 'false';
@@ -680,39 +700,58 @@ document.addEventListener('keydown', event => {
   event.preventDefault();
   ui.input.focus();
 });
-function setDemoMode(enabled) {
-  localMail.setEnabled(false);
+function resetMailboxView() {
+  for (const kind of requests.keys()) cancel(kind);
   closeReader();
+  ui.readerContent.replaceChildren();
+  ui.readerContent.removeAttribute('aria-busy');
   clearAnswer();
-  cancel('list');
-  state.demo = enabled;
   state.actionsOnly = false;
+  state.boxes = [];
   state.mailbox = '';
   state.date = '';
   state.query = '';
+  state.items = [];
+  state.searchResults = [];
+  state.offset = 0;
+  state.total = 0;
+  state.lastDates.clear();
   ui.input.value = '';
   ui.input.disabled = true;
   ui.search.disabled = true;
   ui.mobile.disabled = true;
   ui.mobile.replaceChildren(node('option', '', 'Почтовый ящик'));
   ui.date.disabled = true;
+  ui.date.value = '';
   ui.dateLabel.textContent = 'Дата запроса';
   ui.examples.hidden = true;
+  ui.examples.replaceChildren();
+  ui.urgentItems.replaceChildren();
   ui.sidebar.replaceChildren();
   byId('box-total').textContent = '';
   byId('page-context').hidden = true;
+  byId('page-context').textContent = '';
   byId('nav-inbox').disabled = true;
   ui.actions.disabled = true;
-  byId('demo-label').hidden = !enabled;
-  byId('search-description').textContent = enabled
+  byId('demo-label').hidden = !state.demo;
+  byId('search-description').textContent = state.demo
     ? 'Поиск по словам в вымышленных письмах.'
     : 'Опишите, что помните о письме, своими словами.';
-  byId('leave-demo').hidden = !enabled || !apiOrigin;
+  byId('leave-demo').hidden = !state.demo || !apiOrigin;
   setMode();
+  personal.resetPrivate();
   personal.contextChanged();
   loadMailboxes();
+}
+function setDemoMode(enabled) {
+  localMail.setEnabled(false);
+  visitorMail.setAvailable(false);
+  state.demo = enabled;
+  if (!enabled) visitorMail.restore();
+  resetMailboxView();
 }
 byId('leave-demo').addEventListener('click', () => setDemoMode(false));
 personal.init();
 localMail.init();
+visitorMail.init();
 setDemoMode(state.demo);

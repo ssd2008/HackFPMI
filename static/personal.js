@@ -4,20 +4,40 @@ const personal = (() => {
   const assistantId = 'assistant-panel';
   let lastWatchPoll = 0;
   let checking = false;
+  const blank = () => ({marks: {}, reminders: {}, watches: []});
+  let privateData = blank();
+
+  function privateContext() {
+    const kind = getBox(state.mailbox)?.kind;
+    return Boolean(visitorMail.token()) || kind === 'live' || kind === 'archive';
+  }
 
   function storageKey() {
     return 'ayai-mail:personal:' + (state.demo ? 'demo' : apiOrigin);
   }
 
   function read() {
+    if (privateContext()) return privateData;
     try {
-      return JSON.parse(localStorage.getItem(storageKey())) || {marks: {}, reminders: {}, watches: []};
+      const data = JSON.parse(localStorage.getItem(storageKey())) || blank();
+      // Older releases kept local archive reminders beside the synthetic ones.
+      const publicBoxes = new Set(state.boxes.filter(b => !['live', 'archive'].includes(b.kind)).map(b => b.id));
+      if (!publicBoxes.size) return blank();
+      const safe = {
+        marks: Object.fromEntries(Object.entries(data.marks).filter(([, x]) => publicBoxes.has(x.box))),
+        reminders: Object.fromEntries(Object.entries(data.reminders).filter(([, x]) => publicBoxes.has(x.box))),
+        watches: data.watches.filter(x => publicBoxes.has(x.mailbox))
+      };
+      if (Object.keys(safe.marks).length !== Object.keys(data.marks).length ||
+          Object.keys(safe.reminders).length !== Object.keys(data.reminders).length || safe.watches.length !== data.watches.length) save(safe);
+      return safe;
     } catch {
-      return {marks: {}, reminders: {}, watches: []};
+      return blank();
     }
   }
 
   function save(data) {
+    if (privateContext()) { privateData = data; return true; }
     try {
       localStorage.setItem(storageKey(), JSON.stringify(data));
       return true;
@@ -321,6 +341,15 @@ const personal = (() => {
     pollWatches(true);
   }
 
+  function resetPrivate() {
+    privateData = blank();
+    lastWatchPoll = 0;
+    byId('assistant-query').value = '';
+    byId('assistant-results').replaceChildren();
+    byId('watch-items').replaceChildren();
+    byId('notifications').replaceChildren();
+  }
+
   function init() {
     byId('assistant-open').addEventListener('click', () => toggleAssistant(byId(assistantId).hidden));
     byId('assistant-close').addEventListener('click', () => toggleAssistant(false));
@@ -340,5 +369,5 @@ const personal = (() => {
     setInterval(tick, 5000);
   }
 
-  return {init, markedIds, contextChanged, mailControls, toast};
+  return {init, markedIds, contextChanged, resetPrivate, mailControls, toast};
 })();
