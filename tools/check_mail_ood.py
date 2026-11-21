@@ -23,6 +23,7 @@ import statistics
 import subprocess
 import sys
 import tarfile
+import time
 from urllib.parse import urlparse
 
 import numpy as np
@@ -49,9 +50,9 @@ SEED = 2026
 RESAMPLES = 10_000
 METRICS = ("ndcg_at_1", "ndcg_at_5", "ndcg_at_10", "known_recall_at_1",
            "known_recall_at_5", "known_recall_at_10", "recall_ceiling_at_10",
-           "success_at_1", "success_at_5", "mrr_at_10", "false_empty_rate",
+           "success_at_1", "success_at_5", "mrr_at_10", "singleton_mrr_at_10", "false_empty_rate",
            "false_nonempty_rate", "returned_length", "judged_at_10")
-CI_METRICS = ("ndcg_at_10", "known_recall_at_10", "success_at_1", "mrr_at_10",
+CI_METRICS = ("ndcg_at_10", "known_recall_at_10", "success_at_1", "mrr_at_10", "singleton_mrr_at_10",
               "false_empty_rate", "false_nonempty_rate")
 SCOPE = ("returned", "unknown_id", "foreign_mailbox", "future",
          "requested_window_returned", "outside_requested_window",
@@ -109,11 +110,21 @@ def run_http(pool, runs, urls, workers):
         out.mkdir(parents=True, exist_ok=True)
         confirm(not (out / "rankings.json").exists(), "Choose a fresh --runs directory for a new run")
         selector = ["--panel", str(pool / "panels" / (name + ".jsonl"))] if panel else []
-        with (out / "http.log").open("wb") as log:
-            subprocess.run([sys.executable, str(program), "--project", str(ROOT),
-                            "--suite", str(pool / "suite" / name), "--variants", "--workers",
-                            str(workers), "--url", url, "--output", str(out), *selector],
-                           cwd=ROOT, stdout=log, stderr=log, check=True)
+        command = [sys.executable, str(program), "--project", str(ROOT),
+                   "--suite", str(pool / "suite" / name), "--variants", "--workers",
+                   str(workers), "--url", url, "--output", str(out), *selector]
+        path = out / "http.log"
+        for attempt in range(3):
+            with path.open("wb") as log:
+                run = subprocess.run(command, cwd=ROOT, stdout=log, stderr=log)
+            if run.returncode == 0:
+                return
+            # The publisher opens a new loopback connection per query. A large
+            # suite can temporarily exhaust the client's ephemeral TCP ports.
+            failure = path.read_text(errors="replace").casefold()
+            if attempt == 2 or not any(why in failure for why in ("assign requested address", "address not available")):
+                run.check_returncode()
+            time.sleep(20 * (attempt + 1))
 
     with ThreadPoolExecutor(max_workers=4) as group:
         for panel in (False, True):
@@ -156,6 +167,8 @@ def measure(ranks, task, labels, meta, query, documents):
             values[f"known_recall_at_{k}"] = cutoff["recall"]
         n = sum(g > 0 for g in labels.values())
         values["recall_ceiling_at_10"] = min(n, 10) / n
+        if n == 1:
+            values["singleton_mrr_at_10"] = cutoff_metrics(ranks, labels, 10)["mrr_single"]
     span = meta.get("receipt_window")
     scope = Counter(returned=len(ranks), requested_window_returned=len(ranks) if span else 0)
     for did in ranks:
@@ -437,7 +450,7 @@ def main():
                      "scope_order": ["before", "after"], "target": args.split, "suites": suites,
                      "ranking": "Primary and variant queries were requested on both revisions. Panel metrics use the declared subset of full-run rankings. A separate HTTP panel repeat, when present, must return every ranking identically.",
                      "judgments": "Strong combines exact rules and assistant-reviewed windows. Semantic silver uses incomplete category rules. Unjudged results give no ranking gain.",
-                     "metrics": "Query macro means. nDCG uses exponential gain; known recall counts all graded positives. MRR and success apply only to known items. Judged@10 is the judged fraction of returned documents on positive, nonempty rankings.",
+                     "metrics": "Query macro means. nDCG uses exponential gain. Known recall counts all graded positives. Singleton MRR uses exactly one positive judgment. Author-target MRR and success use designated known-item targets. Judged@10 is the judged fraction of returned documents on positive, nonempty rankings.",
                      "scope": "Mailbox, unknown ID and as-of violations are counted across all returned top-10 IDs. The separate requested receipt window counts undated and out-of-window hits, on positives and verified empties.",
                      "uncertainty": "Paired percentile cluster bootstrap, 10,000 draws, seed 2026. Resample family_id with all eligible queries; no variant enters primary. A separate positive-query interval groups by publisher validation_group. One owner yields no between-owner interval; few mailbox groups give descriptive intervals only.",
                      "snapshot": "Candidate reports server SHA-256; legacy HTTP exposes mailbox counts. Per-server provenance records additional local source/corpus verification and sampled original HTTP bodies when available."},

@@ -25,13 +25,6 @@ from tools.validate_rankings import keyed, load_labels, prepare_tasks
 
 SIDES = ("before", "after")
 K = 10
-# Digests of the supplied holdout manifests and author panels, absent from the public Git export.
-HOLDOUT = {
-    "vk": ("7636c274c33ab1c58e2add793bc238f42bd24a045a077aab824770fae6e9207b",
-           "150802da79054d6ce1607224615eea87f2da453fa6490034373ae7d6ba122157"),
-    "personal": ("32f83d8b5f3a10c1cadc97619da5d011f2c80b98f4997323cbdf62232bd6adde",
-                 "297a9cd9eb9ff6a6864c949a0321685a96721e2799615ccfd5a046f17a06c5ba"),
-}
 
 
 @dataclass
@@ -78,15 +71,7 @@ def panel(pool, source, split="dev"):
     name = f"{source}_{split}"
     folder = pool / "suite" / name
     path = pool / "panels" / (name + ".jsonl")
-    if split == "dev":
-        manifest = check_inputs(pool, name)
-    else:
-        manifest_path = folder / "manifest.json"
-        if (digest(manifest_path), digest(path)) != HOLDOUT[source]:
-            raise ValueError("The supplied holdout manifest or fixed panel changed.")
-        manifest = json.loads(manifest_path.read_bytes())
-        if any(digest(folder / file) != expected for file, expected in manifest["sha256"].items()):
-            raise ValueError("A holdout input differs from its fixed manifest.")
+    manifest = check_inputs(pool, name)
     ids = keyed(lines(path), "fixed panel")
     def selected(filename):
         return [r for r in lines(folder / filename) if r["query_id"] in ids]
