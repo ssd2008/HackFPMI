@@ -35,9 +35,9 @@ curl -fsS http://127.0.0.1:8765/api/mailboxes -o /dev/null
 cloudflared tunnel --url http://127.0.0.1:8765
 ```
 
-В [HackFPMI-demo](https://github.com/ssd2008/HackFPMI-demo) переменная `MAILSEARCH_API_ORIGIN` в разделе `Settings → Secrets and variables → Actions → Variables` задаёт HTTPS-адрес из вывода `cloudflared`. После её обновления запустите `Deploy demo to GitHub Pages` во вкладке Actions. Для обновления интерфейса перенесите изменения из `static/` в HackFPMI-demo.
+В [HackFPMI-demo](https://github.com/ssd2008/HackFPMI-demo) укажите HTTPS-адрес из вывода `cloudflared` в атрибуте `content` у тега `<meta name="mailsearch-api-origin">` в корневом `index.html`. После пуша в `main` GitHub Pages опубликует обновление. При переносе изменений интерфейса из `static/` сохраните адрес API в корневом `index.html` сайта.
 
-Quick Tunnel работает, пока запущен `cloudflared`. После перезапуска туннеля обновите переменную и заново запустите workflow. Для постоянного адреса можно использовать [именованный Cloudflare Tunnel](https://developers.cloudflare.com/tunnel/get-started/).
+Quick Tunnel работает, пока запущен `cloudflared`. После перезапуска туннеля обновите адрес в `index.html`. Для постоянного адреса можно использовать [именованный Cloudflare Tunnel](https://developers.cloudflare.com/tunnel/get-started/).
 
 ## Что показать на демо
 
