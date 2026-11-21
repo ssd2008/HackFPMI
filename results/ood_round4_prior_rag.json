@@ -1,0 +1,196 @@
+{
+  "versions": {
+    "before": "a211900726b41a35912a0512ceb329f083ae6476",
+    "after": "d18d1a06f5fc07b4ed84dfeeb6ac587b099d2a9d"
+  },
+  "deployment_checks": {
+    "before": {
+      "revision": "a211900726b41a35912a0512ceb329f083ae6476",
+      "port": 18810,
+      "source_archive_sha256": "8eeb05408f2491f0b7997afcfc1e5a90ab39837638d48e4f68d9e2a0bf305999",
+      "corpus_sha256": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5"
+    },
+    "after": {
+      "revision": "d18d1a06f5fc07b4ed84dfeeb6ac587b099d2a9d",
+      "port": 18822,
+      "source_archive_sha256": "daf3af33ebf5ae808fb4f056c26de4daf7604c3a690f6dc0e93730b39cec95f9",
+      "corpus_sha256": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5"
+    }
+  },
+  "protocol": "Each case was asked unchanged on both localhost /api/answer deployments, one request at a time. The registered fact patterns must appear in a line attributed to an allowed source. All cited messages were opened and their bodies, mailbox and snapshot checked. Explicit abstentions use the no_evidence response. These checks assess registered details rather than every generated statement. The four preexisting sets were revisited during diagnosis.",
+  "fixtures": {
+    "rag_facts": {
+      "before": {
+        "answerable": 6,
+        "all_facts_with_expected_citation": 6,
+        "unwarranted_no_evidence": 0,
+        "insufficient": 4,
+        "explicit_no_evidence": 4,
+        "citations_on_answerable": 6,
+        "expected_source_citations_on_answerable": 6,
+        "required_facts": 11,
+        "required_facts_with_citation": 11,
+        "originals_opened_in_scope": 6,
+        "modes": {
+          "generative": 6,
+          "no_evidence": 4
+        }
+      },
+      "fixture_sha256": "b4a1ed962112b26f5a9777a6c9ac031ce6b327d92467eb8d23cadf58716be70d",
+      "corpus_sha256": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+      "after": {
+        "answerable": 6,
+        "all_facts_with_expected_citation": 6,
+        "unwarranted_no_evidence": 0,
+        "insufficient": 4,
+        "explicit_no_evidence": 4,
+        "citations_on_answerable": 6,
+        "expected_source_citations_on_answerable": 6,
+        "required_facts": 11,
+        "required_facts_with_citation": 11,
+        "originals_opened_in_scope": 6,
+        "modes": {
+          "generative": 6,
+          "no_evidence": 4
+        }
+      }
+    },
+    "validation_pilot/rag_facts": {
+      "before": {
+        "answerable": 5,
+        "all_facts_with_expected_citation": 4,
+        "unwarranted_no_evidence": 0,
+        "insufficient": 2,
+        "explicit_no_evidence": 1,
+        "citations_on_answerable": 7,
+        "expected_source_citations_on_answerable": 5,
+        "required_facts": 6,
+        "required_facts_with_citation": 5,
+        "originals_opened_in_scope": 10,
+        "modes": {
+          "extractive": 4,
+          "generative": 2,
+          "no_evidence": 1
+        }
+      },
+      "fixture_sha256": "96b5bceebe21d68164e12d2063cb4fe6ff42ef41bda1d48ef90860b2c958a4be",
+      "corpus_sha256": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+      "after": {
+        "answerable": 5,
+        "all_facts_with_expected_citation": 4,
+        "unwarranted_no_evidence": 0,
+        "insufficient": 2,
+        "explicit_no_evidence": 1,
+        "citations_on_answerable": 7,
+        "expected_source_citations_on_answerable": 5,
+        "required_facts": 6,
+        "required_facts_with_citation": 5,
+        "originals_opened_in_scope": 10,
+        "modes": {
+          "extractive": 5,
+          "generative": 1,
+          "no_evidence": 1
+        }
+      }
+    },
+    "rag_unseen": {
+      "before": {
+        "answerable": 6,
+        "all_facts_with_expected_citation": 2,
+        "unwarranted_no_evidence": 2,
+        "insufficient": 3,
+        "explicit_no_evidence": 3,
+        "citations_on_answerable": 6,
+        "expected_source_citations_on_answerable": 4,
+        "required_facts": 7,
+        "required_facts_with_citation": 3,
+        "originals_opened_in_scope": 6,
+        "modes": {
+          "extractive": 3,
+          "generative": 1,
+          "no_evidence": 5
+        }
+      },
+      "fixture_sha256": "f25aa431e0db0a20bb68be1e6d3de1eeeda57dae2127b1c9b5dc81e957a6f382",
+      "corpus_sha256": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+      "after": {
+        "answerable": 6,
+        "all_facts_with_expected_citation": 3,
+        "unwarranted_no_evidence": 2,
+        "insufficient": 3,
+        "explicit_no_evidence": 3,
+        "citations_on_answerable": 4,
+        "expected_source_citations_on_answerable": 4,
+        "required_facts": 7,
+        "required_facts_with_citation": 3,
+        "originals_opened_in_scope": 4,
+        "modes": {
+          "extractive": 3,
+          "generative": 1,
+          "no_evidence": 5
+        }
+      }
+    },
+    "rag_confirmation": {
+      "before": {
+        "answerable": 5,
+        "all_facts_with_expected_citation": 2,
+        "unwarranted_no_evidence": 1,
+        "insufficient": 2,
+        "explicit_no_evidence": 1,
+        "citations_on_answerable": 5,
+        "expected_source_citations_on_answerable": 4,
+        "required_facts": 7,
+        "required_facts_with_citation": 3,
+        "originals_opened_in_scope": 6,
+        "modes": {
+          "generative": 3,
+          "no_evidence": 2,
+          "extractive": 2
+        }
+      },
+      "fixture_sha256": "3962c73ee0719ea5e166402d6dd81c645dffe08e4f82cb17c321344d81d2aa92",
+      "corpus_sha256": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+      "after": {
+        "answerable": 5,
+        "all_facts_with_expected_citation": 3,
+        "unwarranted_no_evidence": 1,
+        "insufficient": 2,
+        "explicit_no_evidence": 1,
+        "citations_on_answerable": 4,
+        "expected_source_citations_on_answerable": 4,
+        "required_facts": 7,
+        "required_facts_with_citation": 3,
+        "originals_opened_in_scope": 5,
+        "modes": {
+          "extractive": 3,
+          "generative": 2,
+          "no_evidence": 2
+        }
+      }
+    }
+  },
+  "baseline_reuse_receipt": {
+    "baseline_revision": "a211900726b41a35912a0512ceb329f083ae6476",
+    "previous_paired_candidate": "61bae2d95ac6bf32a9bd59dbc1056173439bfae3",
+    "previous_aggregate_sha256": "4069c66d38e8fe658be1a9751d4ab15c94083cdc6ac79b59e31895fba93d78f7",
+    "fixtures": {
+      "rag_facts": {
+        "cases": 10,
+        "checked_report_sha256": "af56f088185f92370000d6a952eea2c42236052227cb4ce4366205fb52724cc6"
+      },
+      "validation_pilot/rag_facts": {
+        "cases": 7,
+        "checked_report_sha256": "60acf8a7dd9f625225cc7ee0cdb3d312ae92afdef753ba9458a40470485bad23"
+      },
+      "rag_unseen": {
+        "cases": 9,
+        "checked_report_sha256": "6a30a83bdf0592370816a33cefcc59dd01eedf1144cdbb8388437b1876078f45"
+      },
+      "rag_confirmation": {
+        "cases": 7,
+        "checked_report_sha256": "c61edaa0956fd7e780c3b7d83dfcfaebb7d65bf9369e31c184aed0bb4e628938"
+      }
+    }
+  }
+}

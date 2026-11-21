@@ -1,0 +1,1308 @@
+{
+  "revisions": {
+    "baseline": "a211900726b41a35912a0512ceb329f083ae6476",
+    "current": "d18d1a06f5fc07b4ed84dfeeb6ac587b099d2a9d"
+  },
+  "server_archive_sha256": {
+    "baseline": "8eeb05408f2491f0b7997afcfc1e5a90ab39837638d48e4f68d9e2a0bf305999",
+    "current": "daf3af33ebf5ae808fb4f056c26de4daf7604c3a690f6dc0e93730b39cec95f9"
+  },
+  "protocol": {
+    "depth": 10,
+    "public_execution": "Pinned localhost HTTP, corpus SHA-256 and mailbox/as-of checks.",
+    "private_execution": "Pinned production search and direct-read endpoint functions on each separate frozen export.",
+    "variants": "Known rewrites of the same 99 dated development queries. qrels used for paraphrases and typos only.",
+    "unjudged": "Removing the requested date changes intent. Results without dates and spelling stress controls have no relevance or empty labels.",
+    "probes": "Hit@1/5 on confirmed anchors, empty counts on stated absence rules. Other hits are unjudged. Scope and direct reads audited separately.",
+    "pilot": "Existing agent-graded pilot, six development and six historical blind tasks. This round reuses the original splits; it is not a new human blind test."
+  },
+  "public_variants": {
+    "paraphrased": {
+      "input_sha256": {
+        "documents.jsonl": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+        "queries": "6706e1d4a383c65fede71ed519393e5632d1ef19805005344ea4817190f8bfd0",
+        "qrels": "826362ae5592d58b3bb1cd382103dc0aef151cf014025258f0cddba0fefa0dd4"
+      },
+      "baseline": {
+        "queries": 99,
+        "nonempty": 99,
+        "returned": 564,
+        "scope_violations": 0,
+        "quality_at_10": {
+          "recall": 0.937564,
+          "ndcg": 0.999051,
+          "mrr_single": 1.0
+        }
+      },
+      "current": {
+        "queries": 99,
+        "nonempty": 99,
+        "returned": 564,
+        "scope_violations": 0,
+        "quality_at_10": {
+          "recall": 0.937564,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      },
+      "changed_lists": 1,
+      "mean_shared_ids": 5.69697
+    },
+    "typos": {
+      "input_sha256": {
+        "documents.jsonl": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+        "queries": "de1e76c49e28408cf7831ef8f77b5f40db8457fed58834b2b5f9ab8457652f3d",
+        "qrels": "826362ae5592d58b3bb1cd382103dc0aef151cf014025258f0cddba0fefa0dd4"
+      },
+      "baseline": {
+        "queries": 99,
+        "nonempty": 99,
+        "returned": 537,
+        "scope_violations": 0,
+        "quality_at_10": {
+          "recall": 0.909312,
+          "ndcg": 0.962579,
+          "mrr_single": 0.988095
+        }
+      },
+      "current": {
+        "queries": 99,
+        "nonempty": 99,
+        "returned": 537,
+        "scope_violations": 0,
+        "quality_at_10": {
+          "recall": 0.909312,
+          "ndcg": 0.962579,
+          "mrr_single": 0.988095
+        }
+      },
+      "changed_lists": 2,
+      "mean_shared_ids": 5.424242
+    },
+    "no_date": {
+      "input_sha256": {
+        "documents.jsonl": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+        "queries": "e01073dc6d07450cbf09de2f65ee6c16c0bcebc81dd738ab9b0d5c60fa31accf"
+      },
+      "baseline": {
+        "queries": 99,
+        "nonempty": 99,
+        "returned": 974,
+        "scope_violations": 0,
+        "quality_at_10": null
+      },
+      "current": {
+        "queries": 99,
+        "nonempty": 99,
+        "returned": 974,
+        "scope_violations": 0,
+        "quality_at_10": null
+      },
+      "changed_lists": 2,
+      "mean_shared_ids": 9.818182
+    },
+    "spelling_stress": {
+      "input_sha256": {
+        "documents.jsonl": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+        "queries": "2bceba7f0b4749db4eb860d483b8e2b25b7931eb3e72b83950aa1ebc80d14263"
+      },
+      "baseline": {
+        "queries": 22,
+        "nonempty": 6,
+        "returned": 43,
+        "scope_violations": 0,
+        "quality_at_10": null
+      },
+      "current": {
+        "queries": 22,
+        "nonempty": 6,
+        "returned": 43,
+        "scope_violations": 0,
+        "quality_at_10": null
+      },
+      "changed_lists": 0,
+      "mean_shared_ids": 1.954545,
+      "source_list_sha256": "3d75b099b988c6b4ac87876b94cc76ed756beedcc595d0a0400a7ca6c40329ac"
+    }
+  },
+  "vk_probes": {
+    "search_probes": {
+      "fixture_sha256": "fdb80ba84fd2035a81110bfc48c678064faa1244fc064390aadeb6a7b7c0baef",
+      "documents_sha256": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+      "baseline": {
+        "positive_queries": 14,
+        "hit_at_1": 11,
+        "hit_at_5": 12,
+        "empty_queries": 7,
+        "correctly_empty": 7,
+        "returned_items": 65,
+        "invalid_mailbox_or_asof_items": 0,
+        "outside_explicit_received_window_items": 0,
+        "read_checks": 4,
+        "correct_reads": 4
+      },
+      "current": {
+        "positive_queries": 14,
+        "hit_at_1": 11,
+        "hit_at_5": 12,
+        "empty_queries": 7,
+        "correctly_empty": 7,
+        "returned_items": 65,
+        "invalid_mailbox_or_asof_items": 0,
+        "outside_explicit_received_window_items": 0,
+        "read_checks": 4,
+        "correct_reads": 4
+      },
+      "families_with_at_least_two_queries": {
+        "abstention": {
+          "positive": 0,
+          "empty": 2,
+          "hit_at_1": [
+            0,
+            0
+          ],
+          "hit_at_5": [
+            0,
+            0
+          ],
+          "correctly_empty": [
+            2,
+            2
+          ]
+        },
+        "payment_status": {
+          "positive": 3,
+          "empty": 2,
+          "hit_at_1": [
+            2,
+            2
+          ],
+          "hit_at_5": [
+            2,
+            2
+          ],
+          "correctly_empty": [
+            2,
+            2
+          ]
+        },
+        "periods": {
+          "positive": 3,
+          "empty": 0,
+          "hit_at_1": [
+            2,
+            2
+          ],
+          "hit_at_5": [
+            2,
+            2
+          ],
+          "correctly_empty": [
+            0,
+            0
+          ]
+        },
+        "scope_controls": {
+          "positive": 2,
+          "empty": 3,
+          "hit_at_1": [
+            2,
+            2
+          ],
+          "hit_at_5": [
+            2,
+            2
+          ],
+          "correctly_empty": [
+            3,
+            3
+          ]
+        },
+        "topics": {
+          "positive": 6,
+          "empty": 0,
+          "hit_at_1": [
+            5,
+            5
+          ],
+          "hit_at_5": [
+            6,
+            6
+          ],
+          "correctly_empty": [
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "search_probes_extra": {
+      "fixture_sha256": "0697ec493732fdd24156b99f39d42a3a823b765bc20900cc500f7b17eddd36ad",
+      "documents_sha256": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+      "baseline": {
+        "positive_queries": 11,
+        "hit_at_1": 8,
+        "hit_at_5": 10,
+        "empty_queries": 4,
+        "correctly_empty": 4,
+        "returned_items": 94,
+        "invalid_mailbox_or_asof_items": 0,
+        "outside_explicit_received_window_items": 0,
+        "read_checks": 0,
+        "correct_reads": 0
+      },
+      "current": {
+        "positive_queries": 11,
+        "hit_at_1": 8,
+        "hit_at_5": 10,
+        "empty_queries": 4,
+        "correctly_empty": 4,
+        "returned_items": 94,
+        "invalid_mailbox_or_asof_items": 0,
+        "outside_explicit_received_window_items": 0,
+        "read_checks": 0,
+        "correct_reads": 0
+      },
+      "families_with_at_least_two_queries": {}
+    }
+  },
+  "pilot": {
+    "inputs": {
+      "before": {
+        "file": "pilot.json",
+        "sha256": "a67d5f28360e66d2249c4ed59b9478bd4b77916e7d2fd914ae9c164d921b975b",
+        "documents_sha256": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+        "documents": 16376,
+        "requested_depth": 10,
+        "server_corpus_check": "sha256",
+        "qrels_in_ranking_report": true
+      },
+      "after": {
+        "file": "pilot.json",
+        "sha256": "65a10ff4fb7b716c5ca1a0cb1aac0d3a9e8df19d56b9a982f6c4218c4b2516a6",
+        "documents_sha256": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+        "documents": 16376,
+        "requested_depth": 10,
+        "server_corpus_check": "sha256",
+        "qrels_in_ranking_report": true
+      },
+      "queries_sha256": "bc937ab484a9ae0ebfe909118d5a904769bb1f5078bc77d12936da35d1fbafd2",
+      "qrels_sha256": "096c89f09823c90d1b41c8df754c68cb3620f07f92ea245a571802c6c6d4e76f",
+      "qrels": 16305,
+      "grouping": {
+        "file": "tasks.jsonl",
+        "sha256": "eb69d8ada831151ea3de672dac7d32a55400e3cbfbd4bee13ffe3fcb2677e3c5",
+        "mode": "provided_families"
+      }
+    },
+    "protocol": {
+      "depth": 10,
+      "delta": "after minus before",
+      "primary": "original formulations only",
+      "coverage": "Judged@10 averages judged/returned among nonempty positive queries. Unjudged documents get zero gain; known recall uses positive qrels.",
+      "length": "returned_length describes all input queries. returned_at_10_positive includes empty positive queries.",
+      "bootstrap": {
+        "metric": "ndcg_at_10",
+        "resamples": 10000,
+        "seed": 2026,
+        "unit": "family_id",
+        "stratify_by": "source",
+        "estimator": "query-weighted macro mean; paired resampling of intact positive-query clusters within source; percentile interval",
+        "population": "With few mailbox owners, intervals are conditional on the observed owners."
+      },
+      "candidate_recall": "Unavailable: the reports contain only final ranked results."
+    },
+    "groups": {
+      "all": {
+        "queries": 12,
+        "families": 12,
+        "mailboxes": 5,
+        "states": {
+          "positive": 10,
+          "verified_empty": 2,
+          "unjudged": 0
+        },
+        "task_types": {
+          "collection": 5,
+          "empty": 2,
+          "known_item": 5
+        },
+        "metrics": {
+          "ndcg_at_10": {
+            "before": 0.9108087,
+            "after": 0.9108087,
+            "delta": 0.0,
+            "n_before": 10,
+            "n_after": 10
+          },
+          "known_recall_at_10": {
+            "before": 0.79952381,
+            "after": 0.79952381,
+            "delta": 0.0,
+            "n_before": 10,
+            "n_after": 10
+          },
+          "judged_at_10": {
+            "before": 1.0,
+            "after": 1.0,
+            "delta": 0.0,
+            "n_before": 10,
+            "n_after": 10,
+            "documents_before": 88,
+            "documents_after": 88,
+            "returned_before": 88,
+            "returned_after": 88
+          },
+          "returned_at_10_positive": {
+            "before": 8.8,
+            "after": 8.8,
+            "delta": 0.0,
+            "n_before": 10,
+            "n_after": 10
+          },
+          "returned_length": {
+            "before": 8.16666667,
+            "after": 8.16666667,
+            "delta": 0.0,
+            "n_before": 12,
+            "n_after": 12
+          },
+          "success_at_1": {
+            "before": 1.0,
+            "after": 1.0,
+            "delta": 0.0,
+            "n_before": 5,
+            "n_after": 5,
+            "events_before": 5,
+            "events_after": 5
+          },
+          "success_at_5": {
+            "before": 1.0,
+            "after": 1.0,
+            "delta": 0.0,
+            "n_before": 5,
+            "n_after": 5,
+            "events_before": 5,
+            "events_after": 5
+          },
+          "mrr_at_10": {
+            "before": 1.0,
+            "after": 1.0,
+            "delta": 0.0,
+            "n_before": 5,
+            "n_after": 5
+          },
+          "false_empty_rate": {
+            "before": 0.0,
+            "after": 0.0,
+            "delta": 0.0,
+            "n_before": 10,
+            "n_after": 10,
+            "events_before": 0,
+            "events_after": 0
+          },
+          "false_nonempty_rate": {
+            "before": 0.5,
+            "after": 0.5,
+            "delta": 0.0,
+            "n_before": 2,
+            "n_after": 2,
+            "events_before": 1,
+            "events_after": 1
+          }
+        },
+        "paired_ndcg_at_10": {
+          "positive_queries": 10,
+          "positive_families": 10,
+          "families_by_source": {
+            "vk": 10
+          },
+          "wins": 0,
+          "ties": 10,
+          "losses": 0,
+          "delta": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "note": "Мало независимых групп. Интервал описывает этот набор и чувствителен к его составу."
+        }
+      },
+      "by_split": {
+        "dev": {
+          "queries": 6,
+          "families": 6,
+          "mailboxes": 2,
+          "states": {
+            "positive": 5,
+            "verified_empty": 1,
+            "unjudged": 0
+          },
+          "task_types": {
+            "collection": 2,
+            "empty": 1,
+            "known_item": 3
+          },
+          "metrics": {
+            "ndcg_at_10": {
+              "before": 1.0,
+              "after": 1.0,
+              "delta": 0.0,
+              "n_before": 5,
+              "n_after": 5
+            },
+            "known_recall_at_10": {
+              "before": 1.0,
+              "after": 1.0,
+              "delta": 0.0,
+              "n_before": 5,
+              "n_after": 5
+            },
+            "judged_at_10": {
+              "before": 1.0,
+              "after": 1.0,
+              "delta": 0.0,
+              "n_before": 5,
+              "n_after": 5,
+              "documents_before": 38,
+              "documents_after": 38,
+              "returned_before": 38,
+              "returned_after": 38
+            },
+            "returned_at_10_positive": {
+              "before": 7.6,
+              "after": 7.6,
+              "delta": 0.0,
+              "n_before": 5,
+              "n_after": 5
+            },
+            "returned_length": {
+              "before": 6.33333333,
+              "after": 6.33333333,
+              "delta": 0.0,
+              "n_before": 6,
+              "n_after": 6
+            },
+            "success_at_1": {
+              "before": 1.0,
+              "after": 1.0,
+              "delta": 0.0,
+              "n_before": 3,
+              "n_after": 3,
+              "events_before": 3,
+              "events_after": 3
+            },
+            "success_at_5": {
+              "before": 1.0,
+              "after": 1.0,
+              "delta": 0.0,
+              "n_before": 3,
+              "n_after": 3,
+              "events_before": 3,
+              "events_after": 3
+            },
+            "mrr_at_10": {
+              "before": 1.0,
+              "after": 1.0,
+              "delta": 0.0,
+              "n_before": 3,
+              "n_after": 3
+            },
+            "false_empty_rate": {
+              "before": 0.0,
+              "after": 0.0,
+              "delta": 0.0,
+              "n_before": 5,
+              "n_after": 5,
+              "events_before": 0,
+              "events_after": 0
+            },
+            "false_nonempty_rate": {
+              "before": 0.0,
+              "after": 0.0,
+              "delta": 0.0,
+              "n_before": 1,
+              "n_after": 1,
+              "events_before": 0,
+              "events_after": 0
+            }
+          },
+          "paired_ndcg_at_10": {
+            "positive_queries": 5,
+            "positive_families": 5,
+            "families_by_source": {
+              "vk": 5
+            },
+            "wins": 0,
+            "ties": 5,
+            "losses": 0,
+            "delta": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "note": "Мало независимых групп. Интервал описывает этот набор и чувствителен к его составу."
+          }
+        },
+        "blind": {
+          "queries": 6,
+          "families": 6,
+          "mailboxes": 3,
+          "states": {
+            "positive": 5,
+            "verified_empty": 1,
+            "unjudged": 0
+          },
+          "task_types": {
+            "collection": 3,
+            "empty": 1,
+            "known_item": 2
+          },
+          "metrics": {
+            "ndcg_at_10": {
+              "before": 0.82161741,
+              "after": 0.82161741,
+              "delta": 0.0,
+              "n_before": 5,
+              "n_after": 5
+            },
+            "known_recall_at_10": {
+              "before": 0.59904762,
+              "after": 0.59904762,
+              "delta": 0.0,
+              "n_before": 5,
+              "n_after": 5
+            },
+            "judged_at_10": {
+              "before": 1.0,
+              "after": 1.0,
+              "delta": 0.0,
+              "n_before": 5,
+              "n_after": 5,
+              "documents_before": 50,
+              "documents_after": 50,
+              "returned_before": 50,
+              "returned_after": 50
+            },
+            "returned_at_10_positive": {
+              "before": 10.0,
+              "after": 10.0,
+              "delta": 0.0,
+              "n_before": 5,
+              "n_after": 5
+            },
+            "returned_length": {
+              "before": 10.0,
+              "after": 10.0,
+              "delta": 0.0,
+              "n_before": 6,
+              "n_after": 6
+            },
+            "success_at_1": {
+              "before": 1.0,
+              "after": 1.0,
+              "delta": 0.0,
+              "n_before": 2,
+              "n_after": 2,
+              "events_before": 2,
+              "events_after": 2
+            },
+            "success_at_5": {
+              "before": 1.0,
+              "after": 1.0,
+              "delta": 0.0,
+              "n_before": 2,
+              "n_after": 2,
+              "events_before": 2,
+              "events_after": 2
+            },
+            "mrr_at_10": {
+              "before": 1.0,
+              "after": 1.0,
+              "delta": 0.0,
+              "n_before": 2,
+              "n_after": 2
+            },
+            "false_empty_rate": {
+              "before": 0.0,
+              "after": 0.0,
+              "delta": 0.0,
+              "n_before": 5,
+              "n_after": 5,
+              "events_before": 0,
+              "events_after": 0
+            },
+            "false_nonempty_rate": {
+              "before": 1.0,
+              "after": 1.0,
+              "delta": 0.0,
+              "n_before": 1,
+              "n_after": 1,
+              "events_before": 1,
+              "events_after": 1
+            }
+          },
+          "paired_ndcg_at_10": {
+            "positive_queries": 5,
+            "positive_families": 5,
+            "families_by_source": {
+              "vk": 5
+            },
+            "wins": 0,
+            "ties": 5,
+            "losses": 0,
+            "delta": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "note": "Мало независимых групп. Интервал описывает этот набор и чувствителен к его составу."
+          }
+        }
+      }
+    }
+  },
+  "private_probes": {
+    "export_1_original": {
+      "fixture_sha256": "ea071255d2f61a22204dfdae8409314be1c2f34320ec4e51db4b49cc4c5e9ca4",
+      "documents_sha256": "7b810045963ae633ae26846f5b15331842f9d0892c2cd4bd7da5e837f481d38f",
+      "baseline": {
+        "positive_queries": 44,
+        "hit_at_1": 32,
+        "hit_at_5": 36,
+        "empty_queries": 8,
+        "correctly_empty": 8,
+        "returned_items": 106,
+        "invalid_mailbox_or_asof_items": 0,
+        "outside_explicit_received_window_items": 0,
+        "read_checks": 9,
+        "correct_reads": 9
+      },
+      "current": {
+        "positive_queries": 44,
+        "hit_at_1": 32,
+        "hit_at_5": 36,
+        "empty_queries": 8,
+        "correctly_empty": 8,
+        "returned_items": 106,
+        "invalid_mailbox_or_asof_items": 0,
+        "outside_explicit_received_window_items": 0,
+        "read_checks": 9,
+        "correct_reads": 9
+      },
+      "families_with_at_least_two_queries": {
+        "absent_literal": {
+          "positive": 0,
+          "empty": 4,
+          "hit_at_1": [
+            0,
+            0
+          ],
+          "hit_at_5": [
+            0,
+            0
+          ],
+          "correctly_empty": [
+            4,
+            4
+          ]
+        },
+        "authored_query_silver_subject": {
+          "positive": 12,
+          "empty": 0,
+          "hit_at_1": [
+            0,
+            0
+          ],
+          "hit_at_5": [
+            4,
+            4
+          ],
+          "correctly_empty": [
+            0,
+            0
+          ]
+        },
+        "exact_body": {
+          "positive": 8,
+          "empty": 0,
+          "hit_at_1": [
+            8,
+            8
+          ],
+          "hit_at_5": [
+            8,
+            8
+          ],
+          "correctly_empty": [
+            0,
+            0
+          ]
+        },
+        "exact_body_after_1900": {
+          "positive": 6,
+          "empty": 0,
+          "hit_at_1": [
+            6,
+            6
+          ],
+          "hit_at_5": [
+            6,
+            6
+          ],
+          "correctly_empty": [
+            0,
+            0
+          ]
+        },
+        "exact_subject": {
+          "positive": 10,
+          "empty": 0,
+          "hit_at_1": [
+            10,
+            10
+          ],
+          "hit_at_5": [
+            10,
+            10
+          ],
+          "correctly_empty": [
+            0,
+            0
+          ]
+        },
+        "exact_with_received_period": {
+          "positive": 8,
+          "empty": 0,
+          "hit_at_1": [
+            8,
+            8
+          ],
+          "hit_at_5": [
+            8,
+            8
+          ],
+          "correctly_empty": [
+            0,
+            0
+          ]
+        },
+        "unique_phrase_before_receipt": {
+          "positive": 0,
+          "empty": 4,
+          "hit_at_1": [
+            0,
+            0
+          ],
+          "hit_at_5": [
+            0,
+            0
+          ],
+          "correctly_empty": [
+            4,
+            4
+          ]
+        }
+      }
+    },
+    "export_1_quoted_followup": {
+      "fixture_sha256": "4a1572601b8f1d321bc4a298a40d94a10fc5cc302598d708316abd66d3886b1b",
+      "documents_sha256": "7b810045963ae633ae26846f5b15331842f9d0892c2cd4bd7da5e837f481d38f",
+      "baseline": {
+        "positive_queries": 8,
+        "hit_at_1": 8,
+        "hit_at_5": 8,
+        "empty_queries": 6,
+        "correctly_empty": 6,
+        "returned_items": 8,
+        "invalid_mailbox_or_asof_items": 0,
+        "outside_explicit_received_window_items": 0,
+        "read_checks": 0,
+        "correct_reads": 0
+      },
+      "current": {
+        "positive_queries": 8,
+        "hit_at_1": 8,
+        "hit_at_5": 8,
+        "empty_queries": 6,
+        "correctly_empty": 6,
+        "returned_items": 8,
+        "invalid_mailbox_or_asof_items": 0,
+        "outside_explicit_received_window_items": 0,
+        "read_checks": 0,
+        "correct_reads": 0
+      },
+      "families_with_at_least_two_queries": {
+        "new_absent_word_order": {
+          "positive": 0,
+          "empty": 2,
+          "hit_at_1": [
+            0,
+            0
+          ],
+          "hit_at_5": [
+            0,
+            0
+          ],
+          "correctly_empty": [
+            2,
+            2
+          ]
+        },
+        "new_exact_body_late": {
+          "positive": 2,
+          "empty": 0,
+          "hit_at_1": [
+            2,
+            2
+          ],
+          "hit_at_5": [
+            2,
+            2
+          ],
+          "correctly_empty": [
+            0,
+            0
+          ]
+        },
+        "new_exact_subject": {
+          "positive": 3,
+          "empty": 0,
+          "hit_at_1": [
+            3,
+            3
+          ],
+          "hit_at_5": [
+            3,
+            3
+          ],
+          "correctly_empty": [
+            0,
+            0
+          ]
+        },
+        "new_incompatible_literals": {
+          "positive": 0,
+          "empty": 2,
+          "hit_at_1": [
+            0,
+            0
+          ],
+          "hit_at_5": [
+            0,
+            0
+          ],
+          "correctly_empty": [
+            2,
+            2
+          ]
+        },
+        "new_two_literals": {
+          "positive": 2,
+          "empty": 0,
+          "hit_at_1": [
+            2,
+            2
+          ],
+          "hit_at_5": [
+            2,
+            2
+          ],
+          "correctly_empty": [
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "export_2_original": {
+      "fixture_sha256": "f994b6d35c2edd3829d2491f82038335ce1fdf89a60ff5f2d9811b49065f63da",
+      "documents_sha256": "5550554a796a0f20e0f930939a453e2871993b436be60e68f45b64f69043774e",
+      "baseline": {
+        "positive_queries": 39,
+        "hit_at_1": 34,
+        "hit_at_5": 34,
+        "empty_queries": 12,
+        "correctly_empty": 12,
+        "returned_items": 63,
+        "invalid_mailbox_or_asof_items": 0,
+        "outside_explicit_received_window_items": 0,
+        "read_checks": 9,
+        "correct_reads": 9
+      },
+      "current": {
+        "positive_queries": 39,
+        "hit_at_1": 34,
+        "hit_at_5": 34,
+        "empty_queries": 12,
+        "correctly_empty": 12,
+        "returned_items": 63,
+        "invalid_mailbox_or_asof_items": 0,
+        "outside_explicit_received_window_items": 0,
+        "read_checks": 9,
+        "correct_reads": 9
+      },
+      "families_with_at_least_two_queries": {
+        "absent_literal": {
+          "positive": 0,
+          "empty": 4,
+          "hit_at_1": [
+            0,
+            0
+          ],
+          "hit_at_5": [
+            0,
+            0
+          ],
+          "correctly_empty": [
+            4,
+            4
+          ]
+        },
+        "authored_query_silver_subject": {
+          "positive": 7,
+          "empty": 0,
+          "hit_at_1": [
+            2,
+            2
+          ],
+          "hit_at_5": [
+            2,
+            2
+          ],
+          "correctly_empty": [
+            0,
+            0
+          ]
+        },
+        "exact_body": {
+          "positive": 8,
+          "empty": 0,
+          "hit_at_1": [
+            8,
+            8
+          ],
+          "hit_at_5": [
+            8,
+            8
+          ],
+          "correctly_empty": [
+            0,
+            0
+          ]
+        },
+        "exact_body_after_1900": {
+          "positive": 6,
+          "empty": 0,
+          "hit_at_1": [
+            6,
+            6
+          ],
+          "hit_at_5": [
+            6,
+            6
+          ],
+          "correctly_empty": [
+            0,
+            0
+          ]
+        },
+        "exact_subject": {
+          "positive": 10,
+          "empty": 0,
+          "hit_at_1": [
+            10,
+            10
+          ],
+          "hit_at_5": [
+            10,
+            10
+          ],
+          "correctly_empty": [
+            0,
+            0
+          ]
+        },
+        "exact_with_received_period": {
+          "positive": 8,
+          "empty": 0,
+          "hit_at_1": [
+            8,
+            8
+          ],
+          "hit_at_5": [
+            8,
+            8
+          ],
+          "correctly_empty": [
+            0,
+            0
+          ]
+        },
+        "unique_phrase_before_receipt": {
+          "positive": 0,
+          "empty": 4,
+          "hit_at_1": [
+            0,
+            0
+          ],
+          "hit_at_5": [
+            0,
+            0
+          ],
+          "correctly_empty": [
+            4,
+            4
+          ]
+        },
+        "unique_phrase_in_other_mailbox": {
+          "positive": 0,
+          "empty": 4,
+          "hit_at_1": [
+            0,
+            0
+          ],
+          "hit_at_5": [
+            0,
+            0
+          ],
+          "correctly_empty": [
+            4,
+            4
+          ]
+        }
+      }
+    },
+    "export_2_quoted_followup": {
+      "fixture_sha256": "721e4204982ee0707f6270ebdc7397cc981163054b0b1af5765477bb0106bf35",
+      "documents_sha256": "5550554a796a0f20e0f930939a453e2871993b436be60e68f45b64f69043774e",
+      "baseline": {
+        "positive_queries": 8,
+        "hit_at_1": 8,
+        "hit_at_5": 8,
+        "empty_queries": 7,
+        "correctly_empty": 7,
+        "returned_items": 8,
+        "invalid_mailbox_or_asof_items": 0,
+        "outside_explicit_received_window_items": 0,
+        "read_checks": 0,
+        "correct_reads": 0
+      },
+      "current": {
+        "positive_queries": 8,
+        "hit_at_1": 8,
+        "hit_at_5": 8,
+        "empty_queries": 7,
+        "correctly_empty": 7,
+        "returned_items": 8,
+        "invalid_mailbox_or_asof_items": 0,
+        "outside_explicit_received_window_items": 0,
+        "read_checks": 0,
+        "correct_reads": 0
+      },
+      "families_with_at_least_two_queries": {
+        "new_absent_word_order": {
+          "positive": 0,
+          "empty": 2,
+          "hit_at_1": [
+            0,
+            0
+          ],
+          "hit_at_5": [
+            0,
+            0
+          ],
+          "correctly_empty": [
+            2,
+            2
+          ]
+        },
+        "new_exact_body_late": {
+          "positive": 2,
+          "empty": 0,
+          "hit_at_1": [
+            2,
+            2
+          ],
+          "hit_at_5": [
+            2,
+            2
+          ],
+          "correctly_empty": [
+            0,
+            0
+          ]
+        },
+        "new_exact_subject": {
+          "positive": 3,
+          "empty": 0,
+          "hit_at_1": [
+            3,
+            3
+          ],
+          "hit_at_5": [
+            3,
+            3
+          ],
+          "correctly_empty": [
+            0,
+            0
+          ]
+        },
+        "new_incompatible_literals": {
+          "positive": 0,
+          "empty": 2,
+          "hit_at_1": [
+            0,
+            0
+          ],
+          "hit_at_5": [
+            0,
+            0
+          ],
+          "correctly_empty": [
+            2,
+            2
+          ]
+        },
+        "new_two_literals": {
+          "positive": 2,
+          "empty": 0,
+          "hit_at_1": [
+            2,
+            2
+          ],
+          "hit_at_5": [
+            2,
+            2
+          ],
+          "correctly_empty": [
+            0,
+            0
+          ]
+        }
+      }
+    }
+  },
+  "wiring_smoke": {
+    "baseline": {
+      "input_sha256": {
+        "documents.jsonl": "9d43ca210d017a3ce33a06e6ed800c85934e85ed84f43ff3da1b8bb3e6951c9a",
+        "queries_dev.jsonl": "eeda3914661f8e77ca3488706c19243d8de8dcae0be474bdd24e732242c1c328",
+        "qrels_dev.jsonl": "0ba13e26c53faa044a59420452cf25917a75f219e01decd7d8e9d987e8636520"
+      },
+      "documents": 3,
+      "queries": 2,
+      "judged_positive": 1,
+      "unjudged": 1,
+      "positive_hit_at_10": 0,
+      "returned": 0,
+      "scope_violations": 0
+    },
+    "current": {
+      "input_sha256": {
+        "documents.jsonl": "9d43ca210d017a3ce33a06e6ed800c85934e85ed84f43ff3da1b8bb3e6951c9a",
+        "queries_dev.jsonl": "eeda3914661f8e77ca3488706c19243d8de8dcae0be474bdd24e732242c1c328",
+        "qrels_dev.jsonl": "0ba13e26c53faa044a59420452cf25917a75f219e01decd7d8e9d987e8636520"
+      },
+      "documents": 3,
+      "queries": 2,
+      "judged_positive": 1,
+      "unjudged": 1,
+      "positive_hit_at_10": 0,
+      "returned": 0,
+      "scope_violations": 0
+    }
+  },
+  "previous_release_rank_equivalence": {
+    "previous_revision": "61bae2d95ac6bf32a9bd59dbc1056173439bfae3",
+    "current_revision": "d18d1a06f5fc07b4ed84dfeeb6ac587b099d2a9d",
+    "method": "Exact equality of the full returned top-10 ID sequence for every query, including empty lists. Canonical SHA-256 per channel maps the query ID to the SHA-256 of its ordered ID list; JSON keys are sorted, ASCII escaped, with compact separators.",
+    "sets": {
+      "paraphrased": {
+        "queries": 99,
+        "identical_order": 99,
+        "different": 0,
+        "previous_sha256": "7a5a174ca7cb3786ef68e7b0d5f86965bbbfe3cca81e8a64f293a7c3ea82c0b9",
+        "current_sha256": "7a5a174ca7cb3786ef68e7b0d5f86965bbbfe3cca81e8a64f293a7c3ea82c0b9"
+      },
+      "typos": {
+        "queries": 99,
+        "identical_order": 99,
+        "different": 0,
+        "previous_sha256": "bf9c4773f524afb84b61595edeb576aeb403ef3070f8452573fd484df8875bc9",
+        "current_sha256": "bf9c4773f524afb84b61595edeb576aeb403ef3070f8452573fd484df8875bc9"
+      },
+      "no_date": {
+        "queries": 99,
+        "identical_order": 99,
+        "different": 0,
+        "previous_sha256": "6a503a9b1485d3257218bdbb461cfafd95ea7501f98e358235323d2b0447c69d",
+        "current_sha256": "6a503a9b1485d3257218bdbb461cfafd95ea7501f98e358235323d2b0447c69d"
+      },
+      "spelling_stress": {
+        "queries": 22,
+        "identical_order": 22,
+        "different": 0,
+        "previous_sha256": "13f85cd2ed25357f70cc12f51e9a87745e454e547b8dad6b0d9b2ada435c773a",
+        "current_sha256": "13f85cd2ed25357f70cc12f51e9a87745e454e547b8dad6b0d9b2ada435c773a"
+      },
+      "pilot": {
+        "queries": 12,
+        "identical_order": 12,
+        "different": 0,
+        "previous_sha256": "0e034c170d6430647ec2cd2f983e8ec8fc5cfc9b60662f3df49364bbc8c626ce",
+        "current_sha256": "0e034c170d6430647ec2cd2f983e8ec8fc5cfc9b60662f3df49364bbc8c626ce"
+      },
+      "vk_probes": {
+        "queries": 21,
+        "identical_order": 21,
+        "different": 0,
+        "previous_sha256": "bb32102fd6e6fc6793e1bd40550482be29fa746c7d44f8a250159555ae9a0ddf",
+        "current_sha256": "bb32102fd6e6fc6793e1bd40550482be29fa746c7d44f8a250159555ae9a0ddf"
+      },
+      "vk_probes_extra": {
+        "queries": 15,
+        "identical_order": 15,
+        "different": 0,
+        "previous_sha256": "85bae4910f127991315ea5464306b25fc489a2002f237885ee7567849c79a9b3",
+        "current_sha256": "85bae4910f127991315ea5464306b25fc489a2002f237885ee7567849c79a9b3"
+      },
+      "export_1_original": {
+        "queries": 52,
+        "identical_order": 52,
+        "different": 0,
+        "previous_sha256": "d2abe593f1dc29fef94805f6c9b35a4921a716e49d50f75624dd3fd171ffd619",
+        "current_sha256": "d2abe593f1dc29fef94805f6c9b35a4921a716e49d50f75624dd3fd171ffd619"
+      },
+      "export_1_quote": {
+        "queries": 14,
+        "identical_order": 14,
+        "different": 0,
+        "previous_sha256": "bdf9082c7b61455cbca54f9efef35423eb65fb29b1963a4a887318c6f5599f5a",
+        "current_sha256": "bdf9082c7b61455cbca54f9efef35423eb65fb29b1963a4a887318c6f5599f5a"
+      },
+      "export_2_original": {
+        "queries": 51,
+        "identical_order": 51,
+        "different": 0,
+        "previous_sha256": "726c66e412e0e724dbcc69623be0932a750438aa8bb1df5f9f793fe5b81ce99e",
+        "current_sha256": "726c66e412e0e724dbcc69623be0932a750438aa8bb1df5f9f793fe5b81ce99e"
+      },
+      "export_2_quote": {
+        "queries": 15,
+        "identical_order": 15,
+        "different": 0,
+        "previous_sha256": "b2d810153dab8994559b113ef7eb23c7b3e9e3004657b6a3b9f6cb43708da324",
+        "current_sha256": "b2d810153dab8994559b113ef7eb23c7b3e9e3004657b6a3b9f6cb43708da324"
+      },
+      "wiring_cases": {
+        "queries": 2,
+        "identical_order": 2,
+        "different": 0,
+        "previous_sha256": "b900a35070e6d5c84e1f9964b06b40457a118922a42151acd716372d7abe6318",
+        "current_sha256": "b900a35070e6d5c84e1f9964b06b40457a118922a42151acd716372d7abe6318"
+      }
+    }
+  }
+}
