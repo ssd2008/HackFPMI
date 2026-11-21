@@ -27,7 +27,10 @@ class BilingualMailTest(unittest.TestCase):
             message("other", "Fender guitar repair", "I can repair your Fender guitar tomorrow.", box="other"),
             message("short", "Invoice", "Attached"),
             message("mixed-language", "Rehearsal", "The rehearsal starts at seven. Bring a балалайка."),
-
+            message("earned", "Studio reward", "We credited 25 extra tokens to your wallet.", box="perks"),
+            message("spent", "Activity report", "You spent 12 tokens on a rehearsal.", box="perks"),
+            message("conditional", "Offer", "If you join today, the gift includes 40 tokens.", box="perks"),
+            message("latest", "Studio reward", "We credited 10 tokens to your wallet.", box="perks", received="2028-04-01"),
         ]
         with patch("mailsearch.retrieval.DenseIndex") as dense:
             # General retrieval abstains on these Russian phrases. The English
@@ -68,6 +71,14 @@ class BilingualMailTest(unittest.TestCase):
         query = "Покажи письма о балалайке"
         check = self.engine.bilingual.ungrounded(query, [0, 7], _stem, _STOP, _REQUEST_WORDS)
         self.assertEqual(check, {0})
+
+    def test_one_scoped_number_must_have_the_requested_unit_and_transaction(self):
+        query = "Сколько токенов мне вчера начислили?"
+        ids = lambda q, day: [did for did, _ in self.engine.search("perks", q, day)]
+        self.assertEqual(ids(query, date(2028, 3, 2)), ["earned"])
+        self.assertEqual(ids(query, date(2028, 2, 28)), [])
+        self.assertEqual(ids("Сколько кредитов мне вчера начислили?", date(2028, 3, 2)), [])
+        self.assertIsNone(self.engine.bilingual.counted_event(query.lower(), [8, 11], self.engine.documents))
 
     def test_language_is_per_message_and_visibility_comes_first(self):
         self.assertNotIn(3, self.engine.bilingual.content)

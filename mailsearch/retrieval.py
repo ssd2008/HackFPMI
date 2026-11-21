@@ -701,6 +701,10 @@ class SearchEngine:
         order = np.flatnonzero(plausible)
         order = order[np.argsort(-scores[order], kind="stable")[:limit]]
         if not (identifiers or phrases or field_request):
+            if not len(order) and scope.bounded and len(rows) <= 32:
+                row = self.bilingual.counted_event(scope.text, rows, self.documents)
+                if row is not None:
+                    return [(self.ids[row], 1.0)]
             suspect = self.bilingual.ungrounded(scope.text, rows[order], _stem, _STOP, _REQUEST_WORDS)
             if not len(order) or suspect:
                 translated = self.bilingual.search(scope.text, rows, self.dense, limit, _stem, _STOP, _REQUEST_WORDS)

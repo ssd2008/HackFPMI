@@ -12,6 +12,8 @@ import threading
 import numpy as np
 import snowballstemmer
 
+from .quantities import has_counted_quantity
+
 
 _TABLE = Path(__file__).with_name("resources") / "ru_en.tsv.gz"
 _SELECT = re.compile(r"^\s*(?:(?:найди(?:те)?|покажи(?:те)?|отыщи(?:те)?|ищу|(?:мне\s+)?нужн[аы])\b|"
@@ -33,6 +35,15 @@ _BOILERPLATE = frozenset("переписка переписку переписк
                          "упомянутых тему тематике котором которых как".split())
 _UNSUPPORTED = re.compile(r"\d|\b(?:не|без|кроме|исключая)\b", re.I)
 _FUNCTION = frozenset("a an the to of on for at in with or and by from".split())
+_COUNT_ACTIONS = tuple(
+    (re.compile(rf"\b(?:{ru})\b", re.I), re.compile(rf"\b(?:{en})\b", re.I))
+    for ru, en in (
+        (r"подар[а-я]*|начисл[а-я]*|зачисл[а-я]*", "gift|awarded|credited|granted|earned"),
+        (r"списал[а-я]*|списан[а-я]*|потратил[а-я]*", "spent|deducted|debited|redeemed"),
+        (r"вернул[а-я]*|возвратил[а-я]*|возвращ[а-я]*", "refunded|reimbursed|returned"),
+    )
+)
+_POSSIBLE = re.compile(r"\b(?:if|could|would|can|may|not|never|up to|eligible|qualify)\b", re.I)
 
 
 @lru_cache(maxsize=1)
@@ -89,6 +100,31 @@ class BilingualMail:
         if not terms:
             return set()
         return {int(row) for row in selected if row in self.content and terms.isdisjoint(self.cyrillic.get(row, ()))}
+
+    def counted_event(self, query, rows, documents):
+        """Identify one visible message that names both a quantity and its transaction."""
+        if "скольк" not in query or " не " in f" {query} ":
+            return None
+        actions = [english for russian, english in _COUNT_ACTIONS if russian.search(query)]
+        if len(actions) != 1:
+            return None
+        names = set(_ENGLISH.findall(query.casefold()))
+        matches = []
+        for row in rows:
+            if row not in self.content:
+                continue
+            doc = documents[row]
+            text = (doc.get("subject") or "") + "\n" + doc["doc"]
+            if names and not names.issubset(_ENGLISH.findall(text.casefold())):
+                continue
+            for clause in re.split(r"[\r\n;!?]+|(?<=\.)\s+", text[:8000]):
+                if (actions[0].search(clause) and not _POSSIBLE.search(clause)
+                        and has_counted_quantity(query, clause, across_scripts=True)):
+                    matches.append(int(row))
+                    break
+            if len(matches) > 1:
+                return None
+        return matches[0] if matches else None
 
     def groups(self, query, stem, stop, request):
         groups = []
