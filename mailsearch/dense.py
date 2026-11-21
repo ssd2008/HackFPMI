@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from copy import copy
+
 import hashlib
 import os
 from pathlib import Path
@@ -111,6 +113,16 @@ class DenseIndex:
             os.replace(temporary, path)
         finally:
             Path(temporary).unlink(missing_ok=True)
+
+    def memory_index(self, documents: list[dict]) -> DenseIndex:
+        """Encode a visitor's inbox using the resident CPU model, without writing vectors to disk."""
+        index = copy(self)
+        index.vectors = np.empty((len(documents), DIMENSION), dtype=np.float32)
+        for start in range(0, len(documents), 12):
+            texts = ["passage: " + semantic_text(doc["doc"][:2600]) for doc in documents[start:start + 12]]
+            with self._query_lock:
+                index.vectors[start:start + len(texts)] = self._encode(texts, "cpu")
+        return index
 
     def query(self, text: str) -> np.ndarray:
         with self._query_lock:

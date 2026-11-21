@@ -8,6 +8,7 @@ import threading
 from datetime import date
 from functools import lru_cache
 
+from .private_cache import text_cache
 from . import QWEN_MODEL as MODEL, QWEN_REVISION as REVISION
 
 MAX_SOURCES = 3
@@ -106,7 +107,7 @@ def _fact_terms(text: str) -> set[str]:
     return _terms(_ID.sub("", text))
 
 
-@lru_cache(maxsize=8000)
+@text_cache(maxsize=8000)
 def _stem(word: str) -> str:
     if not hasattr(_stem_state, "stemmer"):
         import snowballstemmer

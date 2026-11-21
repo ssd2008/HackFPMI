@@ -113,11 +113,13 @@ def make_examples(ordered: list[dict], summaries: dict[str, dict]) -> list[dict]
 
 
 class MailStore:
-    def __init__(self, documents: list[dict]):
+    def __init__(self, documents: list[dict], *, empty_mailbox: str | None = None):
         self.by_id = {row["doc_id"]: row for row in documents}
         if len(self.by_id) != len(documents):
             raise ValueError("Повторяющийся doc_id в корпусе")
         groups: dict[str, list[dict]] = defaultdict(list)
+        if empty_mailbox is not None:
+            groups[empty_mailbox] = []
         self.summaries = {}
         self.actions_by_id = {}
         for row in documents:
@@ -132,7 +134,7 @@ class MailStore:
         for box, rows in sorted(self.boxes.items()):
             rows.sort(key=lambda row: (row["doc_dt"] or "", row["doc_id"]), reverse=True)
             self.mailboxes.append({
-                "id": box, "count": len(rows), "latest_date": rows[0]["doc_dt"],
+                "id": box, "count": len(rows), "latest_date": rows[0]["doc_dt"] if rows else None,
                 "examples": make_examples(rows, self.summaries),
             })
         if not self.mailboxes:

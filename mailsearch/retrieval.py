@@ -5,7 +5,6 @@ from __future__ import annotations
 from array import array
 from collections import Counter, defaultdict
 from datetime import date
-from functools import lru_cache
 from pathlib import Path
 import re
 import threading
@@ -16,6 +15,7 @@ import snowballstemmer
 
 from .dates import parse_date_scope
 from .dense import DenseIndex
+from .private_cache import text_cache
 
 
 _EMAIL = r"[a-z0-9_.+%-]+@[a-z0-9.-]+\.[a-z]{2,}"
@@ -25,7 +25,7 @@ _SUBJECT = re.compile(r"(?im)^\s*(?:тема|subject)\s*:\s*([^\r\n]+)")
 _LOCAL = threading.local()
 
 
-@lru_cache(maxsize=80_000)
+@text_cache(maxsize=80_000)
 def _stem(word: str) -> str:
     if word.isascii() or len(word) < 3:
         return word
@@ -141,7 +141,7 @@ class LexicalIndex:
 
 
 class SearchEngine:
-    def __init__(self, documents: list[dict], cache_dir: Path):
+    def __init__(self, documents: list[dict], cache_dir: Path | None, *, encoder: DenseIndex | None = None):
         self.ids = [doc["doc_id"] for doc in documents]
         self.by_id = {doc_id.lower(): i for i, doc_id in enumerate(self.ids)}
         self.dates = np.array(
@@ -153,7 +153,7 @@ class SearchEngine:
             boxes[doc["synthetic_user"]].append(i)
         self.boxes = {key: np.asarray(rows, dtype=np.int32) for key, rows in boxes.items()}
         self.lexical = LexicalIndex(documents)
-        self.dense = DenseIndex(documents, Path(cache_dir))
+        self.dense = encoder.memory_index(documents) if encoder is not None else DenseIndex(documents, Path(cache_dir))
 
     def search(
         self, synthetic_user: str, query: str, query_date: date, limit: int = 10
