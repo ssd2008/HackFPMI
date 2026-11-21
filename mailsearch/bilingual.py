@@ -16,6 +16,13 @@ import snowballstemmer
 _TABLE = Path(__file__).with_name("resources") / "ru_en.tsv.gz"
 _SELECT = re.compile(r"^\s*(?:(?:найди(?:те)?|покажи(?:те)?|отыщи(?:те)?|ищу|(?:мне\s+)?нужн[аы])\b|"
                      r"(?:письма|сообщения|переписка)\s+(?:о|об|про)\b)", re.I)
+# Reconsider an existing hit only for an explicit "mail about X" request.
+# Named senders, project names and other descriptive retrieval requests retain
+# the hybrid ranking; several English keywords are substantive lexical evidence.
+_TOPIC = re.compile(
+    r"^\s*(?:(?:найди(?:те)?|покажи(?:те)?|отыщи(?:те)?|ищу)\s+(?:мне\s+)?"
+    r"(?:письма|сообщения|переписку)|письма|сообщения|переписка)\s+(?:о|об|про)\b", re.I,
+)
 _WORD = re.compile(r"[a-z]+|[а-яё]+", re.I)
 _ENGLISH = re.compile("[a-z]{2,}", re.I)
 _BODY = re.compile(r"^\s*(?:текст письма|body)\s*:", re.M | re.I)
@@ -73,7 +80,9 @@ class BilingualMail:
 
     def ungrounded(self, query, selected, stem, stop, request):
         """Identify English hits supported only by the request wording or a stray English keyword."""
-        if not len(selected) or not self.content or not _SELECT.search(query) or _UNSUPPORTED.search(query):
+        if not len(selected) or not self.content or not _TOPIC.search(query) or _UNSUPPORTED.search(query):
+            return set()
+        if len({w for w in _ENGLISH.findall(query.lower()) if w not in _FUNCTION}) > 1:
             return set()
         terms = {stem(word) for word in _CYRILLIC.findall(query.casefold().replace("ё", "е"))
                  if len(word) >= 3 and word not in stop and word not in _BOILERPLATE and stem(word) not in request}

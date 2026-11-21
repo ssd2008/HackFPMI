@@ -57,6 +57,13 @@ class BilingualMailTest(unittest.TestCase):
         self.assertIn(6, self.engine.bilingual.content)
         self.assertEqual(self.engine.search("mixed", query, date(2028, 3, 1)), [])
 
+    def test_descriptive_search_and_several_english_keywords_keep_their_ranking(self):
+        review = self.engine.bilingual.ungrounded
+        for q in ("Найди переписку мастерской Fender с расписанием ремонта",
+                  "Покажи письма о концерте Fender guitar"):
+            with self.subTest(q=q):
+                self.assertFalse(review(q, [0, 2], _stem, _STOP, _REQUEST_WORDS))
+
     def test_actual_russian_content_in_an_english_letter_remains_grounded(self):
         query = "Покажи письма о балалайке"
         check = self.engine.bilingual.ungrounded(query, [0, 7], _stem, _STOP, _REQUEST_WORDS)
