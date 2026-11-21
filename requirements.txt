@@ -11,3 +11,4 @@ sentencepiece==0.2.3
 safetensors==0.8.0
 huggingface-hub==1.33.0
 filelock==4.2.12
+keyring==25.7.0
