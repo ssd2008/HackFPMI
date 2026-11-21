@@ -97,7 +97,7 @@ const localMail = (() => {
   }
   function setSendControls() {
     const sender = byId('compose-from');
-    const fields = letterFields(), showReview = checkRequired(fields);
+    const fields = letterFields(), showReview = !sending && checkRequired(fields);
     const checked = byId('compose-checked');
     checked.disabled = sending;
     if (!showReview) checked.checked = false;
@@ -171,6 +171,8 @@ const localMail = (() => {
     const payload = {account_id: account, ...fields};
     const signature = JSON.stringify(payload);
     if (retry?.signature !== signature) retry = {signature, id: uuid()};
+    // An interrupted tab may never receive the delivery receipt.
+    review = {source: 'server', content: JSON.stringify(fields)};
     saveDraft();
     const version = generation;
     sending = true;
@@ -189,7 +191,8 @@ const localMail = (() => {
       personal.toast('Письмо отправлено', to.join(', '));
     } catch (error) {
       if (version !== generation) return;
-      if (!error.status || error.status === 409 || error.status === 500) requireReview('server', fields);
+      if (!error.status || error.status === 409 || (error.status >= 500 && error.status !== 502)) requireReview('server', fields);
+      else { review = null; saveDraft(); }
       feedback('compose-feedback', error.message, true);
       if (!byId('compose-dialog').open) personal.toast('Отправка не подтверждена', error.message, openCompose);
     } finally {
