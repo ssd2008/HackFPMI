@@ -14,11 +14,17 @@ from pydantic import BaseModel, ConfigDict, Field
 from .store import CACHE, DATA, ROOT, MailStore, load_jsonl
 
 
+frontend_origin = getenv("MAILSEARCH_FRONTEND_ORIGIN", "").strip()
+DEMO_CORPUS_SHA256 = "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5"
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    expected_sha256 = DEMO_CORPUS_SHA256 if frontend_origin else None
+    documents = load_jsonl(DATA / "documents.jsonl", expected_sha256=expected_sha256)
+
     from .retrieval import SearchEngine
 
-    documents = load_jsonl(DATA / "documents.jsonl")
     app.state.store = MailStore(documents)
     app.state.search_engine = SearchEngine(documents, CACHE)
     yield
@@ -47,7 +53,6 @@ class SearchTiming:
         await self.app(scope, receive, timed_send)
 
 
-frontend_origin = getenv("MAILSEARCH_FRONTEND_ORIGIN", "").strip()
 if frontend_origin:
     app.add_middleware(
         CORSMiddleware,
