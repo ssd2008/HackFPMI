@@ -22,6 +22,7 @@ from .fields import MailFields, only_field_request
 
 _EMAIL = r"[a-z0-9_.+%-]+@[a-z0-9.-]+\.[a-z]{2,}"
 _OPAQUE = r"(?:syn|l)-[a-z0-9]+(?:-[a-z0-9]+)*"
+_WHOLE_OPAQUE = re.compile(rf"(?<![\w-]){_OPAQUE}(?![\w-])", re.I)
 _TOKEN = re.compile(rf"{_EMAIL}|{_OPAQUE}|\d+(?:[.,:/-]\d+)+|[а-я]+|[a-z_][a-z_\d]*|\d+")
 # Match complete candidate references before interpreting dates. At least four
 # digits avoids treating everyday names such as X5 or B2B as unique references.
@@ -477,6 +478,11 @@ class SearchEngine:
         self.ids = [doc["doc_id"] for doc in documents]
         self.by_id = {doc_id: i for i, doc_id in enumerate(self.ids)}
         self.documents = documents
+        opaque_rows = defaultdict(list)
+        for i, document in enumerate(documents):
+            for token in {m[0].lower() for m in _WHOLE_OPAQUE.finditer(document["doc"])}:
+                opaque_rows[token].append(i)
+        self.opaque_rows = {token: np.asarray(rows, dtype=np.int32) for token, rows in opaque_rows.items()}
         self.fields = MailFields(documents)
         # The public format embeds its subject in doc. A separate subject field
         # in an imported mailbox is searchable without inventing adjacent words.
@@ -558,6 +564,13 @@ class SearchEngine:
             )
         ]
         for token in dict.fromkeys(identifiers):
+            if token.startswith("syn-") and token in self.opaque_rows:
+                exact = np.intersect1d(rows, self.opaque_rows[token], assume_unique=True)
+                if len(exact):
+                    # Some imports glued non-Latin header labels to a reference.
+                    # Keep the original fallback when no complete visible token exists.
+                    rows = exact
+                    continue
             if token.startswith("l-"):
                 row = self.by_id.get(token, self.by_id.get("L-" + token[2:], -1))
                 rows = rows[rows == row]

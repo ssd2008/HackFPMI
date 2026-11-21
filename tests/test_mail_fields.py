@@ -20,6 +20,8 @@ class MailFieldTest(unittest.TestCase):
             message('other', 'a', '2028-03-02', 'From: Tom <tom@other.test>\nSubject: Re: Итоги «Весна»\n\nFrom: Анна <anna@team.test>\nпроекты от anna@team.test'),
             message('two', 'a', '2028-03-02', 'Презентация бюджета', sender='Anna <anna@team.test>', subject='Report "A" due today'),
             message('one-future', 'a', '2028-03-04', 'From: Ann <anna@team.test>\nSubject: Итоги «Весна»'),
+            message('whole-ref', 'a', '2028-02-01', 'Тема: Файл\\nТекст письма: ' + 'Детали. ' * 900 + 'SYN-ab12998d.'),
+            message('glued-ref', 'a', '2028-02-01', 'Тема: КонтейнерSYN-ab12998d прибыл. КонтейнерSYN-e971c78e получен.'),
             message('private', 'b', '2028-01-01', 'From: Ann <anna@team.test>\nSubject: Итоги «Весна»'),
         ]
         with patch('mailsearch.retrieval.DenseIndex') as dense:
@@ -41,6 +43,10 @@ class MailFieldTest(unittest.TestCase):
         self.assertFalse(self.ids('with the exact subject "Итоги"'))
         self.assertEqual(self.ids('with the exact subject "Report "A" due today"'), {'two'})
         self.assertFalse(self.ids('with the exact subject "Отчёт"'))
+
+    def test_entire_identifier_even_beyond_first_passage(self):
+        self.assertEqual(self.ids('SYN-ab12998d'), {'whole-ref'})
+        self.assertEqual(self.ids('SYN-e971c78e'), {'glued-ref'})
 
     def test_combined_scope_and_residual_query(self):
         self.assertEqual(self.ids('from:anna@team.test 1 марта 2028 года'), {'one'})
