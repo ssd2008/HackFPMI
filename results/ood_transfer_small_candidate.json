@@ -1,0 +1,840 @@
+{
+  "protocol": {
+    "engines": {
+      "baseline": "b37c309ff3d9e83f80a726325a3b9b0ee56c33c1",
+      "current": "b5252c144fc709168c96f8957d97c1d9ee5353af"
+    },
+    "selection": "Every supplied document in its original order and every supplied query in the listed channels. Both exact Git revisions use production SearchEngine.search with k=10, original mailbox, query date and text. No RAG generation or tuning.",
+    "cutoff": 10,
+    "inputs": {
+      "beir-scifact": {
+        "manifest_sha256": "41834dc717fc230d96a906d97c58a36505a9e6bacf1b405c45ac32ebebf424a2",
+        "sha256": {
+          "documents.jsonl": "cd1eb86760eb18ace22a97b43b40152a67594c71e22dae1f6670445742dfa932",
+          "qrels_dev.jsonl": "77194c93d7229627250b0140c3cfface9c932498b971872151424d2dda85ec58",
+          "queries_dev.jsonl": "464d286db52a6cacc0900adcb5669af841469307e0a6860d0cc446f14436d9d4"
+        },
+        "documents": 5183,
+        "mailboxes": 1,
+        "dated_documents": 0,
+        "queries": {
+          "dev": 300
+        },
+        "qrels": {
+          "dev": 339
+        },
+        "full_source_corpus": true,
+        "language": "en",
+        "all_ever_positive_ids_in_corpus_prefix": true
+      },
+      "enron-mail": {
+        "manifest_sha256": "7e860881345df96b741c913938bf2f3c9df38d5c74cec56c7c8b1015933373e2",
+        "sha256": {
+          "cases.jsonl": "d666b2958d13da276eaaabbeb782dc512434373dd3d0a36fd73f689d30d493fa",
+          "documents.jsonl": "2d7c406872a9b6686fed6f65be662fed362c6dc4599da8d44d8b9564ccb0295c",
+          "qrels_dev.jsonl": "52312c152204c3c7ff8f1e67394073f95f94a828255f2fb6dc6fb48a0ff24ff1",
+          "qrels_empty.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "qrels_variants.jsonl": "178f4c4ca9bb563011da163b54e38454788e60dc79829fd1c47f9a9c109a89ab",
+          "queries_dev.jsonl": "924e6b9b373ae7bdcb4df49fca4b153388e5eab1d37ab847593d81eaa3b4f15d",
+          "queries_empty.jsonl": "7440e42d95d2c6021cad37757df6868af76125047986912e3f685901b255a0d6",
+          "queries_variants.jsonl": "29325035f6d683cc0555c3f7cd706732faf5294e16835552255fa7ec7eb12523"
+        },
+        "documents": 37109,
+        "mailboxes": 10,
+        "dated_documents": 37109,
+        "queries": {
+          "dev": 2257,
+          "empty": 500,
+          "variants": 2257
+        },
+        "qrels": {
+          "dev": 4935,
+          "empty": 0,
+          "variants": 4935
+        },
+        "archive": {
+          "source_sha256": "b3da1b3fe0369ec3140bb4fbce94702c33b7da810ec15d718b3fadf5cd748ca7",
+          "archive_message_files": 517401,
+          "selected_message_files": 89880,
+          "within_mailbox_duplicates": 52771,
+          "unknown_dates": 0
+        },
+        "owner_written_or_manually_reviewed_primaries": 0
+      },
+      "rubq-2.0": {
+        "manifest_sha256": "baf4f1dc4a75821b7733bf5fca29d2bfe8db224d8147e51b2145bb679708cba1",
+        "sha256": {
+          "documents.jsonl": "344a0b264ce78c9f99721239b4541e68fc9eebd2c1b2f29f57406a907ffe7629",
+          "qrels_dev.jsonl": "027c92f5c20ca8124c11d8b53127b9528a863796e9cb1c19cd77a39960112b02",
+          "queries_dev.jsonl": "a9d6d353117ab969fa2c5f994d4dbb04920c68a3b6516db89471e4110db0c9fb"
+        },
+        "documents": 56952,
+        "mailboxes": 1,
+        "dated_documents": 0,
+        "queries": {
+          "dev": 1694
+        },
+        "qrels": {
+          "dev": 2847
+        },
+        "full_source_corpus": true,
+        "language": "ru",
+        "all_ever_positive_ids_in_corpus_prefix": true
+      }
+    }
+  },
+  "metrics": "Positive channels use query-macro graded nDCG@10, recall of known positives, Hit@10 and first-relevant MRR@10. Empty channels use false-nonempty count/rate. Missing labels give zero measured gain.",
+  "scope": "All returned IDs were checked against the source mailbox and as-of date. When annotated, requested receipt windows are audited separately.",
+  "frozen_sha256": "4088c7e8f854b59529aa97c5058bd1fbb1e5ec7665943df7ec162dc1686c37d1",
+  "datasets": {
+    "beir-scifact": {
+      "channels": {
+        "dev": {
+          "queries": 300,
+          "baseline": {
+            "returned_documents_checked": 2982,
+            "mailbox_or_asof_violations": 0,
+            "empty_lists_on_positive": 0,
+            "ndcg_at_10": 0.70196208,
+            "known_recall_at_10": 0.82377778,
+            "hit_at_10": 0.83666667,
+            "mrr_at_10": 0.67054894
+          },
+          "current": {
+            "returned_documents_checked": 2982,
+            "mailbox_or_asof_violations": 0,
+            "empty_lists_on_positive": 0,
+            "ndcg_at_10": 0.70196208,
+            "known_recall_at_10": 0.82377778,
+            "hit_at_10": 0.83666667,
+            "mrr_at_10": 0.67054894
+          },
+          "paired_ndcg_at_10": {
+            "delta": 0.0,
+            "wins": 0,
+            "ties": 300,
+            "losses": 0
+          },
+          "ranked_lists": {
+            "identical": 300,
+            "different": 0
+          }
+        }
+      },
+      "source_revisions": {
+        "BeIR/scifact": "b3b5335604bf5ee3c4447671af975ea25143d4f5",
+        "BeIR/scifact-qrels": "2938d17dc3b09882fdb8c12bbbe2e2dc0e75a029"
+      },
+      "ranking_provenance": {
+        "baseline": {
+          "status": "reused",
+          "revision": "b37c309ff3d9e83f80a726325a3b9b0ee56c33c1",
+          "source_freeze_sha256": "47814a4c051f427b27016bea6fd3d8c512757a0450ef87b50badc130a03596e2",
+          "source_artifact_sha256": "044678f61f85f094e8a8d0f44558f0aecdafaa18491fcb850a1a6c41d716e8f0",
+          "source_engine_role": "current",
+          "source_report_sha256": "4ee69d06653ca8d10f8a42a69b45ca857436bdc61d1ac254d01cd8edc9fab6cc",
+          "revision_evidence": "full-commit filename, source freeze, passage vectors and all primary metrics matched the published engine role"
+        },
+        "current": {
+          "status": "computed",
+          "revision": "b5252c144fc709168c96f8957d97c1d9ee5353af",
+          "artifact_sha256": "705cdf87cf30b436a3ade8c629181d0b9b482cf0c2fab8362d22f254f4720f6b"
+        }
+      },
+      "passage_vectors_sha256": "4ecfd58f4d6d038e688a6fa0539d6df403ba6dcd383a73d5bd5864c04d5750e4",
+      "raw_corpus_documents": 5183,
+      "supplied_corpus_composition": {
+        "documents": 5183,
+        "unique_judged_documents": 283,
+        "adjacent_unjudged_documents": 0,
+        "random_unjudged_documents": 4900
+      },
+      "all_judged_docs_in_prefix": true,
+      "limitations": [
+        "Only supplied judgments are credited; absent labels do not independently establish irrelevance.",
+        "The adapter places documents judged for any query before random distractors. Stable score ties can depend on that order. Retrieval quality does not measure mail search or generated answers."
+      ]
+    },
+    "enron-mail": {
+      "channels": {
+        "dev": {
+          "queries": 2257,
+          "baseline": {
+            "returned_documents_checked": 4015,
+            "mailbox_or_asof_violations": 0,
+            "empty_lists_on_positive": 575,
+            "ndcg_at_10": 0.55816021,
+            "known_recall_at_10": 0.56503181,
+            "hit_at_10": 0.6335844,
+            "mrr_at_10": 0.59828734,
+            "requested_period": {
+              "queries": 1080,
+              "returned_documents": 1705,
+              "outside_window": 0
+            }
+          },
+          "current": {
+            "returned_documents_checked": 4015,
+            "mailbox_or_asof_violations": 0,
+            "empty_lists_on_positive": 575,
+            "ndcg_at_10": 0.55816021,
+            "known_recall_at_10": 0.56503181,
+            "hit_at_10": 0.6335844,
+            "mrr_at_10": 0.59828734,
+            "requested_period": {
+              "queries": 1080,
+              "returned_documents": 1705,
+              "outside_window": 0
+            }
+          },
+          "paired_ndcg_at_10": {
+            "delta": 0.0,
+            "wins": 0,
+            "ties": 2257,
+            "losses": 0
+          },
+          "ranked_lists": {
+            "identical": 2257,
+            "different": 0
+          },
+          "by_judgment": {
+            "exact": {
+              "queries": 1782,
+              "baseline": {
+                "returned_documents_checked": 1976,
+                "mailbox_or_asof_violations": 0,
+                "empty_lists_on_positive": 429,
+                "ndcg_at_10": 0.67941587,
+                "known_recall_at_10": 0.68968599,
+                "hit_at_10": 0.75420875,
+                "mrr_at_10": 0.72033296,
+                "requested_period": {
+                  "queries": 682,
+                  "returned_documents": 436,
+                  "outside_window": 0
+                }
+              },
+              "current": {
+                "returned_documents_checked": 1976,
+                "mailbox_or_asof_violations": 0,
+                "empty_lists_on_positive": 429,
+                "ndcg_at_10": 0.67941587,
+                "known_recall_at_10": 0.68968599,
+                "hit_at_10": 0.75420875,
+                "mrr_at_10": 0.72033296,
+                "requested_period": {
+                  "queries": 682,
+                  "returned_documents": 436,
+                  "outside_window": 0
+                }
+              },
+              "paired_ndcg_at_10": {
+                "delta": 0.0,
+                "wins": 0,
+                "ties": 1782,
+                "losses": 0
+              }
+            },
+            "semantic_silver": {
+              "queries": 475,
+              "baseline": {
+                "returned_documents_checked": 2039,
+                "mailbox_or_asof_violations": 0,
+                "empty_lists_on_positive": 146,
+                "ndcg_at_10": 0.10326003,
+                "known_recall_at_10": 0.0973818,
+                "hit_at_10": 0.18105263,
+                "mrr_at_10": 0.14042356,
+                "requested_period": {
+                  "queries": 398,
+                  "returned_documents": 1269,
+                  "outside_window": 0
+                }
+              },
+              "current": {
+                "returned_documents_checked": 2039,
+                "mailbox_or_asof_violations": 0,
+                "empty_lists_on_positive": 146,
+                "ndcg_at_10": 0.10326003,
+                "known_recall_at_10": 0.0973818,
+                "hit_at_10": 0.18105263,
+                "mrr_at_10": 0.14042356,
+                "requested_period": {
+                  "queries": 398,
+                  "returned_documents": 1269,
+                  "outside_window": 0
+                }
+              },
+              "paired_ndcg_at_10": {
+                "delta": 0.0,
+                "wins": 0,
+                "ties": 475,
+                "losses": 0
+              }
+            }
+          },
+          "by_family": {
+            "semantic": {
+              "queries": 398,
+              "baseline": {
+                "returned_documents_checked": 1269,
+                "mailbox_or_asof_violations": 0,
+                "empty_lists_on_positive": 146,
+                "ndcg_at_10": 0.03045318,
+                "known_recall_at_10": 0.02820651,
+                "hit_at_10": 0.05025126,
+                "mrr_at_10": 0.04690117,
+                "requested_period": {
+                  "queries": 398,
+                  "returned_documents": 1269,
+                  "outside_window": 0
+                }
+              },
+              "current": {
+                "returned_documents_checked": 1269,
+                "mailbox_or_asof_violations": 0,
+                "empty_lists_on_positive": 146,
+                "ndcg_at_10": 0.03045318,
+                "known_recall_at_10": 0.02820651,
+                "hit_at_10": 0.05025126,
+                "mrr_at_10": 0.04690117,
+                "requested_period": {
+                  "queries": 398,
+                  "returned_documents": 1269,
+                  "outside_window": 0
+                }
+              },
+              "paired_ndcg_at_10": {
+                "delta": 0.0,
+                "wins": 0,
+                "ties": 398,
+                "losses": 0
+              }
+            },
+            "semantic_no_date": {
+              "queries": 77,
+              "baseline": {
+                "returned_documents_checked": 770,
+                "mailbox_or_asof_violations": 0,
+                "empty_lists_on_positive": 0,
+                "ndcg_at_10": 0.47958636,
+                "known_recall_at_10": 0.45493722,
+                "hit_at_10": 0.85714286,
+                "mrr_at_10": 0.62382498
+              },
+              "current": {
+                "returned_documents_checked": 770,
+                "mailbox_or_asof_violations": 0,
+                "empty_lists_on_positive": 0,
+                "ndcg_at_10": 0.47958636,
+                "known_recall_at_10": 0.45493722,
+                "hit_at_10": 0.85714286,
+                "mrr_at_10": 0.62382498
+              },
+              "paired_ndcg_at_10": {
+                "delta": 0.0,
+                "wins": 0,
+                "ties": 77,
+                "losses": 0
+              }
+            },
+            "sender": {
+              "queries": 682,
+              "baseline": {
+                "returned_documents_checked": 436,
+                "mailbox_or_asof_violations": 0,
+                "empty_lists_on_positive": 429,
+                "ndcg_at_10": 0.22543427,
+                "known_recall_at_10": 0.19211208,
+                "hit_at_10": 0.36070381,
+                "mrr_at_10": 0.35369827,
+                "requested_period": {
+                  "queries": 682,
+                  "returned_documents": 436,
+                  "outside_window": 0
+                }
+              },
+              "current": {
+                "returned_documents_checked": 436,
+                "mailbox_or_asof_violations": 0,
+                "empty_lists_on_positive": 429,
+                "ndcg_at_10": 0.22543427,
+                "known_recall_at_10": 0.19211208,
+                "hit_at_10": 0.36070381,
+                "mrr_at_10": 0.35369827,
+                "requested_period": {
+                  "queries": 682,
+                  "returned_documents": 436,
+                  "outside_window": 0
+                }
+              },
+              "paired_ndcg_at_10": {
+                "delta": 0.0,
+                "wins": 0,
+                "ties": 682,
+                "losses": 0
+              }
+            },
+            "subject": {
+              "queries": 1100,
+              "baseline": {
+                "returned_documents_checked": 1540,
+                "mailbox_or_asof_violations": 0,
+                "empty_lists_on_positive": 0,
+                "ndcg_at_10": 0.96088446,
+                "known_recall_at_10": 0.99818182,
+                "hit_at_10": 0.99818182,
+                "mrr_at_10": 0.94764646
+              },
+              "current": {
+                "returned_documents_checked": 1540,
+                "mailbox_or_asof_violations": 0,
+                "empty_lists_on_positive": 0,
+                "ndcg_at_10": 0.96088446,
+                "known_recall_at_10": 0.99818182,
+                "hit_at_10": 0.99818182,
+                "mrr_at_10": 0.94764646
+              },
+              "paired_ndcg_at_10": {
+                "delta": 0.0,
+                "wins": 0,
+                "ties": 1100,
+                "losses": 0
+              }
+            }
+          }
+        },
+        "empty": {
+          "queries": 500,
+          "baseline": {
+            "returned_documents_checked": 54,
+            "mailbox_or_asof_violations": 0,
+            "empty_lists_on_positive": 0,
+            "false_nonempty_count": 24,
+            "false_nonempty_rate": 0.048
+          },
+          "current": {
+            "returned_documents_checked": 54,
+            "mailbox_or_asof_violations": 0,
+            "empty_lists_on_positive": 0,
+            "false_nonempty_count": 24,
+            "false_nonempty_rate": 0.048
+          },
+          "ranked_lists": {
+            "identical": 500,
+            "different": 0
+          },
+          "by_judgment": {
+            "exact": {
+              "queries": 500,
+              "baseline": {
+                "returned_documents_checked": 54,
+                "mailbox_or_asof_violations": 0,
+                "empty_lists_on_positive": 0,
+                "false_nonempty_count": 24,
+                "false_nonempty_rate": 0.048
+              },
+              "current": {
+                "returned_documents_checked": 54,
+                "mailbox_or_asof_violations": 0,
+                "empty_lists_on_positive": 0,
+                "false_nonempty_count": 24,
+                "false_nonempty_rate": 0.048
+              }
+            }
+          },
+          "by_family": {
+            "future_subject": {
+              "queries": 500,
+              "baseline": {
+                "returned_documents_checked": 54,
+                "mailbox_or_asof_violations": 0,
+                "empty_lists_on_positive": 0,
+                "false_nonempty_count": 24,
+                "false_nonempty_rate": 0.048
+              },
+              "current": {
+                "returned_documents_checked": 54,
+                "mailbox_or_asof_violations": 0,
+                "empty_lists_on_positive": 0,
+                "false_nonempty_count": 24,
+                "false_nonempty_rate": 0.048
+              }
+            }
+          }
+        },
+        "variants": {
+          "queries": 2257,
+          "baseline": {
+            "returned_documents_checked": 3664,
+            "mailbox_or_asof_violations": 0,
+            "empty_lists_on_positive": 452,
+            "ndcg_at_10": 0.77021998,
+            "known_recall_at_10": 0.78716021,
+            "hit_at_10": 0.78910058,
+            "mrr_at_10": 0.76430892,
+            "requested_period": {
+              "queries": 1080,
+              "returned_documents": 2081,
+              "outside_window": 0
+            }
+          },
+          "current": {
+            "returned_documents_checked": 3664,
+            "mailbox_or_asof_violations": 0,
+            "empty_lists_on_positive": 452,
+            "ndcg_at_10": 0.77021998,
+            "known_recall_at_10": 0.78716021,
+            "hit_at_10": 0.78910058,
+            "mrr_at_10": 0.76430892,
+            "requested_period": {
+              "queries": 1080,
+              "returned_documents": 2081,
+              "outside_window": 0
+            }
+          },
+          "paired_ndcg_at_10": {
+            "delta": 0.0,
+            "wins": 0,
+            "ties": 2257,
+            "losses": 0
+          },
+          "ranked_lists": {
+            "identical": 2257,
+            "different": 0
+          },
+          "by_judgment": {
+            "exact": {
+              "queries": 1782,
+              "baseline": {
+                "returned_documents_checked": 3609,
+                "mailbox_or_asof_violations": 0,
+                "empty_lists_on_positive": 0,
+                "ndcg_at_10": 0.97552553,
+                "known_recall_at_10": 0.99698126,
+                "hit_at_10": 0.99943883,
+                "mrr_at_10": 0.96803885,
+                "requested_period": {
+                  "queries": 682,
+                  "returned_documents": 2069,
+                  "outside_window": 0
+                }
+              },
+              "current": {
+                "returned_documents_checked": 3609,
+                "mailbox_or_asof_violations": 0,
+                "empty_lists_on_positive": 0,
+                "ndcg_at_10": 0.97552553,
+                "known_recall_at_10": 0.99698126,
+                "hit_at_10": 0.99943883,
+                "mrr_at_10": 0.96803885,
+                "requested_period": {
+                  "queries": 682,
+                  "returned_documents": 2069,
+                  "outside_window": 0
+                }
+              },
+              "paired_ndcg_at_10": {
+                "delta": 0.0,
+                "wins": 0,
+                "ties": 1782,
+                "losses": 0
+              }
+            },
+            "semantic_silver": {
+              "queries": 475,
+              "baseline": {
+                "returned_documents_checked": 55,
+                "mailbox_or_asof_violations": 0,
+                "empty_lists_on_positive": 452,
+                "ndcg_at_10": 0.0,
+                "known_recall_at_10": 0.0,
+                "hit_at_10": 0.0,
+                "mrr_at_10": 0.0,
+                "requested_period": {
+                  "queries": 398,
+                  "returned_documents": 12,
+                  "outside_window": 0
+                }
+              },
+              "current": {
+                "returned_documents_checked": 55,
+                "mailbox_or_asof_violations": 0,
+                "empty_lists_on_positive": 452,
+                "ndcg_at_10": 0.0,
+                "known_recall_at_10": 0.0,
+                "hit_at_10": 0.0,
+                "mrr_at_10": 0.0,
+                "requested_period": {
+                  "queries": 398,
+                  "returned_documents": 12,
+                  "outside_window": 0
+                }
+              },
+              "paired_ndcg_at_10": {
+                "delta": 0.0,
+                "wins": 0,
+                "ties": 475,
+                "losses": 0
+              }
+            }
+          },
+          "by_family": {
+            "semantic": {
+              "queries": 398,
+              "baseline": {
+                "returned_documents_checked": 12,
+                "mailbox_or_asof_violations": 0,
+                "empty_lists_on_positive": 387,
+                "ndcg_at_10": 0.0,
+                "known_recall_at_10": 0.0,
+                "hit_at_10": 0.0,
+                "mrr_at_10": 0.0,
+                "requested_period": {
+                  "queries": 398,
+                  "returned_documents": 12,
+                  "outside_window": 0
+                }
+              },
+              "current": {
+                "returned_documents_checked": 12,
+                "mailbox_or_asof_violations": 0,
+                "empty_lists_on_positive": 387,
+                "ndcg_at_10": 0.0,
+                "known_recall_at_10": 0.0,
+                "hit_at_10": 0.0,
+                "mrr_at_10": 0.0,
+                "requested_period": {
+                  "queries": 398,
+                  "returned_documents": 12,
+                  "outside_window": 0
+                }
+              },
+              "paired_ndcg_at_10": {
+                "delta": 0.0,
+                "wins": 0,
+                "ties": 398,
+                "losses": 0
+              }
+            },
+            "semantic_no_date": {
+              "queries": 77,
+              "baseline": {
+                "returned_documents_checked": 43,
+                "mailbox_or_asof_violations": 0,
+                "empty_lists_on_positive": 65,
+                "ndcg_at_10": 0.0,
+                "known_recall_at_10": 0.0,
+                "hit_at_10": 0.0,
+                "mrr_at_10": 0.0
+              },
+              "current": {
+                "returned_documents_checked": 43,
+                "mailbox_or_asof_violations": 0,
+                "empty_lists_on_positive": 65,
+                "ndcg_at_10": 0.0,
+                "known_recall_at_10": 0.0,
+                "hit_at_10": 0.0,
+                "mrr_at_10": 0.0
+              },
+              "paired_ndcg_at_10": {
+                "delta": 0.0,
+                "wins": 0,
+                "ties": 77,
+                "losses": 0
+              }
+            },
+            "sender": {
+              "queries": 682,
+              "baseline": {
+                "returned_documents_checked": 2069,
+                "mailbox_or_asof_violations": 0,
+                "empty_lists_on_positive": 0,
+                "ndcg_at_10": 0.98065374,
+                "known_recall_at_10": 0.99357859,
+                "hit_at_10": 1.0,
+                "mrr_at_10": 0.97598101,
+                "requested_period": {
+                  "queries": 682,
+                  "returned_documents": 2069,
+                  "outside_window": 0
+                }
+              },
+              "current": {
+                "returned_documents_checked": 2069,
+                "mailbox_or_asof_violations": 0,
+                "empty_lists_on_positive": 0,
+                "ndcg_at_10": 0.98065374,
+                "known_recall_at_10": 0.99357859,
+                "hit_at_10": 1.0,
+                "mrr_at_10": 0.97598101,
+                "requested_period": {
+                  "queries": 682,
+                  "returned_documents": 2069,
+                  "outside_window": 0
+                }
+              },
+              "paired_ndcg_at_10": {
+                "delta": 0.0,
+                "wins": 0,
+                "ties": 682,
+                "losses": 0
+              }
+            },
+            "subject": {
+              "queries": 1100,
+              "baseline": {
+                "returned_documents_checked": 1540,
+                "mailbox_or_asof_violations": 0,
+                "empty_lists_on_positive": 0,
+                "ndcg_at_10": 0.97234604,
+                "known_recall_at_10": 0.99909091,
+                "hit_at_10": 0.99909091,
+                "mrr_at_10": 0.96311472
+              },
+              "current": {
+                "returned_documents_checked": 1540,
+                "mailbox_or_asof_violations": 0,
+                "empty_lists_on_positive": 0,
+                "ndcg_at_10": 0.97234604,
+                "known_recall_at_10": 0.99909091,
+                "hit_at_10": 0.99909091,
+                "mrr_at_10": 0.96311472
+              },
+              "paired_ndcg_at_10": {
+                "delta": 0.0,
+                "wins": 0,
+                "ties": 1100,
+                "losses": 0
+              }
+            }
+          }
+        }
+      },
+      "source_revisions": {},
+      "ranking_provenance": {
+        "baseline": {
+          "status": "reused",
+          "revision": "b37c309ff3d9e83f80a726325a3b9b0ee56c33c1",
+          "source_freeze_sha256": "47814a4c051f427b27016bea6fd3d8c512757a0450ef87b50badc130a03596e2",
+          "source_artifact_sha256": "48b4dc59a628eca7787c00cec770fca5cbcad36673f4cb5f3acdd517d8f60be5",
+          "source_engine_role": "current",
+          "source_report_sha256": "4ee69d06653ca8d10f8a42a69b45ca857436bdc61d1ac254d01cd8edc9fab6cc",
+          "revision_evidence": "full-commit filename, source freeze, passage vectors and all primary metrics matched the published engine role"
+        },
+        "current": {
+          "status": "computed",
+          "revision": "b5252c144fc709168c96f8957d97c1d9ee5353af",
+          "artifact_sha256": "b531d2085f3b4b860ea4406c8672e2f37c28ea931616a3d02e4778d020ec910a"
+        }
+      },
+      "passage_vectors_sha256": "522c8a0071fdaf9eed7f65a3e62de51f7f5147ebada72eabaa87470605e7c955",
+      "independent_label_audit": {
+        "exhaustive_dev": 1782,
+        "exhaustive_empty": 500,
+        "variant_label_sets": 2257
+      },
+      "limitations": [
+        "Full supplied ten-mailbox snapshot. The CMU archive contains additional mailboxes and duplicate files.",
+        "Queries and exhaustive sender/subject rules were generated. Semantic labels are subject-based silver judgments. No owner-written or human-reviewed judgments are documented.",
+        "Empty controls put exact subjects before their first appearance. Variants share their original labels and are summarized separately."
+      ]
+    },
+    "rubq-2.0": {
+      "channels": {
+        "dev": {
+          "queries": 1694,
+          "baseline": {
+            "returned_documents_checked": 15570,
+            "mailbox_or_asof_violations": 0,
+            "empty_lists_on_positive": 69,
+            "ndcg_at_10": 0.5120432,
+            "known_recall_at_10": 0.67161972,
+            "hit_at_10": 0.76977568,
+            "mrr_at_10": 0.51208654
+          },
+          "current": {
+            "returned_documents_checked": 15570,
+            "mailbox_or_asof_violations": 0,
+            "empty_lists_on_positive": 69,
+            "ndcg_at_10": 0.5120432,
+            "known_recall_at_10": 0.67161972,
+            "hit_at_10": 0.76977568,
+            "mrr_at_10": 0.51208654
+          },
+          "paired_ndcg_at_10": {
+            "delta": 0.0,
+            "wins": 0,
+            "ties": 1694,
+            "losses": 0
+          },
+          "ranked_lists": {
+            "identical": 1694,
+            "different": 0
+          }
+        }
+      },
+      "source_revisions": {
+        "d0rj/RuBQ_2.0": "e113ce1c7b749dd7d34e2651acbbd45fe1180017",
+        "d0rj/RuBQ_2.0-paragraphs": "383cf3ba0395865ada07329c8601bee840cbeb2b"
+      },
+      "ranking_provenance": {
+        "baseline": {
+          "status": "reused",
+          "revision": "b37c309ff3d9e83f80a726325a3b9b0ee56c33c1",
+          "source_freeze_sha256": "47814a4c051f427b27016bea6fd3d8c512757a0450ef87b50badc130a03596e2",
+          "source_artifact_sha256": "36a540f7783e08a054fd8c9229a067ae34ec30c3da62f41f2bd7e6fa485996d8",
+          "source_engine_role": "current",
+          "source_report_sha256": "4ee69d06653ca8d10f8a42a69b45ca857436bdc61d1ac254d01cd8edc9fab6cc",
+          "revision_evidence": "full-commit filename, source freeze, passage vectors and all primary metrics matched the published engine role"
+        },
+        "current": {
+          "status": "computed",
+          "revision": "b5252c144fc709168c96f8957d97c1d9ee5353af",
+          "artifact_sha256": "949b09700d2676bf1b10b0341da1a967bf9981e2f6ecba250fc7bc761d00c9fa"
+        }
+      },
+      "passage_vectors_sha256": "bd0488c673ef60e8080653d7958a70f1d7684673d87d401b7596df08eb6b4c41",
+      "raw_corpus_documents": 56952,
+      "supplied_corpus_composition": {
+        "documents": 56952,
+        "unique_judged_documents": 2711,
+        "adjacent_unjudged_documents": 0,
+        "random_unjudged_documents": 54241
+      },
+      "all_judged_docs_in_prefix": true,
+      "limitations": [
+        "Only supplied judgments are credited; absent labels do not independently establish irrelevance.",
+        "The adapter places documents judged for any query before random distractors. Stable score ties can depend on that order. Retrieval quality does not measure mail search or generated answers."
+      ],
+      "author_adapter_comparison": {
+        "author_git_revision": "fade3eae6a4807c35b19cfce20dfa805fc8c0cdf",
+        "same_raw_ids_after_removing_namespace": true,
+        "same_question_texts": true,
+        "same_qrels_including_grades": true,
+        "changed_passage_texts": 613,
+        "changed_beyond_outer_whitespace": 0,
+        "same_document_order": false,
+        "same_query_order": false,
+        "author_adapter_query_dates": [
+          "2020-12-15"
+        ],
+        "supplied_query_dates": [
+          "2026-11-21"
+        ],
+        "same_receipt_dates": true,
+        "published_author_order_run": {
+          "baseline_revision": "5fe3f5d3739ac523d0b4088f15eef4b50391dd28",
+          "prior_candidate_revision": "78979130983382e9ffadcac30aad15fba17c2e9b",
+          "prior_candidate_retrieval_modules_match_current": false,
+          "prior_ndcg_at_10": {
+            "baseline": 0.56308349,
+            "candidate": 0.511841,
+            "delta": -0.05124249
+          },
+          "report_sha256": "04fb7e7acfd9c1c51de6bd7ee6cf5e99357702a2b6ea5ab264175654fc4f4d2f"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "engines": {
+    "baseline": "b37c309ff3d9e83f80a726325a3b9b0ee56c33c1",
+    "current": "b5252c144fc709168c96f8957d97c1d9ee5353af"
+  },
+  "sha256": {
+    "documents.jsonl": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+    "queries": "33545da018722c81f922fd21a8750a13cf1fbb8ae7e869c37854b892b41b907c",
+    "qrels": "5dacf553dd7afaac8a8deccdb17bbfacb289817fb6b75ba6683de787492495b7",
+    "pairs": "bb5f9a6f3eb037616bed4d7e4f4c6dcfbc0a7a6fb50c1c7d243608563564be45"
+  },
+  "cutoff": 10,
+  "selection": "Both halves of every supplied diagnostic pair whose mailbox is in vk_dev. All other pairs remain reserved for the final evaluation.",
+  "reserved_pairs_by_family": {
+    "conditional_cancellation": 10,
+    "unknown_receipt_date": 8
+  },
+  "baseline": {
+    "service_corpus_check": "sha256",
+    "families": {
+      "conditional_cancellation": {
+        "pairs": 14,
+        "positive_hit_at_10": 14,
+        "correct_empty": 0,
+        "both_conditions_correct": 0
+      },
+      "unknown_receipt_date": {
+        "pairs": 24,
+        "positive_hit_at_10": 24,
+        "correct_empty": 24,
+        "both_conditions_correct": 24
+      }
+    }
+  },
+  "current": {
+    "service_corpus_check": "sha256",
+    "families": {
+      "conditional_cancellation": {
+        "pairs": 14,
+        "positive_hit_at_10": 14,
+        "correct_empty": 14,
+        "both_conditions_correct": 14
+      },
+      "unknown_receipt_date": {
+        "pairs": 24,
+        "positive_hit_at_10": 24,
+        "correct_empty": 24,
+        "both_conditions_correct": 24
+      }
+    }
+  },
+  "paired_changes_both_conditions": {
+    "conditional_cancellation": {
+      "improved": 14,
+      "regressed": 0
+    },
+    "unknown_receipt_date": {
+      "improved": 0,
+      "regressed": 0
+    }
+  }
+}

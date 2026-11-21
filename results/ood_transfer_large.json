@@ -1,0 +1,424 @@
+{
+  "protocol": {
+    "engines": {
+      "baseline": "5fe3f5d3739ac523d0b4088f15eef4b50391dd28",
+      "current": "b37c309ff3d9e83f80a726325a3b9b0ee56c33c1"
+    },
+    "selection": "Every supplied document in its original order and every supplied query in the listed channels. Both exact Git revisions use production SearchEngine.search with k=10, original mailbox, query date and text. No RAG generation or tuning.",
+    "cutoff": 10,
+    "inputs": {
+      "mr-tydi-ru": {
+        "manifest_sha256": "b9464ddf851edcf20e7954a165b1a7eb50c497ea4088a67ce9fdfaaf5ce4e840",
+        "sha256": {
+          "documents.jsonl": "3895fd498dbe14eee48cc6bb0692be4818292fe3f7e6492d59c8087ecc41ed23",
+          "qrels_dev.jsonl": "3e49074dcb99e0fe222cfdd0348ae82facb1135739df649aedf1a88b94835348",
+          "queries_dev.jsonl": "71bab97c74189135415689d5db4ecdaac050087528e9176fe53711b21df56607"
+        },
+        "documents": 24050,
+        "mailboxes": 1,
+        "dated_documents": 0,
+        "queries": {
+          "dev": 995
+        },
+        "qrels": {
+          "dev": 1168
+        },
+        "full_source_corpus": false,
+        "language": "ru",
+        "all_ever_positive_ids_in_corpus_prefix": false
+      },
+      "miracl-ru": {
+        "manifest_sha256": "1fedfd35340bd937b578cdd4e59c519ee0887133c3d325058dc959b02bd9caf4",
+        "sha256": {
+          "documents.jsonl": "58d6745538f21f3cc4aa7eea13a55d96c4a88dd08051d8b6367fb4de25ee364f",
+          "qrels_dev.jsonl": "4ed0e8ae40a8d080c477be20bfa3b9f195ba13bb4304945e297ca54e7a658f88",
+          "queries_dev.jsonl": "e98e348af89bbcbc5be6549bf45f469775feee51e3567bc4ffe02808271c98b5"
+        },
+        "documents": 67309,
+        "mailboxes": 1,
+        "dated_documents": 0,
+        "queries": {
+          "dev": 1252
+        },
+        "qrels": {
+          "dev": 13100
+        },
+        "full_source_corpus": false,
+        "language": "ru",
+        "all_ever_positive_ids_in_corpus_prefix": false
+      },
+      "mmarco-ru": {
+        "manifest_sha256": "c1a1717f0d024fe45006b0ebeaf3cca5e77b2450b69347ffcd372fde0e8712c7",
+        "sha256": {
+          "documents.jsonl": "1333a2470f9fd5d4ec04afe95fdc0d4dd551d65929bf421d35618bb7f073f2f2",
+          "qrels_dev.jsonl": "296932dbb2f98b3481c8687d3593cef0084d47bd050cf18bd0aaaed732c09101",
+          "queries_dev.jsonl": "8c5df4a298f1da5187d04756cbfa866fc340a8f697069acaebc0f79dd608a5ac"
+        },
+        "documents": 29433,
+        "mailboxes": 1,
+        "dated_documents": 0,
+        "queries": {
+          "dev": 6980
+        },
+        "qrels": {
+          "dev": 7437
+        },
+        "full_source_corpus": false,
+        "language": "ru",
+        "all_ever_positive_ids_in_corpus_prefix": true
+      },
+      "msmarco-passage": {
+        "manifest_sha256": "015508d16a654a24dd9f5e5a732a505a47a66e28aa97f9a7dcf8612aa3b4b64a",
+        "sha256": {
+          "documents.jsonl": "9e80c591f581a5d059ce8e5dec8ee647b6ae1ed45e9cfc97469bf424045e4ce1",
+          "qrels_dev.jsonl": "32ee181c120b7390e96603d316b80e6696e53c49c4e1a13b8b932bf400196b74",
+          "queries_dev.jsonl": "f3cf6692f066c0ce530d3ec990c2f9eae6e3db3cc4df5ecdf07bba71cfa1849a"
+        },
+        "documents": 29433,
+        "mailboxes": 1,
+        "dated_documents": 0,
+        "queries": {
+          "dev": 6980
+        },
+        "qrels": {
+          "dev": 7437
+        },
+        "full_source_corpus": false,
+        "language": "en",
+        "all_ever_positive_ids_in_corpus_prefix": true
+      },
+      "msmarco-doc": {
+        "manifest_sha256": "670cfa42738647b0c4ea49d0061135899cfafb31c3c252fb5ce9a9e8be8b669e",
+        "sha256": {
+          "documents.jsonl": "42a3f7837314bc4e39fc7bf1b5ee22126d561d7c43b95bead32b5dc5e4e6e8f0",
+          "qrels_dev.jsonl": "6ec5cdf9e4a858e016c1f1aebf93ef1808749063d2b93e1c1610b1ef87f6efce",
+          "queries_dev.jsonl": "3185a90ffb50956f4718e8fb0d8899665485cc61fda2307614d7312d7bc5deda"
+        },
+        "documents": 15185,
+        "mailboxes": 1,
+        "dated_documents": 0,
+        "queries": {
+          "dev": 5193
+        },
+        "qrels": {
+          "dev": 5193
+        },
+        "full_source_corpus": false,
+        "language": "en",
+        "all_ever_positive_ids_in_corpus_prefix": true
+      },
+      "lotte": {
+        "manifest_sha256": "9e6c21dc79398edfaf0997a729846fd133324450a7e85b10c21e9e12e038c75b",
+        "sha256": {
+          "documents.jsonl": "3ef1ef9d028ef8c1604f497fd6f40142a4dbc03dbef1d7a5b13ccbd0799f3607",
+          "qrels_dev.jsonl": "f72e07f6e82e3e9160655fba4a3cdaa35a9c7637beb594a4148b76e6b7191a3a",
+          "queries_dev.jsonl": "a2d2ad4e1e7d4855d258a3959a367d630b96111cea4dc532016fb301f0959469"
+        },
+        "documents": 90528,
+        "mailboxes": 1,
+        "dated_documents": 0,
+        "queries": {
+          "dev": 13894
+        },
+        "qrels": {
+          "dev": 72660
+        },
+        "full_source_corpus": false,
+        "language": "en",
+        "all_ever_positive_ids_in_corpus_prefix": true
+      }
+    }
+  },
+  "metrics": "Positive channels use query-macro graded nDCG@10, recall of known positives, Hit@10 and first-relevant MRR@10. Empty channels use false-nonempty count/rate. Missing labels give zero measured gain.",
+  "scope": "All returned IDs were checked against the source mailbox and as-of date. When annotated, requested receipt windows are audited separately.",
+  "frozen_sha256": "e785fa54163f8864255fbdc4c5eb962a57a9fe4897fa1ccf44bd2f80c0bc2073",
+  "datasets": {
+    "mr-tydi-ru": {
+      "channels": {
+        "dev": {
+          "queries": 995,
+          "baseline": {
+            "returned_documents_checked": 8917,
+            "mailbox_or_asof_violations": 0,
+            "empty_lists_on_positive": 29,
+            "ndcg_at_10": 0.78678221,
+            "known_recall_at_10": 0.90586265,
+            "hit_at_10": 0.91658291,
+            "mrr_at_10": 0.75616136
+          },
+          "current": {
+            "returned_documents_checked": 8544,
+            "mailbox_or_asof_violations": 0,
+            "empty_lists_on_positive": 45,
+            "ndcg_at_10": 0.7656694,
+            "known_recall_at_10": 0.87839196,
+            "hit_at_10": 0.89045226,
+            "mrr_at_10": 0.73887772
+          },
+          "paired_ndcg_at_10": {
+            "delta": -0.02111281,
+            "wins": 84,
+            "ties": 805,
+            "losses": 106
+          }
+        }
+      },
+      "source_revisions": {
+        "castorini/mr-tydi": "1d43c80218d06d0ef80f5b172ccabd848b948bc1",
+        "castorini/mr-tydi-corpus": "3a3aa212bbe94a8cc0dc858710a3dad49d532054"
+      },
+      "passage_vectors_sha256": "215def771c560f69ef066b2d96174110c135209569bafa729b9a04b25928ebd8",
+      "raw_corpus_documents": 9597504,
+      "supplied_corpus_composition": {
+        "documents": 24050,
+        "unique_judged_documents": 1100,
+        "adjacent_unjudged_documents": 2950,
+        "random_unjudged_documents": 20000
+      },
+      "all_judged_docs_in_prefix": false,
+      "limitations": [
+        "Only supplied judgments are credited; absent labels do not independently establish irrelevance.",
+        "The adapter places documents judged for any query before random distractors. Stable score ties can depend on that order. Retrieval quality does not measure mail search or generated answers.",
+        "A supplied reduced candidate corpus includes judged documents and unjudged distractors. These scores are conditional on that candidate pool."
+      ]
+    },
+    "miracl-ru": {
+      "channels": {
+        "dev": {
+          "queries": 1252,
+          "baseline": {
+            "returned_documents_checked": 12067,
+            "mailbox_or_asof_violations": 0,
+            "empty_lists_on_positive": 35,
+            "ndcg_at_10": 0.64013597,
+            "known_recall_at_10": 0.77582209,
+            "hit_at_10": 0.8985623,
+            "mrr_at_10": 0.67480064
+          },
+          "current": {
+            "returned_documents_checked": 11686,
+            "mailbox_or_asof_violations": 0,
+            "empty_lists_on_positive": 43,
+            "ndcg_at_10": 0.61150074,
+            "known_recall_at_10": 0.73456743,
+            "hit_at_10": 0.86900958,
+            "mrr_at_10": 0.65759927
+          },
+          "paired_ndcg_at_10": {
+            "delta": -0.02863522,
+            "wins": 286,
+            "ties": 571,
+            "losses": 395
+          }
+        }
+      },
+      "source_revisions": {
+        "miracl/miracl": "5be20db9509754dadad47689368639fcec739c00",
+        "miracl/miracl-corpus": "d921ec7e349ce0d28daf30b2da9da5ee698bef0d"
+      },
+      "passage_vectors_sha256": "5fd116c198957d31722c4fda73385668305e66e10101d714f82ef6ab9633c6b1",
+      "raw_corpus_documents": 9543918,
+      "supplied_corpus_composition": {
+        "documents": 67309,
+        "unique_judged_documents": 12607,
+        "adjacent_unjudged_documents": 34702,
+        "random_unjudged_documents": 20000
+      },
+      "all_judged_docs_in_prefix": false,
+      "limitations": [
+        "Only supplied judgments are credited; absent labels do not independently establish irrelevance.",
+        "The adapter places documents judged for any query before random distractors. Stable score ties can depend on that order. Retrieval quality does not measure mail search or generated answers.",
+        "A supplied reduced candidate corpus includes judged documents and unjudged distractors. These scores are conditional on that candidate pool."
+      ]
+    },
+    "mmarco-ru": {
+      "channels": {
+        "dev": {
+          "queries": 6980,
+          "baseline": {
+            "returned_documents_checked": 68002,
+            "mailbox_or_asof_violations": 0,
+            "empty_lists_on_positive": 45,
+            "ndcg_at_10": 0.79195222,
+            "known_recall_at_10": 0.88174546,
+            "hit_at_10": 0.88624642,
+            "mrr_at_10": 0.76680419
+          },
+          "current": {
+            "returned_documents_checked": 68032,
+            "mailbox_or_asof_violations": 0,
+            "empty_lists_on_positive": 56,
+            "ndcg_at_10": 0.79677865,
+            "known_recall_at_10": 0.88992359,
+            "hit_at_10": 0.89426934,
+            "mrr_at_10": 0.77056653
+          },
+          "paired_ndcg_at_10": {
+            "delta": 0.00482642,
+            "wins": 531,
+            "ties": 5976,
+            "losses": 473
+          }
+        }
+      },
+      "source_revisions": {
+        "unicamp-dl/mmarco": "6d039c4638c0ba3e46a9cb7b498b145e7edc6230"
+      },
+      "passage_vectors_sha256": "62096bfa5a371df9639d2a24cef5e7a3d54fe9cbfd985beff0dd99597e7d530b",
+      "raw_corpus_documents": 8841823,
+      "supplied_corpus_composition": {
+        "documents": 29433,
+        "unique_judged_documents": 7433,
+        "adjacent_unjudged_documents": 0,
+        "random_unjudged_documents": 22000
+      },
+      "all_judged_docs_in_prefix": true,
+      "limitations": [
+        "Only supplied judgments are credited; absent labels do not independently establish irrelevance.",
+        "The adapter places documents judged for any query before random distractors. Stable score ties can depend on that order. Retrieval quality does not measure mail search or generated answers.",
+        "A supplied reduced candidate corpus includes judged documents and unjudged distractors. These scores are conditional on that candidate pool."
+      ]
+    },
+    "msmarco-passage": {
+      "channels": {
+        "dev": {
+          "queries": 6980,
+          "baseline": {
+            "returned_documents_checked": 66549,
+            "mailbox_or_asof_violations": 0,
+            "empty_lists_on_positive": 0,
+            "ndcg_at_10": 0.91436958,
+            "known_recall_at_10": 0.97160936,
+            "hit_at_10": 0.97363897,
+            "mrr_at_10": 0.8977784
+          },
+          "current": {
+            "returned_documents_checked": 68672,
+            "mailbox_or_asof_violations": 0,
+            "empty_lists_on_positive": 3,
+            "ndcg_at_10": 0.91519109,
+            "known_recall_at_10": 0.974415,
+            "hit_at_10": 0.97621777,
+            "mrr_at_10": 0.89787823
+          },
+          "paired_ndcg_at_10": {
+            "delta": 0.00082152,
+            "wins": 316,
+            "ties": 6348,
+            "losses": 316
+          }
+        }
+      },
+      "source_revisions": {},
+      "passage_vectors_sha256": "9be53958a788006f033b38c5862b200590b0fdce335f55fe6c4798628929fc08",
+      "raw_corpus_documents": 8841823,
+      "supplied_corpus_composition": {
+        "documents": 29433,
+        "unique_judged_documents": 7433,
+        "adjacent_unjudged_documents": 0,
+        "random_unjudged_documents": 22000
+      },
+      "all_judged_docs_in_prefix": true,
+      "limitations": [
+        "Only supplied judgments are credited; absent labels do not independently establish irrelevance.",
+        "The adapter places documents judged for any query before random distractors. Stable score ties can depend on that order. Retrieval quality does not measure mail search or generated answers.",
+        "A supplied reduced candidate corpus includes judged documents and unjudged distractors. These scores are conditional on that candidate pool."
+      ]
+    },
+    "msmarco-doc": {
+      "channels": {
+        "dev": {
+          "queries": 5193,
+          "baseline": {
+            "returned_documents_checked": 51499,
+            "mailbox_or_asof_violations": 0,
+            "empty_lists_on_positive": 0,
+            "ndcg_at_10": 0.91320485,
+            "known_recall_at_10": 0.96668592,
+            "hit_at_10": 0.96668592,
+            "mrr_at_10": 0.89548408
+          },
+          "current": {
+            "returned_documents_checked": 51796,
+            "mailbox_or_asof_violations": 0,
+            "empty_lists_on_positive": 1,
+            "ndcg_at_10": 0.91168217,
+            "known_recall_at_10": 0.96553052,
+            "hit_at_10": 0.96553052,
+            "mrr_at_10": 0.8938183
+          },
+          "paired_ndcg_at_10": {
+            "delta": -0.00152268,
+            "wins": 175,
+            "ties": 4813,
+            "losses": 205
+          }
+        }
+      },
+      "source_revisions": {},
+      "passage_vectors_sha256": "d9a1d9679e80384a1771596bba2e622c9ca5a9bc9543edc8beaf2fa8bfe6a83e",
+      "raw_corpus_documents": 3213835,
+      "supplied_corpus_composition": {
+        "documents": 15185,
+        "unique_judged_documents": 5185,
+        "adjacent_unjudged_documents": 0,
+        "random_unjudged_documents": 10000
+      },
+      "all_judged_docs_in_prefix": true,
+      "limitations": [
+        "Only supplied judgments are credited; absent labels do not independently establish irrelevance.",
+        "The adapter places documents judged for any query before random distractors. Stable score ties can depend on that order. Retrieval quality does not measure mail search or generated answers.",
+        "A supplied reduced candidate corpus includes judged documents and unjudged distractors. These scores are conditional on that candidate pool."
+      ]
+    },
+    "lotte": {
+      "channels": {
+        "dev": {
+          "queries": 13894,
+          "baseline": {
+            "returned_documents_checked": 138490,
+            "mailbox_or_asof_violations": 0,
+            "empty_lists_on_positive": 2,
+            "ndcg_at_10": 0.59739175,
+            "known_recall_at_10": 0.60020452,
+            "hit_at_10": 0.89261552,
+            "mrr_at_10": 0.7552834
+          },
+          "current": {
+            "returned_documents_checked": 138628,
+            "mailbox_or_asof_violations": 0,
+            "empty_lists_on_positive": 11,
+            "ndcg_at_10": 0.6008065,
+            "known_recall_at_10": 0.60248406,
+            "hit_at_10": 0.89657406,
+            "mrr_at_10": 0.75999458
+          },
+          "paired_ndcg_at_10": {
+            "delta": 0.00341475,
+            "wins": 3540,
+            "ties": 7437,
+            "losses": 2917
+          }
+        }
+      },
+      "source_revisions": {
+        "colbertv2/lotte": "1a87807da631e4197d77f7e720c38941abcf26d1",
+        "colbertv2/lotte_passages": "3be7f857585299f1268d29d3591202d731ea84a1"
+      },
+      "passage_vectors_sha256": "d43d858aab2a34547f82fc1da047d88a6d9b324c704a09c83879c7161796bada",
+      "raw_corpus_documents": 2819103,
+      "supplied_corpus_composition": {
+        "documents": 90528,
+        "unique_judged_documents": 68528,
+        "adjacent_unjudged_documents": 0,
+        "random_unjudged_documents": 22000
+      },
+      "all_judged_docs_in_prefix": true,
+      "limitations": [
+        "Only supplied judgments are credited; absent labels do not independently establish irrelevance.",
+        "The adapter places documents judged for any query before random distractors. Stable score ties can depend on that order. Retrieval quality does not measure mail search or generated answers.",
+        "A supplied reduced candidate corpus includes judged documents and unjudged distractors. These scores are conditional on that candidate pool."
+      ]
+    }
+  }
+}

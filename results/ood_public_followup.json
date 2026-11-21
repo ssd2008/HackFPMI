@@ -1,0 +1,214 @@
+{
+  "revisions": {
+    "before": "b37c309ff3d9e83f80a726325a3b9b0ee56c33c1",
+    "after": "b5252c144fc709168c96f8957d97c1d9ee5353af"
+  },
+  "measured_at": "2026-11-21T12:03:25.895369+00:00",
+  "protocol": "Two warmed localhost servers on the identical official corpus. Five repetitions at each concurrency in each batch, two batches in reverse engine order. Server-Timing and loopback HTTP in milliseconds. All 99 original rankings verified across all batches and versions.",
+  "batches": [
+    {
+      "engine": "before",
+      "clients": 1,
+      "repeats": 5,
+      "search_calls": 495,
+      "server_ms": {
+        "p50": 2.296,
+        "p95": 2.789,
+        "p99": 3.259,
+        "max": 4.091
+      },
+      "loopback_http_ms": {
+        "p50": 2.732,
+        "p95": 3.276,
+        "p99": 3.797,
+        "max": 4.491
+      },
+      "ranking_changes_on_repeats": 0,
+      "platform": "macOS-26.6.2-arm64-arm-64bit",
+      "python": "3.12.13"
+    },
+    {
+      "engine": "after",
+      "clients": 1,
+      "repeats": 5,
+      "search_calls": 495,
+      "server_ms": {
+        "p50": 2.296,
+        "p95": 2.844,
+        "p99": 3.497,
+        "max": 6.734
+      },
+      "loopback_http_ms": {
+        "p50": 2.724,
+        "p95": 3.316,
+        "p99": 3.987,
+        "max": 7.463
+      },
+      "ranking_changes_on_repeats": 0,
+      "platform": "macOS-26.6.2-arm64-arm-64bit",
+      "python": "3.12.13"
+    },
+    {
+      "engine": "after",
+      "clients": 1,
+      "repeats": 5,
+      "search_calls": 495,
+      "server_ms": {
+        "p50": 2.249,
+        "p95": 2.752,
+        "p99": 3.603,
+        "max": 4.58
+      },
+      "loopback_http_ms": {
+        "p50": 2.655,
+        "p95": 3.191,
+        "p99": 4.058,
+        "max": 4.997
+      },
+      "ranking_changes_on_repeats": 0,
+      "platform": "macOS-26.6.2-arm64-arm-64bit",
+      "python": "3.12.13"
+    },
+    {
+      "engine": "before",
+      "clients": 1,
+      "repeats": 5,
+      "search_calls": 495,
+      "server_ms": {
+        "p50": 2.23,
+        "p95": 2.763,
+        "p99": 3.669,
+        "max": 4.475
+      },
+      "loopback_http_ms": {
+        "p50": 2.645,
+        "p95": 3.238,
+        "p99": 4.342,
+        "max": 5.222
+      },
+      "ranking_changes_on_repeats": 0,
+      "platform": "macOS-26.6.2-arm64-arm-64bit",
+      "python": "3.12.13"
+    },
+    {
+      "engine": "before",
+      "clients": 8,
+      "repeats": 5,
+      "search_calls": 495,
+      "server_ms": {
+        "p50": 5.262,
+        "p95": 6.954,
+        "p99": 8.102,
+        "max": 8.692
+      },
+      "loopback_http_ms": {
+        "p50": 6.838,
+        "p95": 8.615,
+        "p99": 9.936,
+        "max": 10.621
+      },
+      "ranking_changes_on_repeats": 0,
+      "platform": "macOS-26.6.2-arm64-arm-64bit",
+      "python": "3.12.13"
+    },
+    {
+      "engine": "after",
+      "clients": 8,
+      "repeats": 5,
+      "search_calls": 495,
+      "server_ms": {
+        "p50": 5.369,
+        "p95": 7.421,
+        "p99": 8.266,
+        "max": 8.833
+      },
+      "loopback_http_ms": {
+        "p50": 6.973,
+        "p95": 9.159,
+        "p99": 10.97,
+        "max": 12.393
+      },
+      "ranking_changes_on_repeats": 0,
+      "platform": "macOS-26.6.2-arm64-arm-64bit",
+      "python": "3.12.13"
+    },
+    {
+      "engine": "after",
+      "clients": 8,
+      "repeats": 5,
+      "search_calls": 495,
+      "server_ms": {
+        "p50": 5.671,
+        "p95": 7.954,
+        "p99": 8.848,
+        "max": 9.655
+      },
+      "loopback_http_ms": {
+        "p50": 7.356,
+        "p95": 9.58,
+        "p99": 10.525,
+        "max": 12.285
+      },
+      "ranking_changes_on_repeats": 0,
+      "platform": "macOS-26.6.2-arm64-arm-64bit",
+      "python": "3.12.13"
+    },
+    {
+      "engine": "before",
+      "clients": 8,
+      "repeats": 5,
+      "search_calls": 495,
+      "server_ms": {
+        "p50": 5.775,
+        "p95": 7.982,
+        "p99": 9.009,
+        "max": 10.865
+      },
+      "loopback_http_ms": {
+        "p50": 7.64,
+        "p95": 9.984,
+        "p99": 11.087,
+        "max": 12.607
+      },
+      "ranking_changes_on_repeats": 0,
+      "platform": "macOS-26.6.2-arm64-arm-64bit",
+      "python": "3.12.13"
+    }
+  ],
+  "quality": {
+    "1": {
+      "recall": 0.561654,
+      "ndcg": 1.0,
+      "mrr_single": 1.0
+    },
+    "5": {
+      "recall": 0.862982,
+      "ndcg": 0.999051,
+      "mrr_single": 1.0
+    },
+    "10": {
+      "recall": 0.937564,
+      "ndcg": 0.999051,
+      "mrr_single": 1.0
+    }
+  },
+  "recall_upper_bound": {
+    "1": 0.561654,
+    "5": 0.862982,
+    "10": 0.937564
+  },
+  "dataset": {
+    "documents": 16376,
+    "queries": 99,
+    "qrels": 565,
+    "sha256": {
+      "documents.jsonl": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+      "queries": "7a5b587ee7361ca2e35e1929cbbfdcc3154b4302b6fb830ae1c41846518d6017",
+      "qrels": "826362ae5592d58b3bb1cd382103dc0aef151cf014025258f0cddba0fefa0dd4"
+    },
+    "queries_file": "queries_dev.jsonl",
+    "qrels_file": "qrels_dev.jsonl",
+    "server_corpus_check": "sha256"
+  },
+  "identical_top_10_queries": 99
+}
