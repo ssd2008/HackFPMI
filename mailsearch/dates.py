@@ -38,6 +38,7 @@ _FACT_QUESTION = re.compile(
     r"как(?:ой|ая|ое|ие|ого|ую|их|ом|им|ими)?|где|откуда|когда|сколько|почему|"
     r"чей|чья|чьи|каков[а-я]*|who|whom|whose|what|when|where|why|how|which)\b"
 )
+_ABSOLUTE_DATE_HINT = re.compile(rf"(?<!\w)(?:{_ATOM}|{_MONTH}|\d{{4}})(?!\w)")
 _MAIL_CONTEXT = re.compile(
     r"\b(?:письм[а-я]*|сообщени[а-я]*|рассылк[а-я]*|уведомлени[а-я]*|входящ[а-я]*|"
     r"квитанци[а-я]*|чеки?|счета?|заказы?|пришедш[а-я]*|присла[а-я]*|полученн[а-я]*|"
@@ -45,7 +46,8 @@ _MAIL_CONTEXT = re.compile(
     r"e-?mails?|messages?|letters?|inbox)\b"
 )
 _RELATIVE_RECEIPT = re.compile(
-    r"\b(?:вчера|сегодня|позавчера|за\s+(?:(?:последн|прошл|минувш)[а-я]*|период)|"
+    r"\b(?:(?:позавчера|вчера|сегодня)(?:шн[а-я]*)?|"
+    r"(?:за|на|в)\s+(?:(?:последн|прошл|минувш)[а-я]*|период)|"
     r"yesterday|today|last\s+(?:week|month))\b"
 )
 # Deadlines and dates quoted from the subject/body can coexist with a receipt-date filter.
@@ -132,7 +134,8 @@ def parse_date_scope(query: str, reference: date) -> DateScope:
 
         # A year in "Who won the championship in 2012?" identifies the subject.
         # "Which messages arrived in 2012?" asks about the mailbox timeline.
-        if _FACT_QUESTION.match(text) and not _MAIL_CONTEXT.search(text) and not _RELATIVE_RECEIPT.search(text):
+        if (_FACT_QUESTION.match(text) and _ABSOLUTE_DATE_HINT.search(text)
+                and not _MAIL_CONTEXT.search(text) and not _RELATIVE_RECEIPT.search(text)):
             return DateScope(original)
 
         match = re.search(rf"\bс\s+(\d{{1,2}})\s+(?:по|до)\s+({_WORD_DATE})(?!\w)", text)
