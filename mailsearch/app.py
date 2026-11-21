@@ -7,7 +7,7 @@ from time import perf_counter
 
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, ConfigDict, Field
 
@@ -123,7 +123,7 @@ def search(request: SearchRequest):
     started = perf_counter()
     hits = ranked(request, request.limit)
     items = [{**app.state.store.summaries[doc_id], "score": score} for doc_id, score in hits]
-    return {"items": items, "elapsed_ms": round((perf_counter() - started) * 1000, 2)}
+    return JSONResponse({"items": items, "elapsed_ms": round((perf_counter() - started) * 1000, 2)})
 
 
 @app.post("/api/answer")
