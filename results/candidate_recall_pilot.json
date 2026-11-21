@@ -1,0 +1,107 @@
+{
+  "dataset": {
+    "documents": 16376,
+    "queries": 12,
+    "qrels": 16305,
+    "sha256": {
+      "documents.jsonl": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+      "queries": "bc937ab484a9ae0ebfe909118d5a904769bb1f5078bc77d12936da35d1fbafd2",
+      "qrels": "096c89f09823c90d1b41c8df754c68cb3620f07f92ea245a571802c6c6d4e76f"
+    },
+    "queries_file": "queries.jsonl",
+    "qrels_file": "qrels.jsonl"
+  },
+  "known_positive_queries": 10,
+  "paths": {
+    "before_proximity": 10
+  },
+  "compared_to_http_top_10": true,
+  "method": "Actual first-stage rows in initial score order before passage proximity, final evidence threshold and status filters. Only the top 128 receive the proximity adjustment. Other rows can still qualify on the base score. Direct lookups have no reranker.",
+  "mean": {
+    "candidate_recall_50": 0.876667,
+    "candidate_recall_128": 0.916667,
+    "final_recall_10": 0.799524
+  },
+  "queries": {
+    "vk-pilot-01": {
+      "path": "before_proximity",
+      "candidate_count": 1,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "vk-pilot-02": {
+      "path": "before_proximity",
+      "candidate_count": 128,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "vk-pilot-03": {
+      "path": "before_proximity",
+      "candidate_count": 128,
+      "known_positives": 2,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "vk-pilot-04": {
+      "path": "before_proximity",
+      "candidate_count": 7,
+      "known_positives": 7,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "vk-pilot-05": {
+      "path": "before_proximity",
+      "candidate_count": 128,
+      "known_positives": 3,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "vk-pilot-07": {
+      "path": "before_proximity",
+      "candidate_count": 128,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "vk-pilot-08": {
+      "path": "before_proximity",
+      "candidate_count": 128,
+      "known_positives": 2,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "vk-pilot-09": {
+      "path": "before_proximity",
+      "candidate_count": 128,
+      "known_positives": 5,
+      "candidate_recall_50": 0.6,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 0.4
+    },
+    "vk-pilot-10": {
+      "path": "before_proximity",
+      "candidate_count": 34,
+      "known_positives": 21,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 0.42857142857142855
+    },
+    "vk-pilot-11": {
+      "path": "before_proximity",
+      "candidate_count": 48,
+      "known_positives": 6,
+      "candidate_recall_50": 0.16666666666666666,
+      "candidate_recall_128": 0.16666666666666666,
+      "final_recall_10": 0.16666666666666666
+    }
+  }
+}

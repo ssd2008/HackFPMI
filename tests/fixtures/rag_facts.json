@@ -1,0 +1,15 @@
+{
+  "corpus_sha256": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+  "cases": [
+    {"id":"order-amount-demo","mailbox":"box-f9410417c091","date":"2027-12-19","query":"Какова сумма заказа SYN-077f40913b?","sources":["L-c00311a3afe957bb2945"],"facts":["(?<![0-9])431[.,]03(?![0-9])","руб|RUB"]},
+    {"id":"order-amount-air-filter","mailbox":"box-f9410417c091","date":"2027-11-18","query":"Сколько рублей стоит заказ SYN-b1a3d6564f?","sources":["L-001c924b405319fed6b3"],"facts":["(?<![0-9])2606[.,]53(?![0-9])","руб|RUB"]},
+    {"id":"order-amount-air-freshener","mailbox":"box-84dd8d9560e6","date":"2028-03-10","query":"Какая общая сумма у заказа SYN-6294834ac7?","sources":["L-02c30fde1637c04a676d"],"facts":["(?<![0-9])573[.,]26(?![0-9])","руб|RUB"]},
+    {"id":"dispatch-date-demo","mailbox":"box-f9410417c091","date":"2027-12-19","query":"В какой срок отгрузить заказ SYN-077f40913b?","sources":["L-c00311a3afe957bb2945"],"facts":["19(?:[./]12[./]| +декабря +)2027","18:00"]},
+    {"id":"dispatch-date-air-filter","mailbox":"box-f9410417c091","date":"2027-11-18","query":"До какой даты и времени нужно отгрузить заказ SYN-b1a3d6564f?","sources":["L-001c924b405319fed6b3"],"facts":["18(?:[./]11[./]| +ноября +)2027","21:00"]},
+    {"id":"declined-payment","mailbox":"box-a971835ab404","date":"2028-01-27","query":"Покажи сообщения о том, что платёж не прошёл, полученные 26 января 2028 года.","sources":["L-805ffc3c686714a00771","L-d22c15fcd5eb40166f62","L-87b6bf7079757eebedce"],"facts":["отклон[а-яё]*|отказ[а-яё]*|не прош[её]л"]},
+    {"id":"unreported-tracking","mailbox":"box-f9410417c091","date":"2027-11-18","query":"Какой трек-номер посылки указан для заказа SYN-b1a3d6564f?","sources":["L-001c924b405319fed6b3"],"missing":"Номер отслеживания в письме отсутствует"},
+    {"id":"unknown-order","mailbox":"box-f9410417c091","date":"2028-12-18","query":"Какова сумма заказа SYN-00000000000000?","sources":[],"missing":"Заказ отсутствует"},
+    {"id":"future-order","mailbox":"box-f9410417c091","date":"2027-12-18","query":"Какова сумма заказа SYN-077f40913b?","sources":[],"missing":"Единственное письмо о заказе получено на следующий день"},
+    {"id":"other-mailbox","mailbox":"box-84dd8d9560e6","date":"2027-12-19","query":"Какова сумма заказа SYN-077f40913b?","sources":[],"missing":"Единственное письмо о заказе находится в другом ящике"}
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "before": {
+    "all_checked": 89,
+    "foreign": 0,
+    "future": 0,
+    "explicit_window_checked": 28,
+    "outside_explicit_window": 0,
+    "explicit_window_queries": {
+      "vk-pilot-04": {
+        "returned": 7,
+        "outside": []
+      },
+      "vk-pilot-10": {
+        "returned": 10,
+        "outside": []
+      },
+      "vk-pilot-11": {
+        "returned": 10,
+        "outside": []
+      },
+      "vk-pilot-12": {
+        "returned": 1,
+        "outside": []
+      }
+    }
+  },
+  "after": {
+    "all_checked": 98,
+    "foreign": 0,
+    "future": 0,
+    "explicit_window_checked": 37,
+    "outside_explicit_window": 0,
+    "explicit_window_queries": {
+      "vk-pilot-04": {
+        "returned": 7,
+        "outside": []
+      },
+      "vk-pilot-10": {
+        "returned": 10,
+        "outside": []
+      },
+      "vk-pilot-11": {
+        "returned": 10,
+        "outside": []
+      },
+      "vk-pilot-12": {
+        "returned": 10,
+        "outside": []
+      }
+    }
+  }
+}

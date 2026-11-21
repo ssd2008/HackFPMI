@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "corpus_sha256": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+  "frozen_queries_sha256": "bc937ab484a9ae0ebfe909118d5a904769bb1f5078bc77d12936da35d1fbafd2",
+  "frozen_tasks_sha256": "eb69d8ada831151ea3de672dac7d32a55400e3cbfbd4bee13ffe3fcb2677e3c5",
+  "protocol": {
+    "unit": "Five pre-registered known-item requests and two verified-empty requests in the VK research pilot, identical text and as-of scope.",
+    "reviewer": "Agent review against the complete original for each cited message; no human assessment.",
+    "automatic": "Fact patterns check evidence on one cited line. For a complete answer the source, entity, requested relation and all material assertions must also match on full-text review.",
+    "adjudication": {
+      "complete_supported_answer": "Every requested fact is answered, supported by the cited original, and no added assertion contradicts or invents grounds.",
+      "partially_supported_answer": "At least one requested fact is supported but another is missing, or a citation independently supports only part of the response.",
+      "incorrect_factual_answer": "The answer asserts an incorrect or unsupported task fact. Pieces from other events cannot be combined as one.",
+      "irrelevant_excerpt": "The reply supplies an excerpt or data unrelated to the requested fact and does not resolve the question.",
+      "justified_abstention": "The requested evidence is absent and the reply explicitly says it could not be found or established.",
+      "unjustified_abstention": "The reply declines even though the registered source contains the requested evidence."
+    },
+    "currency": "For vk-pilot-01 only the number is stated in the original. Adding a currency is an unsupported claim."
+  },
+  "cases": [
+    {
+      "id": "vk-pilot-01",
+      "split": "dev",
+      "mailbox": "box-12259a301ee2",
+      "date": "2028-08-21",
+      "query": "Какую сумму в 2027 году выставили Фадею Гурьеву за наём муниципального жилья?",
+      "sources": [
+        "L-d2db3bf9b0e8873699f7"
+      ],
+      "facts": [
+        "(?<!\\d)504[.,]75(?!\\d)"
+      ],
+      "expected_outcome": "supported_answer",
+      "expected": "504.75, валюта в письме не указана",
+      "evidence_quote": "Счёт от 20.08.2027 на 504.75."
+    },
+    {
+      "id": "vk-pilot-02",
+      "split": "dev",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2028-02-15",
+      "query": "Найди заказ на ударный гайковёрт с пневмоприводом и моментом 780 Нм. Сколько он стоил?",
+      "sources": [
+        "L-9822b31c1104f4365ef7"
+      ],
+      "facts": [
+        "(?<!\\d)6[ \\u00a0\\u202f]?655[.,]17\\s*(?:RUB\\b|₽|руб\\.|рубл(?:я|ей|ь|ях|ями)\\b)|(?<!\\d)6[ \\u00a0\\u202f]?655\\s+руб\\w*\\s+17\\s+коп\\w*"
+      ],
+      "expected_outcome": "supported_answer",
+      "expected": "6655.17 RUB",
+      "evidence_quote": "780 Нм. Сумма заказа — 6655.17 RUB."
+    },
+    {
+      "id": "vk-pilot-03",
+      "split": "dev",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2028-01-15",
+      "query": "Как получить возвраты и сколько их всего ждали в уведомлении, где отдельно числились три товара по схеме FBO?",
+      "sources": [
+        "L-6a424bc0727869055ae7"
+      ],
+      "facts": [
+        "(?<!\\d)457(?!\\d)",
+        "(?:покаж\\w*|показ\\w*|предъяв\\w*|предостав\\w*)[^.\\n]{0,90}?штрих[ -]?код|штрих[ -]?код[^.\\n]{0,90}?(?:покаж\\w*|показ\\w*|предъяв\\w*)"
+      ],
+      "expected_outcome": "supported_answer",
+      "expected": "457 возвратов. Для получения показать штрихкод.",
+      "evidence_quote": "Всего в точке выдачи ждут 457 возвратов.",
+      "additional_evidence_quote": "Чтобы получить возвраты, покажите сотруднику точки штрихкод из приложения или личного кабинета"
+    },
+    {
+      "id": "vk-pilot-06",
+      "split": "dev",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2028-01-15",
+      "query": "Есть ли уведомление об отмене заказа SYN-5d701b449b?",
+      "sources": [],
+      "facts": [],
+      "expected_outcome": "justified_abstention",
+      "expected": "Точный идентификатор SYN-5d701b449b отсутствует во всех 16 376 текстах, проверено без учёта регистра."
+    },
+    {
+      "id": "vk-pilot-07",
+      "split": "blind",
+      "mailbox": "box-a55c522c6949",
+      "date": "2028-03-08",
+      "query": "Какой код присвоен иммуногенетике в письме с перечнем исследований крови и микробиологии?",
+      "sources": [
+        "L-bd1cb09f05969c6fdd9b"
+      ],
+      "facts": [
+        "(?:иммуногенетик\\w*)(?:\\s|[«»:=,–—-]|(?:код\\w*)|(?:присвоен\\w*)|(?:имеет)|(?:это)|(?:соответству\\w*)|(?:значени\\w*)){0,32}\\b416\\b|\\b416\\b(?:\\s|[«»:=,–—-]|(?:код)|(?:для)|(?:соответству\\w*)){1,32}иммуногенетик\\w*|^\\s*(?:код\\s*)?[:—–-]?\\s*416(?=\\s*[.!]?\\s*(?:\\[\\d+\\]|$))"
+      ],
+      "expected_outcome": "supported_answer",
+      "expected": "416",
+      "evidence_quote": "иммуногенетика — 416"
+    },
+    {
+      "id": "vk-pilot-08",
+      "split": "blind",
+      "mailbox": "box-fda57474896e",
+      "date": "2028-08-15",
+      "query": "Кто работал с этапом производства ОНПР-53.7.1, когда программа сообщила, что у объекта нет поля?",
+      "sources": [
+        "L-007247dd284d021f4391"
+      ],
+      "facts": [
+        "евдокимов(?:а|ой|у|е)\\s+вероник(?:а|е|и|ой|у)\\s+харитоновн(?:а|е|ы|ой|у)|вероник(?:а|е|и|ой|у)\\s+харитоновн(?:а|е|ы|ой|у)\\s+евдокимов(?:а|ой|у|е)"
+      ],
+      "expected_outcome": "supported_answer",
+      "expected": "Евдокимова Вероника Харитоновна",
+      "evidence_quote": "Пользователь: Евдокимова Вероника Харитоновна."
+    },
+    {
+      "id": "vk-pilot-12",
+      "split": "blind",
+      "mailbox": "box-a55c522c6949",
+      "date": "2028-03-08",
+      "query": "Найди пришедшее 5 марта 2028 года письмо с посадочным QR-кодом на паром.",
+      "sources": [],
+      "facts": [],
+      "expected_outcome": "justified_abstention",
+      "expected": "Полный срез ящика за 05.03.2028 проверен на паром, переправу, посадочные документы и QR-коды. В корпусе отсутствуют упоминания парома."
+    }
+  ]
+}

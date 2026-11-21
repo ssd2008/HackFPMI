@@ -1,0 +1,342 @@
+{
+  "freeze": "0d47419645d190631d31f83b1216ed8170036374417af27583a8b9d3e0052b4d",
+  "version": {
+    "before": "5fe3f5d",
+    "after_ranker": "d747e72d"
+  },
+  "seed": 482012,
+  "source": "VK synthetic corpus only",
+  "corpus_sha256": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+  "judgments": "Exhaustive registered agent rules. No human annotation or human agreement measured.",
+  "judgment_sequence": "The targets, criteria, grading outputs and query files were frozen before retrieving either API or offline runs. Shuffled pool grade uses this precomputed independent mapping.",
+  "depth": "10, or 20 for all 5 collections. The second API request for pooling used the frozen configurations, agreed exactly on primary top-10 and did not update judgments.",
+  "pool_sources": {
+    "bm25-date": 148,
+    "before": 129,
+    "after": 138,
+    "e5-date": 148
+  },
+  "unique_query_document_pairs": 336,
+  "pool_grades": {
+    "0": 287,
+    "1": 18,
+    "2": 31
+  },
+  "complete_visible_qrels": 16305,
+  "frozen_corpus_qrels_grades": {
+    "0": 16256,
+    "1": 18,
+    "2": 31
+  },
+  "independent_positives_exclusive": 3,
+  "public_model_index_name": "e5-ce03b42b556501d90b3fbfc7.npy",
+  "offline_rankers": {
+    "date-only": {
+      "dev": {
+        "positive_n": 5,
+        "ndcg10": 0.3711729826382303,
+        "recall10": 0.4
+      },
+      "blind": {
+        "positive_n": 5,
+        "ndcg10": 0.25710995347174304,
+        "recall10": 0.14761904761904762
+      }
+    },
+    "bm25-date": {
+      "dev": {
+        "positive_n": 5,
+        "ndcg10": 0.9964898897237863,
+        "recall10": 1.0
+      },
+      "blind": {
+        "positive_n": 5,
+        "ndcg10": 0.8683373086016688,
+        "recall10": 0.6752380952380952
+      }
+    },
+    "e5-date": {
+      "dev": {
+        "positive_n": 5,
+        "ndcg10": 0.9848676462995071,
+        "recall10": 1.0
+      },
+      "blind": {
+        "positive_n": 5,
+        "ndcg10": 0.3428070151489181,
+        "recall10": 0.27999999999999997
+      }
+    }
+  },
+  "per_query": {
+    "vk-pilot-01": {
+      "split": "dev",
+      "task_type": "known_item",
+      "depth": 10,
+      "visible": 2401,
+      "registered_positives": 1,
+      "unique_pool": 7,
+      "pool_grades": {
+        "0": 6,
+        "2": 1
+      },
+      "nonranked_positive_additions": 0,
+      "complete_api_top10_unique": 1,
+      "exhaustive_coverage": 1.0,
+      "lengths": {
+        "after": 1,
+        "before": 1,
+        "bm25-date": 1,
+        "e5-date": 1
+      },
+      "n_independent_visible": 6
+    },
+    "vk-pilot-02": {
+      "split": "dev",
+      "task_type": "known_item",
+      "depth": 10,
+      "visible": 1952,
+      "registered_positives": 1,
+      "unique_pool": 19,
+      "pool_grades": {
+        "0": 18,
+        "2": 1
+      },
+      "nonranked_positive_additions": 0,
+      "complete_api_top10_unique": 12,
+      "exhaustive_coverage": 1.0,
+      "lengths": {
+        "after": 10,
+        "before": 10,
+        "bm25-date": 10,
+        "e5-date": 10
+      },
+      "n_independent_visible": 7
+    },
+    "vk-pilot-03": {
+      "split": "dev",
+      "task_type": "known_item",
+      "depth": 10,
+      "visible": 1952,
+      "registered_positives": 2,
+      "unique_pool": 32,
+      "pool_grades": {
+        "0": 30,
+        "1": 1,
+        "2": 1
+      },
+      "nonranked_positive_additions": 0,
+      "complete_api_top10_unique": 14,
+      "exhaustive_coverage": 1.0,
+      "lengths": {
+        "after": 10,
+        "before": 10,
+        "bm25-date": 10,
+        "e5-date": 10
+      },
+      "n_independent_visible": 7
+    },
+    "vk-pilot-04": {
+      "split": "dev",
+      "task_type": "collection",
+      "depth": 20,
+      "visible": 2401,
+      "registered_positives": 7,
+      "unique_pool": 14,
+      "pool_grades": {
+        "0": 7,
+        "1": 4,
+        "2": 3
+      },
+      "nonranked_positive_additions": 0,
+      "complete_api_top10_unique": 7,
+      "exhaustive_coverage": 1.0,
+      "lengths": {
+        "after": 7,
+        "before": 7,
+        "bm25-date": 7,
+        "e5-date": 7
+      },
+      "n_independent_visible": 7
+    },
+    "vk-pilot-05": {
+      "split": "dev",
+      "task_type": "collection",
+      "depth": 20,
+      "visible": 1952,
+      "registered_positives": 3,
+      "unique_pool": 40,
+      "pool_grades": {
+        "0": 37,
+        "1": 1,
+        "2": 2
+      },
+      "nonranked_positive_additions": 0,
+      "complete_api_top10_unique": 11,
+      "exhaustive_coverage": 1.0,
+      "lengths": {
+        "after": 20,
+        "before": 20,
+        "bm25-date": 20,
+        "e5-date": 20
+      },
+      "n_independent_visible": 7
+    },
+    "vk-pilot-06": {
+      "split": "dev",
+      "task_type": "empty",
+      "depth": 10,
+      "visible": 1952,
+      "registered_positives": 0,
+      "unique_pool": 26,
+      "pool_grades": {
+        "0": 26
+      },
+      "nonranked_positive_additions": 0,
+      "complete_api_top10_unique": 0,
+      "exhaustive_coverage": 1.0,
+      "lengths": {
+        "after": 0,
+        "before": 0,
+        "bm25-date": 10,
+        "e5-date": 10
+      },
+      "n_independent_visible": 7
+    },
+    "vk-pilot-07": {
+      "split": "blind",
+      "task_type": "known_item",
+      "depth": 10,
+      "visible": 561,
+      "registered_positives": 1,
+      "unique_pool": 24,
+      "pool_grades": {
+        "0": 23,
+        "2": 1
+      },
+      "nonranked_positive_additions": 0,
+      "complete_api_top10_unique": 10,
+      "exhaustive_coverage": 1.0,
+      "lengths": {
+        "after": 10,
+        "before": 10,
+        "bm25-date": 10,
+        "e5-date": 10
+      },
+      "n_independent_visible": 3
+    },
+    "vk-pilot-08": {
+      "split": "blind",
+      "task_type": "known_item",
+      "depth": 10,
+      "visible": 796,
+      "registered_positives": 2,
+      "unique_pool": 30,
+      "pool_grades": {
+        "0": 28,
+        "1": 1,
+        "2": 1
+      },
+      "nonranked_positive_additions": 0,
+      "complete_api_top10_unique": 11,
+      "exhaustive_coverage": 1.0,
+      "lengths": {
+        "after": 10,
+        "before": 10,
+        "bm25-date": 10,
+        "e5-date": 10
+      },
+      "n_independent_visible": 7
+    },
+    "vk-pilot-09": {
+      "split": "blind",
+      "task_type": "collection",
+      "depth": 20,
+      "visible": 707,
+      "registered_positives": 5,
+      "unique_pool": 46,
+      "pool_grades": {
+        "0": 41,
+        "1": 1,
+        "2": 4
+      },
+      "nonranked_positive_additions": 2,
+      "complete_api_top10_unique": 14,
+      "exhaustive_coverage": 1.0,
+      "lengths": {
+        "after": 20,
+        "before": 20,
+        "bm25-date": 20,
+        "e5-date": 20
+      },
+      "n_independent_visible": 7
+    },
+    "vk-pilot-10": {
+      "split": "blind",
+      "task_type": "collection",
+      "depth": 20,
+      "visible": 558,
+      "registered_positives": 21,
+      "unique_pool": 31,
+      "pool_grades": {
+        "0": 10,
+        "1": 5,
+        "2": 16
+      },
+      "nonranked_positive_additions": 1,
+      "complete_api_top10_unique": 11,
+      "exhaustive_coverage": 1.0,
+      "lengths": {
+        "after": 20,
+        "before": 20,
+        "bm25-date": 20,
+        "e5-date": 20
+      },
+      "n_independent_visible": 5
+    },
+    "vk-pilot-11": {
+      "split": "blind",
+      "task_type": "collection",
+      "depth": 20,
+      "visible": 512,
+      "registered_positives": 6,
+      "unique_pool": 49,
+      "pool_grades": {
+        "0": 43,
+        "1": 5,
+        "2": 1
+      },
+      "nonranked_positive_additions": 0,
+      "complete_api_top10_unique": 10,
+      "exhaustive_coverage": 1.0,
+      "lengths": {
+        "after": 20,
+        "before": 20,
+        "bm25-date": 20,
+        "e5-date": 20
+      },
+      "n_independent_visible": 7
+    },
+    "vk-pilot-12": {
+      "split": "blind",
+      "task_type": "empty",
+      "depth": 10,
+      "visible": 561,
+      "registered_positives": 0,
+      "unique_pool": 18,
+      "pool_grades": {
+        "0": 18
+      },
+      "nonranked_positive_additions": 0,
+      "complete_api_top10_unique": 10,
+      "exhaustive_coverage": 1.0,
+      "lengths": {
+        "after": 10,
+        "before": 1,
+        "bm25-date": 10,
+        "e5-date": 10
+      },
+      "n_independent_visible": 6
+    }
+  }
+}

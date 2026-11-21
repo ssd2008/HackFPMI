@@ -1,0 +1,258 @@
+{
+  "corpus": "VK public, 16376 letters",
+  "ranking_baseline": "5fe3f5d3739ac523d0b4088f15eef4b50391dd28",
+  "ranking_candidate_sha256": "d747e72ddb05772213a7042f8cc5372e07b2d274b9c45ed0cda4db7bba56ac29",
+  "method": "Two subsequent series at 1089 HTTP requests per version per scenario, matching shuffled orders, alternating version order. One text per original query per pass. No query/result caches. First request after each service startup includes online search but excludes server initialization; queries may be encoded by the application as a startup warm-up.",
+  "machine": "Apple M5 Pro, 48 GiB, Python 3.12.13",
+  "k": 10,
+  "nearest_rank": true,
+  "repeats_of_99_queries": 11,
+  "first_external_search": {
+    "baseline": {
+      "server_ms": 6.65,
+      "client_ms": 7.286,
+      "query_id": "H-e785745160df644052ec"
+    },
+    "candidate": {
+      "server_ms": 3.511,
+      "client_ms": 3.989,
+      "query_id": "H-e785745160df644052ec"
+    }
+  },
+  "scenarios": {
+    "public_1_client": [
+      {
+        "baseline": {
+          "calls": 1089,
+          "http_errors": 0,
+          "timeouts": 0,
+          "server_ms": {
+            "p50": 4.527,
+            "p95": 4.973,
+            "p99": 5.712,
+            "max": 11.977
+          },
+          "loopback_http_ms": {
+            "p50": 4.982,
+            "p95": 5.49,
+            "p99": 6.255,
+            "max": 13.38
+          },
+          "rank_changes": 0
+        },
+        "candidate": {
+          "calls": 1089,
+          "http_errors": 0,
+          "timeouts": 0,
+          "server_ms": {
+            "p50": 2.22,
+            "p95": 2.673,
+            "p99": 2.838,
+            "max": 3.575
+          },
+          "loopback_http_ms": {
+            "p50": 2.611,
+            "p95": 3.087,
+            "p99": 3.283,
+            "max": 4.008
+          },
+          "rank_changes": 0
+        }
+      },
+      {
+        "candidate": {
+          "calls": 1089,
+          "http_errors": 0,
+          "timeouts": 0,
+          "server_ms": {
+            "p50": 2.238,
+            "p95": 2.652,
+            "p99": 2.822,
+            "max": 3.386
+          },
+          "loopback_http_ms": {
+            "p50": 2.632,
+            "p95": 3.089,
+            "p99": 3.341,
+            "max": 3.996
+          },
+          "rank_changes": 0
+        },
+        "baseline": {
+          "calls": 1089,
+          "http_errors": 0,
+          "timeouts": 0,
+          "server_ms": {
+            "p50": 4.506,
+            "p95": 4.81,
+            "p99": 5.027,
+            "max": 5.617
+          },
+          "loopback_http_ms": {
+            "p50": 4.962,
+            "p95": 5.311,
+            "p99": 5.632,
+            "max": 8.349
+          },
+          "rank_changes": 0
+        }
+      }
+    ],
+    "public_8_clients": [
+      {
+        "candidate": {
+          "calls": 1089,
+          "http_errors": 0,
+          "timeouts": 0,
+          "server_ms": {
+            "p50": 5.068,
+            "p95": 6.668,
+            "p99": 7.365,
+            "max": 8.39
+          },
+          "loopback_http_ms": {
+            "p50": 6.562,
+            "p95": 8.4,
+            "p99": 9.298,
+            "max": 10.047
+          },
+          "rank_changes": 0
+        },
+        "baseline": {
+          "calls": 1089,
+          "http_errors": 0,
+          "timeouts": 0,
+          "server_ms": {
+            "p50": 37.02,
+            "p95": 38.613,
+            "p99": 39.139,
+            "max": 40.063
+          },
+          "loopback_http_ms": {
+            "p50": 37.558,
+            "p95": 39.208,
+            "p99": 40.169,
+            "max": 42.221
+          },
+          "rank_changes": 0
+        }
+      },
+      {
+        "baseline": {
+          "calls": 1089,
+          "http_errors": 0,
+          "timeouts": 0,
+          "server_ms": {
+            "p50": 37.512,
+            "p95": 40.495,
+            "p99": 47.18,
+            "max": 48.556
+          },
+          "loopback_http_ms": {
+            "p50": 38.061,
+            "p95": 41.117,
+            "p99": 47.872,
+            "max": 49.106
+          },
+          "rank_changes": 0
+        },
+        "candidate": {
+          "calls": 1089,
+          "http_errors": 0,
+          "timeouts": 0,
+          "server_ms": {
+            "p50": 5.108,
+            "p95": 6.629,
+            "p99": 7.199,
+            "max": 7.719
+          },
+          "loopback_http_ms": {
+            "p50": 6.482,
+            "p95": 8.321,
+            "p99": 9.653,
+            "max": 10.315
+          },
+          "rank_changes": 0
+        }
+      }
+    ],
+    "no_receipt_day_8_clients": [
+      {
+        "baseline": {
+          "calls": 1089,
+          "http_errors": 0,
+          "timeouts": 0,
+          "server_ms": {
+            "p50": 37.042,
+            "p95": 38.667,
+            "p99": 39.207,
+            "max": 40.045
+          },
+          "loopback_http_ms": {
+            "p50": 37.567,
+            "p95": 39.304,
+            "p99": 39.973,
+            "max": 41.69
+          },
+          "rank_changes": 0
+        },
+        "candidate": {
+          "calls": 1089,
+          "http_errors": 0,
+          "timeouts": 0,
+          "server_ms": {
+            "p50": 6.986,
+            "p95": 10.324,
+            "p99": 11.376,
+            "max": 12.492
+          },
+          "loopback_http_ms": {
+            "p50": 8.997,
+            "p95": 12.793,
+            "p99": 14.051,
+            "max": 15.941
+          },
+          "rank_changes": 0
+        }
+      },
+      {
+        "candidate": {
+          "calls": 1089,
+          "http_errors": 0,
+          "timeouts": 0,
+          "server_ms": {
+            "p50": 7.003,
+            "p95": 10.317,
+            "p99": 11.032,
+            "max": 12.969
+          },
+          "loopback_http_ms": {
+            "p50": 8.97,
+            "p95": 12.551,
+            "p99": 14.289,
+            "max": 16.321
+          },
+          "rank_changes": 0
+        },
+        "baseline": {
+          "calls": 1089,
+          "http_errors": 0,
+          "timeouts": 0,
+          "server_ms": {
+            "p50": 37.315,
+            "p95": 38.977,
+            "p99": 39.656,
+            "max": 41.593
+          },
+          "loopback_http_ms": {
+            "p50": 37.852,
+            "p95": 39.601,
+            "p99": 40.446,
+            "max": 43.552
+          },
+          "rank_changes": 0
+        }
+      }
+    ]
+  }
+}

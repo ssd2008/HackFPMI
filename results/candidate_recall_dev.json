@@ -1,0 +1,819 @@
+{
+  "dataset": {
+    "documents": 16376,
+    "queries": 99,
+    "qrels": 565,
+    "sha256": {
+      "documents.jsonl": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+      "queries": "7a5b587ee7361ca2e35e1929cbbfdcc3154b4302b6fb830ae1c41846518d6017",
+      "qrels": "826362ae5592d58b3bb1cd382103dc0aef151cf014025258f0cddba0fefa0dd4"
+    },
+    "queries_file": "queries_dev.jsonl",
+    "qrels_file": "qrels_dev.jsonl"
+  },
+  "known_positive_queries": 99,
+  "paths": {
+    "before_proximity": 99
+  },
+  "compared_to_http_top_10": true,
+  "method": "Actual first-stage rows in initial score order before passage proximity, final evidence threshold and status filters. Only the top 128 receive the proximity adjustment. Other rows can still qualify on the base score. Direct lookups have no reranker.",
+  "mean": {
+    "candidate_recall_50": 0.996751,
+    "candidate_recall_128": 1.0,
+    "final_recall_10": 0.937564
+  },
+  "queries": {
+    "H-e785745160df644052ec": {
+      "path": "before_proximity",
+      "candidate_count": 1,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-91bde5fc099890a9dabd": {
+      "path": "before_proximity",
+      "candidate_count": 2,
+      "known_positives": 2,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-8a52f19bb09882009987": {
+      "path": "before_proximity",
+      "candidate_count": 1,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-f138aeed2f6b400bba48": {
+      "path": "before_proximity",
+      "candidate_count": 1,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-c0b6f84b79eba1edda1f": {
+      "path": "before_proximity",
+      "candidate_count": 1,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-f3404b55d6a511de876b": {
+      "path": "before_proximity",
+      "candidate_count": 1,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-805ba1134cd6be3479bc": {
+      "path": "before_proximity",
+      "candidate_count": 1,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-d44d9649992120760d24": {
+      "path": "before_proximity",
+      "candidate_count": 1,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-92a890e2b6226d9a3ba0": {
+      "path": "before_proximity",
+      "candidate_count": 3,
+      "known_positives": 3,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-485e5fba640a58a7ac34": {
+      "path": "before_proximity",
+      "candidate_count": 1,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-4b35b0ae76e9b5da16d5": {
+      "path": "before_proximity",
+      "candidate_count": 1,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-69c89eadad29ee8cc230": {
+      "path": "before_proximity",
+      "candidate_count": 2,
+      "known_positives": 2,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-bedc577fecb613a4fe31": {
+      "path": "before_proximity",
+      "candidate_count": 1,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-50e2d11d835592b1c2fe": {
+      "path": "before_proximity",
+      "candidate_count": 1,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-d4d8f8d94810e0efcfa8": {
+      "path": "before_proximity",
+      "candidate_count": 1,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-e943c32b752bffb933db": {
+      "path": "before_proximity",
+      "candidate_count": 2,
+      "known_positives": 2,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-0cd67c437c10c65654d5": {
+      "path": "before_proximity",
+      "candidate_count": 1,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-c520a90e0f715e6cd77d": {
+      "path": "before_proximity",
+      "candidate_count": 16,
+      "known_positives": 12,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 0.8333333333333334
+    },
+    "H-fce276dacbc2c7ffdb1a": {
+      "path": "before_proximity",
+      "candidate_count": 11,
+      "known_positives": 8,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-86c5f97dafded9493988": {
+      "path": "before_proximity",
+      "candidate_count": 8,
+      "known_positives": 5,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-d60cf706badd91a4e721": {
+      "path": "before_proximity",
+      "candidate_count": 10,
+      "known_positives": 7,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-c09c0c6f82df8a016912": {
+      "path": "before_proximity",
+      "candidate_count": 23,
+      "known_positives": 21,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 0.47619047619047616
+    },
+    "H-28089e075440151eaf13": {
+      "path": "before_proximity",
+      "candidate_count": 54,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-828bf793964cb3bb99e8": {
+      "path": "before_proximity",
+      "candidate_count": 59,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-2b6de91c0dab98bc9cb4": {
+      "path": "before_proximity",
+      "candidate_count": 79,
+      "known_positives": 4,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-00d886ad4b22c127fa0f": {
+      "path": "before_proximity",
+      "candidate_count": 56,
+      "known_positives": 8,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-43fb323d1e05016bc6d6": {
+      "path": "before_proximity",
+      "candidate_count": 39,
+      "known_positives": 4,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-680ce1212552516e8903": {
+      "path": "before_proximity",
+      "candidate_count": 34,
+      "known_positives": 5,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-c355f723bea47a8d02ed": {
+      "path": "before_proximity",
+      "candidate_count": 33,
+      "known_positives": 7,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-4d221a3275e4f0f2827a": {
+      "path": "before_proximity",
+      "candidate_count": 59,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-cf13f62178c5b81140c8": {
+      "path": "before_proximity",
+      "candidate_count": 34,
+      "known_positives": 3,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-41f5e484948f2ab2bfa5": {
+      "path": "before_proximity",
+      "candidate_count": 59,
+      "known_positives": 11,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 0.9090909090909091
+    },
+    "H-ab890ffc34d25c1cd4e8": {
+      "path": "before_proximity",
+      "candidate_count": 56,
+      "known_positives": 3,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-b1fd1d2aa7fc4b4a7a7a": {
+      "path": "before_proximity",
+      "candidate_count": 12,
+      "known_positives": 3,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-124bc9656e09acbcf2fc": {
+      "path": "before_proximity",
+      "candidate_count": 59,
+      "known_positives": 5,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-bbc9bc678aba515467f5": {
+      "path": "before_proximity",
+      "candidate_count": 39,
+      "known_positives": 11,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 0.9090909090909091
+    },
+    "H-4519ace06f566a9f1637": {
+      "path": "before_proximity",
+      "candidate_count": 34,
+      "known_positives": 4,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-b376c0a8bd6e89e51519": {
+      "path": "before_proximity",
+      "candidate_count": 54,
+      "known_positives": 2,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-95e1712dc7fb8841b458": {
+      "path": "before_proximity",
+      "candidate_count": 44,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-f5c6f1ad46d5c9df7cac": {
+      "path": "before_proximity",
+      "candidate_count": 67,
+      "known_positives": 2,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-90999e1248f84980b386": {
+      "path": "before_proximity",
+      "candidate_count": 59,
+      "known_positives": 9,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-549005a76cc00372cb32": {
+      "path": "before_proximity",
+      "candidate_count": 56,
+      "known_positives": 5,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-71baff97faa4b4ddedd4": {
+      "path": "before_proximity",
+      "candidate_count": 15,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-b14bc1c93dbdc0cbc5ad": {
+      "path": "before_proximity",
+      "candidate_count": 39,
+      "known_positives": 3,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-e15a2fa422d9f852aef1": {
+      "path": "before_proximity",
+      "candidate_count": 34,
+      "known_positives": 5,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-130688ab3eeb3b8dc034": {
+      "path": "before_proximity",
+      "candidate_count": 33,
+      "known_positives": 10,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-3c98fa4bf29e69b4bf23": {
+      "path": "before_proximity",
+      "candidate_count": 1,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-269dfc4a89f6ce5171df": {
+      "path": "before_proximity",
+      "candidate_count": 3,
+      "known_positives": 2,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-ad1b042c390177db6338": {
+      "path": "before_proximity",
+      "candidate_count": 1,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-8d0f3bdcd564c20c8476": {
+      "path": "before_proximity",
+      "candidate_count": 1,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-e78b25a116be82858185": {
+      "path": "before_proximity",
+      "candidate_count": 82,
+      "known_positives": 17,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 0.5882352941176471
+    },
+    "H-d523a339e5767794ded5": {
+      "path": "before_proximity",
+      "candidate_count": 85,
+      "known_positives": 21,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 0.47619047619047616
+    },
+    "H-1ff5058ab44a64f0e249": {
+      "path": "before_proximity",
+      "candidate_count": 79,
+      "known_positives": 18,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 0.5555555555555556
+    },
+    "H-78c01f45929428ddc3ff": {
+      "path": "before_proximity",
+      "candidate_count": 49,
+      "known_positives": 16,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 0.625
+    },
+    "H-6f1839b2094abab2d9d7": {
+      "path": "before_proximity",
+      "candidate_count": 84,
+      "known_positives": 14,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 0.7142857142857143
+    },
+    "H-91635f29cd1535edaa65": {
+      "path": "before_proximity",
+      "candidate_count": 68,
+      "known_positives": 18,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 0.5555555555555556
+    },
+    "H-858ce7fee338506cefbe": {
+      "path": "before_proximity",
+      "candidate_count": 70,
+      "known_positives": 12,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 0.8333333333333334
+    },
+    "H-d6683f03cca44a37eddb": {
+      "path": "before_proximity",
+      "candidate_count": 5,
+      "known_positives": 3,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-ff32ab10e74ee71987b2": {
+      "path": "before_proximity",
+      "candidate_count": 7,
+      "known_positives": 5,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-37331e6948fece5ff495": {
+      "path": "before_proximity",
+      "candidate_count": 5,
+      "known_positives": 2,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-27202d6f9d538e1fee46": {
+      "path": "before_proximity",
+      "candidate_count": 8,
+      "known_positives": 8,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-4cdc6eb005231127037f": {
+      "path": "before_proximity",
+      "candidate_count": 1,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-61c6a92d704e52d0ff9f": {
+      "path": "before_proximity",
+      "candidate_count": 1,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-4bf66905298157b11c51": {
+      "path": "before_proximity",
+      "candidate_count": 1,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-7631815d9be3295a022e": {
+      "path": "before_proximity",
+      "candidate_count": 3,
+      "known_positives": 3,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-b7a3354578462ebe7d7b": {
+      "path": "before_proximity",
+      "candidate_count": 1,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-5dba0b5af406db4d46ea": {
+      "path": "before_proximity",
+      "candidate_count": 1,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-897cee85fae472edd3f0": {
+      "path": "before_proximity",
+      "candidate_count": 1,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-c413a2949694d80bce71": {
+      "path": "before_proximity",
+      "candidate_count": 1,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-fec3ca797b16a44cd908": {
+      "path": "before_proximity",
+      "candidate_count": 1,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-13bf279075424f9d062c": {
+      "path": "before_proximity",
+      "candidate_count": 2,
+      "known_positives": 2,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-c57d21c51672612ec132": {
+      "path": "before_proximity",
+      "candidate_count": 1,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-f7df24b1753a0d02751a": {
+      "path": "before_proximity",
+      "candidate_count": 2,
+      "known_positives": 2,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-44c1d81209f1973c2f94": {
+      "path": "before_proximity",
+      "candidate_count": 2,
+      "known_positives": 2,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-e800fd8a44e2618dff83": {
+      "path": "before_proximity",
+      "candidate_count": 1,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-839f7c5c7c9477b13aae": {
+      "path": "before_proximity",
+      "candidate_count": 1,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-5c39ab08b6f0c3c9bf6a": {
+      "path": "before_proximity",
+      "candidate_count": 1,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-fa7c1c74a00ff852c670": {
+      "path": "before_proximity",
+      "candidate_count": 1,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-0411ea4a25402070a382": {
+      "path": "before_proximity",
+      "candidate_count": 5,
+      "known_positives": 5,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-ea60254178c21d7ab3a3": {
+      "path": "before_proximity",
+      "candidate_count": 1,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-9bf9d551a88f414e1533": {
+      "path": "before_proximity",
+      "candidate_count": 1,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-d80b250c130d0d169ce5": {
+      "path": "before_proximity",
+      "candidate_count": 1,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-746cb14175b115e23160": {
+      "path": "before_proximity",
+      "candidate_count": 42,
+      "known_positives": 42,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 0.23809523809523808
+    },
+    "H-e15a571ba6733c1c7996": {
+      "path": "before_proximity",
+      "candidate_count": 65,
+      "known_positives": 65,
+      "candidate_recall_50": 0.7692307692307693,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 0.15384615384615385
+    },
+    "H-4413e1d14feece8a14bc": {
+      "path": "before_proximity",
+      "candidate_count": 55,
+      "known_positives": 55,
+      "candidate_recall_50": 0.9090909090909091,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 0.18181818181818182
+    },
+    "H-d5db790a049dde6f4e92": {
+      "path": "before_proximity",
+      "candidate_count": 13,
+      "known_positives": 13,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 0.7692307692307693
+    },
+    "H-012df59077167bfec30e": {
+      "path": "before_proximity",
+      "candidate_count": 1,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-f9e862f98790acdb9c63": {
+      "path": "before_proximity",
+      "candidate_count": 4,
+      "known_positives": 4,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-4900a2e5cc9c09fddd53": {
+      "path": "before_proximity",
+      "candidate_count": 2,
+      "known_positives": 2,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-014061ae61905c415f3f": {
+      "path": "before_proximity",
+      "candidate_count": 7,
+      "known_positives": 6,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-c3dbc4221930739783ee": {
+      "path": "before_proximity",
+      "candidate_count": 128,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-bd3ef39cbc82aacc8bda": {
+      "path": "before_proximity",
+      "candidate_count": 128,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-8e4cdfaa5894abff2eaa": {
+      "path": "before_proximity",
+      "candidate_count": 128,
+      "known_positives": 6,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-e0a89c82eabee234cdd1": {
+      "path": "before_proximity",
+      "candidate_count": 128,
+      "known_positives": 3,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-370c651816c078415a7d": {
+      "path": "before_proximity",
+      "candidate_count": 93,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-7344cf0d5bc0d9edb0c5": {
+      "path": "before_proximity",
+      "candidate_count": 128,
+      "known_positives": 2,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-28caa9ba8ebb01e3a98e": {
+      "path": "before_proximity",
+      "candidate_count": 128,
+      "known_positives": 5,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-d307d39328da45a87643": {
+      "path": "before_proximity",
+      "candidate_count": 122,
+      "known_positives": 4,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    },
+    "H-8fffd97d149338a5fb31": {
+      "path": "before_proximity",
+      "candidate_count": 7,
+      "known_positives": 1,
+      "candidate_recall_50": 1.0,
+      "candidate_recall_128": 1.0,
+      "final_recall_10": 1.0
+    }
+  }
+}

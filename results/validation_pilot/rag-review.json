@@ -1,0 +1,452 @@
+{
+  "protocol": "Эндпоинт /api/answer, исходный текст, ящик и дата семи зарегистрированных запросов. Один последовательный проход каждой версии. Автоматическая проверка открыла каждую ссылку в том же ящике на ту же дату и сравнила полный текст с корпусом.",
+  "assessment": "Агент сверил все фактические строки ответов с полными оригиналами по каждой ссылке. Дословная выдержка, описывающая другую операцию, подтверждается своим письмом, но не решает задачу. Независимая человеческая оценка отсутствует.",
+  "measurement_note": "Подсчёт заявленных ошибочных фактов по пустому запросу отделён от неуместной выдачи выдержек. Обе версии не придумали реквизиты посадки, однако выдали постороннюю корреспонденцию вместо отказа.",
+  "version": {
+    "before": "5fe3f5d",
+    "after_ranker": "d747e72d"
+  },
+  "sha256": {
+    "corpus": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+    "fixture": "96b5bceebe21d68164e12d2063cb4fe6ff42ef41bda1d48ef90860b2c958a4be",
+    "before": "64cf5407136d3ea8f6adc197b5ef63f33c6768c9e44ed7fc0e0e271e7f291917",
+    "after": "900077d9266f73932a239c4fa7675f5c32b0b032f56dddc1aa449266d772390f"
+  },
+  "summary": {
+    "before": {
+      "answerable": 5,
+      "complete_supported_answers": 1,
+      "unjustified_abstentions": 2,
+      "answerable_nonsolving_excerpts": 2,
+      "answerable_partially_supported": 0,
+      "incorrect_requested_fact_asserted": 0,
+      "empty": 2,
+      "justified_abstentions": 1,
+      "empty_nonsolving_excerpts": 1,
+      "empty_false_requested_facts_asserted": 0,
+      "total_cited_lines": 8,
+      "cited_lines_supported_by_own_letter": 8,
+      "positive_cited_lines": 7,
+      "positive_cited_lines_delivering_a_required_fact": 1,
+      "positive_expected_source_citations": 3,
+      "required_fact_units_cited": 1,
+      "required_fact_units": 6,
+      "response_modes": {
+        "no_evidence": 3,
+        "extractive": 3,
+        "generative": 1
+      }
+    },
+    "after": {
+      "answerable": 5,
+      "complete_supported_answers": 1,
+      "unjustified_abstentions": 2,
+      "answerable_nonsolving_excerpts": 2,
+      "answerable_partially_supported": 0,
+      "incorrect_requested_fact_asserted": 0,
+      "empty": 2,
+      "justified_abstentions": 1,
+      "empty_nonsolving_excerpts": 1,
+      "empty_false_requested_facts_asserted": 0,
+      "total_cited_lines": 10,
+      "cited_lines_supported_by_own_letter": 10,
+      "positive_cited_lines": 7,
+      "positive_cited_lines_delivering_a_required_fact": 1,
+      "positive_expected_source_citations": 3,
+      "required_fact_units_cited": 1,
+      "required_fact_units": 6,
+      "response_modes": {
+        "no_evidence": 3,
+        "extractive": 3,
+        "generative": 1
+      }
+    }
+  },
+  "annotation_ambiguity": {
+    "query_id": "vk-pilot-08",
+    "reason": "Исходный вопрос содержит код этапа и ошибку отсутствующего поля, но не дату самого сообщения, базу или другие признаки инцидента. Два разных подходящих сообщения называют разных пользователей. Зарегистрированная цель содержит только Евдокимову; второй документ ранее получил 1 балл.",
+    "evidence": [
+      {
+        "doc_id": "L-007247dd284d021f4391",
+        "fragments": [
+          "поле объекта не обнаружено",
+          "ОНПР-53.7.1",
+          "Пользователь: Евдокимова Вероника Харитоновна."
+        ]
+      },
+      {
+        "doc_id": "L-90f99c21faf719433087",
+        "fragments": [
+          "Поле объекта не обнаружено.",
+          "ОНПР-53.7.1",
+          "Пользователь: Анатолий Захарьевич Шаров."
+        ]
+      }
+    ],
+    "observed_effect": "Обе версии приводят выдержки из обоих сообщений и ни одного имени. Семантический исход одинаков при учёте обеих допустимых фамилий. Для самостоятельной оценки поиска эта неоднозначность ограничивает интерпретацию меток.",
+    "ranking_sensitivity": {
+      "method": "Illustrative sensitivity only. Raise the additional operator letter from grade 1 to grade 2; accept either operator as a target. All ranking IDs, registered qrels and the automatic reports remain frozen.",
+      "before": {
+        "second_source_rank": 2,
+        "original_ndcg10": 1.0,
+        "alternative_ndcg10": 1.0,
+        "original_recall10": 1.0,
+        "alternative_recall10": 1.0,
+        "known_item_success_at_1_unchanged": true,
+        "change_to_blind_mean_ndcg10": 0.0
+      },
+      "after": {
+        "second_source_rank": 2,
+        "original_ndcg10": 1.0,
+        "alternative_ndcg10": 1.0,
+        "original_recall10": 1.0,
+        "alternative_recall10": 1.0,
+        "known_item_success_at_1_unchanged": true,
+        "change_to_blind_mean_ndcg10": 0.0
+      }
+    }
+  },
+  "cases": [
+    {
+      "query_id": "vk-pilot-01",
+      "split": "dev",
+      "expected_outcome": "supported_answer",
+      "expected": "504.75, валюта в письме не указана",
+      "assessment": "Источник прямо содержит счёт на 504.75, без указания валюты. Обе версии отказали.",
+      "versions": {
+        "before": {
+          "class": "unjustified_abstention",
+          "mode": "no_evidence",
+          "requested_fact_claimed_in_error": false,
+          "required_facts_supported": 0,
+          "required_facts_total": 1,
+          "target_rank_of_saved_search": 1,
+          "citations": []
+        },
+        "after": {
+          "class": "unjustified_abstention",
+          "mode": "no_evidence",
+          "requested_fact_claimed_in_error": false,
+          "required_facts_supported": 0,
+          "required_facts_total": 1,
+          "target_rank_of_saved_search": 1,
+          "citations": []
+        }
+      }
+    },
+    {
+      "query_id": "vk-pilot-02",
+      "split": "dev",
+      "expected_outcome": "supported_answer",
+      "expected": "6655.17 RUB",
+      "assessment": "Письмо о пневмогайковёрте 780 Нм прямо указывает сумму 6655.17 RUB. Обе версии отказали.",
+      "versions": {
+        "before": {
+          "class": "unjustified_abstention",
+          "mode": "no_evidence",
+          "requested_fact_claimed_in_error": false,
+          "required_facts_supported": 0,
+          "required_facts_total": 1,
+          "target_rank_of_saved_search": 1,
+          "citations": []
+        },
+        "after": {
+          "class": "unjustified_abstention",
+          "mode": "no_evidence",
+          "requested_fact_claimed_in_error": false,
+          "required_facts_supported": 0,
+          "required_facts_total": 1,
+          "target_rank_of_saved_search": 1,
+          "citations": []
+        }
+      }
+    },
+    {
+      "query_id": "vk-pilot-03",
+      "split": "dev",
+      "expected_outcome": "supported_answer",
+      "expected": "457 возвратов. Для получения показать штрихкод.",
+      "assessment": "Обе версии дали контекстные и посторонние выдержки. Ни общий итог 457, ни предъявление штрихкода в ответ не попали. Числа 288 и 3 описывают отдельные категории, 136 — отдельное уведомление.",
+      "versions": {
+        "before": {
+          "class": "irrelevant_excerpt",
+          "mode": "extractive",
+          "requested_fact_claimed_in_error": false,
+          "required_facts_supported": 0,
+          "required_facts_total": 2,
+          "target_rank_of_saved_search": 1,
+          "citations": [
+            {
+              "citation": 1,
+              "source": "L-6a424bc0727869055ae7",
+              "support": "verbatim_in_cited_original",
+              "source_excerpt": "Заберите возвраты из точки выдачи: 288 товаров, заказанных по схеме FBS, и 3 товара по схеме FBO.",
+              "role_for_question": "context_for_requested_event",
+              "review": "288 FBS и 3 FBO действительно указаны в письме. Суммарные 457 и требование показать штрихкод в ответе отсутствуют."
+            },
+            {
+              "citation": 2,
+              "source": "L-1d757a7af1a30d3053c2",
+              "support": "verbatim_in_cited_original",
+              "source_excerpt": "Заберите новые возвраты из точки выдачи: 136 товаров, заказанных по схеме FBS.",
+              "role_for_question": "other_event",
+              "review": "136 FBS относятся к другому уведомлению. Всего в нём 747 возвратов. Оно не подтверждает число в запрошенном уведомлении."
+            },
+            {
+              "citation": 3,
+              "source": "L-2b36e9dec87befbfe977",
+              "support": "verbatim_in_cited_original",
+              "source_excerpt": "Общая сумма заказа — 7170.37 RUB.",
+              "role_for_question": "other_event",
+              "review": "7170.37 RUB — сумма заказа на сцепление, к выдаче возвратов не относится."
+            }
+          ]
+        },
+        "after": {
+          "class": "irrelevant_excerpt",
+          "mode": "extractive",
+          "requested_fact_claimed_in_error": false,
+          "required_facts_supported": 0,
+          "required_facts_total": 2,
+          "target_rank_of_saved_search": 1,
+          "citations": [
+            {
+              "citation": 1,
+              "source": "L-6a424bc0727869055ae7",
+              "support": "verbatim_in_cited_original",
+              "source_excerpt": "Заберите возвраты из точки выдачи: 288 товаров, заказанных по схеме FBS, и 3 товара по схеме FBO.",
+              "role_for_question": "context_for_requested_event",
+              "review": "288 FBS и 3 FBO действительно указаны в письме. Суммарные 457 и требование показать штрихкод в ответе отсутствуют."
+            },
+            {
+              "citation": 2,
+              "source": "L-1d757a7af1a30d3053c2",
+              "support": "verbatim_in_cited_original",
+              "source_excerpt": "Заберите новые возвраты из точки выдачи: 136 товаров, заказанных по схеме FBS.",
+              "role_for_question": "other_event",
+              "review": "136 FBS относятся к другому уведомлению. Всего в нём 747 возвратов. Оно не подтверждает число в запрошенном уведомлении."
+            },
+            {
+              "citation": 3,
+              "source": "L-41060362bca6f66c6707",
+              "support": "verbatim_in_cited_original",
+              "source_excerpt": "Получен заказ SYN-6e9af13042 на сумму 3047.79 RUB.",
+              "role_for_question": "other_event",
+              "review": "Идентификатор и сумма 3047.79 RUB соответствуют отдельному заказу, к выдаче возвратов не относятся."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query_id": "vk-pilot-06",
+      "split": "dev",
+      "expected_outcome": "justified_abstention",
+      "expected": "Точный идентификатор SYN-5d701b449b отсутствует во всех 16 376 текстах, проверено без учёта регистра.",
+      "assessment": "Идентификатора заказа SYN-5d701b449b нет в корпусе. Обе версии ответили, что подтверждения недостаточно.",
+      "versions": {
+        "before": {
+          "class": "justified_abstention",
+          "mode": "no_evidence",
+          "requested_fact_claimed_in_error": false,
+          "required_facts_supported": 0,
+          "required_facts_total": 0,
+          "target_rank_of_saved_search": null,
+          "citations": []
+        },
+        "after": {
+          "class": "justified_abstention",
+          "mode": "no_evidence",
+          "requested_fact_claimed_in_error": false,
+          "required_facts_supported": 0,
+          "required_facts_total": 0,
+          "target_rank_of_saved_search": null,
+          "citations": []
+        }
+      }
+    },
+    {
+      "query_id": "vk-pilot-07",
+      "split": "blind",
+      "expected_outcome": "supported_answer",
+      "expected": "416",
+      "assessment": "Ответ 416 дан с номером источника. В оригинале именно иммуногенетике явно приписан этот код.",
+      "versions": {
+        "before": {
+          "class": "complete_supported_answer",
+          "mode": "generative",
+          "requested_fact_claimed_in_error": false,
+          "required_facts_supported": 1,
+          "required_facts_total": 1,
+          "target_rank_of_saved_search": 1,
+          "citations": [
+            {
+              "citation": 1,
+              "source": "L-bd1cb09f05969c6fdd9b",
+              "support": "generated_claim_supported_by_cited_original",
+              "source_excerpt": "иммуногенетика — 416",
+              "role_for_question": "answers_requested_fact",
+              "review": "В перечне иммуногенетике непосредственно приписан код 416. Другие исследования с таким же номером не меняют этой связи."
+            }
+          ]
+        },
+        "after": {
+          "class": "complete_supported_answer",
+          "mode": "generative",
+          "requested_fact_claimed_in_error": false,
+          "required_facts_supported": 1,
+          "required_facts_total": 1,
+          "target_rank_of_saved_search": 1,
+          "citations": [
+            {
+              "citation": 1,
+              "source": "L-bd1cb09f05969c6fdd9b",
+              "support": "generated_claim_supported_by_cited_original",
+              "source_excerpt": "иммуногенетика — 416",
+              "role_for_question": "answers_requested_fact",
+              "review": "В перечне иммуногенетике непосредственно приписан код 416. Другие исследования с таким же номером не меняют этой связи."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query_id": "vk-pilot-08",
+      "split": "blind",
+      "expected_outcome": "supported_answer",
+      "expected": "Евдокимова Вероника Харитоновна",
+      "assessment": "Обе версии дали описания этапов и дат, а пользователь не назван ни в одной выдержке. Два исходных подходящих письма содержат разные имена.",
+      "versions": {
+        "before": {
+          "class": "irrelevant_excerpt",
+          "mode": "extractive",
+          "requested_fact_claimed_in_error": false,
+          "required_facts_supported": 0,
+          "required_facts_total": 1,
+          "target_rank_of_saved_search": 1,
+          "citations": [
+            {
+              "citation": 1,
+              "source": "L-007247dd284d021f4391",
+              "support": "verbatim_in_cited_original",
+              "source_excerpt": "Источник — этап производства ОНПР-53.7.1 от 15.07.2027 7:49:22.",
+              "role_for_question": "context_for_requested_event",
+              "review": "Этап и время названы точно. Имя пользователя есть в оригинале, но отсутствует в ответе."
+            },
+            {
+              "citation": 2,
+              "source": "L-90f99c21faf719433087",
+              "support": "verbatim_in_cited_original",
+              "source_excerpt": "Источник: Сосновежск, ОНПР-53.7.1, 15.07.2027 (Этап производства).",
+              "role_for_question": "context_for_requested_event",
+              "review": "Этап, дата и топоним совпадают с оригиналом. Он описывает отдельную ошибку на том же этапе и называет другого пользователя, но ответ не называет его."
+            },
+            {
+              "citation": 3,
+              "source": "L-68d750048f4200051628",
+              "support": "verbatim_in_cited_original",
+              "source_excerpt": "Источник — этап производства ОНПР-584.5.2 от 16.07.2027 9:00:42.",
+              "role_for_question": "other_event",
+              "review": "Этап ОНПР-584.5.2 и его дата реальны, но это не запрошенный ОНПР-53.7.1. Пользователя реплика не называет."
+            }
+          ]
+        },
+        "after": {
+          "class": "irrelevant_excerpt",
+          "mode": "extractive",
+          "requested_fact_claimed_in_error": false,
+          "required_facts_supported": 0,
+          "required_facts_total": 1,
+          "target_rank_of_saved_search": 1,
+          "citations": [
+            {
+              "citation": 1,
+              "source": "L-007247dd284d021f4391",
+              "support": "verbatim_in_cited_original",
+              "source_excerpt": "Источник — этап производства ОНПР-53.7.1 от 15.07.2027 7:49:22.",
+              "role_for_question": "context_for_requested_event",
+              "review": "Этап и время названы точно. Имя пользователя есть в оригинале, но отсутствует в ответе."
+            },
+            {
+              "citation": 2,
+              "source": "L-90f99c21faf719433087",
+              "support": "verbatim_in_cited_original",
+              "source_excerpt": "Источник: Сосновежск, ОНПР-53.7.1, 15.07.2027 (Этап производства).",
+              "role_for_question": "context_for_requested_event",
+              "review": "Этап, дата и топоним совпадают с оригиналом. Он описывает отдельную ошибку на том же этапе и называет другого пользователя, но ответ не называет его."
+            },
+            {
+              "citation": 3,
+              "source": "L-68d750048f4200051628",
+              "support": "verbatim_in_cited_original",
+              "source_excerpt": "Источник — этап производства ОНПР-584.5.2 от 16.07.2027 9:00:42.",
+              "role_for_question": "other_event",
+              "review": "Этап ОНПР-584.5.2 и его дата реальны, но это не запрошенный ОНПР-53.7.1. Пользователя реплика не называет."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query_id": "vk-pilot-12",
+      "split": "blind",
+      "expected_outcome": "justified_abstention",
+      "expected": "Полный срез ящика за 05.03.2028 проверен на паром, переправу, посадочные документы и QR-коды. В корпусе отсутствуют упоминания парома.",
+      "assessment": "Вместо отказа приведены реквизиты писем о контроле качества за нужную дату. Ни текста посадочного QR-кода, ни утверждения, что посадка подтверждена, ответы не содержат.",
+      "versions": {
+        "before": {
+          "class": "irrelevant_excerpt",
+          "mode": "extractive",
+          "requested_fact_claimed_in_error": false,
+          "required_facts_supported": 0,
+          "required_facts_total": 0,
+          "target_rank_of_saved_search": null,
+          "citations": [
+            {
+              "citation": 1,
+              "source": "L-bb48b61ec7dacb193b6b",
+              "support": "verbatim_in_cited_original",
+              "source_excerpt": "В «Служба Берег»\", mail-2493d19222@example.invalid, SYN-31c1bcffa3 05.03.2028",
+              "role_for_question": "other_event",
+              "review": "Тема и дата принадлежат письму о внешнем контроле качества. Посадки, парома и QR-кода в нём нет."
+            }
+          ]
+        },
+        "after": {
+          "class": "irrelevant_excerpt",
+          "mode": "extractive",
+          "requested_fact_claimed_in_error": false,
+          "required_facts_supported": 0,
+          "required_facts_total": 0,
+          "target_rank_of_saved_search": null,
+          "citations": [
+            {
+              "citation": 1,
+              "source": "L-bb48b61ec7dacb193b6b",
+              "support": "verbatim_in_cited_original",
+              "source_excerpt": "В «Служба Берег»\", mail-2493d19222@example.invalid, SYN-31c1bcffa3 05.03.2028",
+              "role_for_question": "other_event",
+              "review": "Тема и дата принадлежат письму о внешнем контроле качества. Посадки, парома и QR-кода в нём нет."
+            },
+            {
+              "citation": 2,
+              "source": "L-3697244be91b0ea6e091",
+              "support": "verbatim_in_cited_original",
+              "source_excerpt": "В «Служба Берег»\", mail-880e777b8d@example.invalid, SYN-b15e5da7b8 05.03.2028",
+              "role_for_question": "other_event",
+              "review": "Данные темы принадлежат ещё одному письму о внешнем контроле качества. Они не подтверждают запись на паром."
+            },
+            {
+              "citation": 3,
+              "source": "L-cac9ceb839bc02db1d4d",
+              "support": "verbatim_in_cited_original",
+              "source_excerpt": "Письмо в Общество с ограниченной ответственностью «Медико-санитарная часть no 157», mail-1198cad28e@example.invalid, SYN-702762c369 от 05.03.2028",
+              "role_for_question": "other_event",
+              "review": "Дата и получатель принадлежат письму в МСЧ №157 о контроле качества, которое не подтверждает посадку на паром."
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

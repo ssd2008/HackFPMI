@@ -1,0 +1,22 @@
+{
+  "scope": "Exploratory post-run annotation sensitivity. The registered qrels and primary results are untouched.",
+  "query_id": "vk-pilot-09",
+  "document_id": "L-abe9af38b7e7f79f3293",
+  "issue": "This synthetic product description says «на автомобильное стекло, 500 мл., „Антилед для замков“»; the frozen grade 2 counts both named uses, but this is weaker wording than an explicit dual-purpose product.",
+  "sensitivity": {
+    "before": {
+      "rank": 1,
+      "one_task_ndcg10_frozen": 0.5575053277365711,
+      "one_task_ndcg10_if_grade1": 0.3467253154357711,
+      "blind_mean_ndcg10_frozen": 0.8246090284973636,
+      "blind_mean_ndcg10_if_grade1": 0.7824530260372036
+    },
+    "after": {
+      "rank": 1,
+      "one_task_ndcg10_frozen": 0.6061680178534538,
+      "one_task_ndcg10_if_grade1": 0.4012013075641607,
+      "blind_mean_ndcg10_frozen": 0.8216174088809499,
+      "blind_mean_ndcg10_if_grade1": 0.7806240668230913
+    }
+  }
+}

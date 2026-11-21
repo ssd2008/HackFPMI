@@ -2,10 +2,13 @@ from datetime import date
 import json
 from pathlib import Path
 from tempfile import TemporaryDirectory
+from types import SimpleNamespace
 import unittest
+from unittest.mock import patch
 from zoneinfo import ZoneInfo
 
 from benchmark import load_benchmark
+from mailsearch.app import lifespan
 from mailsearch.dates import parse_date_scope
 from tools.import_mail_export import write_corpus
 
@@ -89,6 +92,19 @@ class NewCorpora(unittest.TestCase):
             (data / "qrels_dev.jsonl").write_text(json.dumps(bad), encoding="utf-8")
             with self.assertRaisesRegex(ValueError, "неизвестный"):
                 load_benchmark(data)
+
+
+class PublicPreview(unittest.IsolatedAsyncioTestCase):
+    async def test_external_demo_rejects_other_corpora_before_creating_a_store(self):
+        with TemporaryDirectory() as directory:
+            data = Path(directory)
+            (data / "documents.jsonl").write_text('{"doc_id":"x","synthetic_user":"a","doc_dt":null,"doc":"Test"}\n')
+            state = SimpleNamespace(data_dir=data)
+            with patch("mailsearch.app.frontend_origin", "https://demo.invalid"):
+                with self.assertRaisesRegex(ValueError, "синтетический корпус"):
+                    async with lifespan(SimpleNamespace(state=state)):
+                        self.fail("A different corpus was made available for the public demo")
+            self.assertFalse(hasattr(state, "store"))
 
 
 if __name__ == "__main__":

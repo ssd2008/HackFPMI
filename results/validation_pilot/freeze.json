@@ -1,0 +1,8 @@
+{
+  "files": {
+    "queries.jsonl": "bc937ab484a9ae0ebfe909118d5a904769bb1f5078bc77d12936da35d1fbafd2",
+    "tasks.jsonl": "eb69d8ada831151ea3de672dac7d32a55400e3cbfbd4bee13ffe3fcb2677e3c5",
+    "qrels.jsonl": "096c89f09823c90d1b41c8df754c68cb3620f07f92ea245a571802c6c6d4e76f"
+  },
+  "freeze": "0d47419645d190631d31f83b1216ed8170036374417af27583a8b9d3e0052b4d"
+}

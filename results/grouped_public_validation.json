@@ -1,0 +1,283 @@
+{
+  "inputs": {
+    "before": {
+      "file": "5fe3f5d-public_dev.json",
+      "sha256": "377a6b73930732f131d8e5ce53c3a7efeb832fdf6bb187de56e0dd07b8628115",
+      "documents_sha256": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+      "documents": 16376,
+      "requested_depth": 10,
+      "server_corpus_check": "not_recorded",
+      "qrels_in_ranking_report": true
+    },
+    "after": {
+      "file": "public_dev.json",
+      "sha256": "94173f0290a4c65b998de804afa8052f5744d96b63a53bc42a4238549bac3767",
+      "documents_sha256": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+      "documents": 16376,
+      "requested_depth": 10,
+      "server_corpus_check": "sha256",
+      "qrels_in_ranking_report": true
+    },
+    "queries_sha256": "7a5b587ee7361ca2e35e1929cbbfdcc3154b4302b6fb830ae1c41846518d6017",
+    "qrels_sha256": "826362ae5592d58b3bb1cd382103dc0aef151cf014025258f0cddba0fefa0dd4",
+    "qrels": 565,
+    "grouping": {
+      "file": "public_topics.json",
+      "sha256": "d1c219546979d345d87ebd0d29ea83612592318b1a4f1fe514dbc6c324d7f0b6",
+      "mode": "public_topic_templates"
+    }
+  },
+  "protocol": {
+    "depth": 10,
+    "delta": "after minus before",
+    "primary": "original formulations only",
+    "coverage": "Judged@10 averages judged/returned among nonempty positive queries. Unjudged documents get zero gain; known recall uses positive qrels.",
+    "length": "returned_length describes all input queries. returned_at_10_positive includes empty positive queries.",
+    "bootstrap": {
+      "metric": "ndcg_at_10",
+      "resamples": 10000,
+      "seed": 2026,
+      "unit": "family_id",
+      "stratify_by": "source",
+      "estimator": "query-weighted macro mean; paired resampling of intact positive-query clusters within source; percentile interval",
+      "population": "With few mailbox owners, intervals are conditional on the observed owners."
+    },
+    "candidate_recall": "Unavailable: the reports contain only final ranked results."
+  },
+  "primary": {
+    "all": {
+      "queries": 99,
+      "families": 12,
+      "mailboxes": 7,
+      "states": {
+        "positive": 99,
+        "verified_empty": 0,
+        "unjudged": 0
+      },
+      "task_types": {
+        "collection": 57,
+        "known_item": 42
+      },
+      "metrics": {
+        "ndcg_at_10": {
+          "before": 0.99276402,
+          "after": 0.99905076,
+          "delta": 0.00628674,
+          "n_before": 99,
+          "n_after": 99
+        },
+        "known_recall_at_10": {
+          "before": 0.93756416,
+          "after": 0.93756416,
+          "delta": 0.0,
+          "n_before": 99,
+          "n_after": 99
+        },
+        "judged_at_10": {
+          "before": 0.78674844,
+          "after": 0.79078884,
+          "delta": 0.0040404,
+          "n_before": 99,
+          "n_after": 99,
+          "documents_before": 369,
+          "documents_after": 369,
+          "returned_before": 566,
+          "returned_after": 564
+        },
+        "returned_at_10_positive": {
+          "before": 5.71717172,
+          "after": 5.6969697,
+          "delta": -0.02020202,
+          "n_before": 99,
+          "n_after": 99
+        },
+        "returned_length": {
+          "before": 5.71717172,
+          "after": 5.6969697,
+          "delta": -0.02020202,
+          "n_before": 99,
+          "n_after": 99
+        },
+        "success_at_1": {
+          "before": 1.0,
+          "after": 1.0,
+          "delta": 0.0,
+          "n_before": 42,
+          "n_after": 42,
+          "events_before": 42,
+          "events_after": 42
+        },
+        "success_at_5": {
+          "before": 1.0,
+          "after": 1.0,
+          "delta": 0.0,
+          "n_before": 42,
+          "n_after": 42,
+          "events_before": 42,
+          "events_after": 42
+        },
+        "mrr_at_10": {
+          "before": 1.0,
+          "after": 1.0,
+          "delta": 0.0,
+          "n_before": 42,
+          "n_after": 42
+        },
+        "false_empty_rate": {
+          "before": 0.0,
+          "after": 0.0,
+          "delta": 0.0,
+          "n_before": 99,
+          "n_after": 99,
+          "events_before": 0,
+          "events_after": 0
+        },
+        "false_nonempty_rate": {
+          "before": null,
+          "after": null,
+          "delta": null,
+          "n_before": 0,
+          "n_after": 0,
+          "events_before": 0,
+          "events_after": 0
+        }
+      },
+      "paired_ndcg_at_10": {
+        "positive_queries": 99,
+        "positive_families": 12,
+        "families_by_source": {
+          "vk_public_dev": 12
+        },
+        "wins": 2,
+        "ties": 97,
+        "losses": 0,
+        "delta": 0.00628674,
+        "ci95": [
+          0.0,
+          0.02452852
+        ],
+        "note": "Мало независимых групп. Интервал описывает этот набор и чувствителен к его составу."
+      }
+    },
+    "by_split": {
+      "dev": {
+        "queries": 99,
+        "families": 12,
+        "mailboxes": 7,
+        "states": {
+          "positive": 99,
+          "verified_empty": 0,
+          "unjudged": 0
+        },
+        "task_types": {
+          "collection": 57,
+          "known_item": 42
+        },
+        "metrics": {
+          "ndcg_at_10": {
+            "before": 0.99276402,
+            "after": 0.99905076,
+            "delta": 0.00628674,
+            "n_before": 99,
+            "n_after": 99
+          },
+          "known_recall_at_10": {
+            "before": 0.93756416,
+            "after": 0.93756416,
+            "delta": 0.0,
+            "n_before": 99,
+            "n_after": 99
+          },
+          "judged_at_10": {
+            "before": 0.78674844,
+            "after": 0.79078884,
+            "delta": 0.0040404,
+            "n_before": 99,
+            "n_after": 99,
+            "documents_before": 369,
+            "documents_after": 369,
+            "returned_before": 566,
+            "returned_after": 564
+          },
+          "returned_at_10_positive": {
+            "before": 5.71717172,
+            "after": 5.6969697,
+            "delta": -0.02020202,
+            "n_before": 99,
+            "n_after": 99
+          },
+          "returned_length": {
+            "before": 5.71717172,
+            "after": 5.6969697,
+            "delta": -0.02020202,
+            "n_before": 99,
+            "n_after": 99
+          },
+          "success_at_1": {
+            "before": 1.0,
+            "after": 1.0,
+            "delta": 0.0,
+            "n_before": 42,
+            "n_after": 42,
+            "events_before": 42,
+            "events_after": 42
+          },
+          "success_at_5": {
+            "before": 1.0,
+            "after": 1.0,
+            "delta": 0.0,
+            "n_before": 42,
+            "n_after": 42,
+            "events_before": 42,
+            "events_after": 42
+          },
+          "mrr_at_10": {
+            "before": 1.0,
+            "after": 1.0,
+            "delta": 0.0,
+            "n_before": 42,
+            "n_after": 42
+          },
+          "false_empty_rate": {
+            "before": 0.0,
+            "after": 0.0,
+            "delta": 0.0,
+            "n_before": 99,
+            "n_after": 99,
+            "events_before": 0,
+            "events_after": 0
+          },
+          "false_nonempty_rate": {
+            "before": null,
+            "after": null,
+            "delta": null,
+            "n_before": 0,
+            "n_after": 0,
+            "events_before": 0,
+            "events_after": 0
+          }
+        },
+        "paired_ndcg_at_10": {
+          "positive_queries": 99,
+          "positive_families": 12,
+          "families_by_source": {
+            "vk_public_dev": 12
+          },
+          "wins": 2,
+          "ties": 97,
+          "losses": 0,
+          "delta": 0.00628674,
+          "ci95": [
+            0.0,
+            0.02452852
+          ],
+          "note": "Мало независимых групп. Интервал описывает этот набор и чувствителен к его составу."
+        }
+      },
+      "blind": null
+    }
+  },
+  "variants": {},
+  "interpretation": "Описательная диагностика на публичном development. Группы — повторяющиеся темы. Для совместимости запросы с одной положительной меткой дают условный срез known_item. Он не устанавливает пользовательское намерение найти одно конкретное письмо. Публичные qrels содержат только положительные связи.",
+  "snapshot_note": "Входные документы бенчмарка имеют одинаковый SHA-256. Подтверждение этого хеша самим сервером не записано для before."
+}
