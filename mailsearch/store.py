@@ -9,6 +9,8 @@ import json
 from pathlib import Path
 import re
 
+from .actions import extract_action
+
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
@@ -145,9 +147,14 @@ class MailStore:
             raise ValueError("Повторяющийся doc_id в корпусе")
         groups: dict[str, list[dict]] = defaultdict(list)
         self.summaries = {}
+        self.actions_by_id = {}
         for row in documents:
             groups[row["synthetic_user"]].append(row)
-            self.summaries[row["doc_id"]] = describe(row)
+            doc_id = row["doc_id"]
+            self.summaries[doc_id] = describe(row)
+            action = extract_action(row["doc"], row["doc_dt"])
+            if action is not None:
+                self.actions_by_id[doc_id] = action
         self.boxes = dict(groups)
         self.mailboxes = []
         for box, rows in sorted(self.boxes.items()):
@@ -167,3 +174,22 @@ class MailStore:
         rows = [row for row in self.boxes[box] if row["doc_dt"] is None or row["doc_dt"] <= at]
         return {"items": [self.summaries[row["doc_id"]] for row in rows[offset:offset + limit]],
                 "total": len(rows), "offset": offset, "limit": limit}
+
+    def action_inbox(self, box: str, at: date, offset: int, limit: int) -> dict:
+        cutoff = at.isoformat()
+        items = []
+        upcoming = []
+        for row in self.boxes[box]:
+            doc_id = row["doc_id"]
+            action = self.actions_by_id.get(doc_id)
+            if action is None or not self.visible(box, cutoff, doc_id):
+                continue
+            item = {**self.summaries[doc_id], "evidence": action.evidence,
+                    "deadline": action.deadline, "deadline_time": action.deadline_time}
+            items.append(item)
+            if action.deadline and 0 <= (date.fromisoformat(action.deadline) - at).days <= 1:
+                upcoming.append(item)
+
+        upcoming.sort(key=lambda item: (item["deadline"], item["deadline_time"] or "23:59"))
+        return {"items": items[offset:offset + limit], "total": len(items),
+                "offset": offset, "limit": limit, "urgent": upcoming[:3]}
