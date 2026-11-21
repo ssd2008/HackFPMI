@@ -2,9 +2,11 @@ from __future__ import annotations
 
 from contextlib import asynccontextmanager
 from datetime import date as Date
+from os import getenv
 from time import perf_counter
 
 from fastapi import FastAPI, HTTPException, Query
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, ConfigDict, Field
@@ -45,6 +47,14 @@ class SearchTiming:
         await self.app(scope, receive, timed_send)
 
 
+frontend_origin = getenv("MAILSEARCH_FRONTEND_ORIGIN", "").strip()
+if frontend_origin:
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=[frontend_origin],
+        allow_methods=["GET", "POST"],
+        allow_headers=["Content-Type"],
+    )
 app.add_middleware(SearchTiming)
 app.mount("/static", StaticFiles(directory=ROOT / "static"), name="static")
 
