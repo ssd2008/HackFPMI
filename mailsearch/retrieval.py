@@ -20,6 +20,7 @@ from .dense import DenseIndex
 from .scoring import semantic_lexical_scale
 from .spelling import CorpusSpelling
 from .fields import MailFields, only_field_request
+from .bilingual import BilingualMail
 
 
 _EMAIL = r"[a-z0-9_.+%-]+@[a-z0-9.-]+\.[a-z]{2,}"
@@ -524,6 +525,7 @@ class SearchEngine:
                 opaque_rows[token].append(i)
         self.opaque_rows = {token: np.asarray(rows, dtype=np.int32) for token, rows in opaque_rows.items()}
         self.fields = MailFields(documents)
+        self.bilingual = BilingualMail(documents, self.fields)
         # The public format embeds its subject in doc. A separate subject field
         # in an imported mailbox is searchable without inventing adjacent words.
         self.literal_texts = [
@@ -695,5 +697,8 @@ class SearchEngine:
         if not phrases and not identifiers:
             self.lexical.rank_event_evidence(scope.text, distinct, rows, scores)
         order = np.flatnonzero(plausible)
+        if not len(order) and not (identifiers or phrases or field_request):
+            translated = self.bilingual.search(scope.text, rows, self.dense, limit, _stem, _STOP, _REQUEST_WORDS)
+            return [(self.ids[row], score) for row, score in translated]
         order = order[np.argsort(-scores[order], kind="stable")[:limit]]
         return [(self.ids[rows[i]], float(scores[i])) for i in order]

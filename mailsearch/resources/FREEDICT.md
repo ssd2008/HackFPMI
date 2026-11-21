@@ -1,0 +1,7 @@
+# Russian–English keyword translations
+
+The dictionary data in `ru_en.tsv.gz` is licensed under Creative Commons Attribution-ShareAlike 3.0 Unported. The full license accompanies the file in `FREEDICT-LICENSE.txt`. Wiktionary contributors supplied the definitions and translations. DBnary extracted them, and Karl Bartel compiled and published the FreeDict/WikDict dictionaries. [FreeDict](https://freedict.org/) · [WikDict](https://www.wikdict.com/) · [DBnary](https://kaiko.getalp.org/about-dbnary/) · [Wiktionary](https://www.wiktionary.org/) · [License](https://creativecommons.org/licenses/by-sa/3.0/)
+
+The source release is 2025.11.23. The derived data lowercases terms, removes Russian stress marks, stems Russian headwords, and retains short English translations attested in both dictionary directions. The same rule applies to the whole source, independently of all mail corpora and evaluations.
+
+Save the two source archives as `rus-eng.tar.xz` and `eng-rus.tar.xz`, then run `python tools/build_mail_dictionary.py --archives DIRECTORY` from the source checkout. The builder verifies the published SHA-512 hashes before producing the compressed table. Ordinary mail search uses the bundled table offline. [Russian–English source](https://download.freedict.org/dictionaries/rus-eng/2025.11.23/freedict-rus-eng-2025.11.23.src.tar.xz) · [English–Russian source](https://download.freedict.org/dictionaries/eng-rus/2025.11.23/freedict-eng-rus-2025.11.23.src.tar.xz)

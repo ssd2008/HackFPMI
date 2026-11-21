@@ -122,6 +122,7 @@ def only_field_request(text):
 class MailFields:
     def __init__(self, documents):
         postings = defaultdict(list)
+        self.addressed_subjects = {}
         for i, doc in enumerate(documents):
             subject, sender = headers(doc)
             if subject:
@@ -131,6 +132,7 @@ class MailFields:
                 for name, address in getaddresses([sender]):
                     address = normalize(address)
                     if "@" in address:
+                        self.addressed_subjects[i] = subject
                         terms.add(("address", address))
                         terms.add(("domain", address.rsplit("@", 1)[1]))
                     if name:
