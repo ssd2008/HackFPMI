@@ -18,6 +18,7 @@ from huggingface_hub import hf_hub_download
 from transformers import AutoModel, AutoTokenizer
 
 from . import E5_MODEL as MODEL, E5_REVISION as REVISION, E5_QUERY_GRAPH
+from .private_cache import protect_tokenizer
 
 DIMENSION = 384
 TOKEN_LIMIT = 120
@@ -124,6 +125,7 @@ class DenseIndex:
         for start in range(0, len(documents), 12):
             texts = ["passage: " + semantic_text(d["doc"][:2600]) for d in documents[start:start + 12]]
             with self._tokenizer_lock:
+                protect_tokenizer(self.tokenizer)
                 batch = self.tokenizer(texts, max_length=TOKEN_LIMIT, truncation=True, padding=True,
                                        return_token_type_ids=True, return_tensors="np")
             hidden = self.query_model.run(["last_hidden_state"], dict(batch))[0]
@@ -136,6 +138,7 @@ class DenseIndex:
         # The tokenizer mutates truncation settings. Inference can run concurrently
         # once its independent input arrays have been created.
         with self._tokenizer_lock:
+            protect_tokenizer(self.tokenizer)
             batch = self.tokenizer("query: " + text, max_length=TOKEN_LIMIT, truncation=True,
                                    return_token_type_ids=True, return_tensors="np")
         hidden = self.query_model.run(["last_hidden_state"], dict(batch))[0][0]

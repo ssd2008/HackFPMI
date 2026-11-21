@@ -10,6 +10,7 @@ from functools import lru_cache
 
 from . import QWEN_MODEL as MODEL, QWEN_REVISION as REVISION
 from .quantities import counted_values, has_counted_quantity, quantities_requested, stem as _stem
+from .private_cache import protect_tokenizer
 
 MAX_SOURCES = 3
 MAX_PASSAGE_CHARS = 1300
@@ -475,6 +476,7 @@ def _generate(query: str, passages: list[str]) -> list[str] | None:
     if pair is None:
         return None
     tokenizer, model = pair
+    protect_tokenizer(tokenizer)
     answer_format = ("Ответь на каждую часть вопроса. Валюту добавляй, только если она указана в письме."
                      if _QUESTION_PART.search(query) else "Если спрашивают сумму или срок, приведи только значение.")
     instruction = _SYSTEM.format(answer_format=answer_format)

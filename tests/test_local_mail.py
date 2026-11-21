@@ -194,6 +194,10 @@ class VisitorTests(unittest.TestCase):
         self.assertEqual(self.visitors.row_count, 0)
 
     def test_cross_origin_tls_request_headers_limits_and_password_redaction(self):
+        for configured in ["*", "https://*.example", "http://public.example", "https://demo.example/path"]:
+            with self.assertRaises(ValueError):
+                api.parse_frontend_origin(configured)
+        self.assertEqual(api.parse_frontend_origin(ORIGIN + "/"), ORIGIN)
         self.app.state.public_profile = True
         origin = {"Origin": ORIGIN}
         path = "/api/visitor/session"
