@@ -25,6 +25,9 @@ class BilingualMailTest(unittest.TestCase):
             message("ru", "Расписание", "У нас появились билеты на ближайшую репетицию."),
             message("later", "Fender guitar repair", "Fender guitar repair is scheduled for tomorrow.", received="2028-04-01"),
             message("other", "Fender guitar repair", "I can repair your Fender guitar tomorrow.", box="other"),
+            message("short", "Invoice", "Attached"),
+            message("mixed-language", "Rehearsal", "The rehearsal starts at seven. Bring a балалайка."),
+
         ]
         with patch("mailsearch.retrieval.DenseIndex") as dense:
             # General retrieval abstains on these Russian phrases. The English
@@ -48,6 +51,16 @@ class BilingualMailTest(unittest.TestCase):
                   "Найди письма о ремонте фырфырфыра", "Сколько стоит ремонт гитары?"):
             with self.subTest(q=q):
                 self.assertEqual(self.fallback(q), [])
+
+    def test_single_english_keyword_including_short_mail_is_insufficient(self):
+        query = "Покажи письма о ксилофоне invoice"
+        self.assertIn(6, self.engine.bilingual.content)
+        self.assertEqual(self.engine.search("mixed", query, date(2028, 3, 1)), [])
+
+    def test_actual_russian_content_in_an_english_letter_remains_grounded(self):
+        query = "Покажи письма о балалайке"
+        check = self.engine.bilingual.ungrounded(query, [0, 7], _stem, _STOP, _REQUEST_WORDS)
+        self.assertEqual(check, {0})
 
     def test_language_is_per_message_and_visibility_comes_first(self):
         self.assertNotIn(3, self.engine.bilingual.content)

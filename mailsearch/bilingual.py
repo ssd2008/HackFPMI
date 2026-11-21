@@ -1,4 +1,4 @@
-"""Conservative Russian topic search in English mail when normal retrieval abstains."""
+"""Conservative Russian topic search with lexical confirmation in English mail."""
 
 from __future__ import annotations
 
@@ -14,7 +14,7 @@ import snowballstemmer
 
 
 _TABLE = Path(__file__).with_name("resources") / "ru_en.tsv.gz"
-_SELECT = re.compile(r"^\s*(?:(?:найд[и][а-я]*|покаж[и][а-я]*|отыщ[и][а-я]*|ищу|нужн[аы]|мне\s+нужн[аы])\b|"
+_SELECT = re.compile(r"^\s*(?:(?:найди(?:те)?|покажи(?:те)?|отыщи(?:те)?|ищу|(?:мне\s+)?нужн[аы])\b|"
                      r"(?:письма|сообщения|переписка)\s+(?:о|об|про)\b)", re.I)
 _WORD = re.compile(r"[a-z]+|[а-яё]+", re.I)
 _ENGLISH = re.compile("[a-z]{2,}", re.I)
@@ -42,19 +42,27 @@ def _en_stem(word):
 
 
 class BilingualMail:
-    def __init__(self, documents, mail_fields):
+    def __init__(self, documents, mail_fields, stem):
         # Only messages with a real mail envelope can join this fallback. Each row's
         # language is determined from its own text, independently of other users and dates.
+        self.cyrillic = {}
         self.content = {}
         self.subjects = {}
         self.postings = defaultdict(set)
         for row, subject in mail_fields.addressed_subjects.items():
-            body = _BODY.split(documents[row]["doc"][:3600], maxsplit=1)[-1]
-            preview = body[:700]
+            text = documents[row]["doc"]
+            marker = _BODY.search(text, 0, 3600)
+            body = text[marker.end():] if marker else text
+            preview = subject + " " + body[:700]
             latin = len(_ENGLISH.findall(preview))
-            if latin < 5 or latin <= 3 * len(_CYRILLIC.findall(preview)):
+            cyrillic = len(_CYRILLIC.findall(preview))
+            # A short all-English subject or note is still English mail.
+            if not latin or (cyrillic and (latin < 5 or latin <= 3 * cyrillic)):
                 continue
-            words = [_en_stem(w) for w in _ENGLISH.findall(body.lower())]
+            original = {stem(word) for word in _CYRILLIC.findall((subject + " " + body).casefold().replace("ё", "е"))}
+            if original:
+                self.cyrillic[row] = original
+            words = [_en_stem(w) for w in _ENGLISH.findall(body[:3600].lower())]
             title = [_en_stem(w) for w in _ENGLISH.findall(subject)]
             self.content[row] = " ".join(words)
             self.subjects[row] = " ".join(title)
@@ -62,6 +70,16 @@ class BilingualMail:
                 self.postings[word].add(row)
         if self.content:
             dictionary()  # Local resource, loaded once during startup.
+
+    def ungrounded(self, query, selected, stem, stop, request):
+        """Identify English hits supported only by the request wording or a stray English keyword."""
+        if not len(selected) or not self.content or not _SELECT.search(query) or _UNSUPPORTED.search(query):
+            return set()
+        terms = {stem(word) for word in _CYRILLIC.findall(query.casefold().replace("ё", "е"))
+                 if len(word) >= 3 and word not in stop and word not in _BOILERPLATE and stem(word) not in request}
+        if not terms:
+            return set()
+        return {int(row) for row in selected if row in self.content and terms.isdisjoint(self.cyrillic.get(row, ()))}
 
     def groups(self, query, stem, stop, request):
         groups = []

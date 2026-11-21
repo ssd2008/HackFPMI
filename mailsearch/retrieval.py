@@ -525,7 +525,7 @@ class SearchEngine:
                 opaque_rows[token].append(i)
         self.opaque_rows = {token: np.asarray(rows, dtype=np.int32) for token, rows in opaque_rows.items()}
         self.fields = MailFields(documents)
-        self.bilingual = BilingualMail(documents, self.fields)
+        self.bilingual = BilingualMail(documents, self.fields, _stem)
         # The public format embeds its subject in doc. A separate subject field
         # in an imported mailbox is searchable without inventing adjacent words.
         self.literal_texts = [
@@ -699,8 +699,17 @@ class SearchEngine:
         if not phrases and not identifiers:
             self.lexical.rank_event_evidence(scope.text, distinct, rows, scores)
         order = np.flatnonzero(plausible)
-        if not len(order) and not (identifiers or phrases or field_request):
-            translated = self.bilingual.search(scope.text, rows, self.dense, limit, _stem, _STOP, _REQUEST_WORDS)
-            return [(self.ids[row], score) for row, score in translated]
         order = order[np.argsort(-scores[order], kind="stable")[:limit]]
+        if not (identifiers or phrases or field_request):
+            suspect = self.bilingual.ungrounded(scope.text, rows[order], _stem, _STOP, _REQUEST_WORDS)
+            if not len(order) or suspect:
+                translated = self.bilingual.search(scope.text, rows, self.dense, limit, _stem, _STOP, _REQUEST_WORDS)
+                supported = {row for row, _ in translated}
+                # Preserve already grounded or same-language hits and their order.
+                kept = [(int(rows[i]), float(scores[i])) for i in order if rows[i] not in suspect or rows[i] in supported]
+                used = {row for row, _ in kept}
+                # The fallback score is a cosine; its scale differs from the hybrid score.
+                ceiling = kept[-1][1] if kept else float("inf")
+                ranked = kept + [(row, min(score, ceiling)) for row, score in translated if row not in used]
+                return [(self.ids[row], score) for row, score in ranked[:limit]]
         return [(self.ids[rows[i]], float(scores[i])) for i in order]
