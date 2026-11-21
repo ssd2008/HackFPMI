@@ -1,4 +1,6 @@
+from dataclasses import replace
 import unittest
+from unittest.mock import Mock
 
 import numpy as np
 
@@ -17,6 +19,15 @@ class SparseScoring(unittest.TestCase):
             with self.subTest(query=query):
                 _, phrases = _extract_phrases(query)
                 self.assertEqual(phrases[0].matches(corpus), found)
+
+    def test_long_unrelated_text_skips_the_inflected_regex(self):
+        _, phrases = _extract_phrases("Письмо о «Северном маяке»")
+        regex = Mock(wraps=phrases[0].inflected)
+        phrase = replace(phrases[0], inflected=regex)
+        self.assertFalse(phrase.matches("другой маяк. " * 1000))
+        regex.finditer.assert_not_called()
+        self.assertTrue(phrase.matches("другой маяк. " * 1000 + "северный маяк открыт"))
+        regex.finditer.assert_called_once()
 
     def test_nautical_terms_retain_the_action_and_identify_its_context(self):
         document = _features(_words("Судозаход зарегистрирован, буксир ошвартован."))

@@ -198,11 +198,14 @@ class QuotedPhrase:
     exact: re.Pattern
     title_stems: tuple[str, ...]
     inflected: re.Pattern | None
+    inflected_anchor: str
 
     def matches(self, text: str) -> bool:
         if self.literal in text and self.exact.search(text):
             return True
-        if self.inflected:
+        # Every inflected match contains every escaped stem as a literal
+        # substring. Skip the regex scan when its longest literal is absent.
+        if self.inflected and self.inflected_anchor in text:
             for match in self.inflected.finditer(text):
                 if tuple(_stem(word) for word in match[0].split()) == self.title_stems:
                     return True
@@ -229,7 +232,8 @@ def _extract_phrases(query: str) -> tuple[str, list[QuotedPhrase]]:
                 stems = tuple(_stem(word) for word in phrase.split())
                 pattern = r"\s+".join(re.escape(stem) + "[а-я]*" for stem in stems)
                 inflected = re.compile(r"(?<!\w)" + pattern + r"(?!\w)")
-            phrases.append(QuotedPhrase(phrase, re.compile(left + re.escape(phrase) + right), stems, inflected))
+            phrases.append(QuotedPhrase(phrase, re.compile(left + re.escape(phrase) + right), stems, inflected,
+                                        max(stems, key=len, default="")))
         return " "
 
     return _QUOTED.sub(extract, query), phrases
