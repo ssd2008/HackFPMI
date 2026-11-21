@@ -16,6 +16,7 @@ import snowballstemmer
 
 from .dates import parse_date_scope
 from .dense import DenseIndex
+from .scoring import semantic_lexical_scale
 from .spelling import CorpusSpelling
 from .fields import MailFields, only_field_request
 
@@ -596,7 +597,11 @@ class SearchEngine:
             order = np.argsort(-self.dates[rows], kind="stable")[:limit]
             return [(self.ids[rows[i]], 1.0) for i in order]
 
-        terms = " ".join(w for w in words if _stem(w) not in _REQUEST_WORDS)
+        lexical_scale = None
+        if not scope.bounded and not phrases and not identifiers:
+            lexical_scale = semantic_lexical_scale(text)
+        # Natural questions retain casing, punctuation and their original phrasing for E5.
+        terms = text if lexical_scale is not None else " ".join(w for w in words if _stem(w) not in _REQUEST_WORDS)
         vector = self.dense.query(terms)
         # Mailbox rows preserve corpus order through all scope filters. A single
         # contiguous interval can use the mapped matrix directly without a copy.
@@ -606,11 +611,17 @@ class SearchEngine:
         lexical, coverage = self.lexical.score(features, rows)
         semantic = np.clip((cosine - 0.74) / 0.17, 0, 1.25)
         lexical_weight = 0.25 + 0.30 * float(coverage.max())
-        scores = lexical_weight * lexical + (1 - lexical_weight) * semantic
-        shortlist = np.argsort(-scores, kind="stable")[:max(128, limit)]
-        scores[shortlist] += 0.28 * self.lexical.proximity(features, rows[shortlist])
+        evidence = lexical_weight * lexical + (1 - lexical_weight) * semantic
+        if lexical_scale is not None:
+            # Dense scores of two good answers often differ by just a few hundredths.
+            # Keep that contrast; close words alone are weak evidence of an answer.
+            scores = (cosine - 0.74 + lexical_scale * lexical) / (0.17 + lexical_scale)
+        else:
+            shortlist = np.argsort(-evidence, kind="stable")[:max(128, limit)]
+            evidence[shortlist] += 0.28 * self.lexical.proximity(features, rows[shortlist])
+            scores = evidence
         # Keep paraphrases without shared words when their semantic signal is strong.
-        plausible = ((coverage > 0) & (scores >= 0.22)) | (cosine >= 0.835)
+        plausible = ((coverage > 0) & (evidence >= 0.22)) | (cosine >= 0.835)
         distinct = set(features)
         unknown = distinct.difference(self.lexical.vocabulary)
         if not phrases and len(unknown) >= 2 and len(unknown) * 2 >= len(distinct):
