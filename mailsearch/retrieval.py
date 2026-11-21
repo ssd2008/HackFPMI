@@ -151,14 +151,19 @@ class SearchEngine:
         self.dense = encoder.memory_index(documents) if encoder is not None else DenseIndex(documents, Path(cache_dir))
 
     def search(
-        self, synthetic_user: str, query: str, query_date: date, limit: int = 10
+        self, synthetic_user: str, query: str, query_date: date, limit: int = 10,
+        *, date_from: date | None = None, date_to: date | None = None,
     ) -> list[tuple[str, float]]:
         box = self.boxes.get(synthetic_user)
         if box is None or limit < 1 or not query.strip():
             return []
         scope = parse_date_scope(query, query_date)
         dates = self.dates[box]
-        available = dates <= query_date.toordinal()
+        available = dates <= (date_to or query_date).toordinal()
+        if date_from is not None:
+            available &= dates >= date_from.toordinal()
+        if date_to is not None:
+            available &= dates > 0
         if scope.bounded:
             available &= dates > 0
             if scope.start:

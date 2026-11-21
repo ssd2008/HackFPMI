@@ -120,13 +120,20 @@ class MailQuery(BaseModel):
     query: str = Field(min_length=1, max_length=1000)
 
 
-class SearchRequest(MailQuery):
+class RangedMailQuery(MailQuery):
+    date_from: Date | None = None
+    date_to: Date | None = None
+
+
+class SearchRequest(RangedMailQuery):
     limit: int = Field(default=10, ge=1, le=100)
 
 
 class ActionsRequest(BaseModel):
     mailbox: str = Field(min_length=1, max_length=128)
     date: Date
+    date_from: Date | None = None
+    date_to: Date | None = None
     offset: int = Field(default=0, ge=0)
     limit: int = Field(default=25, ge=1, le=100)
     marked: list[str] = Field(default_factory=list)
@@ -148,13 +155,25 @@ def checked_store(http: Request, mailbox: str) -> MailStore:
     raise HTTPException(404, "Почтовый ящик не найден")
 
 
-def ranked(request: MailQuery, limit: int, store: MailStore) -> list[tuple[str, float]]:
+def iso_date_range(date_from: Date | None, date_to: Date | None) -> dict[str, str]:
+    return {
+        key: value.isoformat()
+        for key, value in (("date_from", date_from), ("date_to", date_to))
+        if value is not None
+    }
+
+
+def ranked(request: RangedMailQuery, limit: int, store: MailStore) -> list[tuple[str, float]]:
     at = request.date.isoformat()
+    date_from, date_to = request.date_from, request.date_to
     if isinstance(store, VisitorInbox):
-        hits = store.rank(request.query, request.date, limit)
+        hits = store.rank(request.query, request.date, limit, date_from=date_from, date_to=date_to)
     else:
-        hits = app.state.search_engine.search(request.mailbox, request.query, request.date, limit)
-    return [(doc_id, float(score)) for doc_id, score in hits if store.visible(request.mailbox, at, doc_id)]
+        hits = app.state.search_engine.search(
+            request.mailbox, request.query, request.date, limit, date_from=date_from, date_to=date_to
+        )
+    bounds = iso_date_range(date_from, date_to)
+    return [(doc_id, float(score)) for doc_id, score in hits if store.visible(request.mailbox, at, doc_id, **bounds)]
 
 
 @app.get("/", include_in_schema=False)
@@ -175,19 +194,28 @@ def mailboxes(http: Request):
 
 
 @app.get("/api/inbox")
-def inbox(http: Request, mailbox: str, date: Date, offset: int = Query(0, ge=0), limit: int = Query(25, ge=1, le=100)):
-    return checked_store(http, mailbox).inbox(mailbox, date.isoformat(), offset, limit)
+def inbox(http: Request, mailbox: str, date: Date, offset: int = Query(0, ge=0), limit: int = Query(25, ge=1, le=100),
+          date_from: Date | None = None, date_to: Date | None = None):
+    return checked_store(http, mailbox).inbox(
+        mailbox, date.isoformat(), offset, limit, **iso_date_range(date_from, date_to)
+    )
 
 
 @app.get("/api/actions")
-def actions(http: Request, mailbox: str, date: Date, offset: int = Query(0, ge=0), limit: int = Query(25, ge=1, le=100)):
-    return checked_store(http, mailbox).action_inbox(mailbox, date, offset, limit)
+def actions(http: Request, mailbox: str, date: Date, offset: int = Query(0, ge=0), limit: int = Query(25, ge=1, le=100),
+            date_from: Date | None = None, date_to: Date | None = None):
+    return checked_store(http, mailbox).action_inbox(
+        mailbox, date, offset, limit, **iso_date_range(date_from, date_to)
+    )
 
 
 @app.post("/api/actions")
 def marked_actions(http: Request, request: ActionsRequest):
     store = checked_store(http, request.mailbox)
-    return store.action_inbox(request.mailbox, request.date, request.offset, request.limit, request.marked)
+    return store.action_inbox(
+        request.mailbox, request.date, request.offset, request.limit, request.marked,
+        **iso_date_range(request.date_from, request.date_to),
+    )
 
 
 @app.get("/api/reminder-candidates")
@@ -226,7 +254,7 @@ def search(http: Request, request: SearchRequest):
 
 
 @app.post("/api/answer")
-def answer(http: Request, request: MailQuery):
+def answer(http: Request, request: RangedMailQuery):
     from .generation import answer_question
 
     store = checked_store(http, request.mailbox)

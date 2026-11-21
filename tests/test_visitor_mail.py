@@ -149,6 +149,8 @@ class VisitorTests(unittest.TestCase):
         self.assertEqual(hits[0]["subject"], "Обсерватория")
         self.assertEqual(self.local.post("/api/search", json={**query, "date": "2026-01-01"},
                                          headers=headers).json()["items"], [])
+        self.assertEqual(self.local.post("/api/search", json={**query, "date_from": DATE},
+                                         headers=headers).json()["items"], [])
         answer = self.local.post("/api/answer", json=query, headers=headers).json()
         self.assertIn("129", answer["answer"])
         self.assertEqual([s["id"] for s in answer["sources"]], [hits[0]["id"]])
@@ -216,6 +218,14 @@ class VisitorTests(unittest.TestCase):
         result = self.remote.post("/api/visitor/accounts", headers={**origin, **headers, **EDIT}, json=bad)
         self.assertEqual(result.status_code, 422)
         self.assertNotIn("do-not-echo", result.text)
+        with patch.object(transport.imaplib, "IMAP4_SSL", side_effect=TimeoutError("do-not-echo")):
+            with self.assertLogs("mailsearch.mail_transport", "WARNING") as logs:
+                unavailable = self.remote.post("/api/visitor/accounts", headers={**origin, **headers, **EDIT},
+                                               json={**bad, "address": "Reader@example.test"})
+        self.assertEqual(unavailable.status_code, 424)
+        self.assertEqual(unavailable.headers["access-control-allow-origin"], ORIGIN)
+        self.assertNotIn("do-not-echo", unavailable.text)
+        self.assertEqual(logs.output, ["WARNING:mailsearch.mail_transport:IMAP provider=gmail stage=connect error=TimeoutError"])
         for _ in range(6):
             wrong = self.connect(headers, "do-not-echo")
             self.assertEqual(wrong.status_code, 403)

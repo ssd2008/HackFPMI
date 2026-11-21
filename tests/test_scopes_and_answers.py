@@ -58,6 +58,28 @@ class ScopeAndAnswerTests(unittest.TestCase):
         self.assertTrue(all(r["date"] is None for r in inbox["items"]))
         self.assertEqual(api("/api/mail/" + doc["doc_id"], params=context)["body"], doc["doc"])
         self.assertEqual(api("/api/search", post={**context, "query": "Какие письма пришли вчера?"})["items"], [])
+        self.assertEqual(api("/api/inbox", params={**context, "date_to": context["date"]})["total"], 0)
+
+    def test_receipt_date_range_limits_inbox_search_and_answer(self):
+        matching = {"mailbox": "box-f9410417c091", "date": "2027-12-19",
+                    "date_from": "2027-12-19", "date_to": "2027-12-19"}
+        expected = [d for d in self.docs if d["synthetic_user"] == matching["mailbox"] and
+                    d["doc_dt"] == matching["date"]]
+        self.assertGreater(len(expected), 0)
+        inbox = api("/api/inbox", params=matching)
+        self.assertEqual(inbox["total"], len(expected))
+        self.assertTrue(all(item["date"] == matching["date"] for item in inbox["items"]))
+        query = {"query": "Какова сумма заказа SYN-077f40913b?"}
+        hits = api("/api/search", post={**matching, **query})["items"]
+        self.assertTrue(hits)
+        self.assertTrue(all(hit["date"] == matching["date"] for hit in hits))
+        actions = api("/api/actions", params=matching)
+        self.assertIn(hits[0]["id"], {item["id"] for item in actions["items"]})
+        day_before = {**matching, "date_from": "2027-12-18", "date_to": "2027-12-18"}
+        marked = api("/api/actions", post={**day_before, "marked": [hits[0]["id"]]})
+        self.assertNotIn(hits[0]["id"], {item["id"] for item in marked["items"]})
+        self.assertEqual(api("/api/search", post={**day_before, **query})["items"], [])
+        self.assertEqual(api("/api/answer", post={**day_before, **query})["sources"], [])
 
     def test_rag_answers_amount_and_cites_the_original(self):
         context = {"mailbox": "box-f9410417c091", "date": "2027-12-19"}

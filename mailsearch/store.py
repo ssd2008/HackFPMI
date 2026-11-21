@@ -112,6 +112,12 @@ def make_examples(ordered: list[dict], summaries: dict[str, dict]) -> list[dict]
     return examples
 
 
+def _within_dates(value: str | None, at: str, date_from: str | None, date_to: str | None) -> bool:
+    if value is None:
+        return date_from is None and date_to is None
+    return (date_from is None or value >= date_from) and value <= (date_to or at)
+
+
 class MailStore:
     def __init__(self, documents: list[dict], *, empty_mailbox: str | None = None):
         self.by_id = {row["doc_id"]: row for row in documents}
@@ -140,16 +146,16 @@ class MailStore:
         if not self.mailboxes:
             raise ValueError("Корпус пуст")
 
-    def visible(self, box: str, at: str, doc_id: str) -> bool:
+    def visible(self, box: str, at: str, doc_id: str, *, date_from=None, date_to=None) -> bool:
         row = self.by_id.get(doc_id)
-        return bool(row and row["synthetic_user"] == box and (row["doc_dt"] is None or row["doc_dt"] <= at))
+        return bool(row and row["synthetic_user"] == box and _within_dates(row["doc_dt"], at, date_from, date_to))
 
-    def inbox(self, box: str, at: str, offset: int, limit: int) -> dict:
-        rows = [row for row in self.boxes[box] if row["doc_dt"] is None or row["doc_dt"] <= at]
+    def inbox(self, box: str, at: str, offset: int, limit: int, *, date_from=None, date_to=None) -> dict:
+        rows = [row for row in self.boxes[box] if _within_dates(row["doc_dt"], at, date_from, date_to)]
         return {"items": [self.summaries[row["doc_id"]] for row in rows[offset:offset + limit]],
                 "total": len(rows), "offset": offset, "limit": limit}
 
-    def action_inbox(self, box: str, at: date, offset: int, limit: int, marked=()) -> dict:
+    def action_inbox(self, box: str, at: date, offset: int, limit: int, marked=(), *, date_from=None, date_to=None) -> dict:
         cutoff = at.isoformat()
         marks = set(marked)
         items = []
@@ -158,7 +164,7 @@ class MailStore:
             doc_id = row["doc_id"]
             action = self.actions_by_id.get(doc_id)
             manual = doc_id in marks
-            if (action is None and not manual) or not self.visible(box, cutoff, doc_id):
+            if (action is None and not manual) or not _within_dates(row["doc_dt"], cutoff, date_from, date_to):
                 continue
             item = {**self.summaries[doc_id], "evidence": action.evidence if action else None,
                     "deadline": action.deadline if action else None,

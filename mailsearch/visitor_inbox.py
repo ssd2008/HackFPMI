@@ -17,7 +17,7 @@ class VisitorInbox(MailStore):
         self.index_lock = index_lock
         self.engine = None
 
-    def rank(self, query, at, limit):
+    def rank(self, query, at, limit, *, date_from=None, date_to=None):
         if not self.rows:
             return []
         if self.engine is None:
@@ -27,4 +27,4 @@ class VisitorInbox(MailStore):
 
                     with _INDEX_BUILDS:
                         self.engine = SearchEngine(self.rows, None, encoder=self.encoder)
-        return self.engine.search(self.mailbox, query, at, limit)
+        return self.engine.search(self.mailbox, query, at, limit, date_from=date_from, date_to=date_to)

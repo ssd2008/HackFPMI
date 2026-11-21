@@ -29,6 +29,13 @@
           <kbd aria-hidden="true" title="Быстрый переход к поиску">/</kbd>
         </label>
         <button type="submit" id="search-button" class="primary" disabled>Найти</button>
+        <details class="search-help" id="search-help">
+          <summary class="icon-button" aria-label="Что умеет поиск?" title="Что умеет поиск?">?</summary>
+          <div class="filter-popover">
+            <p id="search-description">Ищите по теме, отправителю и содержимому. Можно описать письмо своими словами или указать время, например «чек за вчера».</p>
+            <div id="examples" class="examples" aria-label="Примеры поиска" hidden></div>
+          </div>
+        </details>
       </form>
       <div class="topbar-actions">
         <span class="demo-label" id="demo-label" hidden title="Вымышленные письма для проверки интерфейса">
@@ -66,15 +73,6 @@
         <select id="mobile-box-select" disabled><option>Почтовый ящик</option></select>
         <svg class="icon select-chevron" aria-hidden="true"><use href="./static/icons.svg#chevron-down"></use></svg>
       </label>
-      <details class="quick-search" id="quick-search" open>
-        <summary>
-          <svg class="icon" aria-hidden="true"><use href="./static/icons.svg#sparkle"></use></svg>
-          <span>Умный поиск</span>
-          <svg class="icon quick-chevron" aria-hidden="true"><use href="./static/icons.svg#chevron-down"></use></svg>
-        </summary>
-        <p id="search-description">Опишите, что помните о письме, своими словами.</p>
-        <div id="examples" class="examples" aria-label="Примеры поиска" hidden></div>
-      </details>
       <div class="sidebar-footer">
         <button id="leave-demo" type="button" class="text-action" hidden>Подключиться к API</button>
       </div>
@@ -91,12 +89,21 @@
             <svg class="icon" aria-hidden="true"><use href="./static/icons.svg#inbox"></use></svg>
             <span>Во входящие</span>
           </button>
-          <label class="date-surface" title="«Вчера» и другие периоды отсчитываются от этой даты">
-            <svg class="icon" aria-hidden="true"><use href="./static/icons.svg#calendar"></use></svg>
-            <span id="date-readable">Дата запроса</span>
-            <svg class="icon date-chevron" aria-hidden="true"><use href="./static/icons.svg#chevron-down"></use></svg>
-            <input id="asof-date" type="date" aria-label="Дата запроса" required disabled>
-          </label>
+          <details class="date-filter" id="date-filter" hidden>
+            <summary class="secondary">
+              <svg class="icon" aria-hidden="true"><use href="./static/icons.svg#calendar"></use></svg>
+              <span id="date-readable">Период</span>
+            </summary>
+            <form class="filter-popover" id="date-filter-form" aria-label="Период получения писем">
+              <label>От <input id="date-from" type="date" max="9999-12-31"></label>
+              <label>До <input id="date-to" type="date" max="9999-12-31"></label>
+              <p class="filter-hint">Если указать «До», поиск отсчитает «вчера» от этой даты.</p>
+              <div class="date-filter-actions">
+                <button type="button" class="text-action" id="date-clear">Сбросить</button>
+                <button type="submit" class="primary">Применить</button>
+              </div>
+            </form>
+          </details>
         </div>
       </div>
       <p id="query-notice" class="query-notice" hidden></p>

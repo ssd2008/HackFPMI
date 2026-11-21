@@ -210,7 +210,8 @@ class Visitors:
                         session.failures.append(self.clock())
                 raise VisitorError(403, "Проверьте пароль приложения и разрешение на чтение почты по IMAP.") from None
             except transport.TransportError:
-                raise VisitorError(502, "Не удалось связаться с сервером входящей почты.") from None
+                # The public tunnel can replace a 502 with an HTML page without CORS headers.
+                raise VisitorError(424, "Сервер демо не смог подключиться к входящей почте по IMAP.") from None
             except Exception:
                 raise VisitorError(502, "Не удалось проверить подключение к почте.") from None
             with self.lock:
