@@ -154,6 +154,7 @@ curl -fsS https://ssd2008.github.io/HackFPMI-demo/version.txt
 | --- | --- |
 | `GET /api/mailboxes` | Список ящиков, даты и примеры. |
 | `GET /api/inbox?mailbox=…&date=YYYY-MM-DD&offset=0&limit=25` | Страница входящих на заданный день. |
+| `GET /api/actions?mailbox=…&date=YYYY-MM-DD&offset=0&limit=25` | Письма с просьбами, найденными по правилам. У каждого результата есть `evidence` и опциональные `deadline` и `deadline_time`. Поле `urgent` содержит до трёх ближайших сроков на дату среза и следующий день. |
 | `GET /api/mail/{doc_id}?mailbox=…&date=YYYY-MM-DD` | Оригинал письма. Недоступное по ящику или дате письмо даёт 404. |
 | `POST /api/search` | JSON с полями `mailbox`, `date`, `query`, `limit` от 1 до 100. В ответе ранжированный список `items`. |
 | `POST /api/answer` | Те же ящик, дата и запрос. В ответе `answer`, упорядоченные `sources`, а также `mode` со значением `generative`, `extractive` или `no_evidence`. |

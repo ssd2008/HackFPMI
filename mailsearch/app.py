@@ -106,6 +106,11 @@ def inbox(mailbox: str, date: Date, offset: int = Query(0, ge=0), limit: int = Q
     return checked_store(mailbox).inbox(mailbox, date.isoformat(), offset, limit)
 
 
+@app.get("/api/actions")
+def actions(mailbox: str, date: Date, offset: int = Query(0, ge=0), limit: int = Query(25, ge=1, le=100)):
+    return checked_store(mailbox).action_inbox(mailbox, date, offset, limit)
+
+
 @app.get("/api/mail/{doc_id}")
 def message(doc_id: str, mailbox: str, date: Date):
     store = checked_store(mailbox)
