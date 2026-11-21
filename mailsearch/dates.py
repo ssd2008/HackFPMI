@@ -45,6 +45,11 @@ _MAIL_CONTEXT = re.compile(
     r"(?:мне|нам|я|мы)\s+(?:приш[а-я]*|получи[а-я]*)|отправител[а-я]*|почт[аеуы]|"
     r"e-?mails?|messages?|letters?|inbox)\b"
 )
+_AMOUNT = re.compile(r"\b(?:сумм[а-я]*|сколько|стоимост[а-я]*|денег|amount|how much)\b")
+_BILLING_ACTION = re.compile(
+    r"\b(?:выстав(?:ил|лен)[а-я]*|начисл[а-я]*|списа(?:л|н)[а-я]*|зачисл[а-я]*|"
+    r"удержа(?:л|н)[а-я]*|billed|invoiced|debited|credited)\b"
+)
 _RELATIVE_RECEIPT = re.compile(
     r"\b(?:(?:позавчера|вчера|сегодня)(?:шн[а-я]*)?|"
     r"(?:за|на|в)\s+(?:(?:последн|прошл|минувш)[а-я]*|период)|"
@@ -135,7 +140,8 @@ def parse_date_scope(query: str, reference: date) -> DateScope:
         # A year in "Who won the championship in 2012?" identifies the subject.
         # "Which messages arrived in 2012?" asks about the mailbox timeline.
         if (_FACT_QUESTION.match(text) and _ABSOLUTE_DATE_HINT.search(text)
-                and not _MAIL_CONTEXT.search(text) and not _RELATIVE_RECEIPT.search(text)):
+                and not _MAIL_CONTEXT.search(text) and not _RELATIVE_RECEIPT.search(text)
+                and not (_AMOUNT.search(text) and _BILLING_ACTION.search(text))):
             return DateScope(original)
 
         match = re.search(rf"\bс\s+(\d{{1,2}})\s+(?:по|до)\s+({_WORD_DATE})(?!\w)", text)

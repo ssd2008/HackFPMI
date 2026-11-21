@@ -25,6 +25,7 @@ class ReceiptDates(unittest.TestCase):
             ("Which emails did I receive before today?", None, date(2025, 1, 7)),
             ("What happened at the meeting on 2025-01-06?", None, None),
             ("Какая сборная выиграла чемпионат в 2012 году?", None, None),
+            ("Какую сумму в 2023 году списали за обслуживание?", date(2023, 1, 1), date(2023, 12, 31)),
             ("Какие чертежи из вчерашней подборки?", date(2025, 1, 7), date(2025, 1, 7)),
             ("Какие отчёты за прошлую календарную неделю?", date(2024, 12, 30), date(2025, 1, 5)),
             ("Кто получил Нобелевскую премию в 2012 году?", None, None),
