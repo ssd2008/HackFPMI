@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="./static/style.css">
   <script src="./static/demo.js" defer></script>
   <script src="./static/personal.js" defer></script>
+  <script src="./static/local.js" defer></script>
   <script src="./static/app.js" defer></script>
 </head>
 <body>
@@ -42,6 +43,14 @@
     </header>
 
     <aside class="sidebar" aria-label="Навигация по почте">
+      <div class="local-controls" id="local-controls" hidden>
+        <button type="button" class="primary" id="compose-open" aria-haspopup="dialog">
+          <svg class="icon" aria-hidden="true"><use href="./static/icons.svg#compose"></use></svg>Написать
+        </button>
+        <a href="#accounts" class="secondary" id="accounts-open" aria-haspopup="dialog">
+          <svg class="icon" aria-hidden="true"><use href="./static/icons.svg#user"></use></svg>Аккаунты
+        </a>
+      </div>
       <div class="nav-group">
         <button type="button" class="nav-inbox" id="nav-inbox" aria-current="page" disabled>
           <svg class="icon" aria-hidden="true"><use href="./static/icons.svg#inbox"></use></svg>
@@ -177,6 +186,69 @@
       <div class="reader-content" id="reader-content">
         <h2 id="reader-heading">Письмо</h2>
       </div>
+    </div>
+  </dialog>
+  <dialog id="compose-dialog" class="mail-dialog" aria-labelledby="compose-heading">
+    <div class="mail-dialog-head">
+      <h2 id="compose-heading">Новое письмо</h2>
+      <button type="button" class="icon-button" id="compose-close" aria-label="Закрыть черновик">
+        <svg class="icon" aria-hidden="true"><use href="./static/icons.svg#close"></use></svg>
+      </button>
+    </div>
+    <form id="compose-form" class="compose-form">
+      <div class="compose-fields">
+        <div class="compose-line"><label for="compose-from">От</label><select id="compose-from" required></select></div>
+        <div class="compose-line"><label for="compose-to">Кому</label><input id="compose-to" type="email" multiple required autocomplete="off" placeholder="Адреса через запятую"></div>
+        <div class="compose-line"><label for="compose-subject">Тема</label><input id="compose-subject" type="text" autocomplete="off" placeholder="Тема письма"></div>
+        <label class="sr-only" for="compose-body">Текст письма</label>
+        <textarea id="compose-body" rows="8" placeholder="Текст письма"></textarea>
+      </div>
+      <div id="compose-account-note" class="mail-inline-note" hidden>
+        <span id="compose-account-hint"></span>
+        <button id="compose-connect" type="button" class="text-action" aria-haspopup="dialog">Подключить почту</button>
+      </div>
+      <p id="compose-feedback" class="mail-feedback" role="status" hidden></p>
+      <div id="compose-review" class="compose-review" hidden>
+        <p id="compose-review-hint"></p>
+        <label><input type="checkbox" id="compose-checked">В папке «Отправленные» этого письма нет</label>
+      </div>
+      <div class="mail-dialog-footer">
+        <a class="text-action compose-external" id="compose-external" aria-disabled="true" tabindex="-1" rel="noreferrer">Открыть в почтовой программе</a>
+        <button type="button" class="text-action" id="compose-manage" aria-haspopup="dialog">Аккаунты</button>
+        <button id="compose-send" class="primary" type="submit">
+          <svg class="icon" aria-hidden="true"><use href="./static/icons.svg#send"></use></svg><span>Отправить</span>
+        </button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="accounts-dialog" class="mail-dialog" aria-labelledby="accounts-heading">
+    <div class="mail-dialog-head">
+      <h2 id="accounts-heading">Почтовые аккаунты</h2>
+      <button type="button" class="icon-button" id="accounts-close" aria-label="Закрыть настройки почты">
+        <svg class="icon" aria-hidden="true"><use href="./static/icons.svg#close"></use></svg>
+      </button>
+    </div>
+    <div class="accounts-content">
+      <p id="accounts-frequency" class="account-caption" hidden></p>
+      <div id="accounts-list" aria-live="polite"></div>
+      <div class="accounts-load-error" id="accounts-load-error" hidden>
+        <p id="accounts-error-text" class="mail-feedback" role="status"></p>
+        <button type="button" id="accounts-retry" class="text-action">Обновить список</button>
+      </div>
+      <details id="account-add" class="account-add">
+        <summary><svg class="icon" aria-hidden="true"><use href="./static/icons.svg#plus"></use></svg>Подключить аккаунт</summary>
+        <form id="account-form" autocomplete="off">
+          <label>Почтовый сервис<select id="account-provider">
+            <option value="gmail">Gmail</option><option value="yandex">Яндекс.Почта</option>
+          </select></label>
+          <label>Адрес почты<input type="email" id="account-address" required autocomplete="off" autocapitalize="none" spellcheck="false"></label>
+          <label>Пароль приложения<input type="password" id="account-password" required autocomplete="off" aria-describedby="account-password-help"></label>
+          <p class="account-caption" id="account-password-help">Создайте отдельный пароль для почты. <a id="account-password-link" href="https://myaccount.google.com/apppasswords" target="_blank" rel="noopener noreferrer">Пароли приложений Google</a></p>
+          <button type="submit" id="account-connect" class="primary">Подключить</button>
+        </form>
+      </details>
+      <p id="accounts-feedback" class="mail-feedback" role="status" hidden></p>
     </div>
   </dialog>
   <div class="sr-only" role="status" aria-live="polite" id="announce"></div>

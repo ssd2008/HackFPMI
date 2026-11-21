@@ -340,5 +340,5 @@ const personal = (() => {
     setInterval(tick, 5000);
   }
 
-  return {init, markedIds, contextChanged, mailControls};
+  return {init, markedIds, contextChanged, mailControls, toast};
 })();

@@ -129,7 +129,7 @@ function populateMailboxes() {
   state.boxes.forEach(box => {
     const button = action('', 'box-button', () => openMailbox(box.id));
     button.dataset.id = box.id;
-    button.title = box.name + ' · ' + box.id + ' · ' + mailCount(box.count);
+    button.title = box.name + (box.label ? '' : ' · ' + box.id) + ' · ' + mailCount(box.count);
     button.setAttribute('aria-label', box.name + ', ' + mailCount(box.count));
     button.append(icon('box'), node('span', 'box-name', box.name), node('span', 'box-count', numberFormat.format(box.count)));
     sidebar.append(button);
@@ -166,22 +166,29 @@ function renderExamples(box) {
     ui.examples.append(button);
   });
 }
+function showMailboxSelection(box) {
+  for (const button of ui.sidebar.children) {
+    if (button.dataset.id === box.id) button.setAttribute('aria-current', 'true');
+    else button.removeAttribute('aria-current');
+  }
+  ui.mobile.value = box.id;
+  const context = byId('page-context');
+  const detail = state.demo ? 'вымышленные письма' : box.label ? mailCount(box.count) : box.id;
+  context.textContent = box.name + ' · ' + detail;
+  context.hidden = false;
+}
 function openMailbox(id, initialDate) {
   const box = getBox(id);
   if (!box) return;
   closeReader();
   clearAnswer();
   state.mailbox = id;
-  const date = initialDate || state.lastDates.get(id) || box.latest_date || state.date;
-  setDate(date);
-  for (const button of ui.sidebar.children) {
-    if (button.dataset.id === id) button.setAttribute('aria-current', 'true');
-    else button.removeAttribute('aria-current');
-  }
-  ui.mobile.value = id;
-  const context = byId('page-context');
-  context.textContent = state.demo ? box.name + ' · вымышленные письма' : box.name + ' · ' + id;
-  context.hidden = false;
+  const isLive = localMail.enabled() && (box.kind === 'live' || localMail.hasAccount(id));
+  let defaultDate = initialDate || box.latest_date || state.date;
+  if (isLive) defaultDate = localMail.today();
+  else if (box.kind === 'archive' && box.latest_date) defaultDate = box.latest_date;
+  setDate(state.lastDates.get(id) || defaultDate);
+  showMailboxSelection(box);
   byId('nav-inbox').disabled = false;
   ui.actions.disabled = false;
   ui.date.disabled = false;
@@ -191,26 +198,41 @@ function openMailbox(id, initialDate) {
   showFolder(state.actionsOnly);
   window.scrollTo(0, 0);
 }
-async function loadMailboxes() {
+async function loadMailboxes({preserve = false} = {}) {
   const controller = start('boxes');
-  setListLoading('Открываем почтовый архив…');
+  if (!preserve) setListLoading('Открываем почтовый архив…');
   try {
     const data = await fetchJSON('/api/mailboxes', controller);
-    if (!current('boxes', controller)) return;
-    const sorted = [...data.mailboxes].sort((a, b) => a.id.localeCompare(b.id));
-    state.boxes = sorted.map((box, index) => ({
-      ...box, name: state.demo ? box.name : 'Ящик ' + String(index + 1).padStart(2, '0')
+    if (!current('boxes', controller)) return false;
+    const active = getBox(state.mailbox);
+    const local = data.local_mail === true && !state.demo && apiOrigin === location.origin && !apiConfig.hasAttribute('data-external');
+    const sorted = [...data.mailboxes].sort((a, b) => {
+      const namedFirst = local ? Number(Boolean(b.label)) - Number(Boolean(a.label)) : 0;
+      return namedFirst || a.id.localeCompare(b.id);
+    });
+    let anonymous = 0;
+    state.boxes = sorted.map(box => ({
+      ...box, name: state.demo ? box.name : box.label || 'Ящик ' + String(++anonymous).padStart(2, '0')
     }));
     populateMailboxes();
+    localMail.setEnabled(local);
     if (!sorted.length) {
+      state.mailbox = '';
       ui.list.setAttribute('aria-busy', 'false');
-      ui.list.replaceChildren(messageState('Ящиков пока нет', 'Корпус писем пуст.', 'archive'));
-      return;
+      ui.list.replaceChildren(messageState('Ящиков пока нет', local ? 'Подключите почтовый аккаунт.' : 'Корпус писем пуст.', 'archive'));
+      return true;
     }
-    const chosen = getBox(data.default_mailbox) || state.boxes[0];
-    openMailbox(chosen.id, data.default_date || chosen.latest_date);
+    const retained = preserve && getBox(state.mailbox);
+    if (retained) {
+      showMailboxSelection(retained);
+      if (active?.count !== retained.count && !state.query) loadFolder(state.offset);
+    } else {
+      const chosen = getBox(data.default_mailbox) || state.boxes[0];
+      openMailbox(chosen.id, data.default_date || chosen.latest_date);
+    }
+    return true;
   } catch (error) {
-    if (!current('boxes', controller)) return;
+    if (!current('boxes', controller) || preserve) return false;
     const detail = apiOrigin === location.origin
       ? 'Проверьте, что локальный сервер запущен.'
       : 'Сервер демо недоступен. Попробуйте ещё раз.';
@@ -218,6 +240,7 @@ async function loadMailboxes() {
     if (!state.demo) {
       ui.list.firstElementChild.append(action('Открыть демо', 'text-action', () => setDemoMode(true)));
     }
+    return false;
   }
 }
 function setMode() {
@@ -652,12 +675,13 @@ ui.reader.addEventListener('click', event => {
 ui.prev.addEventListener('click', () => changePage(-1));
 ui.next.addEventListener('click', () => changePage(1));
 document.addEventListener('keydown', event => {
-  if (event.key !== '/' || event.metaKey || event.ctrlKey || event.altKey || ui.reader.open || ui.input.disabled) return;
+  if (event.key !== '/' || event.metaKey || event.ctrlKey || event.altKey || document.querySelector('dialog[open]') || ui.input.disabled) return;
   if (event.target.closest('input, textarea, select, [contenteditable="true"]')) return;
   event.preventDefault();
   ui.input.focus();
 });
 function setDemoMode(enabled) {
+  localMail.setEnabled(false);
   closeReader();
   clearAnswer();
   cancel('list');
@@ -690,4 +714,5 @@ function setDemoMode(enabled) {
 }
 byId('leave-demo').addEventListener('click', () => setDemoMode(false));
 personal.init();
+localMail.init();
 setDemoMode(state.demo);
