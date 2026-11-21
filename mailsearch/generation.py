@@ -308,7 +308,11 @@ def _anchored_detail(query: str, documents: list[dict]) -> dict | None:
     if not (counted or date_requested or postal_requested or asks_value):
         return None
     terms = _terms(query)
-    requested_terms = _terms(question)
+    # A description of where to find the message can name neighboring table
+    # entries. Match a field label against the question preceding that locator.
+    focus = re.split(r"\b(?:в|из|по)\s+(?:письм|сообщени|уведомлени|документ|перечн|списк|отч[её]т)\w*\b",
+                     question, maxsplit=1, flags=re.I)[0]
+    requested_terms = _terms(focus)
     best = []
     for document in documents:
         for sentence in _sentences(document["doc"]):

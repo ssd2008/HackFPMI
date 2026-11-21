@@ -45,6 +45,14 @@ class FieldEvidenceTests(unittest.TestCase):
         self.assertNotIn("555", value["answer"])
         self.assertIn("Лесная 18", address["answer"])
 
+    def test_words_locating_a_table_do_not_select_the_neighboring_row(self):
+        inventory = letter("t", "Перечень: фарфор — 17; гипс — 40; шамот — 64.")
+        with patch.object(rag, "_generate", return_value=None):
+            reply = rag.answer_question("Какой номер присвоен шамоту в письме с перечнем фарфора и гипса?", [inventory])
+        self.assertEqual(reply["sources"], ["t"])
+        self.assertIn("64", reply["answer"])
+        self.assertNotIn("17", reply["answer"])
+
     def test_calendar_value_uses_the_event_and_preserves_a_second_question(self):
         a = letter("a", "Визит орнитолога назначен на 17 июня. Подача заявок открыта.")
         b = letter("b", "Дата отправки: 20 июня. Встреча фотографов назначена на 22 июня.")
