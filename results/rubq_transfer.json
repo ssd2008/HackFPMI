@@ -1,0 +1,104 @@
+{
+  "dataset": {
+    "source_revision": "fade3eae6a4807c35b19cfce20dfa805fc8c0cdf",
+    "engine_revisions": [
+      "5fe3f5d3739ac523d0b4088f15eef4b50391dd28",
+      "78979130983382e9ffadcac30aad15fba17c2e9b"
+    ],
+    "source_url": "https://github.com/vladislavneon/RuBQ/tree/fade3eae6a4807c35b19cfce20dfa805fc8c0cdf/RuBQ_2.0",
+    "annotation_paper": "https://openreview.net/pdf?id=P5UQFFoQ4PJ",
+    "source_license": "https://github.com/vladislavneon/RuBQ/blob/fade3eae6a4807c35b19cfce20dfa805fc8c0cdf/LICENSE.txt",
+    "raw_sha256": {
+      "RuBQ_2.0_paragraphs.json": "f91c2fd1d688b1d9f0f89f33c61d678c834e4e52ed9e1324bb76477374c5a6ab",
+      "RuBQ_2.0_test.json": "63d9e32a1bdefb2de713a9ccf3a0f9f0a4a48f2fdddd35b3908d6846b63dc85b"
+    },
+    "adapter_sha256": {
+      "documents.jsonl": "a7477747d97c05e4d67be59d42035009d28c1e54b5efc36fc1c9112c938ccda0",
+      "queries.jsonl": "31db2cd4c3d6f0eac4440d6f5e1d6d9f8525791e0cdbcce88fc9cf4b4a965f5b",
+      "qrels.jsonl": "112944d6f381e8378b90ab779283fe53b1e6a464f951ea5b2e514677fec3d58e",
+      "clusters.json": "3b9834a7a9971bb455b16a8d46f51989a40884332f209e77114866341a18c9ae"
+    },
+    "paragraphs": 56952,
+    "wikipedia_pages": 9105,
+    "official_test_questions": 2330,
+    "scored_questions": 1694,
+    "without_confirmed_passage_excluded": 636,
+    "positive_pairs": 2847,
+    "unique_scored_positive_passages": 2711,
+    "support_page_clusters": 1444,
+    "largest_cluster_questions": 10,
+    "question_policy": "All original Russian test questions with nonempty paragraphs_uids.with_answer. No subsampling.",
+    "qrels_policy": "Binary gain only for author-provided, crowd-verified with_answer IDs. Other IDs receive zero metric gain. No answer strings, SPARQL, related-ID lists or labels are supplied to the ranker.",
+    "corpus_policy": "Every official paragraph, in release order. Only original paragraph text, one synthetic mailbox, unknown receipt dates. Fixed query date 2020-12-15.",
+    "primary": "Macro nDCG@10, paired candidate minus baseline. Also macro known Recall@10, Hit@10, MRR@10 and counts of empty results for these positive questions.",
+    "bootstrap": {
+      "unit": "Transitive components of queries sharing a gold supporting Wikipedia page",
+      "estimator": "Query-weighted paired percentile interval for nDCG@10 delta",
+      "draws": 10000,
+      "seed": 20261121
+    }
+  },
+  "frozen_protocol_sha256": "6ee8e799afa00d38cfeb830678d240076e886a42156d7d26c715943a078c6482",
+  "entrypoint": "Unmodified SearchEngine.search in separate local processes; shared passage vectors, each release's own query encoder.",
+  "encoders": {
+    "baseline": {
+      "model": "intfloat/multilingual-e5-small",
+      "revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+      "query_model": "PyTorch fp32"
+    },
+    "candidate": {
+      "model": "intfloat/multilingual-e5-small",
+      "revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+      "query_model": "onnx/model_qint8_avx512_vnni.onnx"
+    }
+  },
+  "shared_passage_vectors_sha256": "caf7b3a2cbf109a8cc77076fe8c5d670d887fdff476a2e4d1630ec5575411bf8",
+  "cutoff": 10,
+  "metrics": {
+    "ndcg_at_10": {
+      "baseline": 0.56308349,
+      "candidate": 0.511841,
+      "delta": -0.05124249
+    },
+    "known_recall_at_10": {
+      "baseline": 0.72115731,
+      "candidate": 0.6710294,
+      "delta": -0.0501279
+    },
+    "hit_at_10": {
+      "baseline": 0.8175915,
+      "candidate": 0.76918536,
+      "delta": -0.04840614
+    },
+    "mrr_at_10": {
+      "baseline": 0.5654188,
+      "candidate": 0.51201275,
+      "delta": -0.05340605
+    }
+  },
+  "empty_lists_on_positive_queries": {
+    "baseline": 30,
+    "candidate": 69
+  },
+  "paired_ndcg_at_10": {
+    "positive_queries": 1694,
+    "positive_families": 1444,
+    "families_by_source": {
+      "rubq": 1444
+    },
+    "wins": 262,
+    "ties": 952,
+    "losses": 480,
+    "delta": -0.05124249,
+    "ci95": [
+      -0.06132395,
+      -0.04148676
+    ]
+  },
+  "limitations": [
+    "Russian encyclopedic fact questions do not measure personal-mail retrieval, access control, RAG generation, or a VK leaderboard score.",
+    "Only selected candidate passages were manually judged by RuBQ annotators. Additional valid passages in the corpus may have zero measured gain. No verified-empty tasks are available.",
+    "Wikipedia paragraphs lack receipt dates. Each engine retains its normal handling of mail queries, including dates and identifiers. Candidate literal-quotation rules also remain active.",
+    "Pretraining overlap of the shared E5 model with public Wikipedia/RuBQ content was not audited."
+  ]
+}

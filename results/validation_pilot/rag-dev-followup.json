@@ -1,0 +1,83 @@
+{
+  "scope": "Post-fix recheck of three already disclosed positive VK dev questions only. The unchanged first-pass scores remain in rag-after.json. This is not a new independent quality estimate.",
+  "method": "The live servers were not restarted. Ran the modified answer_question in an isolated process over the previously saved first five ranked original letters from the candidate. Qwen was loaded from its pinned local snapshot. All accepted sources and facts were checked against the frozen fixture and the original corpus.",
+  "sha256": {
+    "generation.py": "e670ece661ed5289ecd63bda5bc742533d5b86c5c8e5f192664fff06b4019300",
+    "test_rag_question_intent.py": "fc9ce24bcdb64f1f72c9928dc10a40c620b290e4b5c2bc4b3c63294e547fcf17",
+    "rag_facts.json": "96b5bceebe21d68164e12d2063cb4fe6ff42ef41bda1d48ef90860b2c958a4be",
+    "previous_rag_report": "900077d9266f73932a239c4fa7675f5c32b0b032f56dddc1aa449266d772390f",
+    "frozen_search_run": "ae0637cb3edc6a6b07b97a42050f04ee98b59dc85a96676c404e76a3b557af30",
+    "documents.jsonl": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5"
+  },
+  "known_item_dev_tasks": 3,
+  "previous_complete_supported_answers": 0,
+  "followup_complete_supported_answers": 3,
+  "followup_modes": {
+    "extractive": 2,
+    "generative": 1
+  },
+  "cases": [
+    {
+      "id": "vk-pilot-01",
+      "expected": "504.75, валюта в письме не указана",
+      "input_top_5": [
+        "L-d2db3bf9b0e8873699f7"
+      ],
+      "previous_mode": "no_evidence",
+      "previous_all_facts_cited": false,
+      "followup": {
+        "answer": "«Счёт от 20.08.2027 на 504.75.» [1].",
+        "sources": [
+          "L-d2db3bf9b0e8873699f7"
+        ],
+        "mode": "extractive"
+      },
+      "all_required_facts_cited": true,
+      "inspection": "Complete requested facts positively matched to the original, with no unsupported added claim."
+    },
+    {
+      "id": "vk-pilot-02",
+      "expected": "6655.17 RUB",
+      "input_top_5": [
+        "L-9822b31c1104f4365ef7",
+        "L-abd243cc06358559e095",
+        "L-4053031bcd8b2d9d70b4",
+        "L-264c7d72a2efa1e474fa",
+        "L-4f8c362899f97bb3f8f7"
+      ],
+      "previous_mode": "no_evidence",
+      "previous_all_facts_cited": false,
+      "followup": {
+        "answer": "Заказ на ударный гайковёрт с пневмоприводом и моментом 780 Нм стоит 6655.17 рублей [1].",
+        "sources": [
+          "L-9822b31c1104f4365ef7"
+        ],
+        "mode": "generative"
+      },
+      "all_required_facts_cited": true,
+      "inspection": "Complete requested facts positively matched to the original, with no unsupported added claim."
+    },
+    {
+      "id": "vk-pilot-03",
+      "expected": "457 возвратов. Для получения показать штрихкод.",
+      "input_top_5": [
+        "L-6a424bc0727869055ae7",
+        "L-1d757a7af1a30d3053c2",
+        "L-41060362bca6f66c6707",
+        "L-5ffa80eeb8c98f52d45d",
+        "L-536cbc7d3c7ae31483f4"
+      ],
+      "previous_mode": "extractive",
+      "previous_all_facts_cited": false,
+      "followup": {
+        "answer": "«Чтобы получить возвраты, покажите сотруднику точки штрихкод из приложения или личного кабинета: в разделе FBS/FBO Ксения Семеновна Николаева и FBO В пункте выдачи нажмите «Получить возвраты».» «Всего в точке выдачи ждут 457 возвратов.» [1].",
+        "sources": [
+          "L-6a424bc0727869055ae7"
+        ],
+        "mode": "extractive"
+      },
+      "all_required_facts_cited": true,
+      "inspection": "Complete requested facts positively matched to the original, with no unsupported added claim."
+    }
+  ]
+}

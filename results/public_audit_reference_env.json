@@ -1,0 +1,126 @@
+{
+  "study": "docs/vk_mail_search_analysis.md, sections 5.3, 8.3 and 9.6",
+  "corpus_sha256": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+  "libraries": {
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "scikit_learn": "1.8.0"
+  },
+  "reports_sha256": {
+    "before": "377a6b73930732f131d8e5ce53c3a7efeb832fdf6bb187de56e0dd07b8628115",
+    "after": "94173f0290a4c65b998de804afa8052f5744d96b63a53bc42a4238549bac3767"
+  },
+  "method": "Every ranker is evaluated on the same official binary qrels. Both character runs fit the same 3–5 character TF-IDF index to the full public corpus and retrieve inside the independently parsed mailbox and receipt day. Only the trailing explicit receipt clause is removed in the second run. The two application runs use their saved HTTP rankings.",
+  "slices": {
+    "all": {
+      "queries": 99,
+      "one_positive": 42,
+      "at_10": {
+        "original_mvp": {
+          "ndcg": 0.992764,
+          "recall": 0.937564,
+          "mrr_single": 1.0
+        },
+        "candidate": {
+          "ndcg": 0.999051,
+          "recall": 0.937564,
+          "mrr_single": 1.0
+        },
+        "date_only": {
+          "ndcg": 0.663316,
+          "recall": 0.655863,
+          "mrr_single": 0.80102
+        },
+        "char_full_query": {
+          "ndcg": 0.974603,
+          "recall": 0.9283,
+          "mrr_single": 0.97619
+        },
+        "char_without_received_clause": {
+          "ndcg": 0.981185,
+          "recall": 0.929218,
+          "mrr_single": 0.97619
+        }
+      }
+    },
+    "day_equals_positives": {
+      "queries": 49,
+      "one_positive": 33,
+      "at_10": {
+        "original_mvp": {
+          "ndcg": 1.0,
+          "recall": 0.945775,
+          "mrr_single": 1.0
+        },
+        "candidate": {
+          "ndcg": 1.0,
+          "recall": 0.945775,
+          "mrr_single": 1.0
+        },
+        "date_only": {
+          "ndcg": 1.0,
+          "recall": 0.945775,
+          "mrr_single": 1.0
+        },
+        "char_full_query": {
+          "ndcg": 1.0,
+          "recall": 0.945775,
+          "mrr_single": 1.0
+        },
+        "char_without_received_clause": {
+          "ndcg": 1.0,
+          "recall": 0.945775,
+          "mrr_single": 1.0
+        }
+      }
+    },
+    "content_required": {
+      "queries": 50,
+      "one_positive": 9,
+      "at_10": {
+        "original_mvp": {
+          "ndcg": 0.985673,
+          "recall": 0.929517,
+          "mrr_single": 1.0
+        },
+        "candidate": {
+          "ndcg": 0.998121,
+          "recall": 0.929517,
+          "mrr_single": 1.0
+        },
+        "date_only": {
+          "ndcg": 0.333366,
+          "recall": 0.371748,
+          "mrr_single": 0.071429
+        },
+        "char_full_query": {
+          "ndcg": 0.949714,
+          "recall": 0.911174,
+          "mrr_single": 0.888889
+        },
+        "char_without_received_clause": {
+          "ndcg": 0.962747,
+          "recall": 0.912992,
+          "mrr_single": 0.888889
+        }
+      }
+    }
+  },
+  "possible_missing_label": {
+    "query_id": "H-cf13f62178c5b81140c8",
+    "doc_id": "L-9df7d161164c1b561c24",
+    "judged_by_organizers": false,
+    "sensitivity": {
+      "original_mvp": {
+        "rank": 7,
+        "ndcg10_official": 0.55081,
+        "ndcg10_if_additional_positive": 0.58833
+      },
+      "candidate": {
+        "rank": 6,
+        "ndcg10_official": 1.0,
+        "ndcg10_if_additional_positive": 0.970929
+      }
+    }
+  }
+}

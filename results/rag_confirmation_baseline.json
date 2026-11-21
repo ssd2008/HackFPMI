@@ -1,0 +1,131 @@
+{
+  "corpus_sha256": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+  "server_corpus_check": "mailbox_counts_only",
+  "fixture_sha256": "3962c73ee0719ea5e166402d6dd81c645dffe08e4f82cb17c321344d81d2aa92",
+  "scope": "Small task-authored regression set with deterministic, predeclared facts. References must open in the same snapshot. Fact-pattern and source checks do not evaluate arbitrary generated claims.",
+  "summary": {
+    "answerable": 5,
+    "all_facts_with_expected_citation": 1,
+    "unwarranted_no_evidence": 1,
+    "insufficient": 2,
+    "explicit_no_evidence": 0,
+    "citations_on_answerable": 6,
+    "expected_source_citations_on_answerable": 2,
+    "required_facts": 7,
+    "required_facts_with_citation": 2,
+    "originals_opened_in_scope": 9,
+    "modes": {
+      "generative": 3,
+      "no_evidence": 1,
+      "extractive": 3
+    }
+  },
+  "cases": [
+    {
+      "id": "confirmation-01",
+      "answerable": true,
+      "mode": "generative",
+      "answer": "28.78 RUB [1].\n1230.22 RUB [2].",
+      "answer_http_ms": 5099.2,
+      "opened_source_ids": [
+        "L-d6bde3cf974ca12ee331",
+        "L-1536360b880b011d7a53"
+      ],
+      "citations": 2,
+      "citations_to_expected": 1,
+      "facts_expected": 1,
+      "facts_cited": 1,
+      "all_expected_facts_cited": false
+    },
+    {
+      "id": "confirmation-02",
+      "answerable": true,
+      "mode": "generative",
+      "answer": "На судне \"Сосновежск\" [1].",
+      "answer_http_ms": 1971.1,
+      "opened_source_ids": [
+        "L-16e3555eeed4f66535e9"
+      ],
+      "citations": 1,
+      "citations_to_expected": 1,
+      "facts_expected": 1,
+      "facts_cited": 1,
+      "all_expected_facts_cited": true
+    },
+    {
+      "id": "confirmation-03",
+      "answerable": true,
+      "mode": "generative",
+      "answer": "Документ можно скачать по ссылке в письме [1].",
+      "answer_http_ms": 2786.5,
+      "opened_source_ids": [
+        "L-aef1206621034b070e6f"
+      ],
+      "citations": 1,
+      "citations_to_expected": 0,
+      "facts_expected": 2,
+      "facts_cited": 0,
+      "all_expected_facts_cited": false
+    },
+    {
+      "id": "confirmation-04",
+      "answerable": true,
+      "mode": "no_evidence",
+      "answer": "В найденных письмах недостаточно сведений для ответа.",
+      "answer_http_ms": 7.9,
+      "opened_source_ids": [],
+      "citations": 0,
+      "citations_to_expected": 0,
+      "facts_expected": 2,
+      "facts_cited": 0,
+      "all_expected_facts_cited": false
+    },
+    {
+      "id": "confirmation-05",
+      "answerable": true,
+      "mode": "extractive",
+      "answer": "«Ошибка в модуле «Электронный рецепт».» [1].\n«Ошибка в модуле \"Электронный рецепт\".» [2].",
+      "answer_http_ms": 2889.3,
+      "opened_source_ids": [
+        "L-92b488ae47fd65ca333d",
+        "L-bad83bfebf1a9353fb76"
+      ],
+      "citations": 2,
+      "citations_to_expected": 0,
+      "facts_expected": 1,
+      "facts_cited": 0,
+      "all_expected_facts_cited": false
+    },
+    {
+      "id": "confirmation-06",
+      "answerable": false,
+      "mode": "extractive",
+      "answer": "«Чек подтверждает расчёт в «Северный меридиан».» [1].\n«Ваш чек + (1) подарок.» [2].",
+      "answer_http_ms": 1859.0,
+      "opened_source_ids": [
+        "L-aac61bf4cd22c3a6465d",
+        "L-106208d0e64ffc71e6c2"
+      ],
+      "citations": 2,
+      "citations_to_expected": 0,
+      "facts_expected": 0,
+      "facts_cited": 0,
+      "all_expected_facts_cited": false
+    },
+    {
+      "id": "confirmation-07",
+      "answerable": false,
+      "mode": "extractive",
+      "answer": "«Возврату SYN-05a4f96896 присвоен статус «В работе».» [1].",
+      "answer_http_ms": 1332.4,
+      "opened_source_ids": [
+        "L-c80d585ed970016ddee5"
+      ],
+      "citations": 1,
+      "citations_to_expected": 0,
+      "facts_expected": 0,
+      "facts_cited": 0,
+      "all_expected_facts_cited": false
+    }
+  ]
+}
