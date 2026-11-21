@@ -11,6 +11,7 @@ from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, ConfigDict, Field
 
+from .assistant import assist, watch_matches
 from .store import CACHE, DATA, ROOT, MailStore, load_corpus
 
 
@@ -77,6 +78,19 @@ class SearchRequest(MailQuery):
     limit: int = Field(default=10, ge=1, le=100)
 
 
+class ActionsRequest(BaseModel):
+    mailbox: str = Field(min_length=1, max_length=128)
+    date: Date
+    offset: int = Field(default=0, ge=0)
+    limit: int = Field(default=25, ge=1, le=100)
+    marked: list[str] = Field(default_factory=list)
+
+
+class WatchRequest(MailQuery):
+    after: Date
+    seen: list[str] = Field(default_factory=list)
+
+
 def checked_store(mailbox: str) -> MailStore:
     store: MailStore = app.state.store
     if mailbox not in store.boxes:
@@ -115,12 +129,35 @@ def actions(mailbox: str, date: Date, offset: int = Query(0, ge=0), limit: int =
     return checked_store(mailbox).action_inbox(mailbox, date, offset, limit)
 
 
+@app.post("/api/actions")
+def marked_actions(request: ActionsRequest):
+    store = checked_store(request.mailbox)
+    return store.action_inbox(request.mailbox, request.date, request.offset, request.limit, request.marked)
+
+
+@app.get("/api/reminder-candidates")
+def reminder_candidates(mailbox: str, date: Date):
+    return {"items": checked_store(mailbox).reminder_candidates(mailbox, date.isoformat())}
+
+
+@app.post("/api/assistant")
+def assistant(request: MailQuery):
+    return assist(checked_store(request.mailbox), request.mailbox, request.date, request.query)
+
+
+@app.post("/api/assistant/watch")
+def assistant_watch(request: WatchRequest):
+    return watch_matches(checked_store(request.mailbox), request.mailbox, request.date,
+                         request.after, request.query, request.seen)
+
+
 @app.get("/api/mail/{doc_id:path}")
 def message(doc_id: str, mailbox: str, date: Date):
     store = checked_store(mailbox)
     if not store.visible(mailbox, date.isoformat(), doc_id):
         raise HTTPException(404, "Письмо не найдено")
-    return {**store.summaries[doc_id], "body": store.by_id[doc_id]["doc"]}
+    return {**store.summaries[doc_id], "body": store.by_id[doc_id]["doc"],
+            "requires_action": doc_id in store.actions_by_id}
 
 
 @app.post("/api/search")

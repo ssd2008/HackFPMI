@@ -193,6 +193,13 @@ curl -fsS https://ssd2008.github.io/HackFPMI-demo/version.txt
 | `GET /api/mailboxes` | Список ящиков, даты и примеры. |
 | `GET /api/inbox?mailbox=…&date=YYYY-MM-DD&offset=0&limit=25` | Страница входящих на заданный день. |
 | `GET /api/actions?mailbox=…&date=YYYY-MM-DD&offset=0&limit=25` | Письма с просьбами, найденными по правилам. У каждого результата есть `evidence` и опциональные `deadline` и `deadline_time`. Поле `urgent` содержит до трёх ближайших сроков на дату среза и следующий день. |
+| `POST /api/actions` | Тот же список с ручными отметками. JSON содержит `mailbox`, `date`, `offset`, `limit` и массив `marked` из ID писем. |
+| `GET /api/reminder-candidates?mailbox=…&date=YYYY-MM-DD` | ID и темы писем с просьбами из того же среза. |
+| `POST /api/assistant` | JSON с полями `mailbox`, `date`, `query`. Возвращает `kind` (`events`, `mail` или `watch`), `items` и при необходимости `message`. |
+| `POST /api/assistant/watch` | Принимает те же поля плюс `after` (включительно) и `seen` (ID уже известных писем). Возвращает `items` и `matched_ids`. |
 | `GET /api/mail/{doc_id}?mailbox=…&date=YYYY-MM-DD` | Оригинал письма. Недоступное по ящику или дате письмо даёт 404. |
 | `POST /api/search` | JSON с полями `mailbox`, `date`, `query`, `limit` от 1 до 100. В ответе ранжированный список `items`. |
 | `POST /api/answer` | Те же ящик, дата и запрос. В ответе `answer`, упорядоченные `sources`, а также `mode` со значением `generative`, `extractive` или `no_evidence`. |
+
+
+Ручные отметки, расписание напоминаний и отслеживания хранятся в текущем браузере. Автонапоминания планируются на 19:00 при первом обнаружении письма, если это время ещё впереди, и на 12:00 следующего дня по местному времени браузера. Выбранное вручную время заменяет оба события. Пропущенные напоминания отображаются при возвращении в почту. Для проверки отслеживания на Pages попросите сообщить о приглашении на ЕГЭ и переключите дату с 21 на 22 ноября 2026 года.

@@ -13,6 +13,7 @@ from urllib.parse import urlsplit
 ROOT = Path(__file__).resolve().parents[1]
 DEMO_REPO = "https://github.com/ssd2008/HackFPMI-demo.git"
 META_ORIGIN = re.compile(r'<meta name="mailsearch-api-origin" content="([^"]*)"[^>]*>')
+OBJECT_ID = re.compile(r"[0-9a-f]{40}")
 ASSET_SUFFIXES = {".avif", ".css", ".gif", ".ico", ".jpeg", ".jpg", ".js", ".mjs",
                   ".png", ".svg", ".webp", ".woff", ".woff2"}
 
@@ -47,16 +48,25 @@ def render_frontend(revision, demo, api_origin):
     if count != 1:
         raise SystemExit("В static/index.html должен быть один тег mailsearch-api-origin.")
 
+    # Pages caches HTML and assets independently. Keep each release at a unique
+    # path, plus the previous release for browsers still holding its HTML.
     assets = demo / "static"
-    if assets.exists():
-        shutil.rmtree(assets)  # Only the disposable clone's frontend directory.
+    assets.mkdir(exist_ok=True)
+    version_file = demo / "version.txt"
+    previous = version_file.read_text(encoding="utf-8").strip() if version_file.exists() else ""
+    if previous != revision:
+        for directory in assets.iterdir():
+            if directory.is_dir() and OBJECT_ID.fullmatch(directory.name) and directory.name not in {previous, revision}:
+                shutil.rmtree(directory)
+
+    index = index.replace('"./static/', f'"./static/{revision}/')
     for path, content in frontend.items():
-        target = demo / path
+        target = assets / revision / path.relative_to("static")
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(content)
     (demo / "index.html").write_text(index, encoding="utf-8")
     (demo / ".nojekyll").touch()
-    (demo / "version.txt").write_text(revision + "\n", encoding="utf-8")
+    version_file.write_text(revision + "\n", encoding="utf-8")
 
 
 def main():

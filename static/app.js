@@ -31,6 +31,7 @@ const longDate = new Intl.DateTimeFormat('ru-RU', {
   day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC'
 });
 const svgNs = 'http://www.w3.org/2000/svg';
+const iconSprite = new URL('icons.svg', document.currentScript.src);
 
 function node(tag, cls, content) {
   const result = document.createElement(tag);
@@ -43,7 +44,7 @@ function icon(name) {
   graphic.classList.add('icon');
   graphic.setAttribute('aria-hidden', 'true');
   const use = document.createElementNS(svgNs, 'use');
-  use.setAttribute('href', './static/icons.svg#' + name);
+  use.setAttribute('href', iconSprite.href + '#' + name);
   graphic.append(use);
   return graphic;
 }
@@ -146,6 +147,7 @@ function setDate(value) {
   state.lastDates.set(state.mailbox, value);
   ui.date.value = value;
   ui.dateLabel.textContent = dateText(value);
+  personal.contextChanged();
 }
 function renderExamples(box) {
   const rows = (box.examples || []).filter(row => row.query && row.date);
@@ -221,7 +223,7 @@ async function loadMailboxes() {
 function setMode() {
   const searching = Boolean(state.query);
   ui.title.textContent = searching ? 'Поиск по почте' : state.actionsOnly ? 'Требуют действия' : 'Входящие';
-  ui.listTitle.textContent = searching ? 'Найденные письма' : state.actionsOnly ? 'Письма с просьбами' : 'Все письма';
+  ui.listTitle.textContent = searching ? 'Найденные письма' : state.actionsOnly ? 'Письма, которые требуют действия' : 'Все письма';
   const nav = byId('nav-inbox');
   if (searching || state.actionsOnly) nav.removeAttribute('aria-current');
   else nav.setAttribute('aria-current', 'page');
@@ -272,9 +274,11 @@ async function loadFolder(offset) {
   setListLoading('Загружаем письма…');
   const endpoint = state.actionsOnly ? '/api/actions' : '/api/inbox';
   try {
-    const data = await fetchJSON(endpoint + params({
-      mailbox: state.mailbox, date: state.date, offset, limit: inboxPageSize
-    }), controller);
+    const scope = {mailbox: state.mailbox, date: state.date, offset, limit: inboxPageSize};
+    const marked = state.actionsOnly ? personal.markedIds(state.mailbox) : [];
+    const data = marked.length
+      ? await fetchJSON(endpoint, controller, {...scope, marked})
+      : await fetchJSON(endpoint + params(scope), controller);
     if (!current('list', controller)) return;
     state.items = data.items;
     state.total = data.total;
@@ -346,7 +350,7 @@ function makeMailRow(mail) {
   const lines = node('span', 'mail-lines');
   const subject = mail.subject || 'Без темы';
   const sender = mail.sender || 'Без отправителя';
-  const snippet = state.actionsOnly ? mail.evidence : mail.snippet || '';
+  const snippet = state.actionsOnly ? mail.evidence || (mail.manual ? 'Помечено вручную' : '') : mail.snippet || '';
   lines.append(node('span', 'mail-subject', subject));
   if (snippet) lines.append(node('span', 'mail-snippet', snippet));
   const shownDate = state.actionsOnly ? mail.deadline : mail.date;
@@ -404,18 +408,21 @@ function renderList() {
   ui.order.hidden = !state.items.length;
   if (!state.items.length) {
     const unquoted = state.query.replace(/«([^«»]*)»|"([^"]*)"/g, (_, left, right) => left ?? right).trim();
+    let title;
     let empty;
     if (unquoted && unquoted !== state.query) {
       const broaden = action('Искать без кавычек', 'secondary', () => {
         ui.input.value = unquoted;
         showSearch(unquoted);
       });
-      empty = messageState('Совпадений по точной фразе нет', 'Без кавычек поиск учитывает словоформы и смысл.', 'search', broaden);
+      title = 'Совпадений по точной фразе нет';
+      empty = messageState(title, 'Без кавычек поиск учитывает словоформы и смысл.', 'search', broaden);
     } else if (searching) {
-      empty = messageState('Подходящих писем не найдено', 'Измените запрос или дату поиска.', 'search',
+      title = 'Подходящих писем не найдено';
+      empty = messageState(title, 'Измените запрос или дату поиска.', 'search',
         action('Во входящие', 'secondary', showInbox));
     } else {
-      const title = state.actionsOnly ? 'Писем с явными просьбами нет' : 'На эту дату писем нет';
+      title = state.actionsOnly ? 'Нет писем, которые требуют действия' : 'На эту дату писем нет';
       empty = messageState(title, 'Выберите другую дату или другой ящик.', 'inbox');
     }
     ui.list.replaceChildren(empty);
@@ -566,7 +573,7 @@ function renderMail(mail) {
   const original = String(mail.body || '');
   const readable = cleanBody(original);
   const body = node('div', 'message-body', readable);
-  ui.readerContent.replaceChildren(badge, title, meta);
+  ui.readerContent.replaceChildren(badge, title, meta, personal.mailControls(mail));
   if (original !== readable) {
     const toggle = action('Показать исходный текст', 'body-toggle', () => {
       const showOriginal = toggle.getAttribute('aria-pressed') === 'false';
@@ -678,7 +685,9 @@ function setDemoMode(enabled) {
     : 'Опишите, что помните о письме, своими словами.';
   byId('leave-demo').hidden = !enabled || !apiOrigin;
   setMode();
+  personal.contextChanged();
   loadMailboxes();
 }
 byId('leave-demo').addEventListener('click', () => setDemoMode(false));
+personal.init();
 setDemoMode(state.demo);

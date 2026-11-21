@@ -175,21 +175,31 @@ class MailStore:
         return {"items": [self.summaries[row["doc_id"]] for row in rows[offset:offset + limit]],
                 "total": len(rows), "offset": offset, "limit": limit}
 
-    def action_inbox(self, box: str, at: date, offset: int, limit: int) -> dict:
+    def action_inbox(self, box: str, at: date, offset: int, limit: int, marked=()) -> dict:
         cutoff = at.isoformat()
+        marks = set(marked)
         items = []
         upcoming = []
         for row in self.boxes[box]:
             doc_id = row["doc_id"]
             action = self.actions_by_id.get(doc_id)
-            if action is None or not self.visible(box, cutoff, doc_id):
+            manual = doc_id in marks
+            if (action is None and not manual) or not self.visible(box, cutoff, doc_id):
                 continue
-            item = {**self.summaries[doc_id], "evidence": action.evidence,
-                    "deadline": action.deadline, "deadline_time": action.deadline_time}
+            item = {**self.summaries[doc_id], "evidence": action.evidence if action else None,
+                    "deadline": action.deadline if action else None,
+                    "deadline_time": action.deadline_time if action else None, "manual": manual}
             items.append(item)
-            if action.deadline and 0 <= (date.fromisoformat(action.deadline) - at).days <= 1:
+            if item["deadline"] and 0 <= (date.fromisoformat(item["deadline"]) - at).days <= 1:
                 upcoming.append(item)
 
         upcoming.sort(key=lambda item: (item["deadline"], item["deadline_time"] or "23:59"))
         return {"items": items[offset:offset + limit], "total": len(items),
                 "offset": offset, "limit": limit, "urgent": upcoming[:3]}
+
+    def reminder_candidates(self, box: str, at: str) -> list[dict]:
+        return [
+            {"id": row["doc_id"], "subject": self.summaries[row["doc_id"]]["subject"]}
+            for row in self.boxes[box]
+            if row["doc_id"] in self.actions_by_id and self.visible(box, at, row["doc_id"])
+        ]
