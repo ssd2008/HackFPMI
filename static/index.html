@@ -17,10 +17,18 @@
   <a class="skip-link" href="#content">К письмам</a>
   <div class="app-shell">
     <header class="topbar">
-      <a class="brand" href="./" aria-label="Айай почта, главная">
-        <img src="./static/mark.svg" width="38" height="38" alt="">
-        <span>Айай почта</span>
-      </a>
+      <div class="topbar-mail">
+        <a class="brand" href="./" aria-label="Айай почта, главная">
+          <img src="./static/mark.svg" width="38" height="38" alt="">
+          <span>Айай почта</span>
+        </a>
+        <label class="mailbox-picker">
+          <span class="sr-only">Почтовый ящик</span>
+          <svg class="icon mailbox-icon" aria-hidden="true"><use href="./static/icons.svg#box"></use></svg>
+          <select id="mailbox-select" disabled><option>Почтовый ящик</option></select>
+          <svg class="icon select-chevron" aria-hidden="true"><use href="./static/icons.svg#chevron-down"></use></svg>
+        </label>
+      </div>
       <form id="search-form" role="search">
         <label class="search-input-wrap">
           <svg class="icon" aria-hidden="true"><use href="./static/icons.svg#search"></use></svg>
@@ -42,7 +50,7 @@
           <svg class="icon" aria-hidden="true"><use href="./static/icons.svg#flask"></use></svg>
           <span>Демо</span>
         </span>
-        <button id="assistant-open" class="secondary assistant-open" type="button" aria-controls="assistant-panel" aria-expanded="false" disabled>
+        <button id="assistant-open" class="secondary assistant-open" type="button" aria-label="Ассистент" aria-controls="assistant-panel" aria-expanded="false" disabled>
           <svg class="icon" aria-hidden="true"><use href="./static/icons.svg#sparkle"></use></svg>
           <span>Ассистент</span>
         </button>
@@ -63,12 +71,6 @@
           <span>Требуют действия</span>
         </button>
       </div>
-      <label class="mailbox-picker">
-        <span class="sr-only">Почтовый ящик</span>
-        <svg class="icon" aria-hidden="true"><use href="./static/icons.svg#box"></use></svg>
-        <select id="mailbox-select" disabled><option>Почтовый ящик</option></select>
-        <svg class="icon select-chevron" aria-hidden="true"><use href="./static/icons.svg#chevron-down"></use></svg>
-      </label>
       <div class="sidebar-footer">
         <button id="leave-demo" type="button" class="text-action" hidden>Подключиться к API</button>
       </div>
