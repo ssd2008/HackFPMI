@@ -184,6 +184,7 @@ def evaluate(work, urls, args, dataset_index):
                 pair[side] = {"requests": len(wall), "client_http_ms": percentiles(wall),
                               "server_ms": percentiles(server), "changed_rankings": changes}
             pair["delta_client_p99_ms"] = round(pair["after"]["client_http_ms"]["p99"] - pair["before"]["client_http_ms"]["p99"], 3)
+            pair["delta_server_p99_ms"] = round(pair["after"]["server_ms"]["p99"] - pair["before"]["server_ms"]["p99"], 3)
             pairs.append(pair)
             print(f"{work.name}, {clients} clients, pair {i + 1}/{args.pairs} complete", flush=True)
         result["by_clients"][str(clients)] = {
@@ -198,6 +199,8 @@ def evaluate(work, urls, args, dataset_index):
     qa, qb = (result["quality"][s] for s in SIDES)
     result["four_metrics_by_clients"] = {
         setting: {**{k: paired(qa[k], qb[k]) for k in ("recall_at_10_positive", "ndcg_at_10_positive", "mrr_at_10_single")},
+                  "server_p99_ms": paired(block["pooled"]["before"]["server_ms"]["p99"],
+                                          block["pooled"]["after"]["server_ms"]["p99"]),
                   "client_p99_ms": paired(block["pooled"]["before"]["client_http_ms"]["p99"],
                                          block["pooled"]["after"]["client_http_ms"]["p99"])}
         for setting, block in result["by_clients"].items()}
