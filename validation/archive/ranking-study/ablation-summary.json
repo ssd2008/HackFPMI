@@ -1,0 +1,859 @@
+{
+  "corpus": "Unchanged provided 16376 documents; no relevance labels read by application.",
+  "sets": {
+    "dev": "99 public dev queries",
+    "paraphrases": "99 versions of those queries via 12 known public topic rewrites for development. These are not an independent test set."
+  },
+  "cutoffs": [
+    1,
+    5,
+    10,
+    20,
+    50
+  ],
+  "measure": "One deterministic run per variant, same box and query-day restrictions, MRR-single on 42 one-answer requests. The early component ablations used the same fp32 E5 queries and cached fp32 passage vectors. The final two used the same vectors with the pinned int8 query graph.",
+  "variants": {
+    "baseline": {
+      "description": "Initial MVP, fixed 55/45 sparse–dense fusion.",
+      "query_encoder": "torch-fp32",
+      "sets": {
+        "dev": {
+          "empty_queries": 0,
+          "quality": {
+            "1": {
+              "Recall": 0.55492,
+              "nDCG": 0.979798,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 0.859615,
+              "nDCG": 0.991076,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 0.937564,
+              "nDCG": 0.992764,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 0.980326,
+              "nDCG": 0.992764,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 0.996751,
+              "nDCG": 0.992764,
+              "MRR-single": 1.0
+            }
+          }
+        },
+        "paraphrases": {
+          "empty_queries": 4,
+          "quality": {
+            "1": {
+              "Recall": 0.512156,
+              "nDCG": 0.787879,
+              "MRR-single": 0.952381
+            },
+            "5": {
+              "Recall": 0.762077,
+              "nDCG": 0.805457,
+              "MRR-single": 0.970238
+            },
+            "10": {
+              "Recall": 0.811236,
+              "nDCG": 0.813859,
+              "MRR-single": 0.970238
+            },
+            "20": {
+              "Recall": 0.844684,
+              "nDCG": 0.824429,
+              "MRR-single": 0.970238
+            },
+            "50": {
+              "Recall": 0.878665,
+              "nDCG": 0.83257,
+              "MRR-single": 0.970238
+            }
+          }
+        }
+      }
+    },
+    "status_only": {
+      "description": "Original domain vocabulary. Normalize polarity and completion, including Russian negation, plus function-word cleanup.",
+      "query_encoder": "torch-fp32",
+      "sets": {
+        "dev": {
+          "empty_queries": 0,
+          "quality": {
+            "1": {
+              "Recall": 0.55492,
+              "nDCG": 0.979798,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 0.862982,
+              "nDCG": 0.993446,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 0.937564,
+              "nDCG": 0.993446,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 0.980326,
+              "nDCG": 0.993446,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 0.996751,
+              "nDCG": 0.993446,
+              "MRR-single": 1.0
+            }
+          }
+        },
+        "paraphrases": {
+          "empty_queries": 4,
+          "quality": {
+            "1": {
+              "Recall": 0.519915,
+              "nDCG": 0.868687,
+              "MRR-single": 0.952381
+            },
+            "5": {
+              "Recall": 0.787405,
+              "nDCG": 0.881854,
+              "MRR-single": 0.970238
+            },
+            "10": {
+              "Recall": 0.855157,
+              "nDCG": 0.88873,
+              "MRR-single": 0.970238
+            },
+            "20": {
+              "Recall": 0.91491,
+              "nDCG": 0.899256,
+              "MRR-single": 0.970238
+            },
+            "50": {
+              "Recall": 0.938429,
+              "nDCG": 0.902068,
+              "MRR-single": 0.970238
+            }
+          }
+        }
+      }
+    },
+    "terms_only": {
+      "description": "Updated vocabulary and function words, original positive/negative outcome features without contextual negation.",
+      "query_encoder": "torch-fp32",
+      "sets": {
+        "dev": {
+          "empty_queries": 0,
+          "quality": {
+            "1": {
+              "Recall": 0.55492,
+              "nDCG": 0.979798,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 0.859615,
+              "nDCG": 0.991076,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 0.937564,
+              "nDCG": 0.992764,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 0.980326,
+              "nDCG": 0.992764,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 0.996751,
+              "nDCG": 0.992764,
+              "MRR-single": 1.0
+            }
+          }
+        },
+        "paraphrases": {
+          "empty_queries": 0,
+          "quality": {
+            "1": {
+              "Recall": 0.547161,
+              "nDCG": 0.89899,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 0.837655,
+              "nDCG": 0.916841,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 0.893643,
+              "nDCG": 0.918413,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 0.9101,
+              "nDCG": 0.918413,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 0.936986,
+              "nDCG": 0.923677,
+              "MRR-single": 1.0
+            }
+          }
+        }
+      }
+    },
+    "language": {
+      "description": "Updated vocabulary, function words, and contextual outcomes, without passage proximity.",
+      "query_encoder": "torch-fp32",
+      "sets": {
+        "dev": {
+          "empty_queries": 0,
+          "quality": {
+            "1": {
+              "Recall": 0.55492,
+              "nDCG": 0.979798,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 0.862982,
+              "nDCG": 0.993446,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 0.937564,
+              "nDCG": 0.993446,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 0.980326,
+              "nDCG": 0.993446,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 0.996751,
+              "nDCG": 0.993446,
+              "MRR-single": 1.0
+            }
+          }
+        },
+        "paraphrases": {
+          "empty_queries": 0,
+          "quality": {
+            "1": {
+              "Recall": 0.55492,
+              "nDCG": 0.979798,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 0.862982,
+              "nDCG": 0.993446,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 0.937564,
+              "nDCG": 0.993329,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 0.980326,
+              "nDCG": 0.993322,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 0.996751,
+              "nDCG": 0.993322,
+              "MRR-single": 1.0
+            }
+          }
+        }
+      }
+    },
+    "status_proximity": {
+      "description": "Original domain vocabulary, new contextual outcomes and local term proximity.",
+      "query_encoder": "torch-fp32",
+      "sets": {
+        "dev": {
+          "empty_queries": 0,
+          "quality": {
+            "1": {
+              "Recall": 0.561654,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 0.862982,
+              "nDCG": 0.999051,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 0.937564,
+              "nDCG": 0.999051,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 0.980326,
+              "nDCG": 0.999051,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 0.996751,
+              "nDCG": 0.999051,
+              "MRR-single": 1.0
+            }
+          }
+        },
+        "paraphrases": {
+          "empty_queries": 4,
+          "quality": {
+            "1": {
+              "Recall": 0.526649,
+              "nDCG": 0.888889,
+              "MRR-single": 0.952381
+            },
+            "5": {
+              "Recall": 0.787405,
+              "nDCG": 0.886838,
+              "MRR-single": 0.970238
+            },
+            "10": {
+              "Recall": 0.853894,
+              "nDCG": 0.892976,
+              "MRR-single": 0.970238
+            },
+            "20": {
+              "Recall": 0.91491,
+              "nDCG": 0.904069,
+              "MRR-single": 0.970238
+            },
+            "50": {
+              "Recall": 0.938429,
+              "nDCG": 0.90688,
+              "MRR-single": 0.970238
+            }
+          }
+        }
+      }
+    },
+    "proximity": {
+      "description": "Updated vocabulary, contextual outcomes, and passage proximity; original sparse–dense weighting and acceptance.",
+      "query_encoder": "torch-fp32",
+      "sets": {
+        "dev": {
+          "empty_queries": 0,
+          "quality": {
+            "1": {
+              "Recall": 0.561654,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 0.862982,
+              "nDCG": 0.999051,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 0.937564,
+              "nDCG": 0.999051,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 0.980326,
+              "nDCG": 0.999051,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 0.996751,
+              "nDCG": 0.999051,
+              "MRR-single": 1.0
+            }
+          }
+        },
+        "paraphrases": {
+          "empty_queries": 0,
+          "quality": {
+            "1": {
+              "Recall": 0.561654,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 0.862982,
+              "nDCG": 0.999051,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 0.937564,
+              "nDCG": 0.999051,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 0.980326,
+              "nDCG": 0.999044,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 0.996751,
+              "nDCG": 0.999044,
+              "MRR-single": 1.0
+            }
+          }
+        }
+      }
+    },
+    "adaptive": {
+      "description": "Adaptive sparse–dense fusion and novel qualifier check, with a minimum 40% lexical coverage for the sparse evidence branch (rejected candidate).",
+      "query_encoder": "onnx-int8",
+      "sets": {
+        "dev": {
+          "empty_queries": 0,
+          "quality": {
+            "1": {
+              "Recall": 0.561654,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 0.862982,
+              "nDCG": 0.999051,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 0.937564,
+              "nDCG": 0.999051,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 0.980326,
+              "nDCG": 0.999051,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 0.996751,
+              "nDCG": 0.999051,
+              "MRR-single": 1.0
+            }
+          }
+        },
+        "paraphrases": {
+          "empty_queries": 0,
+          "quality": {
+            "1": {
+              "Recall": 0.561654,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 0.858413,
+              "nDCG": 0.993449,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 0.923375,
+              "nDCG": 0.987845,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 0.961567,
+              "nDCG": 0.985277,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 0.977511,
+              "nDCG": 0.985029,
+              "MRR-single": 1.0
+            }
+          }
+        }
+      }
+    },
+    "final": {
+      "description": "Adaptive fusion and unfamiliar qualifier check, before the scoped explicit decision guard.",
+      "query_encoder": "onnx-int8",
+      "sets": {
+        "dev": {
+          "empty_queries": 0,
+          "quality": {
+            "1": {
+              "Recall": 0.561654,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 0.862982,
+              "nDCG": 0.999051,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 0.937564,
+              "nDCG": 0.999051,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 0.980326,
+              "nDCG": 0.999051,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 0.996751,
+              "nDCG": 0.999051,
+              "MRR-single": 1.0
+            }
+          }
+        },
+        "paraphrases": {
+          "empty_queries": 0,
+          "quality": {
+            "1": {
+              "Recall": 0.561654,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 0.862982,
+              "nDCG": 0.999051,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 0.937564,
+              "nDCG": 0.999051,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 0.980326,
+              "nDCG": 0.999044,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 0.996751,
+              "nDCG": 0.999044,
+              "MRR-single": 1.0
+            }
+          }
+        }
+      }
+    },
+    "frozen": {
+      "description": "Final variant with a scoped opposite-decision guard. The short context of an unambiguous factual outcome must match a majority of the requested decision context. Conditional statements, polar questions and mixed histories do not assert a unique decision.",
+      "query_encoder": "onnx-int8",
+      "sets": {
+        "dev": {
+          "empty_queries": 0,
+          "quality": {
+            "1": {
+              "Recall": 0.561654,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 0.862982,
+              "nDCG": 0.999051,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 0.937564,
+              "nDCG": 0.999051,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 0.980326,
+              "nDCG": 0.999051,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 0.996751,
+              "nDCG": 0.999051,
+              "MRR-single": 1.0
+            }
+          }
+        },
+        "paraphrases": {
+          "empty_queries": 0,
+          "quality": {
+            "1": {
+              "Recall": 0.561654,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 0.862982,
+              "nDCG": 0.999051,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 0.937564,
+              "nDCG": 0.999051,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 0.980326,
+              "nDCG": 0.999051,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 0.996751,
+              "nDCG": 0.999051,
+              "MRR-single": 1.0
+            }
+          }
+        }
+      }
+    }
+  },
+  "limitations": [
+    "Finite targeted tests with inspected vocabulary. Public relevance labels and days are shared by the rewrite and original sets.",
+    "Absolute E5 evidence floor can reject legitimate all-OOV descriptions, particularly when searching the Russian corpus in English."
+  ],
+  "constructed_domains_note": "Artificial mini-corpus with 10 messages, 11 targeted controls covering grant decisions, hotel bookings, ventilation inspections, cargo, rent, and two absent subjects. Created as a qualitative stress test, not a competition benchmark. The initial 10/11 outcome revealed the booking error. After fixing that known error, these cases are regression controls. Four additional targeted controls verify that conditional, neutral and mixed-history letters are retained, and different operations about the same order do not conflict.",
+  "absent_specific_items": {
+    "before": "Proximity variant returned multiple letters for each of the following four unsupported descriptions in their test mailbox.",
+    "after": "Final variant returned no letters for all four.",
+    "queries": [
+      "где мой заказ с луноходом из пенопласта",
+      "выставленный счёт за аренду подводной лодки",
+      "перчатки из титана на Луне",
+      "сумма заказа на аквариумное мороженое"
+    ]
+  },
+  "real_corpus_positive_examples": [
+    "пени за муниципальный наём → выставленный штраф за пени",
+    "неполадки при обращении к базе данных → Ошибка при работе в базе",
+    "передумал покупать у продавца и отменил заказ → Покупатель отменил заказ",
+    "уведомили об изменении статуса позиции → Изменение статусов позиций заказов",
+    "одобрение на перемещение груза через таможню → разрешение таможни"
+  ],
+  "frozen_retrieval_sha256": "0397006535019f30ff4c6524d0edc66340b2f3c2934d81c562eef077a33946c0",
+  "constructed_domains_before_guard": [
+    {
+      "query": "Грантовая заявка на экспедицию не прошла",
+      "expected": "grant_no",
+      "top": "grant_no",
+      "passed": true
+    },
+    {
+      "query": "Заявку на научную экспедицию одобрили",
+      "expected": "grant_yes",
+      "top": "grant_yes",
+      "passed": true
+    },
+    {
+      "query": "Бронь гостиничного номера не была подтверждена",
+      "expected": "hotel_no",
+      "top": "hotel_yes",
+      "passed": false
+    },
+    {
+      "query": "Бронь гостиничного номера подтверждена",
+      "expected": "hotel_yes",
+      "top": "hotel_yes",
+      "passed": true
+    },
+    {
+      "query": "Завершённая проверка вентиляции",
+      "expected": "review_done",
+      "top": "review_done",
+      "passed": true
+    },
+    {
+      "query": "Запланированный осмотр вентиляции",
+      "expected": "review_plan",
+      "top": "review_plan",
+      "passed": true
+    },
+    {
+      "query": "Доставка оборудования не состоялась",
+      "expected": "cargo_no",
+      "top": "cargo_no",
+      "passed": true
+    },
+    {
+      "query": "Доставка оборудования уже выполнена",
+      "expected": "cargo_yes",
+      "top": "cargo_yes",
+      "passed": true
+    },
+    {
+      "query": "Составили договор об аренде лофта",
+      "expected": "rent",
+      "top": "rent",
+      "passed": true
+    },
+    {
+      "query": "Международный турнир по пляжному волейболу",
+      "expected": null,
+      "top": null,
+      "passed": true
+    },
+    {
+      "query": "Остаток кислорода на орбитальной станции",
+      "expected": null,
+      "top": null,
+      "passed": true
+    }
+  ],
+  "constructed_domains_after_guard": [
+    {
+      "query": "Грантовая заявка на экспедицию не прошла",
+      "expected": "grant_no",
+      "top": "grant_no",
+      "passed": true
+    },
+    {
+      "query": "Заявку на научную экспедицию одобрили",
+      "expected": "grant_yes",
+      "top": "grant_yes",
+      "passed": true
+    },
+    {
+      "query": "Бронь гостиничного номера не была подтверждена",
+      "expected": "hotel_no",
+      "top": "hotel_no",
+      "passed": true
+    },
+    {
+      "query": "Бронь гостиничного номера подтверждена",
+      "expected": "hotel_yes",
+      "top": "hotel_yes",
+      "passed": true
+    },
+    {
+      "query": "Завершённая проверка вентиляции",
+      "expected": "review_done",
+      "top": "review_done",
+      "passed": true
+    },
+    {
+      "query": "Запланированный осмотр вентиляции",
+      "expected": "review_plan",
+      "top": "review_plan",
+      "passed": true
+    },
+    {
+      "query": "Доставка оборудования не состоялась",
+      "expected": "cargo_no",
+      "top": "cargo_no",
+      "passed": true
+    },
+    {
+      "query": "Доставка оборудования уже выполнена",
+      "expected": "cargo_yes",
+      "top": "cargo_yes",
+      "passed": true
+    },
+    {
+      "query": "Составили договор об аренде лофта",
+      "expected": "rent",
+      "top": "rent",
+      "passed": true
+    },
+    {
+      "query": "Международный турнир по пляжному волейболу",
+      "expected": null,
+      "top": null,
+      "passed": true
+    },
+    {
+      "query": "Остаток кислорода на орбитальной станции",
+      "expected": null,
+      "top": null,
+      "passed": true
+    }
+  ],
+  "status_context_regressions": [
+    {
+      "name": "opposite hotel decision",
+      "query": "Бронь гостиницы не была подтверждена",
+      "expected_present": [
+        "conditional",
+        "mixed",
+        "no",
+        "other",
+        "question",
+        "unknown"
+      ],
+      "expected_absent": [
+        "yes"
+      ],
+      "actual": [
+        "conditional",
+        "mixed",
+        "no",
+        "other",
+        "question",
+        "unknown"
+      ],
+      "passed": true
+    },
+    {
+      "name": "positive hotel decision",
+      "query": "Бронь гостиницы подтверждена",
+      "expected_present": [
+        "conditional",
+        "mixed",
+        "other",
+        "question",
+        "unknown",
+        "yes"
+      ],
+      "expected_absent": [
+        "no"
+      ],
+      "actual": [
+        "conditional",
+        "mixed",
+        "other",
+        "question",
+        "shipping",
+        "unknown",
+        "yes"
+      ],
+      "passed": true
+    },
+    {
+      "name": "yes/no question admits both outcomes",
+      "query": "Бронь гостиницы подтверждена?",
+      "expected_present": [
+        "mixed",
+        "no",
+        "yes"
+      ],
+      "expected_absent": [],
+      "actual": [
+        "conditional",
+        "mixed",
+        "no",
+        "other",
+        "question",
+        "shipping",
+        "unknown",
+        "yes"
+      ],
+      "passed": true
+    },
+    {
+      "name": "shared entity, different action",
+      "query": "Доставка заказа не была подтверждена",
+      "expected_present": [
+        "payment"
+      ],
+      "expected_absent": [
+        "shipping"
+      ],
+      "actual": [
+        "mixed",
+        "no",
+        "payment",
+        "question"
+      ],
+      "passed": true
+    }
+  ]
+}

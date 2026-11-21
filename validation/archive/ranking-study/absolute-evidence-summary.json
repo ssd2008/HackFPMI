@@ -1,0 +1,457 @@
+{
+  "retrieval_sha256": "93e475250605d17ba1b8740d7d552eaea4d1340a999c3349d8ea2a695141599f",
+  "scope": "Agent-authored regression checks, public queries, known rewrites, existing 99 typo controls. No independent fixture or private export read here.",
+  "public": {
+    "1": {
+      "Recall": 0.5616536422908972,
+      "nDCG": 1.0,
+      "MRR-single": 1.0
+    },
+    "5": {
+      "Recall": 0.8629820161682907,
+      "nDCG": 0.9990507619750978,
+      "MRR-single": 1.0
+    },
+    "10": {
+      "Recall": 0.9375641606033763,
+      "nDCG": 0.9990507619750978,
+      "MRR-single": 1.0
+    },
+    "20": {
+      "Recall": 0.9803260712351621,
+      "nDCG": 0.9990507619750978,
+      "MRR-single": 1.0
+    },
+    "50": {
+      "Recall": 0.9967507240234513,
+      "nDCG": 0.9990507619750978,
+      "MRR-single": 1.0
+    }
+  },
+  "known_rewrites": {
+    "1": {
+      "Recall": 0.5616536422908972,
+      "nDCG": 1.0,
+      "MRR-single": 1.0
+    },
+    "5": {
+      "Recall": 0.8629820161682907,
+      "nDCG": 0.9990507619750978,
+      "MRR-single": 1.0
+    },
+    "10": {
+      "Recall": 0.9375641606033763,
+      "nDCG": 0.9990507619750978,
+      "MRR-single": 1.0
+    },
+    "20": {
+      "Recall": 0.9803260712351621,
+      "nDCG": 0.9990507619750978,
+      "MRR-single": 1.0
+    },
+    "50": {
+      "Recall": 0.9967507240234513,
+      "nDCG": 0.9990507619750978,
+      "MRR-single": 1.0
+    }
+  },
+  "known_typos": {
+    "1": {
+      "Recall": 0.543900351810334,
+      "nDCG": 0.9595959595959596,
+      "MRR-single": 0.9761904761904762
+    },
+    "5": {
+      "Recall": 0.8390456831410485,
+      "nDCG": 0.9619214307439424,
+      "MRR-single": 0.9880952380952381
+    },
+    "10": {
+      "Recall": 0.9093119414420662,
+      "nDCG": 0.9625789126740248,
+      "MRR-single": 0.9880952380952381
+    },
+    "20": {
+      "Recall": 0.9539819706932007,
+      "nDCG": 0.9632439122298098,
+      "MRR-single": 0.9880952380952381
+    },
+    "50": {
+      "Recall": 0.9885042665791329,
+      "nDCG": 0.9702327589771285,
+      "MRR-single": 0.9880952380952381
+    }
+  },
+  "positive_real_corpus_checks": {
+    "before": [
+      false,
+      true,
+      true,
+      true
+    ],
+    "after": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "cases": [
+      {
+        "mailbox": "box-f9410417c091",
+        "query": "напомни, где расписывали обезжиривающий концентрат для запёкшихся сковородок и говорили про Azelit и GRASS",
+        "expected_body_regex": "azelit",
+        "ok": true,
+        "returned": [
+          "L-c00311a3afe957bb2945",
+          "L-0d6ef025f2a39f7cb930",
+          "L-2a8a4ca95555e21c1983",
+          "L-3d4d9e8f949a5198ac53",
+          "L-5a520f56b8b84015c78d"
+        ]
+      },
+      {
+        "mailbox": "box-f9410417c091",
+        "query": "Поищи инструктаж насчёт бережного удаления пригоревшей еды с противня. Вроде называли Azelit и фирму GRASS",
+        "expected_body_regex": "azelit",
+        "ok": true,
+        "returned": [
+          "L-c00311a3afe957bb2945",
+          "L-71f8b0659bd2baccd226",
+          "L-0d6ef025f2a39f7cb930",
+          "L-2a8a4ca95555e21c1983",
+          "L-3d4d9e8f949a5198ac53"
+        ]
+      },
+      {
+        "mailbox": "box-fda57474896e",
+        "query": "был технический инцидент, пытались соединиться с базой Srvr, запомнились Ref и неполадки. Напомни подробности этой истории?",
+        "expected_body_regex": "(?i)srvr",
+        "ok": true,
+        "returned": [
+          "L-70203bbc1ce56764c01c",
+          "L-699863ad7ae1c4e6b875",
+          "L-d7bb2c25475db91647b4",
+          "L-a9e181093b52e636afec",
+          "L-fb18a2b1a5610df97596"
+        ]
+      },
+      {
+        "mailbox": "box-2d28af4e4602",
+        "query": "поищи старую запись с итоговым фискальным расчётом, запомнил интернет-кассу и обозначения ККТ ФН ФД ФП",
+        "expected_body_regex": "ккт",
+        "ok": true,
+        "returned": [
+          "L-155450630f5183fff9b2",
+          "L-abdcb315b5565493615b",
+          "L-d8ed59de6adb71168f24",
+          "L-a16c90b88cccf4a60bc0",
+          "L-cfe6dc8e50aa6bcec991"
+        ]
+      }
+    ]
+  },
+  "absent_items": [
+    {
+      "mailbox": "box-f9410417c091",
+      "query": "где мой заказ с луноходом из пенопласта",
+      "expected_body_regex": null,
+      "ok": true,
+      "returned": []
+    },
+    {
+      "mailbox": "box-12259a301ee2",
+      "query": "выставленный счёт за аренду подводной лодки",
+      "expected_body_regex": null,
+      "ok": true,
+      "returned": []
+    },
+    {
+      "mailbox": "box-f9410417c091",
+      "query": "перчатки из титана на Луне",
+      "expected_body_regex": null,
+      "ok": true,
+      "returned": []
+    },
+    {
+      "mailbox": "box-f9410417c091",
+      "query": "сумма заказа на аквариумное мороженое",
+      "expected_body_regex": null,
+      "ok": true,
+      "returned": []
+    },
+    {
+      "mailbox": "box-f9410417c091",
+      "query": "оплата за космический полёт на Сатурн",
+      "expected_body_regex": null,
+      "ok": true,
+      "returned": []
+    },
+    {
+      "mailbox": "box-12259a301ee2",
+      "query": "Пожалуйста разыщи давно затерянное сообщение об аренде подводной лодки для океанографической экспедиции со счётом и платёжным поручением",
+      "expected_body_regex": null,
+      "ok": true,
+      "returned": []
+    }
+  ],
+  "five_variants_same_real_item": [
+    {
+      "query": "Помоги отыскать затерявшееся в архиве упоминание: скорее всего показывали Azelit марки GRASS. Я по памяти пересказываю невнятно, надо восстановить оригинальную формулировку.",
+      "old": [
+        "L-0719a16ce21ba59f8b99"
+      ],
+      "old_correct": false,
+      "new": [
+        "L-c00311a3afe957bb2945",
+        "L-0719a16ce21ba59f8b99"
+      ],
+      "new_correct": true
+    },
+    {
+      "query": "Azelit и GRASS. Эти два названия запомнились, а остальную переписку я перепутал и пересказываю слишком вольно. Найди оригинал.",
+      "old": [
+        "L-c00311a3afe957bb2945",
+        "L-0719a16ce21ba59f8b99",
+        "L-c6a97c56201ad11ee9e4",
+        "L-133f315107b77d144507",
+        "L-5413f36c32df371a6233"
+      ],
+      "old_correct": true,
+      "new": [
+        "L-c00311a3afe957bb2945",
+        "L-0719a16ce21ba59f8b99",
+        "L-c6a97c56201ad11ee9e4",
+        "L-133f315107b77d144507",
+        "L-5413f36c32df371a6233"
+      ],
+      "new_correct": true
+    },
+    {
+      "query": "Видел редкое слово Azelit и фирму GRASS. Длинноватое название обезжиривающего концентрата точно пересказать затрудняюсь.",
+      "old": [
+        "L-c00311a3afe957bb2945",
+        "L-0719a16ce21ba59f8b99",
+        "L-0d6ef025f2a39f7cb930",
+        "L-2a8a4ca95555e21c1983",
+        "L-3d4d9e8f949a5198ac53"
+      ],
+      "old_correct": true,
+      "new": [
+        "L-c00311a3afe957bb2945",
+        "L-0719a16ce21ba59f8b99",
+        "L-0d6ef025f2a39f7cb930",
+        "L-2a8a4ca95555e21c1983",
+        "L-3d4d9e8f949a5198ac53"
+      ],
+      "new_correct": true
+    },
+    {
+      "query": "Отыщи забытое письмо. Упрямо вспоминается обезжиривающий состав Azelit компании GRASS, про остальные подробности ничего внятного придумывать не буду.",
+      "old": [],
+      "old_correct": false,
+      "new": [
+        "L-c00311a3afe957bb2945",
+        "L-c8f76a22d252034a82c6"
+      ],
+      "new_correct": true
+    },
+    {
+      "query": "Помню, встретились Azelit и GRASS. Какой там был состав? Зацепка из прошлого обсуждения, подробности подзабылись, но хотелось бы восстановить товар.",
+      "old": [
+        "L-0719a16ce21ba59f8b99"
+      ],
+      "old_correct": false,
+      "new": [
+        "L-c00311a3afe957bb2945",
+        "L-659cd724f7dc540ba670",
+        "L-50e0f56ceb9ea39a6ba4",
+        "L-25bfbcac5788e3d99367",
+        "L-0719a16ce21ba59f8b99"
+      ],
+      "new_correct": true
+    }
+  ],
+  "id_controls": [
+    {
+      "box": "one",
+      "q": "Б905731426",
+      "asof": "2026-02-03",
+      "expected": [
+        "archive:mail/2026.abc"
+      ],
+      "actual": [
+        "archive:mail/2026.abc"
+      ],
+      "ok": true
+    },
+    {
+      "box": "one",
+      "q": "B905731426",
+      "asof": "2026-02-03",
+      "expected": [
+        "latin"
+      ],
+      "actual": [
+        "latin"
+      ],
+      "ok": true
+    },
+    {
+      "box": "one",
+      "q": "П905731426",
+      "asof": "2026-02-03",
+      "expected": [
+        "diff"
+      ],
+      "actual": [
+        "diff"
+      ],
+      "ok": true
+    },
+    {
+      "box": "one",
+      "q": "товар Б905731426-А",
+      "asof": "2026-02-03",
+      "expected": [
+        "with_suffix"
+      ],
+      "actual": [
+        "with_suffix"
+      ],
+      "ok": true
+    },
+    {
+      "box": "one",
+      "q": "Б90573142",
+      "asof": "2026-02-03",
+      "expected": [],
+      "actual": [],
+      "ok": true
+    },
+    {
+      "box": "one",
+      "q": "К905731426",
+      "asof": "2026-02-03",
+      "expected": [],
+      "actual": [],
+      "ok": true
+    },
+    {
+      "box": "one",
+      "q": "артикул FQS-410233-02",
+      "asof": "2026-02-03",
+      "expected": [
+        "market"
+      ],
+      "actual": [
+        "market"
+      ],
+      "ok": true
+    },
+    {
+      "box": "one",
+      "q": "593807-4773-1",
+      "asof": "2026-02-03",
+      "expected": [
+        "market"
+      ],
+      "actual": [
+        "market"
+      ],
+      "ok": true
+    },
+    {
+      "box": "one",
+      "q": "593807-4773-9",
+      "asof": "2026-02-03",
+      "expected": [],
+      "actual": [],
+      "ok": true
+    },
+    {
+      "box": "one",
+      "q": "ZX-2015-05-18",
+      "asof": "2026-02-03",
+      "expected": [
+        "date_ref"
+      ],
+      "actual": [
+        "date_ref"
+      ],
+      "ok": true
+    },
+    {
+      "box": "one",
+      "q": "покажи B905731426 вчера",
+      "asof": "2026-02-03",
+      "expected": [],
+      "actual": [],
+      "ok": true
+    },
+    {
+      "box": "one",
+      "q": "от mail-01723@example.invalid",
+      "asof": "2026-02-03",
+      "expected": [
+        "raw_digits"
+      ],
+      "actual": [
+        "raw_digits"
+      ],
+      "ok": true
+    },
+    {
+      "box": "one",
+      "q": "archive:mail/2026.abc",
+      "asof": "2026-02-03",
+      "expected": [
+        "archive:mail/2026.abc"
+      ],
+      "actual": [
+        "archive:mail/2026.abc"
+      ],
+      "ok": true
+    },
+    {
+      "box": "one",
+      "q": "archive:mail/2026.abc",
+      "asof": "2026-01-31",
+      "expected": [],
+      "actual": [],
+      "ok": true
+    },
+    {
+      "box": "two",
+      "q": "archive:mail/2026.abc",
+      "asof": "2026-02-03",
+      "expected": [],
+      "actual": [],
+      "ok": true
+    },
+    {
+      "box": "one",
+      "q": "письма за 01.02.2026",
+      "asof": "2026-02-03",
+      "expected": [
+        "archive:mail/2026.abc"
+      ],
+      "actual": [
+        "archive:mail/2026.abc"
+      ],
+      "ok": true
+    },
+    {
+      "box": "one",
+      "q": "за 2026-02-01",
+      "asof": "2026-02-03",
+      "expected": [
+        "archive:mail/2026.abc"
+      ],
+      "actual": [
+        "archive:mail/2026.abc"
+      ],
+      "ok": true
+    }
+  ],
+  "before_after_five_variants_note": "One product, five independently worded queries. Simulated prior OOV gate and actual current gate applied to the exact same lexical, spelling and dense indices. These are illustrations, not five independent topics."
+}

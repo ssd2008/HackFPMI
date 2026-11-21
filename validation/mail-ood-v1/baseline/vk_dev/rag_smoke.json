@@ -1,0 +1,52 @@
+{
+  "corpus_sha256": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+  "server_corpus_check": "sha256",
+  "fixture_sha256": "c72c73dfe5c048d796a95fa8c5edce55c67d4d580d66ab794a57485e89581680",
+  "scope": "Small task-authored regression set with deterministic, predeclared facts. References must open in the same snapshot. Fact-pattern and source checks do not evaluate arbitrary generated claims.",
+  "summary": {
+    "answerable": 1,
+    "all_facts_with_expected_citation": 1,
+    "unwarranted_no_evidence": 0,
+    "insufficient": 1,
+    "explicit_no_evidence": 1,
+    "citations_on_answerable": 1,
+    "expected_source_citations_on_answerable": 1,
+    "required_facts": 2,
+    "required_facts_with_citation": 2,
+    "originals_opened_in_scope": 1,
+    "modes": {
+      "generative": 1,
+      "no_evidence": 1
+    }
+  },
+  "cases": [
+    {
+      "id": "Q-000bc9b7d551bfb522",
+      "answerable": true,
+      "mode": "generative",
+      "answer": "На сумму 4762.23 RUB был заказ SYN-91aa7eb461 [1].",
+      "answer_http_ms": 8875.7,
+      "opened_source_ids": [
+        "L-f13bef2bbafb7e9f940b"
+      ],
+      "citations": 1,
+      "citations_to_expected": 1,
+      "facts_expected": 2,
+      "facts_cited": 2,
+      "all_expected_facts_cited": true
+    },
+    {
+      "id": "Q-0182ba03dc138e2ad7",
+      "answerable": false,
+      "mode": "no_evidence",
+      "answer": "В найденных письмах недостаточно сведений для ответа.",
+      "answer_http_ms": 776.8,
+      "opened_source_ids": [],
+      "citations": 0,
+      "citations_to_expected": 0,
+      "facts_expected": 0,
+      "facts_cited": 0,
+      "all_expected_facts_cited": false
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "schema": 1,
+  "source_sha256": {
+    "retrieval": "93e475250605d17ba1b8740d7d552eaea4d1340a999c3349d8ea2a695141599f",
+    "dates": "075f5b619f2fbe5d43a67d37d70d6c063fa4736f15fe478f270555fb4811eeb2",
+    "spelling": "3124106924b3a5fa731a2ab15953f58bda21d981ca0ff94bf85fb46fd3a8cf38",
+    "dense": "ee8bedb08b502c94b65169cd7d18dc2dbef10edce10c5d717fd1e648e1c5d4ed",
+    "app": "b1130afed9ce982dded3b5ec3b27def96cc7551c247b0d55f4d825cf72f441bb"
+  },
+  "protocol": {
+    "evaluation": "Самостоятельные диагностические наборы. Для этих архивов нет внешней разметки релевантности.",
+    "positive_technical": "Искомые фрагменты темы и тела встречаются ровно в одном письме всего соответствующего корпуса. Часть запросов также ограничивает даты получения.",
+    "positive_natural_language": "Формулировки составлены вручную без просмотра выдачи. Релевантные примеры выбраны автоматически по явным признакам темы. Ручной оценки писем не проводилось; другие релевантные письма возможны.",
+    "ranking": "Для положительных запросов учитывается попадание хотя бы одного подтверждённого письма в первые 1 и 5.",
+    "negative": "Строго пустая выдача требуется для отсутствующего буквального маркера либо для уникального фрагмента из будущего или другого ящика.",
+    "scope": "Независимая проверка каждого возвращённого ID по корпусу, ящику, дате запроса и явно указанному периоду. Всегда запрашивалось не более 10 писем.",
+    "timing": "Один последовательный проход по зафиксированным запросам каждого архива после запуска сервера. Миллисекунды из Server-Timing, ближайший ранг. Замеры по архивам выполнялись по очереди."
+  },
+  "corpora": [
+    {
+      "corpus": "raw_export",
+      "input_messages": 5939,
+      "mailboxes": 1,
+      "missing_dates": 0,
+      "original_date_changed_by_timezone": 263,
+      "calendar_day_policy": "UTC timestamps to Europe/Moscow calendar dates",
+      "frozen_probe_file_sha256": "ea071255d2f61a22204dfdae8409314be1c2f34320ec4e51db4b49cc4c5e9ca4",
+      "search_requests": 52,
+      "technical": {
+        "queries": 32,
+        "hit_at_1": 24,
+        "hit_at_5": 29
+      },
+      "natural_language_silver": {
+        "queries": 12,
+        "hit_at_1": 0,
+        "hit_at_5": 4
+      },
+      "negative": {
+        "queries": 8,
+        "correctly_empty": 2
+      },
+      "positive_by_probe_family": {
+        "exact_body": {
+          "queries": 8,
+          "hit_at_1": 4,
+          "hit_at_5": 7
+        },
+        "exact_body_after_1900": {
+          "queries": 6,
+          "hit_at_1": 2,
+          "hit_at_5": 4
+        },
+        "exact_subject": {
+          "queries": 10,
+          "hit_at_1": 10,
+          "hit_at_5": 10
+        },
+        "exact_with_received_period": {
+          "queries": 8,
+          "hit_at_1": 8,
+          "hit_at_5": 8
+        }
+      },
+      "negative_by_probe_family": {
+        "absent_literal": {
+          "queries": 4,
+          "correctly_empty": 2
+        },
+        "unique_phrase_before_receipt": {
+          "queries": 4,
+          "correctly_empty": 0
+        }
+      },
+      "scope": {
+        "returned_items": 406,
+        "invalid_mailbox_or_asof_items": 0,
+        "outside_explicit_received_window_items": 0
+      },
+      "direct_reads": {
+        "checks": 9,
+        "passed": 9
+      },
+      "inbox_smoke": {
+        "mailboxes_opened": 1,
+        "sorted_pages_checked": true,
+        "original_message_checked": true,
+        "empty_snapshot_checked": true,
+        "nonexistent_document_returns_404": true,
+        "rag_without_evidence_has_no_sources": true
+      },
+      "sequential_server_ms": {
+        "p50_ms": 4.339,
+        "p95_ms": 5.209,
+        "p99_ms": 8.766
+      }
+    },
+    {
+      "corpus": "native_export",
+      "input_messages": 3427,
+      "mailboxes": 2,
+      "missing_dates": 0,
+      "original_date_changed_by_timezone": 0,
+      "calendar_day_policy": "supplied YYYY-MM-DD, original partitions and IDs retained",
+      "frozen_probe_file_sha256": "f994b6d35c2edd3829d2491f82038335ce1fdf89a60ff5f2d9811b49065f63da",
+      "search_requests": 51,
+      "technical": {
+        "queries": 32,
+        "hit_at_1": 30,
+        "hit_at_5": 31
+      },
+      "natural_language_silver": {
+        "queries": 7,
+        "hit_at_1": 2,
+        "hit_at_5": 2
+      },
+      "negative": {
+        "queries": 12,
+        "correctly_empty": 2
+      },
+      "positive_by_probe_family": {
+        "exact_body": {
+          "queries": 8,
+          "hit_at_1": 6,
+          "hit_at_5": 7
+        },
+        "exact_body_after_1900": {
+          "queries": 6,
+          "hit_at_1": 6,
+          "hit_at_5": 6
+        },
+        "exact_subject": {
+          "queries": 10,
+          "hit_at_1": 10,
+          "hit_at_5": 10
+        },
+        "exact_with_received_period": {
+          "queries": 8,
+          "hit_at_1": 8,
+          "hit_at_5": 8
+        }
+      },
+      "negative_by_probe_family": {
+        "absent_literal": {
+          "queries": 4,
+          "correctly_empty": 2
+        },
+        "unique_phrase_before_receipt": {
+          "queries": 4,
+          "correctly_empty": 0
+        },
+        "unique_phrase_in_other_mailbox": {
+          "queries": 4,
+          "correctly_empty": 0
+        }
+      },
+      "scope": {
+        "returned_items": 391,
+        "invalid_mailbox_or_asof_items": 0,
+        "outside_explicit_received_window_items": 0
+      },
+      "direct_reads": {
+        "checks": 9,
+        "passed": 9
+      },
+      "inbox_smoke": {
+        "mailboxes_opened": 2,
+        "sorted_pages_checked": true,
+        "original_message_checked": true,
+        "empty_snapshot_checked": true,
+        "nonexistent_document_returns_404": true,
+        "rag_without_evidence_has_no_sources": true
+      },
+      "sequential_server_ms": {
+        "p50_ms": 3.616,
+        "p95_ms": 4.215,
+        "p99_ms": 5.502
+      }
+    }
+  ]
+}

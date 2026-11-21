@@ -1,0 +1,831 @@
+{
+  "name": "Локальная диагностика импорта почты",
+  "version": 1,
+  "documents_sha256": "7b810045963ae633ae26846f5b15331842f9d0892c2cd4bd7da5e837f481d38f",
+  "method": [
+    "Фрагменты и все метки зафиксированы автоматически до первого запроса к приложению. Для буквальных фрагментов и отрицательных маркеров проверена уникальность/отсутствие в полном корпусе.",
+    "У естественных вопросов формулировки составлены отдельно вручную, но сами связи с письмами вычислены по явным признакам темы. Другие релевантные документы возможны. Этим связям соответствует слабая разметка; ручной поштучной разметки или официальных qrels нет.",
+    "Периоды и видимость проверяются по исходному timestamp в часовом поясе Europe/Moscow. Для датированных естественных запросов выбраны интервалы с одним–четырьмя известными примерами и минимум пятью другими письмами."
+  ],
+  "global_anchors": [],
+  "cases": [
+    {
+      "id": "exact_subject-1",
+      "family": "exact_subject",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2026-11-21",
+      "query": "Найди письмо, в теме которого есть фраза «почувствуйте себя частью комьюнити».",
+      "expected": [
+        "L-2f41c7bf4af623570bd1"
+      ],
+      "evidence_all": [
+        "почувствуйте\\ себя\\ частью\\ комьюнити"
+      ]
+    },
+    {
+      "id": "exact_subject-2",
+      "family": "exact_subject",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2026-11-21",
+      "query": "Найди письмо, в теме которого есть фраза «декабря отдай свой голос».",
+      "expected": [
+        "L-ac4e29266adf503df318"
+      ],
+      "evidence_all": [
+        "декабря\\ отдай\\ свой\\ голос"
+      ]
+    },
+    {
+      "id": "exact_subject-3",
+      "family": "exact_subject",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2026-11-21",
+      "query": "Найди письмо, в теме которого есть фраза «your monthly WoT report».",
+      "expected": [
+        "L-a2e17c7da5fcc4f394be"
+      ],
+      "evidence_all": [
+        "your\\ monthly\\ WoT\\ report"
+      ]
+    },
+    {
+      "id": "exact_subject-4",
+      "family": "exact_subject",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2026-11-21",
+      "query": "Найди письмо, в теме которого есть фраза «образовательные программы ФДП НИУ».",
+      "expected": [
+        "L-d896d6abd546e43b9af8"
+      ],
+      "evidence_all": [
+        "образовательные\\ программы\\ ФДП\\ НИУ"
+      ]
+    },
+    {
+      "id": "exact_subject-5",
+      "family": "exact_subject",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2026-11-21",
+      "query": "Найди письмо, в теме которого есть фраза «Начали разбор методик решения».",
+      "expected": [
+        "L-384a0ac04622809920b5"
+      ],
+      "evidence_all": [
+        "Начали\\ разбор\\ методик\\ решения"
+      ]
+    },
+    {
+      "id": "exact_subject-6",
+      "family": "exact_subject",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2026-11-21",
+      "query": "Найди письмо, в теме которого есть фраза «ЦОР Якласс действует цена».",
+      "expected": [
+        "L-559203fa64adc519777b"
+      ],
+      "evidence_all": [
+        "ЦОР\\ Якласс\\ действует\\ цена"
+      ]
+    },
+    {
+      "id": "exact_subject-7",
+      "family": "exact_subject",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2026-11-21",
+      "query": "Найди письмо, в теме которого есть фраза «Длинная инструкция теперь дешевле».",
+      "expected": [
+        "L-51da88daa2662f144f70"
+      ],
+      "evidence_all": [
+        "Длинная\\ инструкция\\ теперь\\ дешевле"
+      ]
+    },
+    {
+      "id": "exact_subject-8",
+      "family": "exact_subject",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2026-11-21",
+      "query": "Найди письмо, в теме которого есть фраза «Пройдите медицинскую реабилитацию бесплатно».",
+      "expected": [
+        "L-7fd72d84896760a8b8ef"
+      ],
+      "evidence_all": [
+        "Пройдите\\ медицинскую\\ реабилитацию\\ бесплатно"
+      ]
+    },
+    {
+      "id": "exact_subject-9",
+      "family": "exact_subject",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2026-11-21",
+      "query": "Найди письмо, в теме которого есть фраза «Когда отключат горячую воду».",
+      "expected": [
+        "L-6ec2cdc2e429e94a5c47"
+      ],
+      "evidence_all": [
+        "Когда\\ отключат\\ горячую\\ воду"
+      ]
+    },
+    {
+      "id": "exact_subject-10",
+      "family": "exact_subject",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2026-11-21",
+      "query": "Найди письмо, в теме которого есть фраза «View request from Василиса».",
+      "expected": [
+        "L-5c7249f40ce41bd39864"
+      ],
+      "evidence_all": [
+        "View\\ request\\ from\\ Василиса"
+      ]
+    },
+    {
+      "id": "exact_body-1",
+      "family": "exact_body",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2026-11-21",
+      "query": "Найди письмо, в тексте которого есть фраза «России масштабный проект развернется».",
+      "expected": [
+        "L-9cce27274d44920d9705"
+      ],
+      "evidence_all": [
+        "России\\ масштабный\\ проект\\ развернется"
+      ]
+    },
+    {
+      "id": "exact_body-2",
+      "family": "exact_body",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2026-11-21",
+      "query": "Найди письмо, в тексте которого есть фраза «Ежегодный день открытых дверей».",
+      "expected": [
+        "L-7468a7c477dd5fe87f70"
+      ],
+      "evidence_all": [
+        "Ежегодный\\ день\\ открытых\\ дверей"
+      ]
+    },
+    {
+      "id": "exact_body-3",
+      "family": "exact_body",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2026-11-21",
+      "query": "Найди письмо, в тексте которого есть фраза «наиболее популярных сфер для».",
+      "expected": [
+        "L-7700fcc4ac1a16ec014d"
+      ],
+      "evidence_all": [
+        "наиболее\\ популярных\\ сфер\\ для"
+      ]
+    },
+    {
+      "id": "exact_body-4",
+      "family": "exact_body",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2026-11-21",
+      "query": "Найди письмо, в тексте которого есть фраза «developers actually run for».",
+      "expected": [
+        "L-bf2801628f044abfb5d6"
+      ],
+      "evidence_all": [
+        "developers\\ actually\\ run\\ for"
+      ]
+    },
+    {
+      "id": "exact_body-5",
+      "family": "exact_body",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2026-11-21",
+      "query": "Найди письмо, в тексте которого есть фраза «это возможность помериться силами».",
+      "expected": [
+        "L-4d60574ddd6466944316"
+      ],
+      "evidence_all": [
+        "это\\ возможность\\ помериться\\ силами"
+      ]
+    },
+    {
+      "id": "exact_body-6",
+      "family": "exact_body",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2026-11-21",
+      "query": "Найди письмо, в тексте которого есть фраза «качестве основного адреса аккаунта».",
+      "expected": [
+        "L-7fdec22aa56a7e78e064"
+      ],
+      "evidence_all": [
+        "качестве\\ основного\\ адреса\\ аккаунта"
+      ]
+    },
+    {
+      "id": "exact_body-7",
+      "family": "exact_body",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2026-11-21",
+      "query": "Найди письмо, в тексте которого есть фраза «позволит тебе миновать первый».",
+      "expected": [
+        "L-30ab960bf16be78acd61"
+      ],
+      "evidence_all": [
+        "позволит\\ тебе\\ миновать\\ первый"
+      ]
+    },
+    {
+      "id": "exact_body-8",
+      "family": "exact_body",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2026-11-21",
+      "query": "Найди письмо, в тексте которого есть фраза «анализу данных DANO стартует».",
+      "expected": [
+        "L-a334abdd92c761265c03"
+      ],
+      "evidence_all": [
+        "анализу\\ данных\\ DANO\\ стартует"
+      ]
+    },
+    {
+      "id": "exact_body_after_1900-1",
+      "family": "exact_body_after_1900",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2026-11-21",
+      "query": "Найди письмо, в тексте которого есть фраза «вас будет возможность пройти».",
+      "expected": [
+        "L-d172abd9f931be453ff8"
+      ],
+      "evidence_all": [
+        "вас\\ будет\\ возможность\\ пройти"
+      ]
+    },
+    {
+      "id": "exact_body_after_1900-2",
+      "family": "exact_body_after_1900",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2026-11-21",
+      "query": "Найди письмо, в тексте которого есть фраза «что скоро контрольные или».",
+      "expected": [
+        "L-aa4c65f643154206a6d1"
+      ],
+      "evidence_all": [
+        "что\\ скоро\\ контрольные\\ или"
+      ]
+    },
+    {
+      "id": "exact_body_after_1900-3",
+      "family": "exact_body_after_1900",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2026-11-21",
+      "query": "Найди письмо, в тексте которого есть фраза «Алиса распишет тему пошагово».",
+      "expected": [
+        "L-7ce234326f3e4387ac24"
+      ],
+      "evidence_all": [
+        "Алиса\\ распишет\\ тему\\ пошагово"
+      ]
+    },
+    {
+      "id": "exact_body_after_1900-4",
+      "family": "exact_body_after_1900",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2026-11-21",
+      "query": "Найди письмо, в тексте которого есть фраза «системы распознавания лиц для».",
+      "expected": [
+        "L-c4b719ef51a78807c60b"
+      ],
+      "evidence_all": [
+        "системы\\ распознавания\\ лиц\\ для"
+      ]
+    },
+    {
+      "id": "exact_body_after_1900-5",
+      "family": "exact_body_after_1900",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2026-11-21",
+      "query": "Найди письмо, в тексте которого есть фраза «Вас ждут декорации разных».",
+      "expected": [
+        "L-d7da61313c702d13312e"
+      ],
+      "evidence_all": [
+        "Вас\\ ждут\\ декорации\\ разных"
+      ]
+    },
+    {
+      "id": "exact_body_after_1900-6",
+      "family": "exact_body_after_1900",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2026-11-21",
+      "query": "Найди письмо, в тексте которого есть фраза «предоставляет бесплатные материалы для».",
+      "expected": [
+        "L-ce8a8a83ce5d71f628e4"
+      ],
+      "evidence_all": [
+        "предоставляет\\ бесплатные\\ материалы\\ для"
+      ]
+    },
+    {
+      "id": "dates-1",
+      "family": "exact_with_received_period",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2026-09-04",
+      "query": "Ищу письмо со словами «сентября фестиваль FestTech возвращается», полученное с 27 августа 2026 года по 30 августа 2026 года.",
+      "expected": [
+        "L-7679a54b63d8dbec9ffd"
+      ],
+      "evidence_all": [
+        "сентября\\ фестиваль\\ FestTech\\ возвращается"
+      ],
+      "received": [
+        "2026-08-27",
+        "2026-08-30"
+      ]
+    },
+    {
+      "id": "dates-2",
+      "family": "exact_with_received_period",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2025-03-14",
+      "query": "Найди полученное вчера письмо со словами «проверьте Ваш адрес электронной».",
+      "expected": [
+        "L-f6b667e2bbe69f3467b2"
+      ],
+      "evidence_all": [
+        "проверьте\\ Ваш\\ адрес\\ электронной"
+      ],
+      "received": [
+        "2025-03-13",
+        "2025-03-13"
+      ]
+    },
+    {
+      "id": "dates-3",
+      "family": "exact_with_received_period",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2022-11-28",
+      "query": "Ищу письмо со словами «Проверьте свои навыки защиты», полученное с 20 ноября 2022 года по 23 ноября 2022 года.",
+      "expected": [
+        "L-f2bfd2b477296f37621e"
+      ],
+      "evidence_all": [
+        "Проверьте\\ свои\\ навыки\\ защиты"
+      ],
+      "received": [
+        "2022-11-20",
+        "2022-11-23"
+      ]
+    },
+    {
+      "id": "dates-4",
+      "family": "exact_with_received_period",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2024-03-23",
+      "query": "Найди полученное вчера письмо со словами «Отменено проведение заключительных этапов».",
+      "expected": [
+        "L-7918fb81c88111109775"
+      ],
+      "evidence_all": [
+        "Отменено\\ проведение\\ заключительных\\ этапов"
+      ],
+      "received": [
+        "2024-03-22",
+        "2024-03-22"
+      ]
+    },
+    {
+      "id": "dates-5",
+      "family": "exact_with_received_period",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2025-01-08",
+      "query": "Ищу письмо со словами «способов провести зимние каникулы», полученное с 31 декабря 2024 года по 3 января 2025 года.",
+      "expected": [
+        "L-cc0afd5dae402b1fc22b"
+      ],
+      "evidence_all": [
+        "способов\\ провести\\ зимние\\ каникулы"
+      ],
+      "received": [
+        "2024-12-31",
+        "2025-01-03"
+      ]
+    },
+    {
+      "id": "dates-6",
+      "family": "exact_with_received_period",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2023-01-03",
+      "query": "Найди полученное вчера письмо со словами «Оповещение системы безопасности для».",
+      "expected": [
+        "L-a533cbf29e773a6e80c4"
+      ],
+      "evidence_all": [
+        "Оповещение\\ системы\\ безопасности\\ для"
+      ],
+      "received": [
+        "2023-01-02",
+        "2023-01-02"
+      ]
+    },
+    {
+      "id": "dates-7",
+      "family": "exact_with_received_period",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2024-10-30",
+      "query": "Ищу письмо со словами «сыграйте как чемпион мира», полученное с 22 октября 2024 года по 25 октября 2024 года.",
+      "expected": [
+        "L-503ee88bf00cf04eed7d"
+      ],
+      "evidence_all": [
+        "сыграйте\\ как\\ чемпион\\ мира"
+      ],
+      "received": [
+        "2024-10-22",
+        "2024-10-25"
+      ]
+    },
+    {
+      "id": "dates-8",
+      "family": "exact_with_received_period",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2023-09-16",
+      "query": "Найди полученное вчера письмо со словами «МТС открыла прием заявок».",
+      "expected": [
+        "L-15bc7b6f8c9cf8bd3882"
+      ],
+      "evidence_all": [
+        "МТС\\ открыла\\ прием\\ заявок"
+      ],
+      "received": [
+        "2023-09-15",
+        "2023-09-15"
+      ]
+    },
+    {
+      "id": "semantic-1-4",
+      "family": "authored_query_silver_subject",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2024-07-14",
+      "query": "Где мне присылали подтверждающий документ после того, как я расплатился за покупку? Интересуют только письма, полученные с 5 июля 2024 года по 8 июля 2024 года.",
+      "expected": [
+        "L-60296ebc973f43b40e16"
+      ],
+      "evidence_all": [
+        "\\AОт:[^\\n]*\\nТема:[^\\n]*(?:кассовый чек|электронный чек|receipt for (?:your )?payment|your (?:payment |purchase )?receipt)"
+      ],
+      "received": [
+        "2024-07-05",
+        "2024-07-08"
+      ]
+    },
+    {
+      "id": "semantic-1-10",
+      "family": "authored_query_silver_subject",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2026-09-05",
+      "query": "Где мне присылали подтверждающий документ после того, как я расплатился за покупку? Интересуют только письма, полученные с 21 августа 2026 года по 30 августа 2026 года.",
+      "expected": [
+        "L-0e82da02f6850a2b5921",
+        "L-500e7983954b59d2468c",
+        "L-51c3c668830949d3536e"
+      ],
+      "evidence_all": [
+        "\\AОт:[^\\n]*\\nТема:[^\\n]*(?:кассовый чек|электронный чек|receipt for (?:your )?payment|your (?:payment |purchase )?receipt)"
+      ],
+      "received": [
+        "2026-08-21",
+        "2026-08-30"
+      ]
+    },
+    {
+      "id": "semantic-2-4",
+      "family": "authored_query_silver_subject",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2025-05-31",
+      "query": "Кто присылал предложение добавить совместное мероприятие в мой календарь? Интересуют только письма, полученные с 22 мая 2025 года по 25 мая 2025 года.",
+      "expected": [
+        "L-de765536e78189786137"
+      ],
+      "evidence_all": [
+        "\\AОт:[^\\n]*\\nТема:[^\\n]*(?:invitation\\s*:|приглашение на (?:встречу|событие)|invitation to (?:a |the )?(?:meeting|event))"
+      ],
+      "received": [
+        "2025-05-22",
+        "2025-05-25"
+      ]
+    },
+    {
+      "id": "semantic-2-10",
+      "family": "authored_query_silver_subject",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2025-05-03",
+      "query": "Кто присылал предложение добавить совместное мероприятие в мой календарь? Интересуют только письма, полученные с 18 апреля 2025 года по 27 апреля 2025 года.",
+      "expected": [
+        "L-3c9ac50bf78db9343961",
+        "L-4d3b0eb4a72d8c28cfba",
+        "L-fd670eeb71ffa84c3360"
+      ],
+      "evidence_all": [
+        "\\AОт:[^\\n]*\\nТема:[^\\n]*(?:invitation\\s*:|приглашение на (?:встречу|событие)|invitation to (?:a |the )?(?:meeting|event))"
+      ],
+      "received": [
+        "2025-04-18",
+        "2025-04-27"
+      ]
+    },
+    {
+      "id": "semantic-3-4",
+      "family": "authored_query_silver_subject",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2026-11-28",
+      "query": "Ищу сообщения, где говорят, к какому моменту нужно закончить дело. Интересуют только письма, полученные с 19 ноября 2026 года по 22 ноября 2026 года.",
+      "expected": [
+        "L-4e1a998428c107a2d8b7",
+        "L-5239540e0a41003e5733",
+        "L-76a6bf62d5055b525667",
+        "L-b7c9106b61ca754cf0b4"
+      ],
+      "evidence_all": [
+        "\\AОт:[^\\n]*\\nТема:[^\\n]*(?:дедлайн|deadline|due date|крайний срок)"
+      ],
+      "received": [
+        "2026-11-19",
+        "2026-11-22"
+      ]
+    },
+    {
+      "id": "semantic-3-10",
+      "family": "authored_query_silver_subject",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2026-03-27",
+      "query": "Ищу сообщения, где говорят, к какому моменту нужно закончить дело. Интересуют только письма, полученные с 12 марта 2026 года по 21 марта 2026 года.",
+      "expected": [
+        "L-2918749d0b48eebc694c",
+        "L-bfaa8dc01bd1f94d37fa",
+        "L-c0d2a28c23c01eb88b9c"
+      ],
+      "evidence_all": [
+        "\\AОт:[^\\n]*\\nТема:[^\\n]*(?:дедлайн|deadline|due date|крайний срок)"
+      ],
+      "received": [
+        "2026-03-12",
+        "2026-03-21"
+      ]
+    },
+    {
+      "id": "semantic-4-4",
+      "family": "authored_query_silver_subject",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2026-06-04",
+      "query": "Где напоминали, что в переписке остались новые реплики, которые я ещё не открыл? Интересуют только письма, полученные с 26 мая 2026 года по 29 мая 2026 года.",
+      "expected": [
+        "L-f3c6ecddca9b5dc3f0eb"
+      ],
+      "evidence_all": [
+        "\\AОт:[^\\n]*\\nТема:[^\\n]*(?:непрочитанн.{0,18}сообщени|unread messages?)"
+      ],
+      "received": [
+        "2026-05-26",
+        "2026-05-29"
+      ]
+    },
+    {
+      "id": "semantic-4-10",
+      "family": "authored_query_silver_subject",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2026-06-30",
+      "query": "Где напоминали, что в переписке остались новые реплики, которые я ещё не открыл? Интересуют только письма, полученные с 15 июня 2026 года по 24 июня 2026 года.",
+      "expected": [
+        "L-4df22692bf9a1a2f7542"
+      ],
+      "evidence_all": [
+        "\\AОт:[^\\n]*\\nТема:[^\\n]*(?:непрочитанн.{0,18}сообщени|unread messages?)"
+      ],
+      "received": [
+        "2026-06-15",
+        "2026-06-24"
+      ]
+    },
+    {
+      "id": "semantic-5-4",
+      "family": "authored_query_silver_subject",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2025-09-11",
+      "query": "Где организаторы предлагают мне присоединиться к совместной работе? Интересуют только письма, полученные с 2 сентября 2025 года по 5 сентября 2025 года.",
+      "expected": [
+        "L-0602c9e874eca0d72e3d"
+      ],
+      "evidence_all": [
+        "\\AОт:[^\\n]*\\nТема:[^\\n]*(?:invited you to|приглаша[ею]т вас (?:присоединиться|в проект|в команду))"
+      ],
+      "received": [
+        "2025-09-02",
+        "2025-09-05"
+      ]
+    },
+    {
+      "id": "semantic-5-10",
+      "family": "authored_query_silver_subject",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2026-10-02",
+      "query": "Где организаторы предлагают мне присоединиться к совместной работе? Интересуют только письма, полученные с 17 сентября 2026 года по 26 сентября 2026 года.",
+      "expected": [
+        "L-d06e36e55865457894bf"
+      ],
+      "evidence_all": [
+        "\\AОт:[^\\n]*\\nТема:[^\\n]*(?:invited you to|приглаша[ею]т вас (?:присоединиться|в проект|в команду))"
+      ],
+      "received": [
+        "2026-09-17",
+        "2026-09-26"
+      ]
+    },
+    {
+      "id": "semantic-6-4",
+      "family": "authored_query_silver_subject",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2026-05-30",
+      "query": "Найди письма, в которых меня ещё раз уведомляют о ранее запланированном деле. Интересуют только письма, полученные с 21 мая 2026 года по 24 мая 2026 года.",
+      "expected": [
+        "L-26175d1eacbfaff126a2",
+        "L-622771e4ebb0e2f61952"
+      ],
+      "evidence_all": [
+        "\\AОт:[^\\n]*\\nТема:[^\\n]*(?:напоминание|напоминаем|reminder)"
+      ],
+      "received": [
+        "2026-05-21",
+        "2026-05-24"
+      ]
+    },
+    {
+      "id": "semantic-6-10",
+      "family": "authored_query_silver_subject",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2025-01-31",
+      "query": "Найди письма, в которых меня ещё раз уведомляют о ранее запланированном деле. Интересуют только письма, полученные с 16 января 2025 года по 25 января 2025 года.",
+      "expected": [
+        "L-007096d09f47a0e3b9f4",
+        "L-3cfcb524bd3185f8eb31",
+        "L-dfa407bed8ad4194c76f",
+        "L-f11996baf406f73164e3"
+      ],
+      "evidence_all": [
+        "\\AОт:[^\\n]*\\nТема:[^\\n]*(?:напоминание|напоминаем|reminder)"
+      ],
+      "received": [
+        "2025-01-16",
+        "2025-01-25"
+      ]
+    },
+    {
+      "id": "future-1",
+      "family": "unique_phrase_before_receipt",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2023-05-18",
+      "query": "Где письмо с точными словами «почувствуйте себя частью комьюнити»?",
+      "expected": [],
+      "evidence_all": [
+        "почувствуйте\\ себя\\ частью\\ комьюнити"
+      ]
+    },
+    {
+      "id": "future-2",
+      "family": "unique_phrase_before_receipt",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2023-12-20",
+      "query": "Где письмо с точными словами «декабря отдай свой голос»?",
+      "expected": [],
+      "evidence_all": [
+        "декабря\\ отдай\\ свой\\ голос"
+      ]
+    },
+    {
+      "id": "future-3",
+      "family": "unique_phrase_before_receipt",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2025-08-06",
+      "query": "Где письмо с точными словами «your monthly WoT report»?",
+      "expected": [],
+      "evidence_all": [
+        "your\\ monthly\\ WoT\\ report"
+      ]
+    },
+    {
+      "id": "future-4",
+      "family": "unique_phrase_before_receipt",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2026-09-10",
+      "query": "Где письмо с точными словами «образовательные программы ФДП НИУ»?",
+      "expected": [],
+      "evidence_all": [
+        "образовательные\\ программы\\ ФДП\\ НИУ"
+      ]
+    },
+    {
+      "id": "absent-1",
+      "family": "absent_literal",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2026-11-21",
+      "query": "Покажи письма, в которых буквально встречается «SYN-9cd19e26341b».",
+      "expected": [],
+      "evidence_all": [
+        "SYN\\-9cd19e26341b"
+      ]
+    },
+    {
+      "id": "absent-2",
+      "family": "absent_literal",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2026-11-21",
+      "query": "Покажи письма, в которых буквально встречается «ZXW-740392518662».",
+      "expected": [],
+      "evidence_all": [
+        "ZXW\\-740392518662"
+      ]
+    },
+    {
+      "id": "absent-3",
+      "family": "absent_literal",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2026-11-21",
+      "query": "Покажи письма, в которых буквально встречается «АльтаметрияСемиДюн».",
+      "expected": [],
+      "evidence_all": [
+        "АльтаметрияСемиДюн"
+      ]
+    },
+    {
+      "id": "absent-4",
+      "family": "absent_literal",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2026-11-21",
+      "query": "Покажи письма, в которых буквально встречается «КалейдоскопПолюсаТридцать».",
+      "expected": [],
+      "evidence_all": [
+        "КалейдоскопПолюсаТридцать"
+      ]
+    }
+  ],
+  "read_checks": [
+    {
+      "id": "read-1-day",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2023-05-19",
+      "doc_id": "L-2f41c7bf4af623570bd1",
+      "status": 200
+    },
+    {
+      "id": "read-1-before",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2023-05-18",
+      "doc_id": "L-2f41c7bf4af623570bd1",
+      "status": 404
+    },
+    {
+      "id": "read-1-foreign",
+      "mailbox": "box-unrelated-diagnostic",
+      "date": "2026-11-21",
+      "doc_id": "L-2f41c7bf4af623570bd1",
+      "status": 404
+    },
+    {
+      "id": "read-2-day",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2023-12-21",
+      "doc_id": "L-ac4e29266adf503df318",
+      "status": 200
+    },
+    {
+      "id": "read-2-before",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2023-12-20",
+      "doc_id": "L-ac4e29266adf503df318",
+      "status": 404
+    },
+    {
+      "id": "read-2-foreign",
+      "mailbox": "box-unrelated-diagnostic",
+      "date": "2026-11-21",
+      "doc_id": "L-ac4e29266adf503df318",
+      "status": 404
+    },
+    {
+      "id": "read-3-day",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2025-08-07",
+      "doc_id": "L-a2e17c7da5fcc4f394be",
+      "status": 200
+    },
+    {
+      "id": "read-3-before",
+      "mailbox": "box-37e4ff4a5a57",
+      "date": "2025-08-06",
+      "doc_id": "L-a2e17c7da5fcc4f394be",
+      "status": 404
+    },
+    {
+      "id": "read-3-foreign",
+      "mailbox": "box-unrelated-diagnostic",
+      "date": "2026-11-21",
+      "doc_id": "L-a2e17c7da5fcc4f394be",
+      "status": 404
+    }
+  ]
+}

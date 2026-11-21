@@ -1,0 +1,19 @@
+{
+  "source": "MS MARCO Passage v1 dev.small",
+  "language": "en",
+  "raw_corpus_rows": 8841823,
+  "documents": 29433,
+  "complete_corpus": false,
+  "queries": 6980,
+  "qrels": 7437,
+  "unique_judged_documents": 7433,
+  "adjacent_unjudged_documents": 0,
+  "random_unjudged_documents": 22000,
+  "query_pool": "Original published judgments with at least one positive; restricted to the indicated split.",
+  "raw_to_local_id": "Prefix raw document IDs with msmarco-passage/; prefix raw question IDs with msmarco-passage/q/. LoTTE namespaced forum and search.",
+  "sha256": {
+    "documents.jsonl": "9e80c591f581a5d059ce8e5dec8ee647b6ae1ed45e9cfc97469bf424045e4ce1",
+    "qrels_dev.jsonl": "32ee181c120b7390e96603d316b80e6696e53c49c4e1a13b8b932bf400196b74",
+    "queries_dev.jsonl": "f3cf6692f066c0ce530d3ec990c2f9eae6e3db3cc4df5ecdf07bba71cfa1849a"
+  }
+}

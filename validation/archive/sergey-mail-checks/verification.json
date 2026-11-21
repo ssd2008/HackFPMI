@@ -1,0 +1,32 @@
+{
+  "commit": "1c6a47129299f0887d5786d314010d06d6be4729",
+  "blob": "8f29fdb126f4af6c03b531c5f0556ce0c7680278",
+  "tool_commit": "9cb54f78f0650ecadc6fc26de479669a7114404e",
+  "mailbox": "box-37e4ff4a5a57",
+  "messages": 5939,
+  "unique_doc_ids": 5939,
+  "previous_corpus_byte_equal": true,
+  "fresh_import_byte_equal": true,
+  "idempotent_concurrent_runs": 2,
+  "preserved_inode_and_mtime": true,
+  "protected_conflicting_file": true,
+  "receipt_day_changes": 263,
+  "unknown_dates": 0,
+  "corpus_sha256": "7b810045963ae633ae26846f5b15331842f9d0892c2cd4bd7da5e837f481d38f",
+  "index_sha256": "7c029ce07084c7d1d1e8022bc75142acbfd701fb2d22afa6de310fc643c97664",
+  "cache_byte_equal": true,
+  "index_shape": [
+    5939,
+    384
+  ],
+  "lookup_samples": 9,
+  "lookup_hits": 9,
+  "absent_mailbox_results": 0,
+  "modes": {
+    ".": "0o700",
+    "sergey": "0o700",
+    "sergey/documents.jsonl": "0o600",
+    "indexes": "0o700",
+    "indexes/e5-097c4011b8584db4423a3338.npy": "0o600"
+  }
+}

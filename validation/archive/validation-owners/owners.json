@@ -1,0 +1,19 @@
+[
+  {
+    "owner_id": "owner-01",
+    "split": "dev",
+    "documents_sha256": "7b810045963ae633ae26846f5b15331842f9d0892c2cd4bd7da5e837f481d38f",
+    "mailboxes": [
+      "box-37e4ff4a5a57"
+    ]
+  },
+  {
+    "owner_id": "owner-02",
+    "split": "blind",
+    "documents_sha256": "5550554a796a0f20e0f930939a453e2871993b436be60e68f45b64f69043774e",
+    "mailboxes": [
+      "gmail",
+      "yandex"
+    ]
+  }
+]

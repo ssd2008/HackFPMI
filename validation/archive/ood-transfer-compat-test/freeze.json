@@ -1,0 +1,84 @@
+{
+  "engines": {
+    "baseline": "b37c309ff3d9e83f80a726325a3b9b0ee56c33c1",
+    "current": "78979130983382e9ffadcac30aad15fba17c2e9b"
+  },
+  "selection": "Every supplied document in its original order and every supplied query in the listed channels. Both exact Git revisions use production SearchEngine.search with k=10, original mailbox, query date and text. No RAG generation or tuning.",
+  "cutoff": 10,
+  "inputs": {
+    "beir-scifact": {
+      "manifest_sha256": "41834dc717fc230d96a906d97c58a36505a9e6bacf1b405c45ac32ebebf424a2",
+      "sha256": {
+        "documents.jsonl": "cd1eb86760eb18ace22a97b43b40152a67594c71e22dae1f6670445742dfa932",
+        "qrels_dev.jsonl": "77194c93d7229627250b0140c3cfface9c932498b971872151424d2dda85ec58",
+        "queries_dev.jsonl": "464d286db52a6cacc0900adcb5669af841469307e0a6860d0cc446f14436d9d4"
+      },
+      "documents": 5183,
+      "mailboxes": 1,
+      "dated_documents": 0,
+      "queries": {
+        "dev": 300
+      },
+      "qrels": {
+        "dev": 339
+      },
+      "full_source_corpus": true,
+      "language": "en",
+      "all_ever_positive_ids_in_corpus_prefix": true
+    },
+    "enron-mail": {
+      "manifest_sha256": "7e860881345df96b741c913938bf2f3c9df38d5c74cec56c7c8b1015933373e2",
+      "sha256": {
+        "cases.jsonl": "d666b2958d13da276eaaabbeb782dc512434373dd3d0a36fd73f689d30d493fa",
+        "documents.jsonl": "2d7c406872a9b6686fed6f65be662fed362c6dc4599da8d44d8b9564ccb0295c",
+        "qrels_dev.jsonl": "52312c152204c3c7ff8f1e67394073f95f94a828255f2fb6dc6fb48a0ff24ff1",
+        "qrels_empty.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "qrels_variants.jsonl": "178f4c4ca9bb563011da163b54e38454788e60dc79829fd1c47f9a9c109a89ab",
+        "queries_dev.jsonl": "924e6b9b373ae7bdcb4df49fca4b153388e5eab1d37ab847593d81eaa3b4f15d",
+        "queries_empty.jsonl": "7440e42d95d2c6021cad37757df6868af76125047986912e3f685901b255a0d6",
+        "queries_variants.jsonl": "29325035f6d683cc0555c3f7cd706732faf5294e16835552255fa7ec7eb12523"
+      },
+      "documents": 37109,
+      "mailboxes": 10,
+      "dated_documents": 37109,
+      "queries": {
+        "dev": 2257,
+        "empty": 500,
+        "variants": 2257
+      },
+      "qrels": {
+        "dev": 4935,
+        "empty": 0,
+        "variants": 4935
+      },
+      "archive": {
+        "source_sha256": "b3da1b3fe0369ec3140bb4fbce94702c33b7da810ec15d718b3fadf5cd748ca7",
+        "archive_message_files": 517401,
+        "selected_message_files": 89880,
+        "within_mailbox_duplicates": 52771,
+        "unknown_dates": 0
+      },
+      "owner_written_or_manually_reviewed_primaries": 0
+    },
+    "rubq-2.0": {
+      "manifest_sha256": "baf4f1dc4a75821b7733bf5fca29d2bfe8db224d8147e51b2145bb679708cba1",
+      "sha256": {
+        "documents.jsonl": "344a0b264ce78c9f99721239b4541e68fc9eebd2c1b2f29f57406a907ffe7629",
+        "qrels_dev.jsonl": "027c92f5c20ca8124c11d8b53127b9528a863796e9cb1c19cd77a39960112b02",
+        "queries_dev.jsonl": "a9d6d353117ab969fa2c5f994d4dbb04920c68a3b6516db89471e4110db0c9fb"
+      },
+      "documents": 56952,
+      "mailboxes": 1,
+      "dated_documents": 0,
+      "queries": {
+        "dev": 1694
+      },
+      "qrels": {
+        "dev": 2847
+      },
+      "full_source_corpus": true,
+      "language": "ru",
+      "all_ever_positive_ids_in_corpus_prefix": true
+    }
+  }
+}

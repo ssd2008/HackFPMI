@@ -1,0 +1,68 @@
+[
+  {
+    "query": "Грантовая заявка на экспедицию не прошла",
+    "expected": "grant_no",
+    "top": "grant_no",
+    "passed": true
+  },
+  {
+    "query": "Заявку на научную экспедицию одобрили",
+    "expected": "grant_yes",
+    "top": "grant_yes",
+    "passed": true
+  },
+  {
+    "query": "Бронь гостиничного номера не была подтверждена",
+    "expected": "hotel_no",
+    "top": "hotel_no",
+    "passed": true
+  },
+  {
+    "query": "Бронь гостиничного номера подтверждена",
+    "expected": "hotel_yes",
+    "top": "hotel_yes",
+    "passed": true
+  },
+  {
+    "query": "Завершённая проверка вентиляции",
+    "expected": "review_done",
+    "top": "review_done",
+    "passed": true
+  },
+  {
+    "query": "Запланированный осмотр вентиляции",
+    "expected": "review_plan",
+    "top": "review_plan",
+    "passed": true
+  },
+  {
+    "query": "Доставка оборудования не состоялась",
+    "expected": "cargo_no",
+    "top": "cargo_no",
+    "passed": true
+  },
+  {
+    "query": "Доставка оборудования уже выполнена",
+    "expected": "cargo_yes",
+    "top": "cargo_yes",
+    "passed": true
+  },
+  {
+    "query": "Составили договор об аренде лофта",
+    "expected": "rent",
+    "top": "rent",
+    "passed": true
+  },
+  {
+    "query": "Международный турнир по пляжному волейболу",
+    "expected": null,
+    "top": null,
+    "passed": true
+  },
+  {
+    "query": "Остаток кислорода на орбитальной станции",
+    "expected": null,
+    "top": null,
+    "passed": true
+  }
+]

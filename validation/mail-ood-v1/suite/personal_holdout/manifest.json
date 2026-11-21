@@ -1,0 +1,38 @@
+{
+  "documents": 9366,
+  "queries": 1786,
+  "qrels": 6654,
+  "primary_tasks": 2089,
+  "empty": 303,
+  "variants": 2055,
+  "reviewed_primary": 28,
+  "semantic_silver": 342,
+  "rag_answerable": 6,
+  "rag_unanswerable": 0,
+  "families": {
+    "subject": 806,
+    "sender": 614,
+    "future_subject": 299,
+    "semantic": 306,
+    "semantic_no_date": 36,
+    "reviewed_semantic": 28
+  },
+  "positive_links": 5032,
+  "positive_documents": 2500,
+  "mailboxes": [
+    "gmail",
+    "yandex"
+  ],
+  "single": 1121,
+  "multiple": 665,
+  "sha256": {
+    "cases.jsonl": "1d9a8834ec00508be72feea87ae36b3a51159bd11847db9373f99dce2211ce91",
+    "documents.jsonl": "f882a2fe4f490127fe48feb9c44bfa76ef32d48a6971aa401561582ba8110998",
+    "qrels_dev.jsonl": "31724c90bc5cd0855f944dd2d005f3dad4e0155b03981454184ea6303b0a7a68",
+    "qrels_empty.jsonl": "8b0a2a79d69eb44366f4c44d62626b502b5fff921fedfb7acda59f94bfd49340",
+    "qrels_variants.jsonl": "42a1f5c5bc514ab1f3afc8e85e88406728efb5312b8076e300a2b9b77372c53e",
+    "queries_dev.jsonl": "e7633830a6e316f915363aa01ef1af01cbad3b62b541d86bdf74bf02c79e95cb",
+    "queries_empty.jsonl": "6d155d1eaf2fbedc78240d1ca579820c13bc94e213565729617a73772ac1d248",
+    "queries_variants.jsonl": "d0de660ffe516ede1675280cf1cec9cb843341023be80fcc7a6dfff78bddd055"
+  }
+}

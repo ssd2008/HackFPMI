@@ -1,0 +1,19 @@
+{
+  "source": "BEIR SciFact test",
+  "language": "en",
+  "raw_corpus_rows": 5183,
+  "documents": 5183,
+  "complete_corpus": true,
+  "queries": 300,
+  "qrels": 339,
+  "unique_judged_documents": 283,
+  "adjacent_unjudged_documents": 0,
+  "random_unjudged_documents": 4900,
+  "query_pool": "Original published judgments with at least one positive; restricted to the indicated split.",
+  "raw_to_local_id": "Prefix raw document IDs with beir-scifact/; prefix raw question IDs with beir-scifact/q/. LoTTE namespaced forum and search.",
+  "sha256": {
+    "documents.jsonl": "cd1eb86760eb18ace22a97b43b40152a67594c71e22dae1f6670445742dfa932",
+    "qrels_dev.jsonl": "77194c93d7229627250b0140c3cfface9c932498b971872151424d2dda85ec58",
+    "queries_dev.jsonl": "464d286db52a6cacc0900adcb5669af841469307e0a6860d0cc446f14436d9d4"
+  }
+}

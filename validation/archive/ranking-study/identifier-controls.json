@@ -1,0 +1,182 @@
+[
+  {
+    "box": "one",
+    "q": "Б905731426",
+    "asof": "2026-02-03",
+    "expected": [
+      "archive:mail/2026.abc"
+    ],
+    "actual": [
+      "archive:mail/2026.abc"
+    ],
+    "ok": true
+  },
+  {
+    "box": "one",
+    "q": "B905731426",
+    "asof": "2026-02-03",
+    "expected": [
+      "latin"
+    ],
+    "actual": [
+      "latin"
+    ],
+    "ok": true
+  },
+  {
+    "box": "one",
+    "q": "П905731426",
+    "asof": "2026-02-03",
+    "expected": [
+      "diff"
+    ],
+    "actual": [
+      "diff"
+    ],
+    "ok": true
+  },
+  {
+    "box": "one",
+    "q": "товар Б905731426-А",
+    "asof": "2026-02-03",
+    "expected": [
+      "with_suffix"
+    ],
+    "actual": [
+      "with_suffix"
+    ],
+    "ok": true
+  },
+  {
+    "box": "one",
+    "q": "Б90573142",
+    "asof": "2026-02-03",
+    "expected": [],
+    "actual": [],
+    "ok": true
+  },
+  {
+    "box": "one",
+    "q": "К905731426",
+    "asof": "2026-02-03",
+    "expected": [],
+    "actual": [],
+    "ok": true
+  },
+  {
+    "box": "one",
+    "q": "артикул FQS-410233-02",
+    "asof": "2026-02-03",
+    "expected": [
+      "market"
+    ],
+    "actual": [
+      "market"
+    ],
+    "ok": true
+  },
+  {
+    "box": "one",
+    "q": "593807-4773-1",
+    "asof": "2026-02-03",
+    "expected": [
+      "market"
+    ],
+    "actual": [
+      "market"
+    ],
+    "ok": true
+  },
+  {
+    "box": "one",
+    "q": "593807-4773-9",
+    "asof": "2026-02-03",
+    "expected": [],
+    "actual": [],
+    "ok": true
+  },
+  {
+    "box": "one",
+    "q": "ZX-2015-05-18",
+    "asof": "2026-02-03",
+    "expected": [
+      "date_ref"
+    ],
+    "actual": [
+      "date_ref"
+    ],
+    "ok": true
+  },
+  {
+    "box": "one",
+    "q": "покажи B905731426 вчера",
+    "asof": "2026-02-03",
+    "expected": [],
+    "actual": [],
+    "ok": true
+  },
+  {
+    "box": "one",
+    "q": "от mail-01723@example.invalid",
+    "asof": "2026-02-03",
+    "expected": [
+      "raw_digits"
+    ],
+    "actual": [
+      "raw_digits"
+    ],
+    "ok": true
+  },
+  {
+    "box": "one",
+    "q": "archive:mail/2026.abc",
+    "asof": "2026-02-03",
+    "expected": [
+      "archive:mail/2026.abc"
+    ],
+    "actual": [
+      "archive:mail/2026.abc"
+    ],
+    "ok": true
+  },
+  {
+    "box": "one",
+    "q": "archive:mail/2026.abc",
+    "asof": "2026-01-31",
+    "expected": [],
+    "actual": [],
+    "ok": true
+  },
+  {
+    "box": "two",
+    "q": "archive:mail/2026.abc",
+    "asof": "2026-02-03",
+    "expected": [],
+    "actual": [],
+    "ok": true
+  },
+  {
+    "box": "one",
+    "q": "письма за 01.02.2026",
+    "asof": "2026-02-03",
+    "expected": [
+      "archive:mail/2026.abc"
+    ],
+    "actual": [
+      "archive:mail/2026.abc"
+    ],
+    "ok": true
+  },
+  {
+    "box": "one",
+    "q": "за 2026-02-01",
+    "asof": "2026-02-03",
+    "expected": [
+      "archive:mail/2026.abc"
+    ],
+    "actual": [
+      "archive:mail/2026.abc"
+    ],
+    "ok": true
+  }
+]

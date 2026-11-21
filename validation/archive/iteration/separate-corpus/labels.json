@@ -1,0 +1,99 @@
+{
+  "dataset": {
+    "documents": 3,
+    "queries": 2,
+    "qrels": 1,
+    "sha256": {
+      "documents.jsonl": "9d43ca210d017a3ce33a06e6ed800c85934e85ed84f43ff3da1b8bb3e6951c9a",
+      "queries": "eeda3914661f8e77ca3488706c19243d8de8dcae0be474bdd24e732242c1c328",
+      "qrels": "0ba13e26c53faa044a59420452cf25917a75f219e01decd7d8e9d987e8636520"
+    },
+    "queries_file": "queries_dev.jsonl",
+    "qrels_file": "qrels_dev.jsonl",
+    "server_corpus_check": "sha256"
+  },
+  "quality_queries": 1,
+  "queries_without_positive_judgments": 1,
+  "single_relevant_queries": 1,
+  "recall_upper_bound": {
+    "1": 1.0,
+    "5": 1.0,
+    "10": 1.0
+  },
+  "quality_first_pass": {
+    "1": {
+      "recall": 1.0,
+      "ndcg": 1.0,
+      "mrr_single": 1.0
+    },
+    "5": {
+      "recall": 1.0,
+      "ndcg": 1.0,
+      "mrr_single": 1.0
+    },
+    "10": {
+      "recall": 1.0,
+      "ndcg": 1.0,
+      "mrr_single": 1.0
+    }
+  },
+  "timing": {
+    "search_calls": 2,
+    "top_k": 10,
+    "repeats": 1,
+    "concurrent_clients": 1,
+    "seed": 2026,
+    "quantile": "nearest rank",
+    "server_ms": {
+      "p50": 0.23,
+      "p95": 1.894,
+      "p99": 1.894,
+      "max": 1.894
+    },
+    "server_first_pass_ms": {
+      "p50": 0.23,
+      "p95": 1.894,
+      "p99": 1.894,
+      "max": 1.894
+    },
+    "loopback_http_ms": {
+      "p50": 0.631,
+      "p95": 2.39,
+      "p99": 2.39,
+      "max": 2.39
+    },
+    "ranking_changes_on_repeats": 0,
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python": "3.12.13"
+  },
+  "queries": {
+    "q-future": {
+      "ranked_ids": [],
+      "relevant": null,
+      "scores": {}
+    },
+    "q-one": {
+      "ranked_ids": [
+        "L-cafe1000"
+      ],
+      "relevant": 1,
+      "scores": {
+        "1": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        },
+        "10": {
+          "recall": 1.0,
+          "ndcg": 1.0,
+          "mrr_single": 1.0
+        }
+      }
+    }
+  }
+}

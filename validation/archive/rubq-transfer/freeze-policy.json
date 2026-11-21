@@ -1,0 +1,15 @@
+{
+  "source": "vladislavneon/RuBQ",
+  "revision": "fade3eae6a4807c35b19cfce20dfa805fc8c0cdf",
+  "corpus": "every row in RuBQ_2.0_paragraphs.json; unmodified text, in source order, one anonymous folder; no invented reception dates (doc_dt null)",
+  "queries": "every official test question with at least one unique paragraphs_uids.with_answer; original Russian text, no subsampling or use of dev/answers/related list for ranking",
+  "qrels": "binary 1 only for manually marked paragraphs_uids.with_answer; assume 0 gain for other ids solely for metric, unknown answers excluded, no verified_empty claims",
+  "query_date": "2020-12-15 (fixed neutral adapter argument)",
+  "commits": [
+    "5fe3f5d3739ac523d0b4088f15eef4b50391dd28",
+    "78979130983382e9ffadcac30aad15fba17c2e9b"
+  ],
+  "metrics": "macro nDCG@10 (primary), Recall@10, Hit@10, MRR@10, wins/ties/losses on nDCG@10, counts of empty top10 on positives",
+  "paired_interval": "percentiles of 10000 paired cluster resamples of test questions connected by a common supporting Wikipedia page, query-weighted; seed 20261121",
+  "entry": "direct pinned SearchEngine.search; each own query encoder, shared fixed passage vectors; no training or selection using outputs"
+}

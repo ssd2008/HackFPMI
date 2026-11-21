@@ -1,0 +1,5537 @@
+{
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "repeats": 3,
+  "cutoffs": [
+    1,
+    5,
+    10,
+    20,
+    50
+  ],
+  "build_seconds": 0.0023806249955669045,
+  "data": {
+    "documents": 16376,
+    "queries": 99,
+    "judgments": 565,
+    "single_rel_queries": 42,
+    "exact_day_queries": 99,
+    "relevant_in_parsed_scope": 565,
+    "median_candidates_visible": 539,
+    "median_candidates_scoped": 7,
+    "max_candidates_scoped": 262,
+    "recall_ceiling_at_k": {
+      "1": 0.5616536422908972,
+      "5": 0.8629820161682907,
+      "10": 0.9375641606033763,
+      "20": 0.9803260712351621,
+      "50": 0.9967507240234513
+    }
+  },
+  "methods": {
+    "mvp-api": {
+      "metrics": {
+        "1": {
+          "Recall": 0.5121557454890788,
+          "nDCG": 0.7878787878787878,
+          "MRR-single": 0.9523809523809523
+        },
+        "5": {
+          "Recall": 0.7620774287440955,
+          "nDCG": 0.8054570981859936,
+          "MRR-single": 0.9702380952380952
+        },
+        "10": {
+          "Recall": 0.8112359862359863,
+          "nDCG": 0.8138594167362603,
+          "MRR-single": 0.9702380952380952
+        },
+        "20": {
+          "Recall": 0.8446839355930265,
+          "nDCG": 0.8244288683957174,
+          "MRR-single": 0.9702380952380952
+        },
+        "50": {
+          "Recall": 0.8786651059378332,
+          "nDCG": 0.8325699133422388,
+          "MRR-single": 0.9702380952380952
+        }
+      },
+      "latency_ms": {
+        "p50": 5.16345800133422,
+        "p95": 5.7631249947007746,
+        "p99": 6.0218750149942935
+      },
+      "requests": 297,
+      "per_query": [
+        {
+          "query_id": "H-e785745160df644052ec",
+          "synthetic_user": "box-2d28af4e4602",
+          "query": "Покажи сообщения о том, что поступили новые заказы, полученные вчера.",
+          "query_date": "2025-10-20",
+          "first_rel_rank": 1,
+          "ms": 4.899416002444923,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-1429f0bec6a8b6661d8d"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.452
+        },
+        {
+          "query_id": "H-91bde5fc099890a9dabd",
+          "synthetic_user": "box-2d28af4e4602",
+          "query": "Покажи сообщения о том, что поступили новые заказы, полученные 29 октября 2025 года.",
+          "query_date": "2025-10-30",
+          "first_rel_rank": 1,
+          "ms": 5.084291013190523,
+          "metrics": {
+            "1": {
+              "Recall": 0.5,
+              "nDCG": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-3b37d31243415dc6ce54",
+            "L-508e4db8fad07b6befcc"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.581
+        },
+        {
+          "query_id": "H-8a52f19bb09882009987",
+          "synthetic_user": "box-2d28af4e4602",
+          "query": "Найди сообщения о том, что поступили новые заказы, полученные 2 ноября 2025 года.",
+          "query_date": "2025-11-03",
+          "first_rel_rank": 1,
+          "ms": 5.205250025028363,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-65fa83379c0da592ea3f"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.638
+        },
+        {
+          "query_id": "H-f138aeed2f6b400bba48",
+          "synthetic_user": "box-2d28af4e4602",
+          "query": "Покажи сообщения о том, что поступили новые заказы, полученные вчера.",
+          "query_date": "2025-11-14",
+          "first_rel_rank": 1,
+          "ms": 5.2762500126846135,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-54782d4f068d9ae71e2c"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.776
+        },
+        {
+          "query_id": "H-c0b6f84b79eba1edda1f",
+          "synthetic_user": "box-2d28af4e4602",
+          "query": "Покажи сообщения о том, что поступили новые заказы, полученные 16 ноября 2025 года.",
+          "query_date": "2025-11-17",
+          "first_rel_rank": 1,
+          "ms": 5.187250004382804,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-6b8aedb7d6f397f088f5"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.666
+        },
+        {
+          "query_id": "H-f3404b55d6a511de876b",
+          "synthetic_user": "box-2d28af4e4602",
+          "query": "Найди сообщения о том, что поступили новые заказы, полученные 27 ноября 2025 года.",
+          "query_date": "2025-11-28",
+          "first_rel_rank": 1,
+          "ms": 5.024874990340322,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-1536360b880b011d7a53"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.543
+        },
+        {
+          "query_id": "H-805ba1134cd6be3479bc",
+          "synthetic_user": "box-2d28af4e4602",
+          "query": "Найди сообщения о том, что поступили новые заказы, полученные вчера.",
+          "query_date": "2025-12-11",
+          "first_rel_rank": 1,
+          "ms": 5.035166977904737,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-e264ead41730b565aa4f"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.515
+        },
+        {
+          "query_id": "H-d44d9649992120760d24",
+          "synthetic_user": "box-2d28af4e4602",
+          "query": "Найди сообщения о том, что поступили новые заказы, полученные вчера.",
+          "query_date": "2025-12-17",
+          "first_rel_rank": 1,
+          "ms": 4.896791011560708,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-d07a7da86f085792c0f5"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.429
+        },
+        {
+          "query_id": "H-92a890e2b6226d9a3ba0",
+          "synthetic_user": "box-2d28af4e4602",
+          "query": "Найди сообщения о том, что поступили новые заказы, полученные вчера.",
+          "query_date": "2025-12-30",
+          "first_rel_rank": 1,
+          "ms": 5.0927079864777625,
+          "metrics": {
+            "1": {
+              "Recall": 0.3333333333333333,
+              "nDCG": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-d6bde3cf974ca12ee331",
+            "L-e7dda1d7814a8428ce33",
+            "L-f2b5c606cc1d6f23c229"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.618
+        },
+        {
+          "query_id": "H-485e5fba640a58a7ac34",
+          "synthetic_user": "box-2d28af4e4602",
+          "query": "Покажи сообщения о том, что поступили новые заказы, полученные вчера.",
+          "query_date": "2026-01-10",
+          "first_rel_rank": 1,
+          "ms": 4.966125008650124,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-fb7494b8241f418a7878"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.472
+        },
+        {
+          "query_id": "H-4b35b0ae76e9b5da16d5",
+          "synthetic_user": "box-2d28af4e4602",
+          "query": "Покажи сообщения о том, что поступили новые заказы, полученные 21 марта 2026 года.",
+          "query_date": "2026-03-22",
+          "first_rel_rank": 1,
+          "ms": 4.91224997676909,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-4239005829661e40af99"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.432
+        },
+        {
+          "query_id": "H-69c89eadad29ee8cc230",
+          "synthetic_user": "box-2d28af4e4602",
+          "query": "Покажи сообщения о том, что поступили новые заказы, полученные вчера.",
+          "query_date": "2026-05-02",
+          "first_rel_rank": 1,
+          "ms": 4.846124997129664,
+          "metrics": {
+            "1": {
+              "Recall": 0.5,
+              "nDCG": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-faa6987eed66a1a36a4a",
+            "L-ff714ea92c60e57716b4"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.357
+        },
+        {
+          "query_id": "H-bedc577fecb613a4fe31",
+          "synthetic_user": "box-2d28af4e4602",
+          "query": "Покажи сообщения о том, что поступили новые заказы, полученные 7 мая 2026 года.",
+          "query_date": "2026-05-08",
+          "first_rel_rank": 1,
+          "ms": 4.760166018968448,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-1bd2b09428efb845be60"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.352
+        },
+        {
+          "query_id": "H-50e2d11d835592b1c2fe",
+          "synthetic_user": "box-2d28af4e4602",
+          "query": "Покажи сообщения о том, что поступили новые заказы, полученные 28 мая 2026 года.",
+          "query_date": "2026-05-29",
+          "first_rel_rank": 1,
+          "ms": 4.815833002794534,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-14f22d24f4c5cf008432"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.361
+        },
+        {
+          "query_id": "H-d4d8f8d94810e0efcfa8",
+          "synthetic_user": "box-2d28af4e4602",
+          "query": "Найди сообщения о том, что поступили новые заказы, полученные вчера.",
+          "query_date": "2026-06-26",
+          "first_rel_rank": 1,
+          "ms": 4.6822909789625555,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-5a7de37fd00b007b2d3e"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.248
+        },
+        {
+          "query_id": "H-e943c32b752bffb933db",
+          "synthetic_user": "box-2d28af4e4602",
+          "query": "Найди сообщения о том, что поступили новые заказы, полученные 21 июля 2026 года.",
+          "query_date": "2026-07-22",
+          "first_rel_rank": 1,
+          "ms": 4.960083024343476,
+          "metrics": {
+            "1": {
+              "Recall": 0.5,
+              "nDCG": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-e7d63764a9c72a84d8d0",
+            "L-737d220edc78aaf3d12e"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.516
+        },
+        {
+          "query_id": "H-0cd67c437c10c65654d5",
+          "synthetic_user": "box-2d28af4e4602",
+          "query": "Покажи сообщения о том, что поступили новые заказы, полученные 9 ноября 2026 года.",
+          "query_date": "2026-11-10",
+          "first_rel_rank": 1,
+          "ms": 4.74754098104313,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-eda623999a30ecb04a77"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.288
+        },
+        {
+          "query_id": "H-c520a90e0f715e6cd77d",
+          "synthetic_user": "box-2d28af4e4602",
+          "query": "Найди сообщения с цифровыми кассовыми квитанциями, полученные 1 октября 2028 года.",
+          "query_date": "2028-10-02",
+          "first_rel_rank": 1,
+          "ms": 4.925207991618663,
+          "metrics": {
+            "1": {
+              "Recall": 0.08333333333333333,
+              "nDCG": 1.0
+            },
+            "5": {
+              "Recall": 0.08333333333333333,
+              "nDCG": 0.3391602052736161
+            },
+            "10": {
+              "Recall": 0.08333333333333333,
+              "nDCG": 0.22009176629808017
+            },
+            "20": {
+              "Recall": 0.08333333333333333,
+              "nDCG": 0.19635793579928928
+            },
+            "50": {
+              "Recall": 0.08333333333333333,
+              "nDCG": 0.19635793579928928
+            }
+          },
+          "doc_ids": [
+            "L-2ea52497ccbae25ebd1c"
+          ],
+          "missed_doc_ids": [
+            "L-00ecfc2fd51ad9834d47",
+            "L-0760b4687dc3dbfbe9e5",
+            "L-11f34d0d31a30c9e6c8c",
+            "L-3165fee07648b2f2f384",
+            "L-3bf90f7090c1e70da701",
+            "L-5e095210e809b1e19a0b",
+            "L-680dbba379cd06ccc1a1",
+            "L-7191ecf5c8777a4b76fb",
+            "L-89851983ae3ab29c4fd7",
+            "L-8d11fe7fbe46533436d6",
+            "L-e0852cc1b60d9bf44ca8"
+          ],
+          "server_ms": 4.494
+        },
+        {
+          "query_id": "H-fce276dacbc2c7ffdb1a",
+          "synthetic_user": "box-2d28af4e4602",
+          "query": "Найди сообщения с цифровыми кассовыми квитанциями, полученные 7 октября 2028 года.",
+          "query_date": "2028-10-08",
+          "first_rel_rank": null,
+          "ms": 4.7402089985553175,
+          "metrics": {
+            "1": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "5": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "10": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "20": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "50": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            }
+          },
+          "doc_ids": [],
+          "missed_doc_ids": [
+            "L-3f77e2fe3a07cf723d5c",
+            "L-4ae77545a52cb9996e2a",
+            "L-9f7f948a4c63e37c8d78",
+            "L-b02db43213f5de670f75",
+            "L-b2688b930f4a21cf4c6a",
+            "L-c1dd522d391e4b9fd11a",
+            "L-c57fbaaa99b33715d5f4",
+            "L-d22c90127eacf805586e"
+          ],
+          "server_ms": 4.334
+        },
+        {
+          "query_id": "H-86c5f97dafded9493988",
+          "synthetic_user": "box-2d28af4e4602",
+          "query": "Найди сообщения с цифровыми кассовыми квитанциями, полученные вчера.",
+          "query_date": "2028-10-09",
+          "first_rel_rank": null,
+          "ms": 4.6902500034775585,
+          "metrics": {
+            "1": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "5": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "10": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "20": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "50": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            }
+          },
+          "doc_ids": [],
+          "missed_doc_ids": [
+            "L-0fd951172c464d67301c",
+            "L-8a9fbd6a3354ead96b04",
+            "L-abbda8e0b818e0bf2f6f",
+            "L-e730e70b36228bb7ab02",
+            "L-f72b0693b2aadac98db6"
+          ],
+          "server_ms": 4.285
+        },
+        {
+          "query_id": "H-d60cf706badd91a4e721",
+          "synthetic_user": "box-2d28af4e4602",
+          "query": "Найди сообщения с цифровыми кассовыми квитанциями, полученные 9 октября 2028 года.",
+          "query_date": "2028-10-10",
+          "first_rel_rank": 1,
+          "ms": 4.748250008560717,
+          "metrics": {
+            "1": {
+              "Recall": 0.14285714285714285,
+              "nDCG": 1.0
+            },
+            "5": {
+              "Recall": 0.14285714285714285,
+              "nDCG": 0.3391602052736161
+            },
+            "10": {
+              "Recall": 0.14285714285714285,
+              "nDCG": 0.27487633291429087
+            },
+            "20": {
+              "Recall": 0.14285714285714285,
+              "nDCG": 0.27487633291429087
+            },
+            "50": {
+              "Recall": 0.14285714285714285,
+              "nDCG": 0.27487633291429087
+            }
+          },
+          "doc_ids": [
+            "L-bbad38332007245887e2"
+          ],
+          "missed_doc_ids": [
+            "L-065e9c13f39ed6fa37c0",
+            "L-626d1bb04a932b83af55",
+            "L-7bcc21e95b4186359ebd",
+            "L-8afb04643886e746ccbf",
+            "L-c48418e8b2f5d94f2db9",
+            "L-f0d241937f5ffe2a2cce"
+          ],
+          "server_ms": 4.34
+        },
+        {
+          "query_id": "H-c09c0c6f82df8a016912",
+          "synthetic_user": "box-2d28af4e4602",
+          "query": "Найди сообщения с цифровыми кассовыми квитанциями, полученные 10 октября 2028 года.",
+          "query_date": "2028-10-11",
+          "first_rel_rank": null,
+          "ms": 4.705667000962421,
+          "metrics": {
+            "1": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "5": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "10": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "20": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "50": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            }
+          },
+          "doc_ids": [],
+          "missed_doc_ids": [
+            "L-01c9fa38b87d6d375d4d",
+            "L-03975eaa22e26c42a8f5",
+            "L-26dc669366e829c0eb30",
+            "L-27ca2147fca352b3e5af",
+            "L-35e81096cfb1aa2f8497",
+            "L-378f6333a0a89e85dca5",
+            "L-497b17ac5202603e2510",
+            "L-50a34058d7602050a862",
+            "L-6f10073fad83e87a9e79",
+            "L-7327ecc60da3f878f067",
+            "L-82aae4334a3b9bf98074",
+            "L-833f3bab25d71833a5f0",
+            "L-8ffb8f2f38b06560720a",
+            "L-a58cf08d408f2a4a4729",
+            "L-ab74102bd16653c96a87",
+            "L-b293172fb374b85f1dac",
+            "L-ba72abadfe727c61c3c7",
+            "L-d34c35376af5aa8c275b",
+            "L-d4b60dc431f88cb26748",
+            "L-df5c7772d8f104ffd60a",
+            "L-fce138193fabf290e304"
+          ],
+          "server_ms": 4.297
+        },
+        {
+          "query_id": "H-28089e075440151eaf13",
+          "synthetic_user": "box-84bd433469cb",
+          "query": "Найди сообщения о том, что оформили въезд машин за контейнерами, полученные 7 сентября 2028 года.",
+          "query_date": "2028-09-08",
+          "first_rel_rank": 4,
+          "ms": 5.59975000214763,
+          "metrics": {
+            "1": {
+              "Recall": 0.0,
+              "nDCG": 0.0,
+              "MRR-single": 0.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 0.43067655807339306,
+              "MRR-single": 0.25
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 0.43067655807339306,
+              "MRR-single": 0.25
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 0.43067655807339306,
+              "MRR-single": 0.25
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 0.43067655807339306,
+              "MRR-single": 0.25
+            }
+          },
+          "doc_ids": [
+            "L-ca388521000ce574cded",
+            "L-0dd7354b4500424498f7",
+            "L-bcba4e459763fb41d5d6",
+            "L-0725658860585da4ff39",
+            "L-bc8823c6ac42da3e8ed0",
+            "L-f9ea18cc6096b1bdfb70",
+            "L-81932cfa436107a74b59",
+            "L-f229bb5a7614f37755d2",
+            "L-2fc04a1706cd75e1e803",
+            "L-d4e43fd43b6cf7d48647",
+            "L-d2e454c06766dd5f9e90",
+            "L-94dc08c4524233b63cc4",
+            "L-61d12cc3a61850f3e15e",
+            "L-10e5bc43e4cecd641810",
+            "L-4ee23e3b865845c37059",
+            "L-d3aaeaad3090931e85bf",
+            "L-df15a813514d893edf38",
+            "L-89864d9d37e1d6fedfd1",
+            "L-c46a7dd074b612846e8f",
+            "L-fdb9b13df430b0ba9e7b",
+            "L-8c3103813d3405bc5e3b",
+            "L-7a7b3da8838895772d9c",
+            "L-3b961b6a9eb666522a87",
+            "L-5a323425968acf4ca371",
+            "L-501db566b0f3c9c44272",
+            "L-05d0878f5b679db4fca4",
+            "L-caad112add81522d8622",
+            "L-500894175b10f1794797",
+            "L-a61ed456a9c33cde3ec0",
+            "L-9ef139be11aba42fc40c",
+            "L-431b42697dc16060c7f5",
+            "L-a6574ad953bb3646f82d",
+            "L-e1abe9619e850c01324c",
+            "L-879749311f009bf5e1e2",
+            "L-bb2c3909879692e8354e",
+            "L-a9de5fa2f709db3e5e1d",
+            "L-2ca6ad4f85d6ab40753f",
+            "L-44f70683b769ee62e1f5",
+            "L-743a9f446a21f7dbcd5b",
+            "L-b1a2e3308ff2d251852a",
+            "L-4381a58c867b3ae16cef",
+            "L-f73a637663e1b3fe50ca",
+            "L-975302efe53b550e6268",
+            "L-4c5dd9a56a913fd143e1",
+            "L-c333bf64c4915e6a12c7",
+            "L-3e29f61b1eaa84fb3d2c",
+            "L-a8c8d29ecc08dad8a541",
+            "L-6d71b3dbc036d92bd03f",
+            "L-da58d0c0db4231704945",
+            "L-05c753e452ce1e6b65b6"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 5.08
+        },
+        {
+          "query_id": "H-828bf793964cb3bb99e8",
+          "synthetic_user": "box-84bd433469cb",
+          "query": "Найди сообщения о том, что оформили въезд машин за контейнерами, полученные вчера.",
+          "query_date": "2028-09-11",
+          "first_rel_rank": 2,
+          "ms": 5.180582986213267,
+          "metrics": {
+            "1": {
+              "Recall": 0.0,
+              "nDCG": 0.0,
+              "MRR-single": 0.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 0.6309297535714575,
+              "MRR-single": 0.5
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 0.6309297535714575,
+              "MRR-single": 0.5
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 0.6309297535714575,
+              "MRR-single": 0.5
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 0.6309297535714575,
+              "MRR-single": 0.5
+            }
+          },
+          "doc_ids": [
+            "L-3b302eaba80062b0624d",
+            "L-3687fd467aac4b05bca6",
+            "L-903eb2a1fed8721e8a98",
+            "L-b1e0a4fcc3fd0ca7d874",
+            "L-334814eb323909034610",
+            "L-e643f2f1f47d19d2374d",
+            "L-ddb3a65abbcb478380a2",
+            "L-125784c9f3e4f34f750e",
+            "L-7754983b68bd152d9665",
+            "L-660b94d2365d96097a89",
+            "L-10461ab934a50297881d",
+            "L-871ac90696e695c2b01e",
+            "L-ec6eb540f7eb89d6d294",
+            "L-0a85382a8eff2b965f8f",
+            "L-f0eb2a76a9e0f7117797",
+            "L-fb862489ba4a5c1ba346",
+            "L-a714aeef52318841b98b",
+            "L-e3b046bfecc7696a43db",
+            "L-23994457201a377f5c99",
+            "L-cb110ccae8bb30fda394",
+            "L-ec6e319df0c7a9324013",
+            "L-0b859d062da682ba0b51",
+            "L-cb3b60b93d76e7d9444c",
+            "L-8b5223ec4c2e1990af4a",
+            "L-df8f8608cf088e43663d",
+            "L-36d3190dec532e01cd74",
+            "L-9430888be155cb9c1ad9",
+            "L-b6b0cd7b81ee5ea73941",
+            "L-59b3dd259fc8d1f4ce0f",
+            "L-37c705623b0fedc20e52",
+            "L-34356e5c464368c731b8",
+            "L-b8cf75764f2487a34aeb",
+            "L-d2e7fbf9993cf3c6f973",
+            "L-cc49e7fb29cc33a37798",
+            "L-4b7bb79ad4c2875ca44f",
+            "L-6657f5db1ddd7e2d3845",
+            "L-7a781a37c57476638d84",
+            "L-241efc1601f1b5343507",
+            "L-b4827dd11045349d4257",
+            "L-9d15936566fa4aa7149c",
+            "L-d88ecd8b2b1111ff494b",
+            "L-563483647c31241025f6",
+            "L-a4cdd0c676e15835424c",
+            "L-2e7311583c443fb41785",
+            "L-352620fb1a9abe7d1aac",
+            "L-f0dfd173c2e520007b23"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.693
+        },
+        {
+          "query_id": "H-2b6de91c0dab98bc9cb4",
+          "synthetic_user": "box-84bd433469cb",
+          "query": "Покажи сообщения о том, что оформили въезд машин за контейнерами, полученные вчера.",
+          "query_date": "2028-09-15",
+          "first_rel_rank": 18,
+          "ms": 5.126625008415431,
+          "metrics": {
+            "1": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "5": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "10": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "20": {
+              "Recall": 0.5,
+              "nDCG": 0.18222438178904452
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 0.3560639572346324
+            }
+          },
+          "doc_ids": [
+            "L-05113191d084568f631c",
+            "L-21865623b6a520d32af1",
+            "L-4e8b85cb0d0c7576e66a",
+            "L-88e7ac9e91b04e362fb2",
+            "L-67e77d510c26c0c65ce5",
+            "L-f0dbd01c65ef98c3eef6",
+            "L-aef04eb62b6f885ad9be",
+            "L-a33b8739e1b7e09e1726",
+            "L-15d278ecaacaf21c23a6",
+            "L-d6354dea5caf9a5be8e0",
+            "L-8e01c75374cf450889c1",
+            "L-80c295b07282ee01ec51",
+            "L-620f81baaf923ccce8d5",
+            "L-a022e1ed1146dd61aea6",
+            "L-ad422073f22408fa4159",
+            "L-13b64f9a865e72e2bd22",
+            "L-14c67c81e9f6609d3d6e",
+            "L-7c175f5376dafa62c5ae",
+            "L-f1b2aec8739bf7eb5720",
+            "L-5b70d5c452d38637a250",
+            "L-a897df2a3b6de1d45353",
+            "L-a0ea27708273a0028a69",
+            "L-a4b79de18cefbb71d1f0",
+            "L-28ac7bec63246c74f37c",
+            "L-0865ab40a6aee44fccde",
+            "L-b4bc16ca86848f393e1e",
+            "L-555317f201ac4e2d74f1",
+            "L-9ce18d3a23ea41c85b67",
+            "L-6f22d92454c7c15bcefd",
+            "L-2195f3d6a91ea6f91d85",
+            "L-342d6085f401cc38866d",
+            "L-58da48df3cebae5a7679",
+            "L-311735bafe82ce6aa33c",
+            "L-0298dffdc9457acc3031",
+            "L-b59de865b135e4ef2bf9",
+            "L-b26a5d3bcc408edd2fae",
+            "L-92c6da32d69a29a3272a",
+            "L-918367393174176ac6f4",
+            "L-0abce63d1d19de5ff189",
+            "L-008a7649194062e068dc",
+            "L-5f8d3032adfcdf5c56d4",
+            "L-42b5321f5dfa2e98fe30",
+            "L-6ad7a43807ba4458a860",
+            "L-9ca1c4debc9361590017",
+            "L-76c26c838e384997af9f",
+            "L-cdb69a7efa335e44a4c3",
+            "L-b9dec8760233dea0c652",
+            "L-9b2d0efeb3bc06ada1f2",
+            "L-fb691f300a52626effa1",
+            "L-1495678aa35d910c93ad"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.657
+        },
+        {
+          "query_id": "H-00d886ad4b22c127fa0f",
+          "synthetic_user": "box-84bd433469cb",
+          "query": "Покажи сообщения о том, что оформили въезд машин за контейнерами, полученные 15 сентября 2028 года.",
+          "query_date": "2028-09-16",
+          "first_rel_rank": 7,
+          "ms": 5.077957990579307,
+          "metrics": {
+            "1": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "5": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "10": {
+              "Recall": 0.125,
+              "nDCG": 0.08431423425588572
+            },
+            "20": {
+              "Recall": 0.75,
+              "nDCG": 0.40091960452996955
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 0.5061497766123046
+            }
+          },
+          "doc_ids": [
+            "L-29bc343529b7489fa407",
+            "L-e06ff17e99e45fe5313a",
+            "L-40b5ad81007f4e7b0878",
+            "L-c2aeb4d95a35082cd79f",
+            "L-699cdb37ecaa8d566d95",
+            "L-e3363282bb2cee115f93",
+            "L-df419857b1dfebb57d0d",
+            "L-05c1043e749e5079a35a",
+            "L-1fc567142bdd0e09a31a",
+            "L-01e04dd8bcce038de10d",
+            "L-4969f406db4733eb63df",
+            "L-282332bc196cb87bf3dd",
+            "L-f0383fd451d00ccdd5c6",
+            "L-16acdedd395a9b788a58",
+            "L-d3172f3e1734b68d5f99",
+            "L-74541d94a2a6ad28b84f",
+            "L-a5b13e1aa076b3812ad6",
+            "L-db177dc097f64df008e1",
+            "L-0a10151f7c5c4c12bffa",
+            "L-73f81bfe3fc476a46552",
+            "L-5920731f60197457f69b",
+            "L-fc14ae5d089cfec4426a",
+            "L-cc4e7620a388a5c73fa5",
+            "L-603626ffaee2de3a7ccc",
+            "L-b9032b3947dd35d8d43d",
+            "L-9a527290c71b2199ed5a",
+            "L-2765a2f2e805c9dfd31b",
+            "L-c8b3bc6c72c14281bef1",
+            "L-ff86cf1489242ab6ea37",
+            "L-4a30a21e57a030853610",
+            "L-4aa5ad468ca76db82c76",
+            "L-a7042f16083fbb092fd8",
+            "L-556be7ad45807245c2d7",
+            "L-d2b293ff8e00ffe8990e",
+            "L-5cfcf80f6b7dfb4ddbbd",
+            "L-42a0c03aa4512e27943a",
+            "L-214b111f91d41d7b6cae",
+            "L-714af3e4976480b4d9b8",
+            "L-0983fb16434c02b421b9",
+            "L-fb1e932a42db3476f874",
+            "L-3b086870ce5ff894cc02",
+            "L-32a8dc56e90356dbabed",
+            "L-a559369da153889ccae8",
+            "L-33feb8416fd69d4db515",
+            "L-83cdca9625c5fd3b3d5e",
+            "L-0e910975ff5abefd996b",
+            "L-f88b040f21be0816a228",
+            "L-3cc916737c07b6931fce",
+            "L-5069d490e4582ea79e7f",
+            "L-241e4f796cd932dbecef"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.615
+        },
+        {
+          "query_id": "H-43fb323d1e05016bc6d6",
+          "synthetic_user": "box-84bd433469cb",
+          "query": "Покажи сообщения о том, что оформили въезд машин за контейнерами, полученные 17 сентября 2028 года.",
+          "query_date": "2028-09-18",
+          "first_rel_rank": 5,
+          "ms": 4.993665992515162,
+          "metrics": {
+            "1": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "5": {
+              "Recall": 0.25,
+              "nDCG": 0.15101961822780524
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 0.5204370438439433
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 0.5204370438439433
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 0.5204370438439433
+            }
+          },
+          "doc_ids": [
+            "L-a33d16c53e11f60a0717",
+            "L-8e6f536bdcb95f92acff",
+            "L-689b51f77222cc4f86f6",
+            "L-f7455348b982405c1c7a",
+            "L-dca3d6d00d3b76fd8f68",
+            "L-0494e67cc1d453752089",
+            "L-6d421bb06b1aede40318",
+            "L-f468f49cff386dd5d3a5",
+            "L-2eedbc3a72f1bcd911b1",
+            "L-af1bb1fdf95c5c4bfc6f",
+            "L-c94dcc826a076a64bd79",
+            "L-2a204f0e8b5fcfeadb78",
+            "L-3e4540afb6dd8c784684",
+            "L-8bad8922d3d5e6516b0d",
+            "L-a652b7466fc56b05ea9b",
+            "L-0978fcaf46bfb05973c9",
+            "L-1ba621cfc422b706104f",
+            "L-9273da17dadded729271",
+            "L-91f998f4035191b00d44",
+            "L-21e7195bf8479eec0286",
+            "L-7287e7aeecb80780bd88",
+            "L-f8d4674866e1bc3c0129",
+            "L-315234701bba29aa7a69",
+            "L-ab644c3f434cb2434435",
+            "L-6a65d865da9c3bc372ee",
+            "L-bf1e68ff4481cc3dd4bb",
+            "L-082e8053def32f7056b0",
+            "L-0f0dbdfa760950d6b12a",
+            "L-dc89bd17ce2474bb064f",
+            "L-57f79edea0190f6b6604",
+            "L-885441a691ee2d398434",
+            "L-667f85df3ac3769d1c51",
+            "L-4c1e3eabb859ce470ff3",
+            "L-116ec21d0d9d347934e8",
+            "L-dd6fbf5905add56794b3",
+            "L-248458d34531dae5ca19",
+            "L-62ffaa92aa5ace2db159",
+            "L-fd08d2ad631bf3bee0a7"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.541
+        },
+        {
+          "query_id": "H-680ce1212552516e8903",
+          "synthetic_user": "box-84bd433469cb",
+          "query": "Найди сообщения о том, что оформили въезд машин за контейнерами, полученные 18 сентября 2028 года.",
+          "query_date": "2028-09-19",
+          "first_rel_rank": 7,
+          "ms": 5.066665995400399,
+          "metrics": {
+            "1": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "5": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "10": {
+              "Recall": 0.8,
+              "nDCG": 0.42018321507940454
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 0.5147895617860688
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 0.5147895617860688
+            }
+          },
+          "doc_ids": [
+            "L-09bf08ef003d7715287d",
+            "L-3593acd9a57de195c2b1",
+            "L-c94e9c8bb63f3e0a06dd",
+            "L-7c1a3896929e1c61c035",
+            "L-3635940bf945d2dff2e3",
+            "L-dd01836cbac59d9be5ff",
+            "L-6298cc5af46d55d81ec3",
+            "L-f5fe00c7942dbea20e87",
+            "L-fdef2feb00384ab78a93",
+            "L-b8ae4164920e735fb3aa",
+            "L-05020c45cd164a682d8b",
+            "L-58fdaa280d0d26b6e76f",
+            "L-d45dc0122ea3e8a8a5f6",
+            "L-b6d7df258e5c71a60d67",
+            "L-aec3a54baae9606900fb",
+            "L-f656aaa3ab7cae63de65",
+            "L-fe188eee1ddd3a5d2f94",
+            "L-1b4fba651bf1e52d5db9",
+            "L-98fd9829ed145baa309c",
+            "L-4240d1cc95ef8a703ee0",
+            "L-e6400c51363d03c52c26",
+            "L-0633a0ce1d55f6949d34",
+            "L-6929a51c650abb42806a",
+            "L-43687ead7118f38ca6bd",
+            "L-9e721150de9da54b46a1",
+            "L-c2a5f55276af7e9b3dad",
+            "L-f8c64820792ebfeb44bc",
+            "L-b37dd8b2755cbc2f1c5c",
+            "L-f1d77643d19a59e7d828",
+            "L-4ede55f6877b633b3996",
+            "L-6a3473017b8a225fb5e1",
+            "L-9df7d161164c1b561c24"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.623
+        },
+        {
+          "query_id": "H-c355f723bea47a8d02ed",
+          "synthetic_user": "box-84bd433469cb",
+          "query": "Покажи сообщения о том, что оформили въезд машин за контейнерами, полученные 19 сентября 2028 года.",
+          "query_date": "2028-09-20",
+          "first_rel_rank": 12,
+          "ms": 5.301791010424495,
+          "metrics": {
+            "1": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "5": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "10": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 0.476673446015253
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 0.476673446015253
+            }
+          },
+          "doc_ids": [
+            "L-6bfafd8fceea4de77160",
+            "L-80c295501fac15cc00d0",
+            "L-c0bbd1c5b233fb2b70d8",
+            "L-6acbff281fba5eac63bf",
+            "L-1dfad13d08a9d03d1789",
+            "L-94479c8b7e60275da623",
+            "L-120fca5a3bc3e6a70f5a",
+            "L-ccd03b3a7a9bb7d20cdf",
+            "L-15f5c46e74dbb4f5f4e5",
+            "L-3162bafb8d706dbe3cd8",
+            "L-50becfeb40977fd7433e",
+            "L-8ddf2fcf5add084533af",
+            "L-5ac0ea7ef2176cd11e36",
+            "L-9b5ddf45201fbe4e5862",
+            "L-4915cb9bd94bc7be31e1",
+            "L-e2ebe335af6e2e7ff129",
+            "L-6e1f05c5e46cb7c53987",
+            "L-08b2d1a01e9444f3d419",
+            "L-5fceac15e8fc44c2174c",
+            "L-392b4ac003ab84a2de6d",
+            "L-37f732ee1601bde78a97",
+            "L-1548f33470a9a45fb351",
+            "L-3e26b30e3ae898a153a6",
+            "L-b025957396ba2a835602",
+            "L-3c50e0e7c2e789b2b7ec",
+            "L-5af3f8f4bda374b6274e",
+            "L-30773455b1246dc17d62",
+            "L-f3a161ba89915748bd21",
+            "L-e8df600127f509b35c9e",
+            "L-13ff72eec56f59310311",
+            "L-c113ffefe7c1fe7dadbe",
+            "L-38a48ec8d49a79e38d76"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.822
+        },
+        {
+          "query_id": "H-4d221a3275e4f0f2827a",
+          "synthetic_user": "box-84bd433469cb",
+          "query": "Покажи сообщения о том, что закончили проверять контейнеры, полученные 10 сентября 2028 года.",
+          "query_date": "2028-09-11",
+          "first_rel_rank": 1,
+          "ms": 5.586209008470178,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-df8f8608cf088e43663d",
+            "L-ec6eb540f7eb89d6d294",
+            "L-3b302eaba80062b0624d",
+            "L-334814eb323909034610",
+            "L-7754983b68bd152d9665",
+            "L-cb3b60b93d76e7d9444c",
+            "L-871ac90696e695c2b01e",
+            "L-b6b0cd7b81ee5ea73941",
+            "L-a714aeef52318841b98b",
+            "L-ec6e319df0c7a9324013",
+            "L-9430888be155cb9c1ad9",
+            "L-3687fd467aac4b05bca6",
+            "L-ddb3a65abbcb478380a2",
+            "L-660b94d2365d96097a89",
+            "L-903eb2a1fed8721e8a98",
+            "L-e3b046bfecc7696a43db",
+            "L-e643f2f1f47d19d2374d",
+            "L-b1e0a4fcc3fd0ca7d874",
+            "L-8b5223ec4c2e1990af4a",
+            "L-125784c9f3e4f34f750e",
+            "L-cb110ccae8bb30fda394",
+            "L-23994457201a377f5c99",
+            "L-7a781a37c57476638d84",
+            "L-10461ab934a50297881d",
+            "L-b4827dd11045349d4257",
+            "L-2e7311583c443fb41785",
+            "L-cc49e7fb29cc33a37798",
+            "L-0a85382a8eff2b965f8f",
+            "L-36d3190dec532e01cd74",
+            "L-241efc1601f1b5343507",
+            "L-f0eb2a76a9e0f7117797",
+            "L-4b7bb79ad4c2875ca44f",
+            "L-34356e5c464368c731b8",
+            "L-37c705623b0fedc20e52",
+            "L-fb862489ba4a5c1ba346",
+            "L-59b3dd259fc8d1f4ce0f",
+            "L-d88ecd8b2b1111ff494b",
+            "L-0b859d062da682ba0b51",
+            "L-563483647c31241025f6",
+            "L-a4cdd0c676e15835424c",
+            "L-9d15936566fa4aa7149c",
+            "L-352620fb1a9abe7d1aac",
+            "L-d753f826af76e932c17f",
+            "L-b8cf75764f2487a34aeb",
+            "L-9ccc263de56027df2825",
+            "L-6657f5db1ddd7e2d3845",
+            "L-8fda566ecc267b38f76c",
+            "L-7365ff85928a5c3eea78",
+            "L-8a7c49ebca28880b00f6",
+            "L-f0dfd173c2e520007b23"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 5.036
+        },
+        {
+          "query_id": "H-cf13f62178c5b81140c8",
+          "synthetic_user": "box-84bd433469cb",
+          "query": "Покажи сообщения о том, что закончили проверять контейнеры, полученные вчера.",
+          "query_date": "2028-09-19",
+          "first_rel_rank": 2,
+          "ms": 5.111625010613352,
+          "metrics": {
+            "1": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "5": {
+              "Recall": 0.6666666666666666,
+              "nDCG": 0.49818925746641285
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 0.6394562303262419
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 0.6394562303262419
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 0.6394562303262419
+            }
+          },
+          "doc_ids": [
+            "L-f656aaa3ab7cae63de65",
+            "L-9e721150de9da54b46a1",
+            "L-43687ead7118f38ca6bd",
+            "L-c2a5f55276af7e9b3dad",
+            "L-d45dc0122ea3e8a8a5f6",
+            "L-58fdaa280d0d26b6e76f",
+            "L-b37dd8b2755cbc2f1c5c",
+            "L-09bf08ef003d7715287d",
+            "L-42c39168fe1de2e7dc06",
+            "L-f5fe00c7942dbea20e87",
+            "L-fdef2feb00384ab78a93",
+            "L-1b4fba651bf1e52d5db9",
+            "L-aec3a54baae9606900fb",
+            "L-7c1a3896929e1c61c035",
+            "L-b8ae4164920e735fb3aa",
+            "L-fe188eee1ddd3a5d2f94",
+            "L-0633a0ce1d55f6949d34",
+            "L-6298cc5af46d55d81ec3",
+            "L-05020c45cd164a682d8b",
+            "L-3593acd9a57de195c2b1",
+            "L-c94e9c8bb63f3e0a06dd",
+            "L-f8c64820792ebfeb44bc",
+            "L-9df7d161164c1b561c24",
+            "L-98fd9829ed145baa309c",
+            "L-b6d7df258e5c71a60d67",
+            "L-e6400c51363d03c52c26",
+            "L-4ede55f6877b633b3996",
+            "L-6929a51c650abb42806a",
+            "L-3635940bf945d2dff2e3",
+            "L-4240d1cc95ef8a703ee0",
+            "L-f1d77643d19a59e7d828",
+            "L-6a3473017b8a225fb5e1",
+            "L-dd01836cbac59d9be5ff",
+            "L-85ac9e3889eb87de89f7"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.62
+        },
+        {
+          "query_id": "H-41f5e484948f2ab2bfa5",
+          "synthetic_user": "box-84bd433469cb",
+          "query": "Найди сообщения о том, что контейнеры погрузили, полученные 13 сентября 2028 года.",
+          "query_date": "2028-09-14",
+          "first_rel_rank": 1,
+          "ms": 5.165207985555753,
+          "metrics": {
+            "1": {
+              "Recall": 0.09090909090909091,
+              "nDCG": 1.0
+            },
+            "5": {
+              "Recall": 0.45454545454545453,
+              "nDCG": 1.0
+            },
+            "10": {
+              "Recall": 0.9090909090909091,
+              "nDCG": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-175a5a85fd2787cb7a1c",
+            "L-110b94555ee8fd166d0b",
+            "L-8dd9cfdbda70f5d553c8",
+            "L-2312a0e8e825a1f3592a",
+            "L-0c7e79dc7efffda0f20f",
+            "L-954cc30da372178227e9",
+            "L-ffd355cd4506b46dc106",
+            "L-e06c6ba09e6d79f7e460",
+            "L-ab79f58d495ce3bb7524",
+            "L-8261760b36b323093c5f",
+            "L-d95cdd88b978e338d671",
+            "L-74f3dc91fce6d46520ba",
+            "L-378cfa8718be112284a0",
+            "L-5cacba3476536524a3b1",
+            "L-129890756678c5d478c0",
+            "L-4f0e2b619e37a9dd98f6",
+            "L-3f1a51a570af3b32a626",
+            "L-d91c165e1580d133568c",
+            "L-07b6a9f646dbea4e8356",
+            "L-dbc0ea1dc6908db86379",
+            "L-e7a9388298f5dde639a3",
+            "L-0720bc00dcf1157874a8",
+            "L-9cc80b3d44a942875bba",
+            "L-a14bfbea7df973679d26",
+            "L-f652cb3868a7f3b20266",
+            "L-afb6aa76c8d112435f30",
+            "L-a1f7036d261cd25f4f0a",
+            "L-2d76cdee18c604eb2a14",
+            "L-80188f7041b7a71fa885",
+            "L-8c7a862b52dea4e3ff5f",
+            "L-f81e268701b38c487a4d",
+            "L-9e8a52c28baa6f99ca71",
+            "L-e880ebccf685056a0378",
+            "L-de81a549f275de01c611",
+            "L-70908aca9ea7f3dfefd2",
+            "L-636af3dc82c70c3c2527",
+            "L-2c091bb244e3d6c2caab",
+            "L-367e28a62e5ab0b80070",
+            "L-36074f5686f0100d507e",
+            "L-f65b559afb78ae9797d6",
+            "L-7a21a7cd6391dc6f4043",
+            "L-873289abec7603ad9929",
+            "L-0e9335069211bc4b17da",
+            "L-30510b7cf3756caa6b86",
+            "L-dddc1279fe80b9a9ed03",
+            "L-094dde944deda9177d72",
+            "L-5baffa47d34cfbcff639",
+            "L-acb13dba2ae7b93ee87a",
+            "L-3a33b0bca0ecb591d5da",
+            "L-c8ef8e0e2c85d624ae9c"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.673
+        },
+        {
+          "query_id": "H-ab890ffc34d25c1cd4e8",
+          "synthetic_user": "box-84bd433469cb",
+          "query": "Покажи сообщения о том, что контейнеры погрузили, полученные вчера.",
+          "query_date": "2028-09-16",
+          "first_rel_rank": 2,
+          "ms": 5.1832910103257746,
+          "metrics": {
+            "1": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 0.7328286204777911
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 0.7328286204777911
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 0.7328286204777911
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 0.7328286204777911
+            }
+          },
+          "doc_ids": [
+            "L-603626ffaee2de3a7ccc",
+            "L-f88b040f21be0816a228",
+            "L-0e910975ff5abefd996b",
+            "L-a5b13e1aa076b3812ad6",
+            "L-df419857b1dfebb57d0d",
+            "L-699cdb37ecaa8d566d95",
+            "L-29bc343529b7489fa407",
+            "L-05c1043e749e5079a35a",
+            "L-e06ff17e99e45fe5313a",
+            "L-4aa5ad468ca76db82c76",
+            "L-73f81bfe3fc476a46552",
+            "L-5cfcf80f6b7dfb4ddbbd",
+            "L-42a0c03aa4512e27943a",
+            "L-5920731f60197457f69b",
+            "L-556be7ad45807245c2d7",
+            "L-282332bc196cb87bf3dd",
+            "L-e3363282bb2cee115f93",
+            "L-cc4e7620a388a5c73fa5",
+            "L-d3172f3e1734b68d5f99",
+            "L-74541d94a2a6ad28b84f",
+            "L-ff86cf1489242ab6ea37",
+            "L-40b5ad81007f4e7b0878",
+            "L-4969f406db4733eb63df",
+            "L-db177dc097f64df008e1",
+            "L-a7042f16083fbb092fd8",
+            "L-33feb8416fd69d4db515",
+            "L-2765a2f2e805c9dfd31b",
+            "L-16acdedd395a9b788a58",
+            "L-c2aeb4d95a35082cd79f",
+            "L-01e04dd8bcce038de10d",
+            "L-c8b3bc6c72c14281bef1",
+            "L-0a10151f7c5c4c12bffa",
+            "L-32a8dc56e90356dbabed",
+            "L-1fc567142bdd0e09a31a",
+            "L-4a30a21e57a030853610",
+            "L-3b086870ce5ff894cc02",
+            "L-fb1e932a42db3476f874",
+            "L-3cc916737c07b6931fce",
+            "L-776b18aaa77824ea6a24",
+            "L-f0383fd451d00ccdd5c6",
+            "L-241e4f796cd932dbecef",
+            "L-0983fb16434c02b421b9",
+            "L-b9032b3947dd35d8d43d",
+            "L-214b111f91d41d7b6cae",
+            "L-a559369da153889ccae8",
+            "L-de0bf7f9dbf1e2df010f",
+            "L-0edbc5e9b8f277217c79",
+            "L-714af3e4976480b4d9b8",
+            "L-fc14ae5d089cfec4426a",
+            "L-83cdca9625c5fd3b3d5e"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.698
+        },
+        {
+          "query_id": "H-b1fd1d2aa7fc4b4a7a7a",
+          "synthetic_user": "box-84bd433469cb",
+          "query": "Покажи сообщения о том, что контейнеры разгрузили, полученные 6 сентября 2028 года.",
+          "query_date": "2028-09-07",
+          "first_rel_rank": 1,
+          "ms": 4.859042004682124,
+          "metrics": {
+            "1": {
+              "Recall": 0.3333333333333333,
+              "nDCG": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-0fca2479bc3256c502b0",
+            "L-ee0660add627f74f2fe0",
+            "L-539aca8416efa7842a7b",
+            "L-0c84d9c36990ff5bf8b4",
+            "L-3f69dc7ca8017738648e",
+            "L-302907cbe93aa156052a",
+            "L-2303273318d0deba2a51",
+            "L-d3f83e7a3ae1a05d0037",
+            "L-19f8392e3cb784e29a62",
+            "L-9b927f47995aee499a6e",
+            "L-ce64577b91aa2d08bcef",
+            "L-a29dd2c4d5390b68502c"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.431
+        },
+        {
+          "query_id": "H-124bc9656e09acbcf2fc",
+          "synthetic_user": "box-84bd433469cb",
+          "query": "Покажи сообщения о том, что контейнеры разгрузили, полученные вчера.",
+          "query_date": "2028-09-14",
+          "first_rel_rank": 1,
+          "ms": 5.127792013809085,
+          "metrics": {
+            "1": {
+              "Recall": 0.2,
+              "nDCG": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-74f3dc91fce6d46520ba",
+            "L-0720bc00dcf1157874a8",
+            "L-4f0e2b619e37a9dd98f6",
+            "L-de81a549f275de01c611",
+            "L-22ebe879aa6275217ec2",
+            "L-175a5a85fd2787cb7a1c",
+            "L-110b94555ee8fd166d0b",
+            "L-d91c165e1580d133568c",
+            "L-378cfa8718be112284a0",
+            "L-3f1a51a570af3b32a626",
+            "L-f652cb3868a7f3b20266",
+            "L-a14bfbea7df973679d26",
+            "L-a1f7036d261cd25f4f0a",
+            "L-2d76cdee18c604eb2a14",
+            "L-07b6a9f646dbea4e8356",
+            "L-5cacba3476536524a3b1",
+            "L-dbc0ea1dc6908db86379",
+            "L-129890756678c5d478c0",
+            "L-afb6aa76c8d112435f30",
+            "L-e7a9388298f5dde639a3",
+            "L-f81e268701b38c487a4d",
+            "L-9cc80b3d44a942875bba",
+            "L-36074f5686f0100d507e",
+            "L-636af3dc82c70c3c2527",
+            "L-80188f7041b7a71fa885",
+            "L-9e8a52c28baa6f99ca71",
+            "L-e880ebccf685056a0378",
+            "L-8c7a862b52dea4e3ff5f",
+            "L-0e9335069211bc4b17da",
+            "L-8dd9cfdbda70f5d553c8",
+            "L-7a21a7cd6391dc6f4043",
+            "L-70908aca9ea7f3dfefd2",
+            "L-f65b559afb78ae9797d6",
+            "L-dddc1279fe80b9a9ed03",
+            "L-873289abec7603ad9929",
+            "L-2c091bb244e3d6c2caab",
+            "L-954cc30da372178227e9",
+            "L-2312a0e8e825a1f3592a",
+            "L-0c7e79dc7efffda0f20f",
+            "L-367e28a62e5ab0b80070",
+            "L-30510b7cf3756caa6b86",
+            "L-5baffa47d34cfbcff639",
+            "L-acb13dba2ae7b93ee87a",
+            "L-094dde944deda9177d72",
+            "L-e06c6ba09e6d79f7e460",
+            "L-c8ef8e0e2c85d624ae9c",
+            "L-ab79f58d495ce3bb7524",
+            "L-8261760b36b323093c5f",
+            "L-b5a09dfe51da75593976",
+            "L-3a33b0bca0ecb591d5da"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.595
+        },
+        {
+          "query_id": "H-bbc9bc678aba515467f5",
+          "synthetic_user": "box-84bd433469cb",
+          "query": "Найди сообщения о том, что контейнеры разгрузили, полученные 17 сентября 2028 года.",
+          "query_date": "2028-09-18",
+          "first_rel_rank": 1,
+          "ms": 5.248125002253801,
+          "metrics": {
+            "1": {
+              "Recall": 0.09090909090909091,
+              "nDCG": 1.0
+            },
+            "5": {
+              "Recall": 0.45454545454545453,
+              "nDCG": 1.0
+            },
+            "10": {
+              "Recall": 0.9090909090909091,
+              "nDCG": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-2a204f0e8b5fcfeadb78",
+            "L-ab644c3f434cb2434435",
+            "L-1ba621cfc422b706104f",
+            "L-0978fcaf46bfb05973c9",
+            "L-91f998f4035191b00d44",
+            "L-21e7195bf8479eec0286",
+            "L-f8d4674866e1bc3c0129",
+            "L-315234701bba29aa7a69",
+            "L-0f0dbdfa760950d6b12a",
+            "L-9273da17dadded729271",
+            "L-fd08d2ad631bf3bee0a7",
+            "L-689b51f77222cc4f86f6",
+            "L-a33d16c53e11f60a0717",
+            "L-3e4540afb6dd8c784684",
+            "L-8e6f536bdcb95f92acff",
+            "L-c94dcc826a076a64bd79",
+            "L-0494e67cc1d453752089",
+            "L-f7455348b982405c1c7a",
+            "L-bf1e68ff4481cc3dd4bb",
+            "L-8bad8922d3d5e6516b0d",
+            "L-6a65d865da9c3bc372ee",
+            "L-f468f49cff386dd5d3a5",
+            "L-7287e7aeecb80780bd88",
+            "L-a652b7466fc56b05ea9b",
+            "L-dca3d6d00d3b76fd8f68",
+            "L-6d421bb06b1aede40318",
+            "L-dc89bd17ce2474bb064f",
+            "L-667f85df3ac3769d1c51",
+            "L-af1bb1fdf95c5c4bfc6f",
+            "L-2eedbc3a72f1bcd911b1",
+            "L-248458d34531dae5ca19",
+            "L-082e8053def32f7056b0",
+            "L-4c1e3eabb859ce470ff3",
+            "L-57f79edea0190f6b6604",
+            "L-116ec21d0d9d347934e8",
+            "L-dd6fbf5905add56794b3",
+            "L-885441a691ee2d398434",
+            "L-62ffaa92aa5ace2db159",
+            "L-85e5cb086c16d269155b"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.683
+        },
+        {
+          "query_id": "H-4519ace06f566a9f1637",
+          "synthetic_user": "box-84bd433469cb",
+          "query": "Покажи сообщения о том, что контейнеры разгрузили, полученные 18 сентября 2028 года.",
+          "query_date": "2028-09-19",
+          "first_rel_rank": 1,
+          "ms": 5.095542001072317,
+          "metrics": {
+            "1": {
+              "Recall": 0.25,
+              "nDCG": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-58fdaa280d0d26b6e76f",
+            "L-f8c64820792ebfeb44bc",
+            "L-fe188eee1ddd3a5d2f94",
+            "L-98fd9829ed145baa309c",
+            "L-d45dc0122ea3e8a8a5f6",
+            "L-09bf08ef003d7715287d",
+            "L-1b4fba651bf1e52d5db9",
+            "L-fdef2feb00384ab78a93",
+            "L-7c1a3896929e1c61c035",
+            "L-f656aaa3ab7cae63de65",
+            "L-f5fe00c7942dbea20e87",
+            "L-3593acd9a57de195c2b1",
+            "L-c94e9c8bb63f3e0a06dd",
+            "L-aec3a54baae9606900fb",
+            "L-c2a5f55276af7e9b3dad",
+            "L-0633a0ce1d55f6949d34",
+            "L-43687ead7118f38ca6bd",
+            "L-f1d77643d19a59e7d828",
+            "L-b6d7df258e5c71a60d67",
+            "L-4240d1cc95ef8a703ee0",
+            "L-9e721150de9da54b46a1",
+            "L-6298cc5af46d55d81ec3",
+            "L-3635940bf945d2dff2e3",
+            "L-05020c45cd164a682d8b",
+            "L-6a3473017b8a225fb5e1",
+            "L-6929a51c650abb42806a",
+            "L-b8ae4164920e735fb3aa",
+            "L-b37dd8b2755cbc2f1c5c",
+            "L-dd01836cbac59d9be5ff",
+            "L-e6400c51363d03c52c26",
+            "L-9df7d161164c1b561c24",
+            "L-4ede55f6877b633b3996",
+            "L-42c39168fe1de2e7dc06",
+            "L-85ac9e3889eb87de89f7"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.59
+        },
+        {
+          "query_id": "H-b376c0a8bd6e89e51519",
+          "synthetic_user": "box-84bd433469cb",
+          "query": "Найди сообщения о том, что машины приехали, полученные 7 сентября 2028 года.",
+          "query_date": "2028-09-08",
+          "first_rel_rank": 1,
+          "ms": 5.039749987190589,
+          "metrics": {
+            "1": {
+              "Recall": 0.5,
+              "nDCG": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-ca388521000ce574cded",
+            "L-0dd7354b4500424498f7",
+            "L-bcba4e459763fb41d5d6",
+            "L-44f70683b769ee62e1f5",
+            "L-05d0878f5b679db4fca4",
+            "L-a8c8d29ecc08dad8a541",
+            "L-89864d9d37e1d6fedfd1",
+            "L-bb2c3909879692e8354e",
+            "L-a9de5fa2f709db3e5e1d",
+            "L-879749311f009bf5e1e2",
+            "L-caad112add81522d8622",
+            "L-d4e43fd43b6cf7d48647",
+            "L-c333bf64c4915e6a12c7",
+            "L-975302efe53b550e6268",
+            "L-10e5bc43e4cecd641810",
+            "L-c46a7dd074b612846e8f",
+            "L-b1a2e3308ff2d251852a",
+            "L-3e29f61b1eaa84fb3d2c",
+            "L-f9ea18cc6096b1bdfb70",
+            "L-2ca6ad4f85d6ab40753f",
+            "L-500894175b10f1794797",
+            "L-501db566b0f3c9c44272",
+            "L-a61ed456a9c33cde3ec0",
+            "L-5a323425968acf4ca371",
+            "L-d3aaeaad3090931e85bf",
+            "L-7a7b3da8838895772d9c",
+            "L-431b42697dc16060c7f5",
+            "L-743a9f446a21f7dbcd5b",
+            "L-61d12cc3a61850f3e15e",
+            "L-94dc08c4524233b63cc4",
+            "L-6d71b3dbc036d92bd03f",
+            "L-f229bb5a7614f37755d2",
+            "L-05c753e452ce1e6b65b6",
+            "L-4c5dd9a56a913fd143e1"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.565
+        },
+        {
+          "query_id": "H-95e1712dc7fb8841b458",
+          "synthetic_user": "box-84bd433469cb",
+          "query": "Покажи сообщения о том, что машины приехали, полученные вчера.",
+          "query_date": "2028-09-09",
+          "first_rel_rank": 1,
+          "ms": 4.85337499412708,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-e76c5f182c99a9b123f0",
+            "L-6caee637097c17ccf9b6",
+            "L-413a2550b846a9e06e6c",
+            "L-5b7a5e4c10aafe25f738",
+            "L-abce40123a72264000d6",
+            "L-ced61eba2715e69e79a6",
+            "L-842320cb44c1c246acc4",
+            "L-73658f21c4c5e694508a",
+            "L-0fff8c4df27032a20f15",
+            "L-ba3eff2a1e9de5098493",
+            "L-fdc4bda76c27a82215e4",
+            "L-616629cddcc0fee0a465",
+            "L-c5e3282b363845ba00aa",
+            "L-7bacdb4ebff1b5117b57",
+            "L-35f531d2746f598fbea4",
+            "L-e82327e2318be38bc46f",
+            "L-9bc464381547805b1602",
+            "L-4eabaf4d1fd6ffc7704e",
+            "L-f102742cd422e1133567",
+            "L-4f766c6d4dcc4b9a822c",
+            "L-26b0fdda67546e89ed35",
+            "L-3924ee86ea3ab671c2e0",
+            "L-de26825c4d3f74c54b0c",
+            "L-7fb5d0a6a4862268513e",
+            "L-eee7cd23cef9a80e82c4",
+            "L-7b8ac309d8aa5f2d92d5",
+            "L-0eda358507b106e918d1",
+            "L-c57866bba34d98eb0d8e",
+            "L-16e3555eeed4f66535e9",
+            "L-07e1cfc8fc4325f16c19"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.421
+        },
+        {
+          "query_id": "H-f5c6f1ad46d5c9df7cac",
+          "synthetic_user": "box-84bd433469cb",
+          "query": "Покажи сообщения о том, что машины приехали, полученные вчера.",
+          "query_date": "2028-09-12",
+          "first_rel_rank": 1,
+          "ms": 4.73487502313219,
+          "metrics": {
+            "1": {
+              "Recall": 0.5,
+              "nDCG": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-7bae4217fad3f341bf2f",
+            "L-37bf7acc4a28c27bdc29",
+            "L-0bed2b501afd75be9f2f",
+            "L-c5f601b403390bdcf269",
+            "L-6d85ee594ae299bb7d11",
+            "L-d3cb5b6c066f6f7a8150",
+            "L-d463da9609bc1b66a43c",
+            "L-2fcb3c41239a9fa1dd3e",
+            "L-4561f3f7221740baa749",
+            "L-63fee1bc7bc535433a78",
+            "L-d882f349e54c58548d33",
+            "L-29fed46ea9841e690f71",
+            "L-66156fa3dacd54fb3a40",
+            "L-aa9d92b5c6b9dda36698",
+            "L-956d9b647f9ec4874741"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.313
+        },
+        {
+          "query_id": "H-90999e1248f84980b386",
+          "synthetic_user": "box-84bd433469cb",
+          "query": "Найди сообщения о том, что машины приехали, полученные 13 сентября 2028 года.",
+          "query_date": "2028-09-14",
+          "first_rel_rank": 1,
+          "ms": 4.850416997214779,
+          "metrics": {
+            "1": {
+              "Recall": 0.1111111111111111,
+              "nDCG": 1.0
+            },
+            "5": {
+              "Recall": 0.5555555555555556,
+              "nDCG": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-acb13dba2ae7b93ee87a",
+            "L-30510b7cf3756caa6b86",
+            "L-70908aca9ea7f3dfefd2",
+            "L-9cc80b3d44a942875bba",
+            "L-9e8a52c28baa6f99ca71",
+            "L-e880ebccf685056a0378",
+            "L-f65b559afb78ae9797d6",
+            "L-7a21a7cd6391dc6f4043",
+            "L-dddc1279fe80b9a9ed03",
+            "L-e06c6ba09e6d79f7e460",
+            "L-175a5a85fd2787cb7a1c",
+            "L-8dd9cfdbda70f5d553c8",
+            "L-8261760b36b323093c5f",
+            "L-c34a94d1fefc1d22209f",
+            "L-0e9335069211bc4b17da",
+            "L-b31ef7855051fddb80a6"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.395
+        },
+        {
+          "query_id": "H-549005a76cc00372cb32",
+          "synthetic_user": "box-84bd433469cb",
+          "query": "Найди сообщения о том, что машины приехали, полученные 15 сентября 2028 года.",
+          "query_date": "2028-09-16",
+          "first_rel_rank": 1,
+          "ms": 5.162791989278048,
+          "metrics": {
+            "1": {
+              "Recall": 0.2,
+              "nDCG": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-699cdb37ecaa8d566d95",
+            "L-29bc343529b7489fa407",
+            "L-e3363282bb2cee115f93",
+            "L-c2aeb4d95a35082cd79f",
+            "L-40b5ad81007f4e7b0878",
+            "L-5cfcf80f6b7dfb4ddbbd",
+            "L-3cc916737c07b6931fce",
+            "L-776b18aaa77824ea6a24",
+            "L-241e4f796cd932dbecef",
+            "L-3b086870ce5ff894cc02",
+            "L-0983fb16434c02b421b9",
+            "L-4a30a21e57a030853610",
+            "L-a5b13e1aa076b3812ad6",
+            "L-214b111f91d41d7b6cae",
+            "L-de0bf7f9dbf1e2df010f",
+            "L-a559369da153889ccae8",
+            "L-714af3e4976480b4d9b8",
+            "L-0edbc5e9b8f277217c79",
+            "L-c8b3bc6c72c14281bef1",
+            "L-83cdca9625c5fd3b3d5e",
+            "L-4d1e4bebfe6b5713ff80",
+            "L-5069d490e4582ea79e7f",
+            "L-7018e2278d6813848668"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.683
+        },
+        {
+          "query_id": "H-71baff97faa4b4ddedd4",
+          "synthetic_user": "box-84bd433469cb",
+          "query": "Найди сообщения о том, что машины приехали, полученные вчера.",
+          "query_date": "2028-09-17",
+          "first_rel_rank": 1,
+          "ms": 4.950875008944422,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-7db8560b381ca2f5b5e0",
+            "L-eff55c817000c80462ff",
+            "L-3c04aa52347cedd2480c",
+            "L-ad55feaad0e5649c2f8e",
+            "L-b004fec138d134e38197",
+            "L-46b6c6901e3162cac2d9"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.485
+        },
+        {
+          "query_id": "H-b14bc1c93dbdc0cbc5ad",
+          "synthetic_user": "box-84bd433469cb",
+          "query": "Найди сообщения о том, что машины приехали, полученные 17 сентября 2028 года.",
+          "query_date": "2028-09-18",
+          "first_rel_rank": 1,
+          "ms": 4.835625004488975,
+          "metrics": {
+            "1": {
+              "Recall": 0.3333333333333333,
+              "nDCG": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-a33d16c53e11f60a0717",
+            "L-689b51f77222cc4f86f6",
+            "L-f7455348b982405c1c7a",
+            "L-8e6f536bdcb95f92acff",
+            "L-6d421bb06b1aede40318",
+            "L-667f85df3ac3769d1c51",
+            "L-62ffaa92aa5ace2db159",
+            "L-885441a691ee2d398434"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.41
+        },
+        {
+          "query_id": "H-e15a2fa422d9f852aef1",
+          "synthetic_user": "box-84bd433469cb",
+          "query": "Покажи сообщения о том, что машины приехали, полученные 18 сентября 2028 года.",
+          "query_date": "2028-09-19",
+          "first_rel_rank": 1,
+          "ms": 4.778709000675008,
+          "metrics": {
+            "1": {
+              "Recall": 0.2,
+              "nDCG": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-09bf08ef003d7715287d",
+            "L-7c1a3896929e1c61c035",
+            "L-3593acd9a57de195c2b1",
+            "L-c94e9c8bb63f3e0a06dd",
+            "L-3635940bf945d2dff2e3",
+            "L-dd01836cbac59d9be5ff",
+            "L-6a3473017b8a225fb5e1",
+            "L-e6400c51363d03c52c26",
+            "L-f1d77643d19a59e7d828",
+            "L-4ede55f6877b633b3996",
+            "L-85ac9e3889eb87de89f7"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.364
+        },
+        {
+          "query_id": "H-130688ab3eeb3b8dc034",
+          "synthetic_user": "box-84bd433469cb",
+          "query": "Покажи сообщения о том, что машины приехали, полученные вчера.",
+          "query_date": "2028-09-20",
+          "first_rel_rank": 1,
+          "ms": 4.775166016770527,
+          "metrics": {
+            "1": {
+              "Recall": 0.1,
+              "nDCG": 1.0
+            },
+            "5": {
+              "Recall": 0.5,
+              "nDCG": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-6bfafd8fceea4de77160",
+            "L-6acbff281fba5eac63bf",
+            "L-1dfad13d08a9d03d1789",
+            "L-ccd03b3a7a9bb7d20cdf",
+            "L-80c295501fac15cc00d0",
+            "L-c0bbd1c5b233fb2b70d8",
+            "L-15f5c46e74dbb4f5f4e5",
+            "L-94479c8b7e60275da623",
+            "L-120fca5a3bc3e6a70f5a",
+            "L-3162bafb8d706dbe3cd8",
+            "L-50becfeb40977fd7433e",
+            "L-13ff72eec56f59310311",
+            "L-e8df600127f509b35c9e"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.338
+        },
+        {
+          "query_id": "H-3c98fa4bf29e69b4bf23",
+          "synthetic_user": "box-84bd433469cb",
+          "query": "Найди сообщения о том, что машины приехали, полученные 20 сентября 2028 года.",
+          "query_date": "2028-09-21",
+          "first_rel_rank": 1,
+          "ms": 4.619916988303885,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-f302443a86919b34aca8"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.221
+        },
+        {
+          "query_id": "H-269dfc4a89f6ce5171df",
+          "synthetic_user": "box-84dd8d9560e6",
+          "query": "Найди сообщения о том, что поступили новые заказы, полученные 22 марта 2028 года.",
+          "query_date": "2028-03-23",
+          "first_rel_rank": 1,
+          "ms": 4.790083010448143,
+          "metrics": {
+            "1": {
+              "Recall": 0.5,
+              "nDCG": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-2f3e44e2f0bbf2642f9c",
+            "L-508c5a5dcae928f549e5"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.376
+        },
+        {
+          "query_id": "H-ad1b042c390177db6338",
+          "synthetic_user": "box-84dd8d9560e6",
+          "query": "Найди сообщения о том, что поступили новые заказы, полученные вчера.",
+          "query_date": "2028-05-11",
+          "first_rel_rank": 1,
+          "ms": 4.972375027136877,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-e6ec4a42cb9c16f7ca3d"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.497
+        },
+        {
+          "query_id": "H-8d0f3bdcd564c20c8476",
+          "synthetic_user": "box-a971835ab404",
+          "query": "Покажи сообщения о том, что платёж не прошёл, полученные 28 января 2026 года.",
+          "query_date": "2026-01-29",
+          "first_rel_rank": 1,
+          "ms": 4.842583002755418,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-4f924773c201c7455af1"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.384
+        },
+        {
+          "query_id": "H-e78b25a116be82858185",
+          "synthetic_user": "box-a971835ab404",
+          "query": "Найди сообщения о том, что платёж не прошёл, полученные 21 января 2028 года.",
+          "query_date": "2028-01-22",
+          "first_rel_rank": null,
+          "ms": 5.164708010852337,
+          "metrics": {
+            "1": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "5": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "10": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "20": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "50": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            }
+          },
+          "doc_ids": [
+            "L-3eece496a17a746bb81e",
+            "L-59e265bd8469ca141ef7",
+            "L-099ccc2bc994cb5e455e",
+            "L-8ddd5ab34f3c1b686704",
+            "L-f1ebf33d85b765a41e10",
+            "L-883d45b2aac38d3521a4",
+            "L-a68aff6ff971105fe71e",
+            "L-d3865922447a65741361",
+            "L-95f0ba870d581c0c0bdc",
+            "L-6d739b0d0b7ded3f00f7",
+            "L-e5f16ebe47f29879752e",
+            "L-563dfe3e6a7bb4ad5651",
+            "L-823e05ef501a5ec218a8",
+            "L-af3f986ad35356944ef1",
+            "L-3fa09e321f46d4241fb8",
+            "L-70135ff2754f055e176f",
+            "L-f2b24cbd7e9da40bde13",
+            "L-2484e73440e887528425",
+            "L-61a9187a38a22078a527",
+            "L-9e63f9f83e5392e3e44c",
+            "L-b3f5c067935d266ffe83",
+            "L-80c5e03dc5d3d7cf7c55",
+            "L-17addaa95e2fb2372363",
+            "L-f11a71f949505145abfa",
+            "L-2930eade7e16bc206b7e",
+            "L-fc6156745dfe5229fea0",
+            "L-5ff77ddff57a055283e9",
+            "L-704aaa566d17f1e7f71e",
+            "L-64e7b39f88b4d448918f",
+            "L-03529abb4fc253d0f48e",
+            "L-2dc88aff04d5ae4c6338",
+            "L-1707bbe5b616c1edd369",
+            "L-008b9ad8118641372088",
+            "L-91804afbe821adb0074b",
+            "L-163ef2990c35595ed2eb",
+            "L-f3d4d72c5e29c1b8f147",
+            "L-85128b1fdcfe39ee5ba9",
+            "L-a80beb0888ca3ccd8909",
+            "L-4be6edfa2b55e59d2af8",
+            "L-9197e9aac754c1a8d228",
+            "L-ca3196c665813b2dc832",
+            "L-611fc325e3c904b90252",
+            "L-20aac034305a83526934",
+            "L-9dec134c5193b57b4f17",
+            "L-30a258d23f888ca940e6",
+            "L-365b8659f3c72f9eb1c6",
+            "L-91513d88b8c045c983d6",
+            "L-aa3ed9c55f573db3a2a8",
+            "L-66265685bbb24095840a",
+            "L-0bde117d4161dd2feae4"
+          ],
+          "missed_doc_ids": [
+            "L-0273124a9e7a24d04566",
+            "L-0acf4fee7b3850b874ed",
+            "L-220a351ebca066b37840",
+            "L-4c36d51ec271d45689f6",
+            "L-4e2038b9df0a247d11a0",
+            "L-4ee9286002abece3043d",
+            "L-66bca34222b6ec07d3a8",
+            "L-865fd11e1273ebe80615",
+            "L-9350b8fe134f6b51e221",
+            "L-a08b91892b057580d57c",
+            "L-a0e5c83b310fdd95e5c5",
+            "L-a160082e0df2edda2612",
+            "L-a1d91ce533cf28d5fac4",
+            "L-b65f51de664f74cadc02",
+            "L-b93729997d85bb8817e5",
+            "L-e1ecb54e252382b14e34",
+            "L-ee36b7ba3c11dc2bb130"
+          ],
+          "server_ms": 4.656
+        },
+        {
+          "query_id": "H-d523a339e5767794ded5",
+          "synthetic_user": "box-a971835ab404",
+          "query": "Покажи сообщения о том, что платёж не прошёл, полученные 26 января 2028 года.",
+          "query_date": "2028-01-27",
+          "first_rel_rank": null,
+          "ms": 5.712041980586946,
+          "metrics": {
+            "1": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "5": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "10": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "20": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "50": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            }
+          },
+          "doc_ids": [
+            "L-e5747787880ee9f6683c",
+            "L-bd3cf61936a02f8c01b9",
+            "L-ed8e239366ac55476a7f",
+            "L-91039575b6e7b7c0c311",
+            "L-aa62bdad721d7eb59071",
+            "L-c4c314ad4ca8e9b05e5e",
+            "L-620e76a5a5f393a73a1c",
+            "L-80e260e2a703c4df5c94",
+            "L-058e9d74e9c33ba51f5f",
+            "L-bc8183c9f4e78941993d",
+            "L-795180386bf40c0d074f",
+            "L-47f461f79301b9d2c066",
+            "L-9ff51e497c83a8264767",
+            "L-f8383ac060ff4ddd0929",
+            "L-c0555f16dda0e0e43e25",
+            "L-c8ec733f2721d91e4987",
+            "L-c780d202afb8c4ded465",
+            "L-069d6f4f46bae53b45cb",
+            "L-18c415973be36a1e96a5",
+            "L-89af809a0fd9d39343e1",
+            "L-4572e6b46823e15271fc",
+            "L-ab732fb5d9c20c93383a",
+            "L-b1e2cee068d3710cda47",
+            "L-2fd5728333513ce2d04f",
+            "L-3d4f865bc035c1c3fcb1",
+            "L-b39b0122b660fb9ef37a",
+            "L-0d8f7dd4eef39958482e",
+            "L-c5ae353078e14af8b977",
+            "L-a17ac1f4f877a116be37",
+            "L-315101b2aa877a237834",
+            "L-3089d1616f9200ff728a",
+            "L-0c77c515a0b041537ffc",
+            "L-a1f94eea302922eee6dc",
+            "L-29c35bb547229e467e15",
+            "L-2d23a33e65fc55c86b47",
+            "L-0f2e71a2608c8c3d0ea4",
+            "L-ab8a8d397a4f0c665b12",
+            "L-946f028e20830d4a5108",
+            "L-245c17226efe6d270f68",
+            "L-7d923c83f0717c0fdc4b",
+            "L-92090c2d946add052431",
+            "L-fa04f063142e12fa449c",
+            "L-ecebfcdaa6bff3bcdc0f",
+            "L-046f5685277eeaabe92f",
+            "L-147e2e2dce76e627dbe4",
+            "L-21002ef454f0517dbe8b",
+            "L-c0664f161a65de9d8c3c",
+            "L-0633a4aab9fd13f63cca",
+            "L-3c5645d9da21b340bf4e",
+            "L-6237963ac980f35eb4c8"
+          ],
+          "missed_doc_ids": [
+            "L-006041c6fa636ce076b0",
+            "L-01f160c20a46c031e379",
+            "L-030fb09ec0008c4d3c2c",
+            "L-0c136dee3fef12e6c718",
+            "L-2e60971fe991caa69843",
+            "L-3ca71382a04ed35f2b14",
+            "L-4b05c7421ac8dd95cdfe",
+            "L-563eba6f47ba10651b4e",
+            "L-587a374c7c24f87ad433",
+            "L-6e1c390f6275841ccf5d",
+            "L-805ffc3c686714a00771",
+            "L-87b6bf7079757eebedce",
+            "L-8bb2acff69c97a83d5f0",
+            "L-9961209df47a19afc37c",
+            "L-aaf002f7d2617001db78",
+            "L-b502ee075a508d87ca7f",
+            "L-d22c15fcd5eb40166f62",
+            "L-d5cf0becfc92f8bf59df",
+            "L-ddc29ea38b474e1e97fb",
+            "L-e64913f0eb47dda679a8",
+            "L-e942dceb41c903614bdd"
+          ],
+          "server_ms": 5.185
+        },
+        {
+          "query_id": "H-1ff5058ab44a64f0e249",
+          "synthetic_user": "box-a971835ab404",
+          "query": "Покажи сообщения о том, что платёж не прошёл, полученные 28 января 2028 года.",
+          "query_date": "2028-01-29",
+          "first_rel_rank": null,
+          "ms": 5.358624999644235,
+          "metrics": {
+            "1": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "5": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "10": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "20": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "50": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            }
+          },
+          "doc_ids": [
+            "L-3474403c60d93e7d9d00",
+            "L-32335e890047eed02ea9",
+            "L-981fb1604546afa58094",
+            "L-3f299594101e59cbe01b",
+            "L-03aff000d10d62edd990",
+            "L-2a1e54eb2061fc848e86",
+            "L-5d9379030c0f21c8c519",
+            "L-1201520658159f346c21",
+            "L-132b72f688f0e3f9fc83",
+            "L-14fb06b77d291d1f538b",
+            "L-fe5b0b2bb2fdab581cc5",
+            "L-672513a608c91e792507",
+            "L-1987ffa381b7af3bd4bb",
+            "L-5e71369dd6a0052dd168",
+            "L-4b6abaada92b21a98911",
+            "L-6103b1789a44c2c8037f",
+            "L-f7bdf6d9bf23ef2783d5",
+            "L-2e2715f00b57c3167627",
+            "L-5c467fefec6a9d9e52cf",
+            "L-61d9eb66b6c03450e429",
+            "L-af15417a867841d4458d",
+            "L-5d7436974ae66e3ad129",
+            "L-c3c6dd59b879f1aeb396",
+            "L-8bf7b9b7ec7a43ad3718",
+            "L-b49a6f1195aeae5cef1e",
+            "L-dac833dbf23727820144",
+            "L-5a31bc4f164f80ea5d8d",
+            "L-3b7f186164426d748fc5",
+            "L-55140f333c89adf2f5da",
+            "L-8c0cd5ebf5eb67cf7c8f",
+            "L-93ed21beacc2417bfd8c",
+            "L-b8f3febdf7c1545f69e3",
+            "L-edc41ff1d43213a8e70e",
+            "L-706daa99ef852b6ba41b",
+            "L-384a2c4e3405914a5948",
+            "L-504318440148c42cc017",
+            "L-ee1c4b445798d51c7c3c",
+            "L-18cee1d7179c734b75f6",
+            "L-4921d077ec8f331f1aa9",
+            "L-26c6a324cf6a04d528a7",
+            "L-f65e58e895dda4283b19",
+            "L-3e320c496fa75a063a5b",
+            "L-4711a21b2e22b04aa5cc",
+            "L-6e04999518248f1610d6",
+            "L-d32b572bb40284030e79",
+            "L-b55d951cbbefca0b4a00",
+            "L-eb44ccec358079ed6892",
+            "L-5464dc4ecc3461a3a1cc",
+            "L-d730febb9b38e406258c",
+            "L-3b10022611bb02e2b641"
+          ],
+          "missed_doc_ids": [
+            "L-12875dd9c2d2076af5df",
+            "L-22daf21ba69021ab5008",
+            "L-2d9b2eca40e27f2cb8f2",
+            "L-2ee67754af640ef52973",
+            "L-32bd1e8c9d2819fe2779",
+            "L-43091e09c3ec1e4f3f5e",
+            "L-4bf0f178df8fa4525285",
+            "L-587ca0bcb7636ea34cf9",
+            "L-634751187a3e3feb7f30",
+            "L-68efa15059aff4a73ff3",
+            "L-7f1493e353d4fc5ad1a9",
+            "L-a05841da33a7b9486cb5",
+            "L-a2f6769a25d1ea1211b6",
+            "L-b1e280170a22ee44a216",
+            "L-c8dad064883a1e57edfd",
+            "L-cf5574ba33ec75f94a68",
+            "L-fefed5861f8a12df37f6",
+            "L-ff70f9e69f07e6fbae88"
+          ],
+          "server_ms": 4.8
+        },
+        {
+          "query_id": "H-78c01f45929428ddc3ff",
+          "synthetic_user": "box-a971835ab404",
+          "query": "Найди сообщения о том, что платёж не прошёл, полученные 29 января 2028 года.",
+          "query_date": "2028-01-30",
+          "first_rel_rank": 34,
+          "ms": 6.352541997330263,
+          "metrics": {
+            "1": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "5": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "10": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "20": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 0.48559768082915206
+            }
+          },
+          "doc_ids": [
+            "L-a514969c7a0a3b3d543f",
+            "L-0d4be415381d145e5240",
+            "L-7f52803eb9064edbe25d",
+            "L-1fd09c7f247a49dc7780",
+            "L-ee3bd327f134050ff6e9",
+            "L-7a1ec769e6ddfcb170dd",
+            "L-c495db28fa308576fbb8",
+            "L-c4a87f49a94cb53a3c75",
+            "L-9c5a8df0f5147d3b46c6",
+            "L-ae12590522185f8bde45",
+            "L-182fc9920ba456c017bc",
+            "L-15bb82fe44c09e5cd249",
+            "L-ced4b18bea9429dd1beb",
+            "L-0c420efdedcb5d4d611d",
+            "L-771f40b5c39e86702085",
+            "L-d41396b4d599cbc3e30e",
+            "L-2358cb4fabf5ab435e6f",
+            "L-879c2d3c692a9c85e944",
+            "L-db3c7dadd0488a8e66a6",
+            "L-24a5b31452969e506e37",
+            "L-3d537346f0de83d40857",
+            "L-39dffd2cc9399956f9d2",
+            "L-8447820e66d41f3adcaa",
+            "L-27ccaaee03f8c484cb47",
+            "L-17313f0c770321ccb897",
+            "L-3a5bb0fff6f137c6f9c1",
+            "L-3a5f820afda96392f664",
+            "L-1241e5d355c8cd1ace8f",
+            "L-19a25ba44647d0cd3a62",
+            "L-6271735271f7d01e950f",
+            "L-7d76819189ee69d5c9c2",
+            "L-4176695373b727f814af",
+            "L-f2b541da5914e63de392",
+            "L-a11d9a8fdcd45b08012f",
+            "L-204355b5d0b545bad027",
+            "L-cb7f60fd48e606a6f05d",
+            "L-e71316a070367d5cf773",
+            "L-cf99fcf98cd11ff2c04e",
+            "L-642bfa76d9e5c8aa93a2",
+            "L-52b3e0d292525afaec40",
+            "L-2845e874402d61de0ca8",
+            "L-b30c6f126348da1e9c6d",
+            "L-c60a3b1b67abb4e40e14",
+            "L-a62bf45c7126c8be4498",
+            "L-fd6b1609d7be5609b499",
+            "L-2327bc7ccc5358d9a122",
+            "L-6dcfc28025fc15a7db9f",
+            "L-a7e9ea13fa623fc4633b",
+            "L-e1bf98b5e56adbd34a07"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 5.782
+        },
+        {
+          "query_id": "H-6f1839b2094abab2d9d7",
+          "synthetic_user": "box-a971835ab404",
+          "query": "Найди сообщения о том, что платёж не прошёл, полученные 30 января 2028 года.",
+          "query_date": "2028-01-31",
+          "first_rel_rank": null,
+          "ms": 5.813042022055015,
+          "metrics": {
+            "1": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "5": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "10": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "20": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "50": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            }
+          },
+          "doc_ids": [
+            "L-ec6813cee2d82a2918c2",
+            "L-415bc267dc517a201029",
+            "L-c63f2bb05a9f47478f3e",
+            "L-b85731af0194973b1430",
+            "L-7e3ee11d1bc169e3d88a",
+            "L-b412f03bd8be8528d1b0",
+            "L-19d2f2b75e5c3bcf3cc0",
+            "L-7f8ccf9f22d5a00448ce",
+            "L-d610896e636f21498f7a",
+            "L-36551d62151fcb2bdc60",
+            "L-4a374816bc59e717f49e",
+            "L-bf3790d33fa26611ec84",
+            "L-3f1a9d84e31b16ce1dd0",
+            "L-0db970ec5866b3767730",
+            "L-2f332cee7de5eecaf4fe",
+            "L-bce1868412d6ade44abe",
+            "L-972d824f3e592aff72e9",
+            "L-4549ae52db1ed1518da8",
+            "L-f74fa029945b7b00c386",
+            "L-74d4795f3b1846a292ef",
+            "L-bbbd8f176e76de6488f6",
+            "L-7c54095de906880608ae",
+            "L-ec10805fb0d861a32828",
+            "L-fc3a49a97c733a3afdb7",
+            "L-7b36b4c0bdbbaaae91b0",
+            "L-fd8121980faf05f6d8f3",
+            "L-ebe3660f0b6682bda516",
+            "L-ff9d2b2d40500b6fb127",
+            "L-67671079802540a51a36",
+            "L-6dec15a75980731c1fc7",
+            "L-ad78e786432c5a0f1c43",
+            "L-803912fb25a4a948b20f",
+            "L-1f4b2ad0a5c26118c01b",
+            "L-190696618ecba6c27153",
+            "L-00a89e14c9265b2b8a16",
+            "L-2be6e936c2a4e5e25c6a",
+            "L-0ead89f535752947c77d",
+            "L-f3540cc6e2b9f492edba",
+            "L-eb0bd4acc3e6c96456e0",
+            "L-9d3b30881bb06d95f36d",
+            "L-fcccaa32f0b19df3afbb",
+            "L-840c07f844d49e188570",
+            "L-a34946051a0d297f29ff",
+            "L-33c7e1c3ec17eed14557",
+            "L-4e9666b29c0141cdc108",
+            "L-2b0df10064d7157eed30",
+            "L-2906185d4ec46e890890",
+            "L-6aec58316c987dab9ec4",
+            "L-a9928e2a2c2320bfdbbd",
+            "L-b32e561d16d800975e7d"
+          ],
+          "missed_doc_ids": [
+            "L-086e8c89ded836f9be92",
+            "L-0a1f3c27533663d02037",
+            "L-1fc11a5bf68e87be0d75",
+            "L-284578421fcc5f329917",
+            "L-3355cce2b41bc9359b30",
+            "L-35e0b38aa6e4c4d35423",
+            "L-3fb64eedb871ed3a395f",
+            "L-467e4e048067ab585ada",
+            "L-4d9cf24c65cda22521b8",
+            "L-8685be35b3000a14d871",
+            "L-8e4719c0ee9b6f400ec0",
+            "L-bf72181d39602880c5af",
+            "L-e842756a72cf7e7cc2c4",
+            "L-f0227a694823b270d902"
+          ],
+          "server_ms": 5.195
+        },
+        {
+          "query_id": "H-91635f29cd1535edaa65",
+          "synthetic_user": "box-a971835ab404",
+          "query": "Покажи сообщения о том, что платёж не прошёл, полученные 31 января 2028 года.",
+          "query_date": "2028-02-01",
+          "first_rel_rank": null,
+          "ms": 5.540750018553808,
+          "metrics": {
+            "1": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "5": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "10": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "20": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "50": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            }
+          },
+          "doc_ids": [
+            "L-225c86ab83ab8a0483d2",
+            "L-20fbdca3dd311cdce015",
+            "L-281e2b5aede2953d7503",
+            "L-41460e18e65ab3a61c11",
+            "L-5d5f5dbdca1dc4c21a5e",
+            "L-a504a7adbdf12a1b3f94",
+            "L-7b35e40fe35199fa9154",
+            "L-779b74d60c264a3ae917",
+            "L-e58c14b1f87eee1e009b",
+            "L-06f0be33d94228b9ffba",
+            "L-060e319ecc66b314a99a",
+            "L-de2481fb6132b869feff",
+            "L-386b9d2068366fa87def",
+            "L-974f01be9878523558d3",
+            "L-617a7b567079f45e5e41",
+            "L-aa731daa4e6b13be1a8b",
+            "L-c10255788290e378781b",
+            "L-ae891d5284e94e99134d",
+            "L-df6a12f82e452e7aa23a",
+            "L-93cfca58631f04204c59",
+            "L-f695ce3c7cb9087ba312",
+            "L-9ae5a6e4ba41d71f3c2d",
+            "L-c741d6c51e3c2c21523b",
+            "L-83928280f0900b450131",
+            "L-a027cb609d5b0c7d0f2e",
+            "L-7c84684700e3e984b32c",
+            "L-22c897ea207f8fa471d5",
+            "L-563ae8001a2ce45ca476",
+            "L-83f6e33707980fa6e6b2",
+            "L-91f61513e47a21fbdde2",
+            "L-28d89ebc6c602c470ebe",
+            "L-5bf43c52a907a8f34152",
+            "L-511d25d8691d77fba8b0",
+            "L-d721816babd39d20a3da",
+            "L-2331cee3ebc0559c19ca",
+            "L-ca5c680330aac0172adb",
+            "L-a3cda3b1f2c5be8381ef",
+            "L-bbafde0e7ed8e5ecd5cd",
+            "L-8585adb20d7e78f29c76",
+            "L-9d501d10f2b5cd26331a",
+            "L-81feb3cb53feb8b58b85",
+            "L-bb3282a7d04281421b51",
+            "L-9d5fa7a8dfdbe29cc3ba",
+            "L-890fce95e06736b0f5d4",
+            "L-1842704d0a0ef1a58596",
+            "L-3502cdd8b1e7e4bfa52e",
+            "L-7a41e42ff36f13f2bd53",
+            "L-4a08aa368df02337b13f",
+            "L-e70fe9812f0ef83128d6",
+            "L-7804e4fe0b55e169ce6e"
+          ],
+          "missed_doc_ids": [
+            "L-02faeacd5c3535870c2d",
+            "L-050dbcaa5f6c7dab6a25",
+            "L-075da2a86d6df26dc450",
+            "L-25050de7de6beefaa801",
+            "L-27799ba201dd540c530f",
+            "L-293be63f44f5e045b0bc",
+            "L-5b7b04db8acb2e4de7ee",
+            "L-6614cefa3ff28903d6f8",
+            "L-68bcfcce07c6d3116aa7",
+            "L-71ce3b46e0b138a4fb89",
+            "L-9ad888ee99b45dbc098f",
+            "L-9e8bf74a7de18bfa35dd",
+            "L-bafeb13d163bf40ed9ef",
+            "L-d2fff0f1dc3e0b057aed",
+            "L-d5020a1964e1ac2091f3",
+            "L-e565ba4d49534b40933a",
+            "L-f85d04ef6ccdeb0f1b24",
+            "L-f88c13a5b657faed803b"
+          ],
+          "server_ms": 4.914
+        },
+        {
+          "query_id": "H-858ce7fee338506cefbe",
+          "synthetic_user": "box-a971835ab404",
+          "query": "Найди сообщения о том, что платёж не прошёл, полученные 1 февраля 2028 года.",
+          "query_date": "2028-02-02",
+          "first_rel_rank": 26,
+          "ms": 5.394250008976087,
+          "metrics": {
+            "1": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "5": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "10": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "20": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "50": {
+              "Recall": 0.08333333333333333,
+              "nDCG": 0.04129602134854855
+            }
+          },
+          "doc_ids": [
+            "L-be503df04d0dc85f0738",
+            "L-8c16f075d33375d6d276",
+            "L-983a71b390a75b60cfd7",
+            "L-f971f005da6a6c4e72ba",
+            "L-784a1008c5cde71ae8c2",
+            "L-882d500d9a54beefea2b",
+            "L-d4f94d237df498553f2b",
+            "L-89bb973e88d1fa4e91b6",
+            "L-394c784aaef34afa171e",
+            "L-547634d0e2d27f1c9ad2",
+            "L-0fc9b5ab4c5bd117fb38",
+            "L-d332e5157752cafcea2f",
+            "L-61ba8f9581a09c464cfb",
+            "L-95f7383c2b268060e1fd",
+            "L-67e102866275c2fff4c3",
+            "L-8c57efa18f6a8ef0f675",
+            "L-faa1f97846068b11b435",
+            "L-4bb1257ed9e31e4d3f12",
+            "L-a2ad52089cb34d7a6fd7",
+            "L-0fd90e970edea3464a61",
+            "L-bcae86852bfeef24079a",
+            "L-428e223f5e49540ad28a",
+            "L-b74dc7519d50ae38776d",
+            "L-f7a36322e7e7e65f9238",
+            "L-87b0d9f21813ac20d4c8",
+            "L-ffc588d5044c76d82ba2",
+            "L-df576bb4442a6397f015",
+            "L-1028d60642e1c98b7378",
+            "L-c4ccfe0211f473713645",
+            "L-0ab3e81c2e0138738325",
+            "L-a388ce15887b6ecc767e",
+            "L-a08a1ad2983d31ee4906",
+            "L-b5870882bfb69b23faa1",
+            "L-d252ae8455f1dfa670c8",
+            "L-4546d00d983c8279695e",
+            "L-14b0b4e2252e8fd6b354",
+            "L-44f13bc426bf2a1ec50f",
+            "L-2213fccc3abc161a6fa4",
+            "L-eb96f682d2aa689f34c0",
+            "L-4c076f8ea772b1e2e7a8",
+            "L-b60d3b30a31c7c2055a4",
+            "L-b3081ebe6d029669ec29",
+            "L-c626f40596f419ad22a9",
+            "L-7438548c6f7bbe78e393",
+            "L-28f1c4db09abbe6c6a2a",
+            "L-0f8b5b328f5ea90fd9b7",
+            "L-463574042b40edb3ee6f",
+            "L-a1379a0d9841ecaea347",
+            "L-86b08cf04163336d95cd",
+            "L-98c1e6b5bae04d948133"
+          ],
+          "missed_doc_ids": [
+            "L-0395182baf691b682e20",
+            "L-073d2d371f6b09055cde",
+            "L-0935723e62a090c33f5f",
+            "L-0e003598eab415f57395",
+            "L-12701ff34c88f3577a21",
+            "L-27481e5c3adfec524d07",
+            "L-51246c1ab3f1d218079c",
+            "L-9c5272d772d39c2299cb",
+            "L-e17faa5d749cf8afa6bb",
+            "L-e39c6678736de99e8e46",
+            "L-f377e13ba8aebdddfca0"
+          ],
+          "server_ms": 4.855
+        },
+        {
+          "query_id": "H-d6683f03cca44a37eddb",
+          "synthetic_user": "box-a971835ab404",
+          "query": "Найди сообщения о том, что платёж не прошёл, полученные 2 февраля 2028 года.",
+          "query_date": "2028-02-03",
+          "first_rel_rank": 3,
+          "ms": 4.982707992894575,
+          "metrics": {
+            "1": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 0.6182885020492784
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 0.6182885020492784
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 0.6182885020492784
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 0.6182885020492784
+            }
+          },
+          "doc_ids": [
+            "L-6a2990575dc05720b13f",
+            "L-d7b7e3e00cb894ce7af9",
+            "L-72a36f882225d9110a34",
+            "L-ecd02e94da9c3e7da190",
+            "L-b0f9083fef4af4f3463a"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.451
+        },
+        {
+          "query_id": "H-ff32ab10e74ee71987b2",
+          "synthetic_user": "box-a971835ab404",
+          "query": "Найди сообщения о том, что платёж прошёл, полученные 19 января 2028 года.",
+          "query_date": "2028-01-20",
+          "first_rel_rank": 1,
+          "ms": 5.599291995167732,
+          "metrics": {
+            "1": {
+              "Recall": 0.2,
+              "nDCG": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-e6d311c8265b6dabfb4e",
+            "L-58c95a060a3adccfc1a1",
+            "L-1033df261c449a13472c",
+            "L-d0b7691b59f46b26279f",
+            "L-7547822e895c41824ce2",
+            "L-2e867e3f6ce6b2c27883",
+            "L-54ce2f763702b6ecfb3f"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 5.101
+        },
+        {
+          "query_id": "H-37331e6948fece5ff495",
+          "synthetic_user": "box-a971835ab404",
+          "query": "Покажи сообщения о том, что платёж прошёл, полученные 2 февраля 2028 года.",
+          "query_date": "2028-02-03",
+          "first_rel_rank": 1,
+          "ms": 4.771208012243733,
+          "metrics": {
+            "1": {
+              "Recall": 0.5,
+              "nDCG": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-6a2990575dc05720b13f",
+            "L-d7b7e3e00cb894ce7af9",
+            "L-72a36f882225d9110a34",
+            "L-ecd02e94da9c3e7da190",
+            "L-b0f9083fef4af4f3463a"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.29
+        },
+        {
+          "query_id": "H-27202d6f9d538e1fee46",
+          "synthetic_user": "box-d7961fc39a68",
+          "query": "Покажи сообщения о том, что поставку приняли, полученные 23 августа 2028 года.",
+          "query_date": "2028-08-24",
+          "first_rel_rank": null,
+          "ms": 4.698915989138186,
+          "metrics": {
+            "1": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "5": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "10": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "20": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            },
+            "50": {
+              "Recall": 0.0,
+              "nDCG": 0.0
+            }
+          },
+          "doc_ids": [],
+          "missed_doc_ids": [
+            "L-072dd2bf78c5b41f2c07",
+            "L-0ebed84f8066e69fe541",
+            "L-4d20534b05eb1776ce23",
+            "L-803d4c3ce31cc978b5d0",
+            "L-9c85d4ba633d0ce20b46",
+            "L-aeb34b708311375a985f",
+            "L-ba2336e156db1472c3d4",
+            "L-ea6b9109f27d29804e79"
+          ],
+          "server_ms": 4.222
+        },
+        {
+          "query_id": "H-4cdc6eb005231127037f",
+          "synthetic_user": "box-dfac33a7123c",
+          "query": "Найди сообщения о неполадках в системе электронных рецептов, полученные 14 сентября 2025 года.",
+          "query_date": "2025-09-15",
+          "first_rel_rank": 1,
+          "ms": 5.310166015988216,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-5f8d2aea95d7da30e10d"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.8
+        },
+        {
+          "query_id": "H-61c6a92d704e52d0ff9f",
+          "synthetic_user": "box-dfac33a7123c",
+          "query": "Найди сообщения о неполадках в системе электронных рецептов, полученные 20 сентября 2025 года.",
+          "query_date": "2025-09-21",
+          "first_rel_rank": 1,
+          "ms": 5.042374978074804,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-969bdfc9fd4ab756c513"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.554
+        },
+        {
+          "query_id": "H-4bf66905298157b11c51",
+          "synthetic_user": "box-dfac33a7123c",
+          "query": "Покажи сообщения о неполадках в системе электронных рецептов, полученные 15 октября 2025 года.",
+          "query_date": "2025-10-16",
+          "first_rel_rank": 1,
+          "ms": 5.284500017296523,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-6f1a804eab806f7b354c"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.785
+        },
+        {
+          "query_id": "H-7631815d9be3295a022e",
+          "synthetic_user": "box-dfac33a7123c",
+          "query": "Покажи сообщения о неполадках в системе электронных рецептов, полученные 17 марта 2026 года.",
+          "query_date": "2026-03-18",
+          "first_rel_rank": 1,
+          "ms": 5.118000000948086,
+          "metrics": {
+            "1": {
+              "Recall": 0.3333333333333333,
+              "nDCG": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-9e54eb08c628721b5925",
+            "L-6e26152355846411adb9",
+            "L-087237f091be9ad24f12"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.645
+        },
+        {
+          "query_id": "H-b7a3354578462ebe7d7b",
+          "synthetic_user": "box-dfac33a7123c",
+          "query": "Найди сообщения о неполадках в системе электронных рецептов, полученные 27 марта 2026 года.",
+          "query_date": "2026-03-28",
+          "first_rel_rank": 1,
+          "ms": 5.080416012788191,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-2d7b427554d1fcdd6b2a"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.599
+        },
+        {
+          "query_id": "H-5dba0b5af406db4d46ea",
+          "synthetic_user": "box-dfac33a7123c",
+          "query": "Покажи сообщения о неполадках в системе электронных рецептов, полученные 17 апреля 2026 года.",
+          "query_date": "2026-04-18",
+          "first_rel_rank": 1,
+          "ms": 5.416790983872488,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-3a537f6ed80e0b596fe4"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.875
+        },
+        {
+          "query_id": "H-897cee85fae472edd3f0",
+          "synthetic_user": "box-dfac33a7123c",
+          "query": "Найди сообщения о неполадках в системе электронных рецептов, полученные вчера.",
+          "query_date": "2026-05-18",
+          "first_rel_rank": 1,
+          "ms": 5.623667006148025,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-6075f3128d4231a404d8"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 5.046
+        },
+        {
+          "query_id": "H-c413a2949694d80bce71",
+          "synthetic_user": "box-dfac33a7123c",
+          "query": "Покажи сообщения о неполадках в системе электронных рецептов, полученные 18 октября 2026 года.",
+          "query_date": "2026-10-19",
+          "first_rel_rank": 1,
+          "ms": 5.5267080024350435,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-69f1f69fbd2a2970086b"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.915
+        },
+        {
+          "query_id": "H-fec3ca797b16a44cd908",
+          "synthetic_user": "box-dfac33a7123c",
+          "query": "Найди сообщения о неполадках в системе электронных рецептов, полученные вчера.",
+          "query_date": "2026-10-24",
+          "first_rel_rank": 1,
+          "ms": 6.952750001801178,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-8299d4e7176b4964365d"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 5.965
+        },
+        {
+          "query_id": "H-13bf279075424f9d062c",
+          "synthetic_user": "box-dfac33a7123c",
+          "query": "Покажи сообщения о неполадках в системе электронных рецептов, полученные вчера.",
+          "query_date": "2026-11-17",
+          "first_rel_rank": 1,
+          "ms": 5.412583006545901,
+          "metrics": {
+            "1": {
+              "Recall": 0.5,
+              "nDCG": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-ae68ec40362b0ca71844",
+            "L-ce0b19016001ef68d15a"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.872
+        },
+        {
+          "query_id": "H-c57d21c51672612ec132",
+          "synthetic_user": "box-dfac33a7123c",
+          "query": "Найди сообщения о неполадках в системе электронных рецептов, полученные 23 декабря 2026 года.",
+          "query_date": "2026-12-24",
+          "first_rel_rank": 1,
+          "ms": 5.0022499926853925,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-94f5ccd78ef1b2fa426e"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.505
+        },
+        {
+          "query_id": "H-f7df24b1753a0d02751a",
+          "synthetic_user": "box-dfac33a7123c",
+          "query": "Найди сообщения о неполадках в системе электронных рецептов, полученные 5 февраля 2027 года.",
+          "query_date": "2027-02-06",
+          "first_rel_rank": 1,
+          "ms": 5.817749974085018,
+          "metrics": {
+            "1": {
+              "Recall": 0.5,
+              "nDCG": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-64dee7f17b0ece778e26",
+            "L-e4cbbcabd1b13c9b97b0"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 5.238
+        },
+        {
+          "query_id": "H-44c1d81209f1973c2f94",
+          "synthetic_user": "box-dfac33a7123c",
+          "query": "Найди сообщения о неполадках в системе электронных рецептов, полученные вчера.",
+          "query_date": "2027-08-05",
+          "first_rel_rank": 1,
+          "ms": 5.387917015468702,
+          "metrics": {
+            "1": {
+              "Recall": 0.5,
+              "nDCG": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-5c9bb063bdd444b67268",
+            "L-37e4f26917e953bf3518"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.812
+        },
+        {
+          "query_id": "H-e800fd8a44e2618dff83",
+          "synthetic_user": "box-dfac33a7123c",
+          "query": "Найди сообщения о неполадках в системе электронных рецептов, полученные 14 сентября 2027 года.",
+          "query_date": "2027-09-15",
+          "first_rel_rank": 1,
+          "ms": 5.204665998462588,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-9e3651ab512567a14208"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.652
+        },
+        {
+          "query_id": "H-839f7c5c7c9477b13aae",
+          "synthetic_user": "box-dfac33a7123c",
+          "query": "Покажи сообщения о неполадках в системе электронных рецептов, полученные 18 сентября 2027 года.",
+          "query_date": "2027-09-19",
+          "first_rel_rank": 1,
+          "ms": 5.617499991785735,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-e1ef8895978b65b63dc2"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 5.089
+        },
+        {
+          "query_id": "H-5c39ab08b6f0c3c9bf6a",
+          "synthetic_user": "box-dfac33a7123c",
+          "query": "Найди сообщения о неполадках в системе электронных рецептов, полученные 23 сентября 2027 года.",
+          "query_date": "2027-09-24",
+          "first_rel_rank": 1,
+          "ms": 5.272582988254726,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-d16c5e5f82dce347f570"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.753
+        },
+        {
+          "query_id": "H-fa7c1c74a00ff852c670",
+          "synthetic_user": "box-dfac33a7123c",
+          "query": "Покажи сообщения о неполадках в системе электронных рецептов, полученные вчера.",
+          "query_date": "2027-10-16",
+          "first_rel_rank": 1,
+          "ms": 5.016499984776601,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-cbe98715aeb370c17022"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.509
+        },
+        {
+          "query_id": "H-0411ea4a25402070a382",
+          "synthetic_user": "box-dfac33a7123c",
+          "query": "Найди сообщения о неполадках в системе электронных рецептов, полученные 21 октября 2027 года.",
+          "query_date": "2027-10-22",
+          "first_rel_rank": 1,
+          "ms": 5.354250024538487,
+          "metrics": {
+            "1": {
+              "Recall": 0.2,
+              "nDCG": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-dece27079f806e34db05",
+            "L-88b71db3edf8bd8cfe96",
+            "L-a61ed9a006b82cede296",
+            "L-bb73474b3d078a43ab3c",
+            "L-7f8ff9663e5c907afed1"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.844
+        },
+        {
+          "query_id": "H-ea60254178c21d7ab3a3",
+          "synthetic_user": "box-dfac33a7123c",
+          "query": "Найди сообщения о неполадках в системе электронных рецептов, полученные 29 октября 2027 года.",
+          "query_date": "2027-10-30",
+          "first_rel_rank": 1,
+          "ms": 5.220084014581516,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-5bbe067510b28f739f87"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.707
+        },
+        {
+          "query_id": "H-9bf9d551a88f414e1533",
+          "synthetic_user": "box-dfac33a7123c",
+          "query": "Найди сообщения о неполадках в системе электронных рецептов, полученные 6 ноября 2027 года.",
+          "query_date": "2027-11-07",
+          "first_rel_rank": 1,
+          "ms": 5.632333020912483,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-7decab81d38618fb05b0"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 5.04
+        },
+        {
+          "query_id": "H-d80b250c130d0d169ce5",
+          "synthetic_user": "box-dfac33a7123c",
+          "query": "Покажи сообщения о неполадках в системе электронных рецептов, полученные 16 ноября 2027 года.",
+          "query_date": "2027-11-17",
+          "first_rel_rank": 1,
+          "ms": 5.15320900012739,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-0d7d248e18a4bc788b3a"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.623
+        },
+        {
+          "query_id": "H-746cb14175b115e23160",
+          "synthetic_user": "box-dfac33a7123c",
+          "query": "Найди сообщения о неполадках в системе электронных рецептов, полученные вчера.",
+          "query_date": "2028-09-24",
+          "first_rel_rank": 1,
+          "ms": 5.295375012792647,
+          "metrics": {
+            "1": {
+              "Recall": 0.023809523809523808,
+              "nDCG": 1.0
+            },
+            "5": {
+              "Recall": 0.11904761904761904,
+              "nDCG": 1.0
+            },
+            "10": {
+              "Recall": 0.23809523809523808,
+              "nDCG": 1.0
+            },
+            "20": {
+              "Recall": 0.47619047619047616,
+              "nDCG": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-21786ec5f42c635a9973",
+            "L-3936f7ec6ea74e86078b",
+            "L-964f1ab4ed0ff4edce8c",
+            "L-5347805d1112c778af89",
+            "L-f294a5fcb4eb41ba192a",
+            "L-ca55733cab14a1a7f6f6",
+            "L-49b9c70e3c021453c1c7",
+            "L-353fbfefa55e01aa1857",
+            "L-25b5557624aafc197285",
+            "L-b52ea32466cb3172a14c",
+            "L-1307a2d2a2f94538de10",
+            "L-e1699e7d5a167984e534",
+            "L-ecd8c822ef5449322f72",
+            "L-c51aab47e5e7f7604507",
+            "L-05bb3ae4994c7198cc5e",
+            "L-d7eac07f6ea3796bfa1d",
+            "L-848d9ef1e384e97b2c68",
+            "L-692524b6ab09b044c2a4",
+            "L-fd0e101e5809df4c8d7e",
+            "L-ee2cc6cf36fa614be1ba",
+            "L-bd389526ccc34f3d7c43",
+            "L-cb897a30ad4ea7663534",
+            "L-b6f8ae1b5e125a28a9c9",
+            "L-d0452d0f2f5abc84ed9f",
+            "L-afc6933f8738993de76d",
+            "L-e781cb757682e86644a6",
+            "L-6a8a342565cf3445f4eb",
+            "L-79f832f0aaf3dc71270d",
+            "L-3e1a3452fcf530cc2eba",
+            "L-6e161b1b2d60f3a9d8e3",
+            "L-222285086a58bfb67ea6",
+            "L-ce953f38bd9d3ba8d26b",
+            "L-03039757345c56abebd2",
+            "L-3263aa519f90aa28ea9c",
+            "L-b6980fd7d4d1b95dc7fd",
+            "L-a18a3584be4192a88b95",
+            "L-ca8ff8416014a0cd2ce5",
+            "L-b882bbd6d4bf1a1c15c3",
+            "L-c3de7ee03f1228dd08b8",
+            "L-1fe8feb4f20e5682f3a8",
+            "L-2fd1329ed9c11e3b76f5",
+            "L-216d8f512936a4c86a29"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.772
+        },
+        {
+          "query_id": "H-e15a571ba6733c1c7996",
+          "synthetic_user": "box-dfac33a7123c",
+          "query": "Найди сообщения о неполадках в системе электронных рецептов, полученные 25 сентября 2028 года.",
+          "query_date": "2028-09-26",
+          "first_rel_rank": 1,
+          "ms": 5.270250025205314,
+          "metrics": {
+            "1": {
+              "Recall": 0.015384615384615385,
+              "nDCG": 1.0
+            },
+            "5": {
+              "Recall": 0.07692307692307693,
+              "nDCG": 1.0
+            },
+            "10": {
+              "Recall": 0.15384615384615385,
+              "nDCG": 1.0
+            },
+            "20": {
+              "Recall": 0.3076923076923077,
+              "nDCG": 1.0
+            },
+            "50": {
+              "Recall": 0.7692307692307693,
+              "nDCG": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-a2bc116e425657c6bfc7",
+            "L-491c88d0d90bb462e0ce",
+            "L-51cca4897c4e359f2e4a",
+            "L-697f66067b3f8f548ff6",
+            "L-5e59f84e3996a42cd314",
+            "L-7f30dfd89a18af3cae7f",
+            "L-63a59dad40c70e470215",
+            "L-4f6b8cd77acc4019a99f",
+            "L-08638dc0b08ac3fd6aa4",
+            "L-a9a74e0121c345e68749",
+            "L-b9afc7e23832a9acdc9a",
+            "L-b8408efd8a7916cb3184",
+            "L-04f8a5b52ff3534711eb",
+            "L-70a24b0fd718032ac84b",
+            "L-42ded22fd7a54cf5e542",
+            "L-5a21a4835b047cac7570",
+            "L-de39035625db901700b3",
+            "L-751becd90fe6d1d46e92",
+            "L-291566c0032c2dcf93b2",
+            "L-696920331f733eec3425",
+            "L-ca58c6d6a8a2c39a4c28",
+            "L-f41da94848458bda9626",
+            "L-3e6a0ea4e072fc7b4802",
+            "L-5dcd32a76aa1bc3fe6c4",
+            "L-add0a8d488426bd1c0ba",
+            "L-63dcd2e4aa87a8a67d04",
+            "L-f6591d963060e3c9aa5b",
+            "L-e532240fe090bf5d5803",
+            "L-6476f80b94bccd247fce",
+            "L-9a0236344e850d34a038",
+            "L-3f9db36a1514480a2a83",
+            "L-cb19e391c01cc56a052c",
+            "L-4b9d726f06c05810c0c5",
+            "L-7a463d9683f11d2cf688",
+            "L-3959a6a6c452344dd4e9",
+            "L-e420473990d4dab45fdf",
+            "L-ff27063460d6363c18a5",
+            "L-ebbb8f061ccadb168c02",
+            "L-a2fd51444a1515e69a9f",
+            "L-f3b3fc49d455969b71b8",
+            "L-b41d68de47e44a705483",
+            "L-7d3d66c4f33fdcb48d3d",
+            "L-89e4db50c923328ccb94",
+            "L-d8f46569d43eb3583d71",
+            "L-75ec1eec5527bdfe6611",
+            "L-90dd2496a54f6d0e9dcb",
+            "L-f4d966dd2aa7ebc86569",
+            "L-667fc9253d404d9a992b",
+            "L-2bd27a69de9947a53072",
+            "L-195b813103adc138568b"
+          ],
+          "missed_doc_ids": [
+            "L-0a02b71e7b2b17fc958a",
+            "L-10fb6d136bc585555811",
+            "L-1c915bc8f57825b33f95",
+            "L-3ecf8d3afcffbdc21adf",
+            "L-4d1815cc7dd5b9c9fddb",
+            "L-631efed2780eda6e533b",
+            "L-7cf933f66b9393c74e4b",
+            "L-84702af7ec9185195c74",
+            "L-89733577deb8240ca7f9",
+            "L-99b6075f766a1a53b343",
+            "L-b4fdc6dc2633cbe4cbd1",
+            "L-e0723c207f87d76d24bb",
+            "L-ef4bdd0ef70c509789ca",
+            "L-f0bdd85b3b5741fe17b0",
+            "L-f756f86a61fe95d685a2"
+          ],
+          "server_ms": 4.757
+        },
+        {
+          "query_id": "H-4413e1d14feece8a14bc",
+          "synthetic_user": "box-dfac33a7123c",
+          "query": "Покажи сообщения о неполадках в системе электронных рецептов, полученные вчера.",
+          "query_date": "2028-09-27",
+          "first_rel_rank": 1,
+          "ms": 5.647584010148421,
+          "metrics": {
+            "1": {
+              "Recall": 0.01818181818181818,
+              "nDCG": 1.0
+            },
+            "5": {
+              "Recall": 0.09090909090909091,
+              "nDCG": 1.0
+            },
+            "10": {
+              "Recall": 0.18181818181818182,
+              "nDCG": 1.0
+            },
+            "20": {
+              "Recall": 0.36363636363636365,
+              "nDCG": 1.0
+            },
+            "50": {
+              "Recall": 0.9090909090909091,
+              "nDCG": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-9cd4a5e6cb74b2a21fa8",
+            "L-652480948bb0d8e2af62",
+            "L-2e42da4675b38ba590eb",
+            "L-71daeb1dfb0b87f4bd0f",
+            "L-6ce7c89955d23eebf9b4",
+            "L-d00d04ef2dd531629c6b",
+            "L-10e7845efad751b455ed",
+            "L-b34301c2aea3b9f10179",
+            "L-4758a1d36dcb787b1610",
+            "L-c3331167f967e078efeb",
+            "L-94cc2e9e2fdb9f294076",
+            "L-7f5f521d4f5898ba1581",
+            "L-516bddf98741e07fee4c",
+            "L-f3a83a6e73983d6362e4",
+            "L-218adcd58098a6a9901b",
+            "L-2aab98948cd7e15b69aa",
+            "L-7f0f5c39d2c777d9c23f",
+            "L-f1cb319172e29a608140",
+            "L-ffea25e1467faf3f7b22",
+            "L-ca3329bde548317d9ce0",
+            "L-a70ba2678db63bd20688",
+            "L-6fa3e7856a3723693d0b",
+            "L-da8b7ff9b348b90f19df",
+            "L-452f399a694e5cc5bd69",
+            "L-1767cbe29b3883fc6f48",
+            "L-41d01b2c692cc62b5d14",
+            "L-92b6c588da27aed379ff",
+            "L-0ad4dc58099931f87a6f",
+            "L-22c759eece181c366423",
+            "L-58e9ea27d16f2892198a",
+            "L-95552a00a4e84858cacf",
+            "L-f6bc9af975863ee218cd",
+            "L-462066f4635501458718",
+            "L-d4037196d85e3cfff946",
+            "L-68e7ce057035b87ff54a",
+            "L-b5b214ba985bf0eaee44",
+            "L-9d2e6605bec9ef326e6d",
+            "L-84df519d5655e0446149",
+            "L-0d856f826f650ae6479d",
+            "L-7ee72db5517eda350612",
+            "L-de665209d0f9b2b53195",
+            "L-cc7d89edad608cd232de",
+            "L-cf73816a5c620ea7e4f2",
+            "L-5d2b02257c176ba733bb",
+            "L-8ce7e5bffcdb75705dc0",
+            "L-cf2fdf0546512cde83f2",
+            "L-64892ad081f56714c710",
+            "L-550d807801f6bd319dee",
+            "L-1eee97303603b881b1aa",
+            "L-6563f5151756dcb95247"
+          ],
+          "missed_doc_ids": [
+            "L-3f3f3b649898a44db4e9",
+            "L-a7e5a17c0b36cc0eb6fb",
+            "L-b31f632ea1e80dcc772b",
+            "L-c41158848dd6774c5c85",
+            "L-d2765f27cfb13776aee3"
+          ],
+          "server_ms": 5.113
+        },
+        {
+          "query_id": "H-d5db790a049dde6f4e92",
+          "synthetic_user": "box-dfac33a7123c",
+          "query": "Покажи сообщения о неполадках в системе электронных рецептов, полученные 27 сентября 2028 года.",
+          "query_date": "2028-09-28",
+          "first_rel_rank": 1,
+          "ms": 5.400833004387096,
+          "metrics": {
+            "1": {
+              "Recall": 0.07692307692307693,
+              "nDCG": 1.0
+            },
+            "5": {
+              "Recall": 0.38461538461538464,
+              "nDCG": 1.0
+            },
+            "10": {
+              "Recall": 0.7692307692307693,
+              "nDCG": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-98c34ffb05bbdb1415b5",
+            "L-9c4c69a25015fc162793",
+            "L-2e9cd35839439807012b",
+            "L-05a30580abba4bb3b836",
+            "L-0799878549c17bae8392",
+            "L-320863526dfe856d92d7",
+            "L-249c14a4cbdc75366de4",
+            "L-f360bf04f5c4ed874adf",
+            "L-ee91d92142ba4a12fbf0",
+            "L-fde4b26e82b0c0e780a4",
+            "L-f79d6540b4013b8c5f2d",
+            "L-2b9d3dc621659818bfff",
+            "L-a1605f6fe06ea8034a80"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.832
+        },
+        {
+          "query_id": "H-012df59077167bfec30e",
+          "synthetic_user": "box-dfac33a7123c",
+          "query": "Найди сообщения о неполадках в системе электронных рецептов, полученные 25 октября 2028 года.",
+          "query_date": "2028-10-26",
+          "first_rel_rank": 1,
+          "ms": 5.144249997101724,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-103e4847640573580e6c"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.66
+        },
+        {
+          "query_id": "H-f9e862f98790acdb9c63",
+          "synthetic_user": "box-dfac33a7123c",
+          "query": "Покажи сообщения о неполадках в системе электронных рецептов, полученные 15 октября 2029 года.",
+          "query_date": "2029-10-16",
+          "first_rel_rank": 1,
+          "ms": 4.937667021295056,
+          "metrics": {
+            "1": {
+              "Recall": 0.25,
+              "nDCG": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-682c6be64e42308f72bd",
+            "L-7bb062361937255bdac2",
+            "L-72290f2e3d44bfae67d2",
+            "L-3d2993d53d968af0cd8e"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.448
+        },
+        {
+          "query_id": "H-4900a2e5cc9c09fddd53",
+          "synthetic_user": "box-dfac33a7123c",
+          "query": "Найди сообщения о неполадках в системе электронных рецептов, полученные 25 октября 2029 года.",
+          "query_date": "2029-10-26",
+          "first_rel_rank": 1,
+          "ms": 4.858667001826689,
+          "metrics": {
+            "1": {
+              "Recall": 0.5,
+              "nDCG": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-9d12b32764dfee7ce9d0",
+            "L-ae8d82d387e965cde038"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.418
+        },
+        {
+          "query_id": "H-014061ae61905c415f3f",
+          "synthetic_user": "box-f9410417c091",
+          "query": "Найди сообщения о том, что поступили новые заказы, полученные 1 декабря 2027 года.",
+          "query_date": "2027-12-02",
+          "first_rel_rank": 1,
+          "ms": 4.749582993099466,
+          "metrics": {
+            "1": {
+              "Recall": 0.16666666666666666,
+              "nDCG": 1.0
+            },
+            "5": {
+              "Recall": 0.8333333333333334,
+              "nDCG": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-3182d20c96d0ecc14c21",
+            "L-f2842118c7388426ae5f",
+            "L-c867b6954d02eddcfff8",
+            "L-ec5c3f17324225de3fd9",
+            "L-99eaa15f48f87a3aa511",
+            "L-1b13abffa00261abcf17"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.326
+        },
+        {
+          "query_id": "H-c3dbc4221930739783ee",
+          "synthetic_user": "box-f9410417c091",
+          "query": "Найди сообщения, где клиенты просят вернуть товар, полученные 18 ноября 2027 года.",
+          "query_date": "2027-11-19",
+          "first_rel_rank": 1,
+          "ms": 5.368875019485131,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-f9284d4d5cc0810ceae8",
+            "L-607e8dad600043573826",
+            "L-1ddef7bf710aa97b2faf",
+            "L-4bf930ab6466ddadee81",
+            "L-f2112a329e4b51d49c5e",
+            "L-08f4d8982e0f8866aa76",
+            "L-e8f06f531b9f6a14d9a5",
+            "L-34511fb696185f17e419",
+            "L-17b2c4ebd3dcb1c8f628",
+            "L-739e6365cc550cdf6404",
+            "L-63d85ba3299c5911d3c1",
+            "L-b8896000d33728ade8ea",
+            "L-4e8e6625512d1a26793e",
+            "L-103dd9b770e42e5669d2",
+            "L-031d47abf981053f1022",
+            "L-ccb6f7644d6937a46733",
+            "L-b8c7e5fc69107281380c",
+            "L-df19a40a0bdc411caa5a",
+            "L-d4e5fc6f26d10e7aa382",
+            "L-64c8f4b751824008ea9e",
+            "L-db434b88e23ee6c63381",
+            "L-7ddc8c924bfe67248fd6",
+            "L-77c75a0bd641b0085718",
+            "L-06cec3c0d410462b7b9a",
+            "L-7f5af0463e57c57fb240",
+            "L-da3aa32ac07baf148aa8",
+            "L-ad80ec80328826465cd4",
+            "L-42a59253e8a4155402af",
+            "L-f5925869f6c61b815bd9",
+            "L-495b9df63c5dc13a8274",
+            "L-3219d61db878d804560b",
+            "L-e80b294f73a37de4666d",
+            "L-c0ac42db8aeacfbc751c",
+            "L-001c924b405319fed6b3",
+            "L-44476672e7f0c7ddbe12",
+            "L-c379e414f0c957817e4f",
+            "L-4074a3902c6ed658db58",
+            "L-a05829aeb0e97b62be24",
+            "L-c9ac59187694018aae60",
+            "L-636051e88207b2fba8f8",
+            "L-5729205ff2c11cfac4a2",
+            "L-ff6eea730a3fd0df5fc0",
+            "L-2ca9405763dc39f69b69",
+            "L-0e5bf7ca81a348d9272e",
+            "L-945c98a73725ca7eab4d",
+            "L-050679b1e895425ded0a",
+            "L-dd2e123481f2167fc0c8",
+            "L-cb08a1e25006b1448e3c",
+            "L-2cc0ceea20450d01b62d",
+            "L-009d1915a331e50aa4af"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.85
+        },
+        {
+          "query_id": "H-bd3ef39cbc82aacc8bda",
+          "synthetic_user": "box-f9410417c091",
+          "query": "Найди сообщения, где клиенты просят вернуть товар, полученные 19 ноября 2027 года.",
+          "query_date": "2027-11-20",
+          "first_rel_rank": 1,
+          "ms": 5.66554197575897,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-dc83c2a83dcddcdc9efc",
+            "L-702d6254f1b1a0f212a1",
+            "L-785655d750ac811da344",
+            "L-fe0f4daf7f7fec2f40c7",
+            "L-5b731884befcd81699a4",
+            "L-c3e224bc7a642e05737a",
+            "L-c81f9e5b87bffca3f484",
+            "L-2f0c8b6fd891cb05fe32",
+            "L-29374076ba9c0aab166b",
+            "L-24a47262a5b9920b5ac9",
+            "L-2fe4a98ba8b781fd81b5",
+            "L-2eb4489f83bb9f9f52db",
+            "L-96defffa4cbe997ef77c",
+            "L-0c1dec20902bfa40e2b6",
+            "L-cedb1b15df540bdcc03a",
+            "L-ec36637f713730144af3",
+            "L-d3efbdec429d84990ddb",
+            "L-71f8b0659bd2baccd226",
+            "L-a40ef6e21c0e8ee9db2f",
+            "L-0f30b1595d54f7685c6e",
+            "L-59e5383f8cbd1e8f0b49",
+            "L-d9b314648f98237ce07e",
+            "L-3c1459e312b23cc05106",
+            "L-523bc719b7211037fe32",
+            "L-549455743a527bcd8a69",
+            "L-831588a0a4a58cc8b008",
+            "L-040be45545adc7434879",
+            "L-767b6d02f29cb3c723da",
+            "L-07e1acd37b9b4c980d4b",
+            "L-32304014bd3ec1436f32",
+            "L-060f202bfa1453562f45",
+            "L-32f76cdc9ad2ee4c61a7",
+            "L-6253b3f809ed3e299b51",
+            "L-7d62f6511eaa06d4aa3e",
+            "L-9ea7ad1424cd0ddead0e",
+            "L-925be7794b63917181b7",
+            "L-173e6b8d30c88bd31d03",
+            "L-99bf694810210261e572",
+            "L-f561d4dc100f14982f25",
+            "L-deb66f8907c809bf2301",
+            "L-46e0bb6df05414976fd6",
+            "L-37376e64cc5c57553c10",
+            "L-1ea348d0369c27c106ac",
+            "L-b0904f22c1d79db3ff0d",
+            "L-9e332dfb5a26d11ef067",
+            "L-201a902993fc4d01f1f9",
+            "L-4efa81f8491866729c63",
+            "L-bc23e5fd30bc0c727b08",
+            "L-2bd7365b23ed3537011a",
+            "L-300ca111362e046685e7"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 5.107
+        },
+        {
+          "query_id": "H-8e4cdfaa5894abff2eaa",
+          "synthetic_user": "box-f9410417c091",
+          "query": "Покажи сообщения, где клиенты просят вернуть товар, полученные 23 ноября 2027 года.",
+          "query_date": "2027-11-24",
+          "first_rel_rank": 1,
+          "ms": 5.708749988116324,
+          "metrics": {
+            "1": {
+              "Recall": 0.16666666666666666,
+              "nDCG": 1.0
+            },
+            "5": {
+              "Recall": 0.8333333333333334,
+              "nDCG": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-2f8b2b5dc1bb142a861e",
+            "L-40a8a34f9199b338356a",
+            "L-c8c2757e4ce90dfa4131",
+            "L-c4d9f2e5979fb7e6ab02",
+            "L-20d617f31dd5468b7271",
+            "L-cc5e3a2ddd9c33e81eec",
+            "L-bceb04865280f973f8de",
+            "L-f5b62f35092a4ca93652",
+            "L-d692b8cb8e0ed283194f",
+            "L-ab3524bc90cf7f3a6447",
+            "L-88558e0f204b6de22992",
+            "L-151e07f72478cd1245d9",
+            "L-2fa461f5e358a353c159",
+            "L-3e030aa139e6b44883c7",
+            "L-0087125ad417ca5fbde9",
+            "L-88e5f163d808f0ab1d30",
+            "L-825e18b7fac4f79e0f7d",
+            "L-b9683988555481c0e9e9",
+            "L-5a520f56b8b84015c78d",
+            "L-8345b6dd5146ab5b3f3f",
+            "L-1c304927121b42071df4",
+            "L-c2a4f575248608956bb4",
+            "L-983fcdf0134e991a14ed",
+            "L-84798d34b4b83f390ea9",
+            "L-fb79969ad251334eb01c",
+            "L-02791c231541f8fb3f4a",
+            "L-8aea914806a664d0e011",
+            "L-35b0e0a28c7834e6aa19",
+            "L-7d6f2a0493eabb218974",
+            "L-2408deb0aabdbccc7e7f",
+            "L-52ce477bb5013fa868c3",
+            "L-d20a9e01412b339dc812",
+            "L-0e908b2f30412f0beee8",
+            "L-f6d4ed9cd464b7c054e3",
+            "L-3d422d3885508ec0dc8f",
+            "L-f1f9ddfe57f62f587c33",
+            "L-043d15d6dcaf8029a05d",
+            "L-af4e8cd34af644d4d233",
+            "L-4fd146a316d768e37d5c",
+            "L-1b7f2b0be3119e621aff",
+            "L-9ba762147d190d6d3ade",
+            "L-a4f337dd2b3eb809b0aa",
+            "L-19f48d42873354437fcc",
+            "L-ea28154811e3a441d356",
+            "L-ad6d20bfbb281dfb9db2",
+            "L-f0809bfd380ab1a98016",
+            "L-367cc3d06506658aaf68",
+            "L-f13bef2bbafb7e9f940b",
+            "L-690f9fcd37e599932391",
+            "L-38c4166958e324bfc59a"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 5.14
+        },
+        {
+          "query_id": "H-e0a89c82eabee234cdd1",
+          "synthetic_user": "box-f9410417c091",
+          "query": "Найди сообщения, где клиенты просят вернуть товар, полученные 26 ноября 2027 года.",
+          "query_date": "2027-11-27",
+          "first_rel_rank": 1,
+          "ms": 5.654375010635704,
+          "metrics": {
+            "1": {
+              "Recall": 0.3333333333333333,
+              "nDCG": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-c742371661757fa46dcd",
+            "L-45a8923e47a0b88217e8",
+            "L-b1ede462ca9d768bbd19",
+            "L-128cef8e37cb32317ae3",
+            "L-bc78e9e4086bef9f80f4",
+            "L-a3f7f8d48f37f9dffff7",
+            "L-6902f620dd196dce968c",
+            "L-41392d274a6dc5cf9143",
+            "L-edf63208479436e8b5f7",
+            "L-50a538011c2a67165199",
+            "L-169d112a5816364ae203",
+            "L-d84f8dc3faece19fcaa2",
+            "L-0fc63c9100a90de7cd1a",
+            "L-ad4a2edd0f8849cd323d",
+            "L-4315e477c713df5ba69b",
+            "L-3c428d71f51edc5f5f69",
+            "L-0a68d30ab37372976f98",
+            "L-60779278a23547c7c69f",
+            "L-f757a3223d5ac27fee88",
+            "L-795d81dfabf9cb385794",
+            "L-39112866b80d6cf9f937",
+            "L-b42cb58292c33987698a",
+            "L-dbd57ae4ad376fe2abaa",
+            "L-a50f4d9328374056e8a1",
+            "L-70ae3e11ebd02a231a36",
+            "L-805c8615c478ea28d767",
+            "L-fee36cbad216e029e2a4",
+            "L-51d22aaa7fe186e2132c",
+            "L-653852952c77b7311952",
+            "L-57338e5b03ef70428214",
+            "L-9a7e7bf45da533e13ff0",
+            "L-de09f7afeb6e9cc455a0",
+            "L-105a6c1263f8f6252e63",
+            "L-1a1a9a69b0de6d75663b",
+            "L-c499ec163c7178723453",
+            "L-7c39046aa22181a0bbeb",
+            "L-a82bde9fa1ccb4cf9790",
+            "L-e0a270def09a19ee7f39",
+            "L-181b21ddb002f074ced0",
+            "L-a859ffeade59e0d0017c",
+            "L-7d1b88be5c37a2222546",
+            "L-85721b0cecf53f2c563b",
+            "L-880322c83db81ad4de7a",
+            "L-ca85bd07a8b4dbb20a06",
+            "L-c93024c53cdd8ad1c5e5"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 5.083
+        },
+        {
+          "query_id": "H-370c651816c078415a7d",
+          "synthetic_user": "box-f9410417c091",
+          "query": "Покажи сообщения, где клиенты просят вернуть товар, полученные 27 ноября 2027 года.",
+          "query_date": "2027-11-28",
+          "first_rel_rank": 1,
+          "ms": 6.0218750149942935,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-6f0897786b3950109aca",
+            "L-0a7ea343d3d4644f6b41",
+            "L-d365d2ec01adea05ea3e",
+            "L-734511281e9c7076fe20",
+            "L-3a6070380ddbf32ec08b",
+            "L-0a5f693671e4b1a39679",
+            "L-0d6ef025f2a39f7cb930",
+            "L-3d4d9e8f949a5198ac53",
+            "L-8e048c18a3c403688876",
+            "L-78ece654a63c29a9bdc6",
+            "L-1c04bb1874701c5fe9b3",
+            "L-ba3cad59621b252e3f27",
+            "L-8512379fe9e473775690",
+            "L-4a2e8dfb9856c9cae05a",
+            "L-792a564aa36b3efc4048",
+            "L-2b3d9a73139b0b5a4144",
+            "L-9902a07cd8d80fea2d76",
+            "L-badefec21227c48d9ff5",
+            "L-6b67100dccb43e6ff26c",
+            "L-4b0c9d691f5277895ab3"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 5.424
+        },
+        {
+          "query_id": "H-7344cf0d5bc0d9edb0c5",
+          "synthetic_user": "box-f9410417c091",
+          "query": "Покажи сообщения, где клиенты просят вернуть товар, полученные 28 ноября 2027 года.",
+          "query_date": "2027-11-29",
+          "first_rel_rank": 1,
+          "ms": 5.963624978903681,
+          "metrics": {
+            "1": {
+              "Recall": 0.5,
+              "nDCG": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-c8f76a22d252034a82c6",
+            "L-4e90c3a75f3bd86d8928",
+            "L-183d2f2e41dfc1005b92",
+            "L-8d8db7191a852524c9e8",
+            "L-0bf4c5d770bd2a3fe85a",
+            "L-0afed5fe5f66b0d59962",
+            "L-f33030a1af78d2edae2b",
+            "L-d421f89fa650e36c0137",
+            "L-fbc04e1379b6f33c2a92",
+            "L-5c8b7b886a3509fc0763",
+            "L-77191cb17e17c35b3190",
+            "L-5fab06f146ea3a4a1f6a",
+            "L-3a81e067dbccf16c8e37",
+            "L-757367ddf050f3e34ea8",
+            "L-f94ecbb8fc4cfdacb93d",
+            "L-75fc751c8096303bb245",
+            "L-8c794319f0b8a170671a",
+            "L-c527884b8e89c08189e2",
+            "L-3acf078f75d13e365a6e",
+            "L-25439a19d5e123f3864b",
+            "L-cec6301eece26dccfebd",
+            "L-d8f58c5c7c7786106b23",
+            "L-1615970b0d0c60dde7af",
+            "L-80e3d108b69cac510b6e",
+            "L-6eb9d2d1b905a63eafaa",
+            "L-c9485797ee5a98d2c559",
+            "L-adf965ea3c24a1caca00",
+            "L-cbaabbe6224004d255a8",
+            "L-b9d94e61ea65e9f4763a",
+            "L-5dc273c13384fa1f22de",
+            "L-ac4e18ea7dcf5f7240a7",
+            "L-912409529f724bd707c4",
+            "L-ecea7bb9fba3c33d1b46",
+            "L-cb5f60e31776ca9883d2",
+            "L-265c34d92dced305acea",
+            "L-c45296b87b0572eb5a22",
+            "L-8702bad2f7dd62a472d1",
+            "L-107eef4bd3addb1da3bd",
+            "L-a1e285c1f437c9b508f1",
+            "L-ee12992952df7d62dd3b",
+            "L-2eaebc700319fc0366f3",
+            "L-7c6c83449788e345abf2",
+            "L-1c427e38192e2bd6f36c",
+            "L-289254aaa8ae9c01d4d4",
+            "L-be59f0a388a8ba156726"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 5.359
+        },
+        {
+          "query_id": "H-28caa9ba8ebb01e3a98e",
+          "synthetic_user": "box-f9410417c091",
+          "query": "Найди сообщения, где клиенты просят вернуть товар, полученные 29 ноября 2027 года.",
+          "query_date": "2027-11-30",
+          "first_rel_rank": 1,
+          "ms": 5.699166998965666,
+          "metrics": {
+            "1": {
+              "Recall": 0.2,
+              "nDCG": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-23d10d7be1b2eb9a27b7",
+            "L-89f61f3b6b0ebaa1885e",
+            "L-f0eba752effe60ca3de0",
+            "L-705fcb106125060525f8",
+            "L-731cc02624813780f93b",
+            "L-3d7fc665183858f4964d",
+            "L-b954b2c5d59f1158c4ae",
+            "L-a9f2e63c53ac8df57fb4",
+            "L-ee5d1ff3f99a32a5453a",
+            "L-893e6b2346da76ebecc5",
+            "L-75599e24bf113b3adda9",
+            "L-700a03df4bb6e9a4ee40",
+            "L-0da6e159260ab04404f8",
+            "L-9b21b28e66019c54a843",
+            "L-c4e5887def79db7ac451",
+            "L-d0ff818edab7c17c3fac",
+            "L-43fc267d958bec082a5c",
+            "L-45e2519201e95ec98aa5",
+            "L-277783cdc4b929cd7c6b",
+            "L-7751754f495576800797",
+            "L-03e02ae9bce0531a54a1",
+            "L-bb2d95179633c01e741c",
+            "L-42f463ee6a5ff3cb1baa",
+            "L-9717cd872d9834b5d3f9",
+            "L-bced14fdd0694ac12123",
+            "L-06668482386e9aa5e471",
+            "L-21f5938f92ecba49ab1d",
+            "L-98618ccecd3e25157371",
+            "L-37080d6cf7199cb99fbe",
+            "L-0843fd589f6110e90210",
+            "L-bb8d93620558c2cce7fd",
+            "L-17cf9697e86343bb9748",
+            "L-c3c026c6aef95baab81a",
+            "L-65b9d0c0ae737e79e2e5"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 5.092
+        },
+        {
+          "query_id": "H-d307d39328da45a87643",
+          "synthetic_user": "box-f9410417c091",
+          "query": "Покажи сообщения, где клиенты просят вернуть товар, полученные 30 ноября 2027 года.",
+          "query_date": "2027-12-01",
+          "first_rel_rank": 1,
+          "ms": 5.722333997255191,
+          "metrics": {
+            "1": {
+              "Recall": 0.25,
+              "nDCG": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-b4f81f3e145fb8f128e1",
+            "L-f9a86473d579fb07afc0",
+            "L-3344fbe3dd3a3d19b085",
+            "L-0443697de67459dd1861",
+            "L-eb4e7468b86367e6a474",
+            "L-82af3f6814f31770a115",
+            "L-46d78a73d855f1b779e4",
+            "L-11f3f631fa768edd6e69",
+            "L-75dd8da36d7a8424bce8",
+            "L-7c9976591ae54f488cba",
+            "L-8894ca4b8d536aa95e03",
+            "L-ed8fdadddcb935af7051",
+            "L-0cfe176542a22926925f",
+            "L-83d3ec6e0595276c8fbc",
+            "L-8656ae4344bed85b77d1",
+            "L-faef7008b3d636eff68c",
+            "L-254aaa54ae951331daef",
+            "L-961379ea1a535de588af",
+            "L-8b0780cc941b5942d3e0",
+            "L-8d2b30adbdce9638cb7f",
+            "L-d256d3f026df37203af4",
+            "L-6cde3524a57ba79a142f",
+            "L-cccb4bf5aeac22beee38",
+            "L-7c1f7ec48b8c86c0974f",
+            "L-ad09652cf0777a6048ff",
+            "L-c1a62934898f6edac0f8",
+            "L-1e7a02590bdfa7e7f7ce",
+            "L-f4168d993dc808c2686b",
+            "L-5683114ace1eb7479f08",
+            "L-c69db64f537695734505",
+            "L-7d860ad5c73575943f71",
+            "L-e025e80e9f54681a5ba7",
+            "L-8bfee3f4c2f73d9b8322",
+            "L-46cef64795d65bc4be1b"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 5.07
+        },
+        {
+          "query_id": "H-8fffd97d149338a5fb31",
+          "synthetic_user": "box-f9410417c091",
+          "query": "Найди сообщения, где клиенты просят вернуть товар, полученные 1 декабря 2027 года.",
+          "query_date": "2027-12-02",
+          "first_rel_rank": 1,
+          "ms": 5.22758299484849,
+          "metrics": {
+            "1": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "5": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "10": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "20": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            },
+            "50": {
+              "Recall": 1.0,
+              "nDCG": 1.0,
+              "MRR-single": 1.0
+            }
+          },
+          "doc_ids": [
+            "L-f991fa15b1255e633713",
+            "L-3182d20c96d0ecc14c21",
+            "L-c867b6954d02eddcfff8"
+          ],
+          "missed_doc_ids": [],
+          "server_ms": 4.685
+        }
+      ],
+      "server_latency_ms": {
+        "p50": 4.657,
+        "p95": 5.185,
+        "p99": 5.424
+      }
+    }
+  },
+  "api_url": "http://127.0.0.1:8765",
+  "rewrites": "search_bench/paraphrases.json"
+}

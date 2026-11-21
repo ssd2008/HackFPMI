@@ -1,0 +1,500 @@
+{"query_id":"Q-0060b6bbd5e10c574e","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"Enron In Action 11.19.01\"?","query_date":"2001-11-18"}
+{"query_id":"Q-00977a9e6c779f1d4e","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"FERC filings by NYISO\"?","query_date":"2001-11-11"}
+{"query_id":"Q-00db6a1c4e3e783c64","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"The Gregg Cooke Luncheon\"?","query_date":"2001-09-26"}
+{"query_id":"Q-01544607b36de92e1a","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"Upcoming Wellness Activities\"?","query_date":"2001-10-24"}
+{"query_id":"Q-01739ae80a55e6c535","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"Save 10% right now on select Northwest flights\"?","query_date":"2000-09-13"}
+{"query_id":"Q-022adf755fc3156f96","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"On-sight Power Generation Reclamation Business Plan\"?","query_date":"2000-08-15"}
+{"query_id":"Q-0245dcb11b902d2d72","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"Credit Derivatives Profiles\"?","query_date":"2000-05-31"}
+{"query_id":"Q-029c1b4d012d227690","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"Jim Noles Named CEO of Enron Wind\"?","query_date":"2000-07-13"}
+{"query_id":"Q-032c20ec1646b38751","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"Weekly Portfolio Summary: My Ameritrade Portfolio\"?","query_date":"2001-11-16"}
+{"query_id":"Q-0388613d643d6c17b0","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"FW: EES Employee Issues\"?","query_date":"2001-12-11"}
+{"query_id":"Q-04763b2bd423382519","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"Re: New Faces at Enron\"?","query_date":"2000-05-31"}
+{"query_id":"Q-04a00f202564ae964e","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"Koch Three Rivers, #6722\"?","query_date":"1999-12-28"}
+{"query_id":"Q-04b6b2dcdb0d5cfa38","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Major Energy Themes in Ken Lay Speeches\"?","query_date":"2001-07-17"}
+{"query_id":"Q-050ab580bda5cf2df2","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"Re: Monday's Game\"?","query_date":"2000-03-26"}
+{"query_id":"Q-0531dfd6d1e90caac8","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"FW: WSJ.com - Blockbuster Deal Shows Enron's Inclination To All-Show, Little-Substa\"?","query_date":"2002-01-17"}
+{"query_id":"Q-057df0ab468e2bb298","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"Emissions Auction Documents\"?","query_date":"2000-03-06"}
+{"query_id":"Q-07448450a44aaf6dc2","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"SERC (Hammond), ERCOT (Stryker Creek), & MAIN (Braidwood) Resched Outages\"?","query_date":"2001-10-21"}
+{"query_id":"Q-07d7585a0d05b42fd6","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"KOMP Horticultural - Sale of Leased Plants\"?","query_date":"2002-01-14"}
+{"query_id":"Q-093fbd53f51186a678","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"Welcome to Turkey\"?","query_date":"2001-04-30"}
+{"query_id":"Q-096f5bc316b72f2fb1","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"Re: August Spot Tickets\"?","query_date":"2000-07-27"}
+{"query_id":"Q-09abfcf0b399465c45","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"Eastrans Nomination change effective 9/23/00\"?","query_date":"2000-09-21"}
+{"query_id":"Q-0a94f8e69fd4464876","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"Re: Got bored and...\"?","query_date":"2001-04-08"}
+{"query_id":"Q-0b1503f1ffca53f0d7","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"M. Penner Closed January 1st and 2nd\"?","query_date":"2001-12-27"}
+{"query_id":"Q-0c77086f5fe7d2c0f1","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"Performance Tracking Report\"?","query_date":"2001-02-13"}
+{"query_id":"Q-0d29f5710526da5b81","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Should we say something about the PRC?\"?","query_date":"2001-11-14"}
+{"query_id":"Q-0d97acf63099a84190","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"From David Mitchell: Memo re: CFTC Proposed Regulatory Framework\"?","query_date":"2000-06-20"}
+{"query_id":"Q-0d9b3bffd218073838","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"FW: EEX Bids\"?","query_date":"2001-04-11"}
+{"query_id":"Q-0e1367627fc8093fa8","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"JDRF Cyber Auction & Update Information\"?","query_date":"2001-10-21"}
+{"query_id":"Q-0ec67aaa1ad6a3eecb","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"NYISO - Software Release - December 4, 2001\"?","query_date":"2001-11-20"}
+{"query_id":"Q-0f646e87f83ed8cc16","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"RE: Exchange Documents\"?","query_date":"2001-11-01"}
+{"query_id":"Q-103550fea6faac3448","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"Single Master Agreement\"?","query_date":"2000-09-18"}
+{"query_id":"Q-107fd6d673fe61f3d0","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"Forbes Article-Gas Fired Power Plants\"?","query_date":"2001-10-18"}
+{"query_id":"Q-10f2228261a67ad1b5","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"Picture of the week\"?","query_date":"2000-09-14"}
+{"query_id":"Q-10f39e3d23100ab2d1","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"Rockland Electric Transfer to PJM\"?","query_date":"2001-10-25"}
+{"query_id":"Q-113faafeadbaaad93c","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"Zeta Phi Mentioned In NY Times\"?","query_date":"2001-09-24"}
+{"query_id":"Q-1172f639cef9e8f0a5","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"eBiz: After the Tragedy\"?","query_date":"2001-09-23"}
+{"query_id":"Q-1255c05c5fb6448454","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"New Kudlow Commentary\"?","query_date":"2001-10-11"}
+{"query_id":"Q-131c29f6a24d8f833f","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Please find attached document as requested Section 4 of 5\"?","query_date":"2000-04-19"}
+{"query_id":"Q-13c2709c5fe3bd420f","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"Good Article on the State of Energy Trading Sites\"?","query_date":"2001-05-06"}
+{"query_id":"Q-13e925d31003d1b1c4","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"Weekend Outage Report for 11-2-01 through 11-4-01\"?","query_date":"2001-10-31"}
+{"query_id":"Q-13f4830f32193b748e","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"Re: Topics for next week\"?","query_date":"2001-01-10"}
+{"query_id":"Q-15054587f61c5e3d01","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"Over $50 -- You made it happen!\"?","query_date":"2000-01-23"}
+{"query_id":"Q-1507a35f17ec1b4700","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"Update from Noble Systems\"?","query_date":"2000-06-23"}
+{"query_id":"Q-153dd8644e907c6152","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"DEFERRAL PROGRAM ENROLLMENT DEADLINE IS FRIDAY\"?","query_date":"2000-12-05"}
+{"query_id":"Q-1542f96ffb54c08b17","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"November fixed-price deals\"?","query_date":"2000-10-30"}
+{"query_id":"Q-16d951f438e417d6c4","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"NPCC (Millstone) WSCC (Diablo Canyon)\"?","query_date":"2001-11-07"}
+{"query_id":"Q-1707e6c9bfeda7e99d","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"No Action Letter\"?","query_date":"2000-08-16"}
+{"query_id":"Q-1792979fddbf314dc9","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"Project Double Eagle\"?","query_date":"1999-05-12"}
+{"query_id":"Q-17ce664c2969668c48","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"West Power Strategy Materials\"?","query_date":"2000-06-26"}
+{"query_id":"Q-1ab93946b88dd51974","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"RE: A piece of history- 1987\"?","query_date":"2002-01-13"}
+{"query_id":"Q-1af5039a5af5bab599","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"Change to the Inga DASH\"?","query_date":"2000-12-05"}
+{"query_id":"Q-1c264e8de556c128f2","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"6th Annual Party\"?","query_date":"2000-01-26"}
+{"query_id":"Q-1c2d03f9ecb5dc75e9","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"Weekend Outage Report for 2/1/02 - 2/3/02\"?","query_date":"2002-01-30"}
+{"query_id":"Q-1c61d42a5c7df6645c","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"New Addition to St. Clair Household\"?","query_date":"2000-07-12"}
+{"query_id":"Q-1d24bbf88655144ecf","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"RE: Next weekend\"?","query_date":"2001-07-22"}
+{"query_id":"Q-1d615b60c694e6a582","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"Today's Headlines from NYTimes.com Tuesday, December 25, 2001\"?","query_date":"2001-12-24"}
+{"query_id":"Q-1da93e71283291bcbc","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"New South Wales Coal Project Boost By BHP Billiton, in an Advisory by Industrialinfo.com\"?","query_date":"2002-01-09"}
+{"query_id":"Q-1e26df6d98690ace20","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"Resume with comments\"?","query_date":"2001-10-29"}
+{"query_id":"Q-1f2fefb513340007d3","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"Enron / HPL Actuals for February 2-4, 2001\"?","query_date":"2001-02-04"}
+{"query_id":"Q-2064694f5d420fb1a1","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"Yesterday's power outage\"?","query_date":"2000-06-27"}
+{"query_id":"Q-20b4f69b35cb965c41","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"Forum II Agenda (Sept. 10)\"?","query_date":"2001-09-05"}
+{"query_id":"Q-20e015045bd652aae8","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"Re: Sagewood etc.\"?","query_date":"2000-09-10"}
+{"query_id":"Q-20ef69423604ae4e47","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"WSCC (Redondo Beach)\"?","query_date":"2001-11-19"}
+{"query_id":"Q-219c5f28c0f749a0a3","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"\"SAVE THE DATE\" - SPRING MEETING 2002\"?","query_date":"2002-01-16"}
+{"query_id":"Q-223ad3ac0c4ff98c36","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"Re: Benchmarking Study\"?","query_date":"2001-01-04"}
+{"query_id":"Q-22536cacb7087b6d8c","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"check it out\"?","query_date":"2000-11-13"}
+{"query_id":"Q-228d1d498e7f17c544","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"Lexis-Nexis Training: Houston & Worldwide / Dow Jones Training\"?","query_date":"2001-10-28"}
+{"query_id":"Q-229168fa50d7f6b952","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"2001 ENA/EGM/EIM CUSTOMER SKI PROGRAM\"?","query_date":"2000-11-29"}
+{"query_id":"Q-22b0aa8420554750c7","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Summary of SB 1x hearing 4-30 -- Windfall Profits Tax\"?","query_date":"2001-04-30"}
+{"query_id":"Q-2316f01870012196ba","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"SERC (River Bend) & MAAC (3 Mile Island) Resched Outages\"?","query_date":"2001-10-28"}
+{"query_id":"Q-233771a84c09f543ff","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"Back Office Process Definitions\"?","query_date":"2001-01-31"}
+{"query_id":"Q-237c087c67c7f6b98d","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"YPO Couple Retreat Announcement\"?","query_date":"2001-04-25"}
+{"query_id":"Q-237da9b9974d4d341f","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"Re: Duchess of Northumbria's request\"?","query_date":"2000-10-29"}
+{"query_id":"Q-23b077714d46f706fe","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"RE: DVD player for Mom and Dad\"?","query_date":"2001-11-26"}
+{"query_id":"Q-23d109b9bf7e9de950","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"April 2000 Version Mapping\"?","query_date":"2001-06-10"}
+{"query_id":"Q-23e27e9a68c44616b7","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"Re: Succession Plan\"?","query_date":"2000-12-12"}
+{"query_id":"Q-249ef196ddce9d4574","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"UPDATE - Supported Internet Email Addresses\"?","query_date":"2001-10-17"}
+{"query_id":"Q-2578ec1700e5a9f1ce","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"Report on London Middle Office RiskTrac Performance\"?","query_date":"2000-11-09"}
+{"query_id":"Q-25fda9a838f88f6a35","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"EBS Staff Information & Transition\"?","query_date":"2001-11-05"}
+{"query_id":"Q-26574f3dde77d5bcd7","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"Thanks for January 1, 2000\"?","query_date":"1999-12-29"}
+{"query_id":"Q-26d1b27a4ad66d218b","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"MGI Supply Jan 2001\"?","query_date":"2001-07-26"}
+{"query_id":"Q-26dbd89c8295426cb5","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"Consolidated positions: Issues & To Do list\"?","query_date":"2000-10-08"}
+{"query_id":"Q-26e2ea408912f5a520","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"Enron Principal Investments - Organizational Memo\"?","query_date":"2001-09-19"}
+{"query_id":"Q-26e91944db2ac5d0f8","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"Re: Beck/Sally 13Dec ENR-1081 Itinerary\"?","query_date":"2000-11-27"}
+{"query_id":"Q-2740bfad3d189e5e5c","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"FW: URGENT- ACTION REQUESTED: Admins, please forward to users that have AMTEL equipment...\"?","query_date":"2001-11-06"}
+{"query_id":"Q-276f9ef150b23ee365","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"FW: PIRA's API Weekly Comment 11/20/01 - REPLACEMENT\"?","query_date":"2001-11-20"}
+{"query_id":"Q-27d015335baaf5d8b9","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"Re: 2001 Plan\"?","query_date":"2000-11-21"}
+{"query_id":"Q-27d8953f5cc386953e","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"5/24 1:00pm conference call.\"?","query_date":"2000-05-22"}
+{"query_id":"Q-2819d9eb30e62bda92","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"JDRF Cyber Auction & Update Information\"?","query_date":"2001-10-21"}
+{"query_id":"Q-2898dd077c9dbaabf6","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"Fwd: NFL.com E-Reports for El Guilmino and the Downtown Players 11/19/01\"?","query_date":"2001-11-18"}
+{"query_id":"Q-2995a3a396d1ab46ea","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"Re: Expense Report for Stephen Schwarz Dated 1/21/00\"?","query_date":"2000-01-27"}
+{"query_id":"Q-2a6214cb0e38558f5d","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"RE: Thoughts on the world of energy (OSX $77, XNG $183, XOI 496)\"?","query_date":"2001-11-26"}
+{"query_id":"Q-2a8a804d09b772e2c6","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"Supported Internet Email Addresses\"?","query_date":"2001-10-14"}
+{"query_id":"Q-2ad747b33c3e062789","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"***PRESS RELEASE***Lilly Announces $48 Million Expansion of Research Facilities\"?","query_date":"2000-12-05"}
+{"query_id":"Q-2af2fd61eb396d4ee3","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"Re: ISDAs for Trading (Financial Transactions)\"?","query_date":"2000-11-12"}
+{"query_id":"Q-2b7dfc02f311583f13","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"Today's Headlines from NYTimes.com Monday, January 21, 2002\"?","query_date":"2002-01-20"}
+{"query_id":"Q-2bbbd2ed0818b7400c","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"Additional Information - Dallas ASE February 12-13th\"?","query_date":"2001-02-05"}
+{"query_id":"Q-2caa74c91d32c391dd","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"Enron Global Markets All Employee Meeting\"?","query_date":"2001-05-01"}
+{"query_id":"Q-2cca83854a23f305e4","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"Home address request\"?","query_date":"2000-11-06"}
+{"query_id":"Q-2ed89300a3205fd384","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"Financial Analysts' Reports for 9.21.01\"?","query_date":"2001-09-20"}
+{"query_id":"Q-2f1535cdcf3f07aba4","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"Legal Department Technology Plan\"?","query_date":"2000-09-10"}
+{"query_id":"Q-2f45be7e7865145a9c","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"Amicus Brief -- Commodity Futures Modernization Act 2000\"?","query_date":"2002-01-31"}
+{"query_id":"Q-2f69764f7a5bbfadfa","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"Re: Global Risk Management Operations\"?","query_date":"2000-01-16"}
+{"query_id":"Q-3014b95a062716aee9","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"Re: C DNEM ROZDENIA !\"?","query_date":"2001-04-30"}
+{"query_id":"Q-30359a8ba10ba401d5","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"Please Read: Resolution Center to Disconnect Toll Free number\"?","query_date":"2001-12-26"}
+{"query_id":"Q-308f0512ed0093ed7f","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"Genco Services Agreement\"?","query_date":"2000-06-27"}
+{"query_id":"Q-30b5a77ac99b466d7a","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"(Reminder) Update GIS Information\"?","query_date":"2000-06-29"}
+{"query_id":"Q-30d2f9b1d97818e30e","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"Approval of a Non-Solicitation Provision\"?","query_date":"2001-01-30"}
+{"query_id":"Q-30e1005de1dcff8ece","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"Reminder: Portland Fundamental Analysis Strategy Meeting\"?","query_date":"2001-10-21"}
+{"query_id":"Q-33ae2eddd39f93cffb","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"Gas Daily Positions for Prompt Month\"?","query_date":"1999-12-27"}
+{"query_id":"Q-33b5d1614652070d11","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"Re: Erwin Landivar\"?","query_date":"2000-12-14"}
+{"query_id":"Q-345d33b01e7010db56","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"Interactive Information Resource\"?","query_date":"2000-07-18"}
+{"query_id":"Q-345eac1ceb0d3ba967","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Poland sets plan to end long-term power contracts.\"?","query_date":"2000-10-26"}
+{"query_id":"Q-354f132843de32d47a","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"Interview for World Economic Forum\"?","query_date":"2000-11-07"}
+{"query_id":"Q-358adde667018daae3","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Re: Summary of Proposed Short-term Solution for California's Energy Crisis\"?","query_date":"2001-01-20"}
+{"query_id":"Q-365e2d83321dd4401e","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"The Princeton Review Enron GMAT course\"?","query_date":"2001-10-15"}
+{"query_id":"Q-367a72d857e7d04dc5","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"Dresdner Kleinwort Wasserstein Initiates Coverage of GLW\"?","query_date":"2001-10-22"}
+{"query_id":"Q-372718858c1815fa4a","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"CDWR Credit Proposal\"?","query_date":"2001-02-08"}
+{"query_id":"Q-378b2c8f292c3a3dc7","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"Re: FW: You asked for questions\"?","query_date":"2001-11-14"}
+{"query_id":"Q-380279b6c23b3c2cae","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"Cost Meeting Attendees\"?","query_date":"2000-12-05"}
+{"query_id":"Q-3813c0d1439de842db","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"Bammel Withdrawal Curve\"?","query_date":"2000-10-23"}
+{"query_id":"Q-38d2cc1e58be7a0c91","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Background and Message Points\"?","query_date":"2001-06-14"}
+{"query_id":"Q-39e66c39a93dcd298d","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"OU Energy Management Students\"?","query_date":"2000-01-30"}
+{"query_id":"Q-3a0238ac4c283b8327","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"East & West PG&E Exposure\"?","query_date":"2001-04-05"}
+{"query_id":"Q-3a40184be566c19e6c","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"Re: Unocal WAHA Storage\"?","query_date":"2001-04-24"}
+{"query_id":"Q-3a405a35e761d01d9c","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"Re: GAME TONIGHT @ 7:45\"?","query_date":"2000-04-30"}
+{"query_id":"Q-3a6bf5ec57706bbdc5","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Paycheck Fairness Act\"?","query_date":"2001-03-12"}
+{"query_id":"Q-3b01c669daded22471","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"Re: Deal extension for 11/21/2000 for 98-439\"?","query_date":"2000-12-18"}
+{"query_id":"Q-3b59fb0247d74dbcf3","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"Re: Your approval is requested\"?","query_date":"2000-08-09"}
+{"query_id":"Q-3c0eda79a977644598","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"THIS IS A SURVEY - ONE QUESTION\"?","query_date":"2001-10-21"}
+{"query_id":"Q-3cbf6198df81523c73","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"PHILLIP, I have got to share this with you\"?","query_date":"2001-12-26"}
+{"query_id":"Q-3da47f2399ea90f779","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"Out of Office AutoReply:\"?","query_date":"2001-11-15"}
+{"query_id":"Q-3e3ea8609577536f55","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"Fwd: Call Your Senators: Pass The President's Growth Plan\"?","query_date":"2001-11-19"}
+{"query_id":"Q-3f49cecb5c1b2f2759","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Electric Restructuring: Despite bad name, restructuring benefiting some areas\"?","query_date":"2000-08-16"}
+{"query_id":"Q-3f4f907c57bb92034a","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"Re: Cilco Storage Withdrawal\"?","query_date":"2000-02-07"}
+{"query_id":"Q-40558f38dbc2a4e9c6","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"Lexis-Nexis Training: Houston & Worldwide / Dow Jones Training\"?","query_date":"2001-10-28"}
+{"query_id":"Q-40bc51f09908b4a275","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"FW: WSJ reporter's questions for Dr. Mendelsohn\"?","query_date":"2001-09-24"}
+{"query_id":"Q-41813ffd24c9215005","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"Digital Storm - deadline May 18th.\"?","query_date":"2001-05-13"}
+{"query_id":"Q-41c4fa09da1ace0a69","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"New Desk in SITARA\"?","query_date":"2000-09-12"}
+{"query_id":"Q-41f01f11ff73a39f01","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"Revised Wellhead Adjustments - May, 2001\"?","query_date":"2001-05-07"}
+{"query_id":"Q-42f257e5bd79551f77","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Draft of California Contact List\"?","query_date":"2001-06-18"}
+{"query_id":"Q-431907f82e67387dd0","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"Re: Virtual Bidding Course\"?","query_date":"2001-09-30"}
+{"query_id":"Q-4348b01f80a57d8d28","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"Mgmt Summary & Hot List\"?","query_date":"2000-06-15"}
+{"query_id":"Q-434da1e8de42e01d61","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"EES contracts - DIP Financing\"?","query_date":"2001-12-01"}
+{"query_id":"Q-43ce13c1f8e8e1a6ac","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Contact information for Senators Wyden, Gramm and Hutchinson, per your request\"?","query_date":"2001-03-08"}
+{"query_id":"Q-441caf1879b4eb9071","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"Secure Messaging Non-Delivery Report: EnronOnline Posting Agreement\"?","query_date":"2000-05-15"}
+{"query_id":"Q-48115bc0274ea5e165","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"Update on Pastoria and Las Vegas Sale\"?","query_date":"2000-11-19"}
+{"query_id":"Q-483e7e3272306bc465","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"Credit Union Offers Flood Relief Loans\"?","query_date":"2001-06-16"}
+{"query_id":"Q-4858d56b9724c5532b","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"FW: Revised Loss Definition.DOC\"?","query_date":"2001-09-20"}
+{"query_id":"Q-487b1b7490b7251e87","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"RE: Final Internal Review for Sign Off: Performance Objectives\"?","query_date":"2001-09-25"}
+{"query_id":"Q-4883c2d2604a49a051","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"Re: NGI access to eol\"?","query_date":"2001-01-25"}
+{"query_id":"Q-488c403572f545e42c","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"Human Resource Referral\"?","query_date":"2001-06-17"}
+{"query_id":"Q-4a19bbe46e5c12d7ac","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"Midcon Transport Usage Tickets --Mar01\"?","query_date":"2001-03-01"}
+{"query_id":"Q-4aa4b765ff050fe1d1","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"Today's Headlines from NYTimes.com Monday, October 15, 2001\"?","query_date":"2001-10-14"}
+{"query_id":"Q-4ac63e8f322616d3cb","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"What's New at Howard University (01/16/02)\"?","query_date":"2002-01-15"}
+{"query_id":"Q-4c01c479614346b0d1","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"Western Price Survey\"?","query_date":"2001-10-18"}
+{"query_id":"Q-4da937261aad14001d","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"Reliant Energy Entex Transaction #4\"?","query_date":"2000-01-16"}
+{"query_id":"Q-4dc50bce7d94de0d71","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"Monthly Mid Market Coverage Report\"?","query_date":"2000-06-28"}
+{"query_id":"Q-4dc7e29601e0b672c9","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"Revised Eastrans Nomination effective March 1, 2001\"?","query_date":"2001-02-22"}
+{"query_id":"Q-4e4f06070f84c11a64","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"FW: Aggie Song\"?","query_date":"2001-11-18"}
+{"query_id":"Q-4e68807d832daf146d","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"Update on Executive Director search\"?","query_date":"2000-12-07"}
+{"query_id":"Q-4f3a3a35df39562ec3","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"Re: Answer required in connection with FERC filings for Cinergy\"?","query_date":"2000-12-14"}
+{"query_id":"Q-4f57d522ab4f1381e4","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"Re: Tx Desk Marketers\"?","query_date":"2000-01-09"}
+{"query_id":"Q-4f97a9c79e1f885633","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Powell, Whitman, Congress respond to Bonn climate change agreement\"?","query_date":"2001-07-24"}
+{"query_id":"Q-4fb10b693d0fe31385","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"Re: 2- SURVEY - PHILLIP ALLEN\"?","query_date":"2001-04-30"}
+{"query_id":"Q-4fead10a2d7426814c","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"Price Limit Orders\"?","query_date":"2000-08-27"}
+{"query_id":"Q-4feefab24a82fa863d","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"Single Deal Entry\"?","query_date":"2001-02-20"}
+{"query_id":"Q-517055c482464b3243","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"Out of Office AutoReply: Urgent request for information\"?","query_date":"2001-12-27"}
+{"query_id":"Q-51b8f2f122a636fea3","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"Global Octanes - Mtr 1528\"?","query_date":"2000-12-20"}
+{"query_id":"Q-523a1ee267fac42cec","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"Fwd: FW: Aggies Demand a Recount\"?","query_date":"2000-11-13"}
+{"query_id":"Q-5284f64d99a102a0bd","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"RE: [smu-betas] Fw: For college football fans\"?","query_date":"2001-09-20"}
+{"query_id":"Q-529137380d997c19df","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"Opposing PUHCA Stand-Alone\"?","query_date":"2000-09-19"}
+{"query_id":"Q-52e3f57988e030e49a","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"2001 Central Region\"?","query_date":"2001-02-14"}
+{"query_id":"Q-53462a38ac1e5f2d24","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"Re: Allen Gage/Rockets Tickets\"?","query_date":"2000-10-02"}
+{"query_id":"Q-53857d83d2ab430a63","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"Re: Kennybunkport and other\"?","query_date":"2000-09-07"}
+{"query_id":"Q-538c81ead722be09e3","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"NEW! Tiny Wireless Camera under $80 + FREE VCR Commander!\"?","query_date":"2001-12-20"}
+{"query_id":"Q-53c71337b6b0c29d35","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"Hope all is well...\"?","query_date":"2001-08-13"}
+{"query_id":"Q-53e267dc9d107f3a30","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"RE: 2002 Corporate Allocations to EIM\"?","query_date":"2001-10-08"}
+{"query_id":"Q-53e53391265ffc4224","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"Scudder Exchange Site License Agreement\"?","query_date":"2000-05-17"}
+{"query_id":"Q-548c6f53eee588aea3","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"Re: FuelCell Energy Term Sheet\"?","query_date":"2000-07-31"}
+{"query_id":"Q-550b5e5db691d82abb","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"Cornhusker Contact Information\"?","query_date":"2000-09-28"}
+{"query_id":"Q-5530fcf034dc7a47c9","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"Financial Analysts' Reports for 6.05.01\"?","query_date":"2001-06-04"}
+{"query_id":"Q-58fd2725a1dda9432d","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"CY 2000 Accomplishments\"?","query_date":"2000-07-20"}
+{"query_id":"Q-592362a158a91dd7de","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Mega power status\"?","query_date":"2000-02-20"}
+{"query_id":"Q-5a63f80605fa7ef7ff","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"SEC Panel on Investor Information\"?","query_date":"2000-11-20"}
+{"query_id":"Q-5abf85aa8a406abac7","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"JDSU Downgraded by Robertson Stephens\"?","query_date":"2001-10-25"}
+{"query_id":"Q-5b09c573f80b1eb180","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"Re: Don Whalley\"?","query_date":"2000-10-17"}
+{"query_id":"Q-5bb04fba556734424e","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"FW: Greeting Card from HAR\"?","query_date":"2000-11-02"}
+{"query_id":"Q-5bd0144028d2d32c95","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"PRESIDENTIAL BUSH'S SPECIAL CHRISTMAS GREETING\"?","query_date":"2001-12-24"}
+{"query_id":"Q-5bd42ea0eeec60365d","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Presidential Gala, May 22nd\"?","query_date":"2001-05-12"}
+{"query_id":"Q-5bd5fc325cebd2a9bd","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"RE: Super Bowl\"?","query_date":"2002-01-29"}
+{"query_id":"Q-5be78619f0d7d8dc38","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"FERC Order Requires Creditworthy Parties for Transactions -- Rejects ISO and PX Amendments\"?","query_date":"2001-02-13"}
+{"query_id":"Q-5c0f8e154b543676a9","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"RLC Increases NJ TV Buy as Franks-Corzine Race Tightens\"?","query_date":"2000-10-24"}
+{"query_id":"Q-5c12b092cd44401b56","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"FW: Mountain Bike for Sale\"?","query_date":"2001-09-16"}
+{"query_id":"Q-5c2d60380c5c274f10","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"Westinghouse LD's for Gleason/Wheatland\"?","query_date":"2000-09-24"}
+{"query_id":"Q-5c78a3842653641fd3","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"ONEOK EOL Amendment\"?","query_date":"2001-10-08"}
+{"query_id":"Q-5d30436f8cbd5b39d1","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"Re: For your approval\"?","query_date":"2000-08-02"}
+{"query_id":"Q-5d910b08d6460de17c","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"2000 ENA Offsite\"?","query_date":"2000-10-09"}
+{"query_id":"Q-5db4a5cbb4b6970eac","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"Gas fundamentals development website\"?","query_date":"2000-08-06"}
+{"query_id":"Q-5e4c3692da9a8ca0dd","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"ECAR (Bruce Mansfield) & NPCC (Ononodaga) & WSCC (Lost Creek)\"?","query_date":"2001-10-07"}
+{"query_id":"Q-5e6bc40e5798495cf0","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"Flag Football Tourney\"?","query_date":"2000-11-26"}
+{"query_id":"Q-5f8f8ccca6bab772a6","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"You Could Win Instantly a Trip to the Biggest Sports Event of Your Choice\"?","query_date":"2002-01-30"}
+{"query_id":"Q-6082f79879f7138738","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"Fwd: Fw: BROGAINE\"?","query_date":"2000-12-06"}
+{"query_id":"Q-613dff71e74da1fdc9","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"Tom White and Judy Smith\"?","query_date":"2001-09-20"}
+{"query_id":"Q-6169e1abab8d06469b","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Enron Response to San Diego Request for Gas Price Caps\"?","query_date":"2000-12-12"}
+{"query_id":"Q-61bf98936f61e389db","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"Thank you for the Charitygift\"?","query_date":"2000-12-12"}
+{"query_id":"Q-6278c15fca166c68c7","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"Houston Angel Network - October Breakfast Meeting\"?","query_date":"2001-10-04"}
+{"query_id":"Q-62ccbf5ba51a0008e6","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"Fwd: A Message From Colin L. Powell\"?","query_date":"2000-11-04"}
+{"query_id":"Q-6358e58007c9fdd314","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"Re: Big Cowboy/GEPL Actuals for February\"?","query_date":"2001-04-24"}
+{"query_id":"Q-63a44abc208ad50eaa","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"please note my new email address\"?","query_date":"2001-03-26"}
+{"query_id":"Q-64692b74d38be83ad5","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"Re: Breakfast Seminar - March 29, 2001\"?","query_date":"2001-03-11"}
+{"query_id":"Q-651ceffc1a179f55d4","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"Jan. 5 -- BNA, Inc. Computer Technology Law Report\"?","query_date":"2001-01-04"}
+{"query_id":"Q-6544bfdaddf04659d8","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"RE: ISDA Statement\"?","query_date":"2001-09-13"}
+{"query_id":"Q-65e067704aebfd1b97","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"IF there is something useful I can do...\"?","query_date":"2001-05-31"}
+{"query_id":"Q-663720d09e0b459ac1","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"Reg affairs 2001 budget\"?","query_date":"2000-11-09"}
+{"query_id":"Q-6678cac361546d6d7a","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"Fwd: My HomeAdvisor: Home-Buying Season\"?","query_date":"2002-01-10"}
+{"query_id":"Q-6739f0d7fe6ab1cc81","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"Advertising Campaign - NASCAR\"?","query_date":"2000-10-02"}
+{"query_id":"Q-67e212a34603ae8195","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Re: FW: Dadisms\"?","query_date":"2001-07-07"}
+{"query_id":"Q-687126e9a4c397dc2c","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"Re: Nominations for rest of April 1\"?","query_date":"2000-03-28"}
+{"query_id":"Q-6893560f95f1d48bd8","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"CA Leg Analyst Forecasts Significant Power Shortage in CA\"?","query_date":"2001-03-13"}
+{"query_id":"Q-6b06b91ac75c3e591a","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"Re: NOMS FOR 6/20 THRU 6/24/01\"?","query_date":"2001-06-25"}
+{"query_id":"Q-6b0de4fe365fd9eed8","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"Enron / HPL Actuals for June 30 thru July 2, 200\"?","query_date":"2000-07-02"}
+{"query_id":"Q-6b5fa1969e50da66ba","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"FW: Intranet Site\"?","query_date":"2001-06-28"}
+{"query_id":"Q-6b9cd6a80f43063354","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"Enron In Action 04.23.01\"?","query_date":"2001-04-19"}
+{"query_id":"Q-6c2aba422e7dc226eb","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"Re: aggie/longhorn letter\"?","query_date":"2000-11-29"}
+{"query_id":"Q-6c4efe261d6bfc5272","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"Update to Merger Q&A\"?","query_date":"2001-11-24"}
+{"query_id":"Q-6cf643cc94218a062c","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"DRAFT of 11/30/01 balances\"?","query_date":"2002-01-08"}
+{"query_id":"Q-6d8589b912352dce2d","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"RE: Intranet Site\"?","query_date":"2001-06-28"}
+{"query_id":"Q-6dd68feda89e589a97","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"Re: Pick your Poison?\"?","query_date":"2000-08-08"}
+{"query_id":"Q-6ddc7e623d93ab2ba5","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"Announcing Energy Profit Optimization Seminar Series\"?","query_date":"2001-11-19"}
+{"query_id":"Q-6e35c0da002ae6794e","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"Important update on your NewPower service\"?","query_date":"2001-09-12"}
+{"query_id":"Q-6e46a30cccca70e0c7","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"Kennybunkport and other\"?","query_date":"2000-08-21"}
+{"query_id":"Q-6ec188f02d49187545","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Revised draft talking points for FERC jurisdiction\"?","query_date":"2001-03-07"}
+{"query_id":"Q-6ed7a988ce99b3a872","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"Year End 2000 Performance Evaluation Due\"?","query_date":"2001-01-16"}
+{"query_id":"Q-6fafb5fa58375703d5","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"FW: Name Overlays and Corrections\"?","query_date":"2001-06-07"}
+{"query_id":"Q-736d406468732702d5","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"RE: Cleburne UA4 11/00\"?","query_date":"2001-09-27"}
+{"query_id":"Q-741cea2a09a21b7e8f","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"Letter to Jeff Skilling\"?","query_date":"2000-05-24"}
+{"query_id":"Q-7436dd961a8a04eb43","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"Site59 Top Picks | Ready for your \"I Ate All The Leftovers\" Workout?\"?","query_date":"2001-11-26"}
+{"query_id":"Q-7486b7100720821326","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"Re: FW: Change in the agroup Cycling Schedule\"?","query_date":"2001-02-20"}
+{"query_id":"Q-7489c6edb204e7b061","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"RE: the candidate we spoke about this morning...\"?","query_date":"2001-10-28"}
+{"query_id":"Q-74c08c0b4683a3b72c","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"FW: Non US Locations\"?","query_date":"2001-12-04"}
+{"query_id":"Q-751e15e8f672c0419c","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"FW: Notre Dame Con call script\"?","query_date":"2001-11-06"}
+{"query_id":"Q-755036c20aa0af2ac6","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"Unify AR -- SAP Plans\"?","query_date":"2000-02-22"}
+{"query_id":"Q-75f5bf4903bac64a74","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"Interesting Article in Japanese Newspaper\"?","query_date":"2000-11-09"}
+{"query_id":"Q-768598b26a7924534d","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"July Nominations at Shell Deer Park\"?","query_date":"2000-06-27"}
+{"query_id":"Q-76aad1cca22775ed54","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"Limit Order Wash Trades\"?","query_date":"2001-09-09"}
+{"query_id":"Q-77580dd88d8da8f333","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Re: Transredes Q&As - March 6\"?","query_date":"2000-03-06"}
+{"query_id":"Q-778621f9c1bebb6d27","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"Analyst Interviews Needed - 2/15/01\"?","query_date":"2001-01-24"}
+{"query_id":"Q-7832b79e20f699d299","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"CHI -URGENT - PLEASE RESPOND\"?","query_date":"2001-10-24"}
+{"query_id":"Q-78c35bc737a6d777c3","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"FW: PJM November Transmission\"?","query_date":"2001-11-28"}
+{"query_id":"Q-790977c717b3cca315","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Re: Gas Issues paper\"?","query_date":"2000-12-11"}
+{"query_id":"Q-792edc312a3b61b9ae","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"TDS RELEASE - T O N I G H T - Thursday 11/16\"?","query_date":"2000-11-15"}
+{"query_id":"Q-795b13fa61f950b546","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"Final Version - Talking Points for Ken Lay - Larry Summers\"?","query_date":"1999-07-22"}
+{"query_id":"Q-799b15ff196a3e4029","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"RE: Friday 5/25/01\"?","query_date":"2001-05-16"}
+{"query_id":"Q-79fdc126de089b7ed3","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"FIRST PLACE AT BAYOU PLACE ???\"?","query_date":"2001-06-04"}
+{"query_id":"Q-7a349e09bc72868856","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"Re: Request for Interview, Associate Rotation\"?","query_date":"2000-08-10"}
+{"query_id":"Q-7a7e85f5e1dfa63bfb","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Re: PRC MEMO from Skilling\"?","query_date":"2001-05-03"}
+{"query_id":"Q-7a801a10826b70d3b8","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"EOL Power Products\"?","query_date":"2000-10-18"}
+{"query_id":"Q-7b67b0d5825c4dfb00","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"RE: Mail I cannot forward\"?","query_date":"2001-10-15"}
+{"query_id":"Q-7bc2f7f2dbf5d4bbeb","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"Autoweb News: GMC's Envoy, Holiday Rebates & Crash Test Ratings\"?","query_date":"2001-11-19"}
+{"query_id":"Q-7c69d4d675d66d4c9d","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"Barbara van der Vliet's Resume\"?","query_date":"2001-02-28"}
+{"query_id":"Q-7c76334e6a92bef92c","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"FW: New IT Manager for Unify Gas Settlements\"?","query_date":"2001-05-10"}
+{"query_id":"Q-7db643d24a05e07d3f","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"Cutoff Time for EOL Gas Transactions\"?","query_date":"2000-02-24"}
+{"query_id":"Q-7e37995b5caaab1a8c","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"Update on Azurix - Buenos Aires water project\"?","query_date":"2000-09-13"}
+{"query_id":"Q-7e589f414e8f60efbc","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"Re: Francisco Pinto Leite\"?","query_date":"2001-02-21"}
+{"query_id":"Q-7e77d0d7a634ac4c33","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"Market Data Project Update\"?","query_date":"2000-11-27"}
+{"query_id":"Q-7ed56d1876a1f1a183","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"Re: Meter 9707\"?","query_date":"2000-10-01"}
+{"query_id":"Q-7f2a4c193430165292","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"Holdup on EES Transfers to EWS\"?","query_date":"2001-05-06"}
+{"query_id":"Q-7f8abb9342088debf4","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"Best of Luck\"?","query_date":"2001-08-13"}
+{"query_id":"Q-7fcc49884fedfa3b3f","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"FERC Special Meetings on Friday 10/26/01 and Monday 10/29/01\"?","query_date":"2001-10-23"}
+{"query_id":"Q-80108eedc13c3c5703","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"Argentina Political Analysis\"?","query_date":"2000-10-07"}
+{"query_id":"Q-813cf2452edd377f24","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"Upcoming Book with Chapter on Jeff SKilling\"?","query_date":"2000-06-04"}
+{"query_id":"Q-8157429bd2fff631a1","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"The Morning Market Call - Monday October 1st, 2001.\"?","query_date":"2001-09-30"}
+{"query_id":"Q-8164c8747a0f9aa2f5","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"OpinionJournal - Morning Noonan Night\"?","query_date":"2000-11-23"}
+{"query_id":"Q-8192072d2382050753","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"Holiday Safety Reminder\"?","query_date":"2000-11-20"}
+{"query_id":"Q-81a518ede2099e4b04","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"Estimated Actuals for April 27-29, 2001\"?","query_date":"2001-04-29"}
+{"query_id":"Q-8286addb540cdfa901","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"RE: Options Training Classes\"?","query_date":"2000-02-23"}
+{"query_id":"Q-8295b94d872fa29439","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"FW: Terrorist attacks on the US - some market issues\"?","query_date":"2001-09-12"}
+{"query_id":"Q-82c52973661447cb21","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"Freidman, Billings Initiates Coverage of CPN\"?","query_date":"2001-10-22"}
+{"query_id":"Q-82dc51bced007f647c","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Special Comp Committee Meeting Notice - May 1st\"?","query_date":"2001-04-19"}
+{"query_id":"Q-82fb93206f6dd4d2ea","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"RE: URGENT - Payments for Tonight\"?","query_date":"2001-11-28"}
+{"query_id":"Q-83f9000cf1d05c73cc","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"Algonquin gas prices\"?","query_date":"2001-06-10"}
+{"query_id":"Q-841a66d6b4907f04b7","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"Re: 6/6/00 Financial trades\"?","query_date":"2000-06-07"}
+{"query_id":"Q-8433b62bec88ace395","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"Join me for my dinner with Bill Gates, part 2: The Q&A\"?","query_date":"2001-10-27"}
+{"query_id":"Q-84b4d4feda0974db93","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"10% Off! Our gift to you!\"?","query_date":"2001-10-29"}
+{"query_id":"Q-84fb877c904fb0c0f0","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"Re: DSL- Installs\"?","query_date":"2000-04-30"}
+{"query_id":"Q-85ee7c9ec0e9ea71b7","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"CTO Press Release\"?","query_date":"2000-10-03"}
+{"query_id":"Q-8698d582c58dfbe809","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"SAVE Big - CDNOW Clearance Sale!\"?","query_date":"2002-01-17"}
+{"query_id":"Q-869f569da4679f2f14","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"Executive Impact and Influence Course\"?","query_date":"2000-06-28"}
+{"query_id":"Q-87d6ffce92e604c6cc","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"RE: PERSONAL AND CONFIDENTIAL COMPENSATION INFORMATION\"?","query_date":"2001-03-14"}
+{"query_id":"Q-88355b0291a397ca60","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"Improve Collaboration across your enterprise through a Secure Intranet\"?","query_date":"2001-09-20"}
+{"query_id":"Q-8838bf391764686e89","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"Sydney Process Changes\"?","query_date":"2000-06-18"}
+{"query_id":"Q-89b9206fbc05b4ee52","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"Transport P/L (With Fuel) Report\"?","query_date":"2000-02-08"}
+{"query_id":"Q-89e9f57a8a3d390159","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"Today's Headlines from NYTimes.com Friday, November 23, 2001\"?","query_date":"2001-11-22"}
+{"query_id":"Q-8af622c4b08cbe1ad1","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"Fw: Are You Living in Debt, Paycheck to Paycheck?3636\"?","query_date":"2001-11-18"}
+{"query_id":"Q-8b25324e4d35503263","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"Re: Reorg - Capitalisation of LLC\"?","query_date":"2001-05-02"}
+{"query_id":"Q-8b4f3553613d8eba09","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"Cheryl Nelson - In around 11:30 am today\"?","query_date":"2001-11-18"}
+{"query_id":"Q-8c297390e5d2355f1e","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"Re: 2001 Margin Plan\"?","query_date":"2000-10-04"}
+{"query_id":"Q-8cdb6fae26c4dd22a9","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"Your Basketball League is Back!\"?","query_date":"2000-10-15"}
+{"query_id":"Q-8d0cf46cc37d49b2c8","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"MTG: How to Handle Utility Default Proposals\"?","query_date":"2000-11-28"}
+{"query_id":"Q-8d4fe222a13ed87c1d","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"Request for meeting -- Subject: short speech to US Olympic Commit tee 7.16-19.01\"?","query_date":"2001-05-13"}
+{"query_id":"Q-8d6db036b16a18dc96","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Draft Comments for Thursday --WPTF\"?","query_date":"2000-11-07"}
+{"query_id":"Q-8ed83a489de17a27e0","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"Market Insight: We See Upswing Continuing\"?","query_date":"2001-11-25"}
+{"query_id":"Q-8ef95e4c5bbaed36b6","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"RE: expense report\"?","query_date":"2001-10-29"}
+{"query_id":"Q-8f39c38a265c4a945e","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"Lose Those Extra Holiday Pounds!\"?","query_date":"2001-12-28"}
+{"query_id":"Q-8f7751d00745bbeb7b","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"EOL Disclosure Consent\"?","query_date":"2001-10-09"}
+{"query_id":"Q-8f8bf21bdf51f7a2bf","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"Campus Mail Advisory: On-Campus Mail Distribution RESUMES (11/14 /01)\"?","query_date":"2001-11-13"}
+{"query_id":"Q-9052518d01d6b3bf01","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"Mandatory Staff Mtg.\"?","query_date":"2001-10-28"}
+{"query_id":"Q-90b047955a5392972c","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"Clear Lake Methanol\"?","query_date":"2000-02-13"}
+{"query_id":"Q-91085e4d24b7fb4d70","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"Shift May Empower California.htm\"?","query_date":"2001-05-23"}
+{"query_id":"Q-9187e4de0cfd257d04","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"Vice President Recommendation\"?","query_date":"2000-09-20"}
+{"query_id":"Q-92a4b26b4198764a85","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"ENRON ISC OPEN HOUSE\"?","query_date":"2001-06-03"}
+{"query_id":"Q-949564f1cdb88bf6d4","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"Credit Union 2001 Survey - 2 Minutes Could Get You $200\"?","query_date":"2001-07-01"}
+{"query_id":"Q-94ca4e2937fa7716d6","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"Positions held by Jeff Skilling\"?","query_date":"2002-01-15"}
+{"query_id":"Q-956055f6678e6a3cb6","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"NYS Reliability Council Executive Committee\"?","query_date":"2002-01-13"}
+{"query_id":"Q-95de133a17f06e8f96","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"RE: Oklahoma Sucks\"?","query_date":"2001-10-02"}
+{"query_id":"Q-960f30ae38bab3b351","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"November 1999 Settlement Adjustment Invoices\"?","query_date":"2001-09-16"}
+{"query_id":"Q-961c4968530dffa565","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Enron Mentions - 07/19/01\"?","query_date":"2001-07-18"}
+{"query_id":"Q-96449280cb2ab459c7","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"The Small Apple: Falling Far From the Expectations\"?","query_date":"2000-12-05"}
+{"query_id":"Q-9661aaa63b1f820fb1","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"FW: Request for Migration of Sitara EOLBridge into Production\"?","query_date":"2001-10-28"}
+{"query_id":"Q-9666fd6eaa724c4e25","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"Updated: Metastock Training\"?","query_date":"2001-07-24"}
+{"query_id":"Q-9840fa6a1dc53945e9","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Final Comments to Judge Wagner's Recommendation\"?","query_date":"2001-07-09"}
+{"query_id":"Q-991f10adc0183b4828","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"FW: RTO Week -- Summary of Day One Panel\"?","query_date":"2001-10-15"}
+{"query_id":"Q-995c1f5e36bd3a1652","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"NOM & ACTUAL FLOW FOR 2/6/01\"?","query_date":"2001-02-06"}
+{"query_id":"Q-9a05a4312923fe295a","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"YOUR ENPOWER NUMBER\"?","query_date":"2001-10-29"}
+{"query_id":"Q-9a6996a2d17aef00fc","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"special edition attached\"?","query_date":"2001-09-18"}
+{"query_id":"Q-9a9cabc4e7410b08f3","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"Status of Completed Performance Reviews\"?","query_date":"2000-09-26"}
+{"query_id":"Q-9ac60459c1a5e5b430","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"Re: General Issues\"?","query_date":"2001-02-19"}
+{"query_id":"Q-9accf20b46ab9326f9","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"RE: Cleburne issues\"?","query_date":"2002-01-06"}
+{"query_id":"Q-9b6b8a6ecaac741469","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"February CFA Advantage now online\"?","query_date":"2002-02-05"}
+{"query_id":"Q-9c054084615e70b177","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"Retail in South America\"?","query_date":"2000-11-29"}
+{"query_id":"Q-9c331180f964fd91e0","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"Update on Retirement\"?","query_date":"2001-10-09"}
+{"query_id":"Q-9d721f7a32b37524e8","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"RE: U.T. 2001 Fall Lyceum Series\"?","query_date":"2001-06-05"}
+{"query_id":"Q-9e5569280644212a2a","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"Meeting re: Storage Strategies in the West\"?","query_date":"2000-10-02"}
+{"query_id":"Q-9ea36268b08e98a94b","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Proposed EnWG holds threat for cross border trade\"?","query_date":"2000-11-09"}
+{"query_id":"Q-9f212a7f7278bbaaf3","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"From the A&M discussion board..you gotta admit this is ridiculous!\"?","query_date":"2001-10-21"}
+{"query_id":"Q-9f6956149cf1efd8dd","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"Informal FSA Feedback\"?","query_date":"2001-05-03"}
+{"query_id":"Q-a0b03e8077921f1c6c","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"Life Insurance Premium Payment\"?","query_date":"2001-05-22"}
+{"query_id":"Q-a0cb1566e67a82c0ee","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"Re: Bryan Hull is moving on. Let's celebrate !!!\"?","query_date":"2000-05-29"}
+{"query_id":"Q-a15f7e19188eca4de5","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"Msg Points from 11/16/01 mtg.\"?","query_date":"2001-11-15"}
+{"query_id":"Q-a3faa130e8b0884f23","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"Re: Lyondell citgo\"?","query_date":"1999-12-15"}
+{"query_id":"Q-a570370f6fa8ce2a97","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"EES DASHs - Springs & Quebecor\"?","query_date":"2000-04-20"}
+{"query_id":"Q-a571294b482b4d3453","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"Re: McCommas Tax Monetization Deal is Closed\"?","query_date":"2000-06-01"}
+{"query_id":"Q-a5714f1a7ee6952c88","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"FW: Preliminary Information Request List [WatchDog checked]\"?","query_date":"2002-01-14"}
+{"query_id":"Q-a5d407033ff8c2f68b","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"CV - Ex-pat realocation\"?","query_date":"2000-10-19"}
+{"query_id":"Q-a686f63b3479058937","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"Fort James Amortization\"?","query_date":"2000-06-15"}
+{"query_id":"Q-a6c164aa23c2445177","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Thinking of You\"?","query_date":"2001-11-20"}
+{"query_id":"Q-a72abb19a24dceb529","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"2001 Capital Budget summary presentation\"?","query_date":"2000-12-10"}
+{"query_id":"Q-a7b7a927dc9f499af5","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"timing of submitting information to Risk Controls\"?","query_date":"2000-12-06"}
+{"query_id":"Q-a89f28a9c09be10b94","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"ICAP/UCAP New procedure for Certification and updated form\"?","query_date":"2001-11-18"}
+{"query_id":"Q-a9043846755bd0dc9c","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Congressional Hearing Schedule/State Senate Hearing Rescheduled\"?","query_date":"2001-04-08"}
+{"query_id":"Q-aa02bd3c7e08aa5b5c","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"FW: fixed forward or other Collar floor gas price terms\"?","query_date":"2000-10-15"}
+{"query_id":"Q-aaa9cf63cd04077d50","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"FERC RTO Orders Part 3\"?","query_date":"2001-07-12"}
+{"query_id":"Q-aab20b0384d768bfdc","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"ENE Share Holdings Data - Wednesday, 8/8 meeting with Goldman Sachs\"?","query_date":"2001-08-05"}
+{"query_id":"Q-aac9d4f9cb6a94cd1e","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"SERC (Catawba 02) & WSCC (Coolwater 03C ST)\"?","query_date":"2001-10-11"}
+{"query_id":"Q-ab960a84a6bd1825d8","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"HPL Nom for August 15, 2000\"?","query_date":"2000-08-13"}
+{"query_id":"Q-abe50f82ab8dff13b9","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"Re: Your E-mail\"?","query_date":"2002-01-22"}
+{"query_id":"Q-aca05b696157ace281","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"Feb 12th Sale to Aquila\"?","query_date":"2001-02-19"}
+{"query_id":"Q-acd01a3c40c62250ff","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"RE: Commodity Logic Strategy Overview\"?","query_date":"2001-02-22"}
+{"query_id":"Q-aee5989299eb15a677","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Benefits of competition in electricity\"?","query_date":"2001-01-04"}
+{"query_id":"Q-afe3bcb62e2fea6847","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"Fitting the bill\"?","query_date":"2001-12-20"}
+{"query_id":"Q-afe5df2629e3126264","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"Fwd: Fw: Professional Quiz\"?","query_date":"2000-08-30"}
+{"query_id":"Q-affb0601af0f5625f9","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"Re: CRM system\"?","query_date":"2001-04-03"}
+{"query_id":"Q-b03d7f3ed8a368315d","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"Re: Potential energy services deal in Japan\"?","query_date":"2001-02-14"}
+{"query_id":"Q-b05668bee8a228faaa","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"FW: Western Strategy Session\"?","query_date":"2001-07-16"}
+{"query_id":"Q-b08a563a7b4ec1c58a","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"Financial Analysts' Reports for 9.22.00\"?","query_date":"2000-09-21"}
+{"query_id":"Q-b10c1697e93d6683f0","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"Invitation--Tom Peters/Sapient Event\"?","query_date":"2001-08-14"}
+{"query_id":"Q-b1209d0efd1bac2072","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"Project Southwood Meeting - Location Change\"?","query_date":"2001-10-15"}
+{"query_id":"Q-b1aaa08ee691cd8f49","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"Petroleumworld weekly review\"?","query_date":"2001-10-16"}
+{"query_id":"Q-b207a67bbdb9f9b890","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"FW: Chicken McNoggin, Hold the Fries (washingtonpost.com)\"?","query_date":"2000-12-03"}
+{"query_id":"Q-b2396b491ce1ce9065","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Fire Chief Status Update-Ignore Previous Email\"?","query_date":"2001-01-07"}
+{"query_id":"Q-b27cd2192a42011705","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"ACT: conversion rate\"?","query_date":"2001-11-26"}
+{"query_id":"Q-b32019efcc389b7b73","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"FW: Governor Knowles Correspondence\"?","query_date":"2000-11-14"}
+{"query_id":"Q-b3993cdf3a64fe33a0","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"Beware of this file!!!\"?","query_date":"2000-12-03"}
+{"query_id":"Q-b39b8b2ea4a3868612","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"FW: Eili lilly\"?","query_date":"2001-12-12"}
+{"query_id":"Q-b498f625b55f00b1c4","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"Financial Analysts' Reports for 10.05.00\"?","query_date":"2000-10-04"}
+{"query_id":"Q-b4d09d392decee6b2a","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"How many interns would you like?\"?","query_date":"2001-02-19"}
+{"query_id":"Q-b4dc1b7dfe076acf3f","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"Today's Headlines from NYTimes.com Monday, November 26, 2001\"?","query_date":"2001-11-25"}
+{"query_id":"Q-b53b303effa52e42a1","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"FW: Media Reports\"?","query_date":"2001-09-20"}
+{"query_id":"Q-b5471a3d3989966dbc","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"RE: Stock Price\"?","query_date":"2001-08-18"}
+{"query_id":"Q-b5817e8d3b70b5e710","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"Re: Electric Overage (1824.62)\"?","query_date":"2000-08-02"}
+{"query_id":"Q-b67e13537cd01bd48e","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"Happy Hour for Ami Choski\"?","query_date":"2000-10-18"}
+{"query_id":"Q-b9305ace5bb89ecb8d","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"Only in Arkansas\"?","query_date":"2001-01-10"}
+{"query_id":"Q-b989ff630ed94cdcad","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Database Tracking of Activities\"?","query_date":"2001-10-21"}
+{"query_id":"Q-ba0a66c3f68a1f4f73","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"Re: Seal PT \"enlistees\"\"?","query_date":"2000-08-20"}
+{"query_id":"Q-ba5fc80cb0a20b6efd","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"Sherlock's on Friday Night\"?","query_date":"2000-10-11"}
+{"query_id":"Q-babfb57b3eba757caf","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"NEW PROGRAM SPEAKERS: \"MEXICO AFTER SEPTEMBER 11\"\"?","query_date":"2001-10-17"}
+{"query_id":"Q-bad86443217643e959","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"Updated: HAPPY HOUR\"?","query_date":"2001-09-05"}
+{"query_id":"Q-bcd968d7428b276a08","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"April Curve Validation Memorandum\"?","query_date":"2000-05-15"}
+{"query_id":"Q-bddac6568667cd0c06","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"Re: Producer Services\"?","query_date":"2001-03-04"}
+{"query_id":"Q-bf49dacb84028694a4","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"Re: Any luck?\"?","query_date":"2000-06-06"}
+{"query_id":"Q-c1791070764e33dfbe","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Item of Interest from Giga\"?","query_date":"2001-11-19"}
+{"query_id":"Q-c189eec6d0f7db13c1","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"Re: Fwd: Fairhill Rd. - Westfield, N. J. ??\"?","query_date":"2001-01-29"}
+{"query_id":"Q-c18aafdaa42f47ffe1","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"Doyle Cost Summary thru 12/28/00\"?","query_date":"2001-01-02"}
+{"query_id":"Q-c20281aea45c1d4faf","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"Policy Committee - Analyst & Associate\"?","query_date":"2000-12-04"}
+{"query_id":"Q-c2180f26e09a7a8146","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"Updated: Lunch For Grace\"?","query_date":"2001-07-10"}
+{"query_id":"Q-c27477778e374b1ed0","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"Re: San Marcos Study\"?","query_date":"2000-11-14"}
+{"query_id":"Q-c2d4e3ee605f016c6c","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"APEX O&G X-mas Dinner - Petroleum Club\"?","query_date":"2001-11-27"}
+{"query_id":"Q-c2f906d15530d78701","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"FW: Updated GSS Phone Directory\"?","query_date":"2001-08-28"}
+{"query_id":"Q-c390416214f8707c05","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"L. Kudlow's latest commentary (10/19/2001)\"?","query_date":"2001-10-18"}
+{"query_id":"Q-c3e2b6324d93aa62f7","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"Fw: Closed book quiz\"?","query_date":"2001-02-05"}
+{"query_id":"Q-c3e3341df6646e48d3","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"$80 Crystal Bear Now $4.95\"?","query_date":"2002-01-10"}
+{"query_id":"Q-c42ad042c98b8a941e","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"Daily Gas News - 1/28/02\"?","query_date":"2002-01-26"}
+{"query_id":"Q-c47c71724f54b43ef1","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"Re: PanEnergy Exchange Deal- Feb. 2000 Production\"?","query_date":"2000-04-19"}
+{"query_id":"Q-c4a1fbdaff4da7d78f","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"Invitaton: An Evening of Hope and Healing\"?","query_date":"2001-10-22"}
+{"query_id":"Q-c5031455a94678c386","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"A question about East power portal information\"?","query_date":"2001-09-13"}
+{"query_id":"Q-c5d8f5f27e7bf51707","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"Re: Purchase and Sale Agreement\"?","query_date":"2001-03-25"}
+{"query_id":"Q-c78d61087c2627dc94","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"EnronOnLine Brazilian Products\"?","query_date":"2000-05-04"}
+{"query_id":"Q-c8075f130cf1ba3d67","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"More Dallas ASE Information\"?","query_date":"2001-02-06"}
+{"query_id":"Q-c8fe0057e93a265387","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"Large Deal Alert\"?","query_date":"2000-05-18"}
+{"query_id":"Q-c9afeb4b8fd553d882","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Ferc Electric Report June 12 -16\"?","query_date":"2000-06-19"}
+{"query_id":"Q-c9b3c0f887311f2aba","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"Enron Expatriates in India\"?","query_date":"2001-06-12"}
+{"query_id":"Q-ca10cc7d925f99a868","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"REVISION #1 - HPL NOM FOR OCTOBER 24, 2000\"?","query_date":"2000-10-22"}
+{"query_id":"Q-ca65d95987afc72fb3","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"Vote of Confidence\"?","query_date":"2001-11-28"}
+{"query_id":"Q-caeea277c878a88896","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"[Footballguys] Update - Todd Bouman - Spergon Wynn Notes\"?","query_date":"2001-12-20"}
+{"query_id":"Q-cbffa3184bf06396bd","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"Re: Transport Originations - Concannon\"?","query_date":"2001-01-17"}
+{"query_id":"Q-cc9e0fdd30c91aaf9d","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"MEH Quarter Success\"?","query_date":"2000-07-10"}
+{"query_id":"Q-ce3d234cbb544468e6","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"FW: Unbiased media coverage of the election...\"?","query_date":"2000-11-29"}
+{"query_id":"Q-cf87659f13730ce08a","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"NCC Power deal - First electricity transaction\"?","query_date":"2001-02-01"}
+{"query_id":"Q-d21010dab619967870","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"Fw: The Latest Official Florida Presential Ballot\"?","query_date":"2000-11-12"}
+{"query_id":"Q-d2157f5580e19f52eb","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"Fw: The Ballots\"?","query_date":"2000-11-29"}
+{"query_id":"Q-d27113a17265877f99","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"Harvard/Enron Multimedia Cases\"?","query_date":"2001-06-06"}
+{"query_id":"Q-d42af7717420630d1d","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"Fw: Status Report\"?","query_date":"2002-01-24"}
+{"query_id":"Q-d45c1235684bb10af0","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Part 4, revised\"?","query_date":"2001-02-14"}
+{"query_id":"Q-d51b8f10401b84e21a","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Re: Testimony in PGE Proceeding\"?","query_date":"2000-01-02"}
+{"query_id":"Q-d5303f92643c0fa44f","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"Supported Internet Email Addresses\"?","query_date":"2001-10-14"}
+{"query_id":"Q-d5e8b1ccdcf45876a1","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"Re: UK Mobile Phone\"?","query_date":"2000-06-26"}
+{"query_id":"Q-d656c4f27d6ec15a21","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"Custody Agreements with BoNY and Chase\"?","query_date":"2000-03-29"}
+{"query_id":"Q-d7fafcefc69f9263d6","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"Internal Feedback for PRC\"?","query_date":"2000-06-01"}
+{"query_id":"Q-d8a266cd2b927b7fc8","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"Gas Marketing and Trading Announcement - DRAFT\"?","query_date":"2000-12-10"}
+{"query_id":"Q-d8aaa047154a25e17e","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"FW: Air Quality Services\"?","query_date":"2001-10-14"}
+{"query_id":"Q-d9532a0f9ef13c5c37","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"Fw: article is by an Afghan-American\"?","query_date":"2001-09-17"}
+{"query_id":"Q-d9969951593d4d5192","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"Today's Headlines from NYTimes.com Monday, November 19, 2001\"?","query_date":"2001-11-18"}
+{"query_id":"Q-d9c07b006871ead8b2","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"Follow-up on My Conversation in November\"?","query_date":"2001-03-20"}
+{"query_id":"Q-d9d9f4f4dfbfcd0ff8","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"Super Saturday Changes\"?","query_date":"2000-10-23"}
+{"query_id":"Q-da59c7f8d1e6163c2d","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"USAA Electronic Delivery Notification\"?","query_date":"2001-12-27"}
+{"query_id":"Q-da9c717c09e1c98f5c","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"PROJECT SUMMER: 1-800 #\"?","query_date":"2000-08-03"}
+{"query_id":"Q-db0851ac49b7395930","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"HBA 2000 Summer Clerkship Program\"?","query_date":"2000-02-16"}
+{"query_id":"Q-dba4b76f943edff74d","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"RE: West Gas Headcount\"?","query_date":"2001-06-12"}
+{"query_id":"Q-dbe84c6aad2dfae536","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Philly Enquirer - Louise Kitchen - Sunday, Aug. 13/00\"?","query_date":"2000-08-15"}
+{"query_id":"Q-dc7416335b1cb99e8e","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"[cheatsheets] # 148 Updated Players in the News (11-2-00)\"?","query_date":"2000-12-01"}
+{"query_id":"Q-dd2c76b3a2ece2e272","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"Re: Question on Office Space in the new building\"?","query_date":"2000-04-23"}
+{"query_id":"Q-dea0bb4800dbf21f54","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"Re: Broadband Discussion Opportunity & John Chambers\"?","query_date":"2001-07-17"}
+{"query_id":"Q-deb3b39211668dc2d2","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"FINAL A&A Mid-Yr PRC Meeting - Wed July 18, 2:30-4:00 PM, eb 50M\"?","query_date":"2001-07-11"}
+{"query_id":"Q-deb734539fd4ea231c","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"Fw: FROGAPULT, ELFBOWL, Y2KGAME Virus Hoax\"?","query_date":"1999-12-13"}
+{"query_id":"Q-dfb36bf43bf721cc2e","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"UBSW Orientation - Thursday. For those that did not attend the Houstonian Sessions\"?","query_date":"2002-02-03"}
+{"query_id":"Q-dfca35e8a4ca88dc94","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Blackout hits Las Vegas\"?","query_date":"2001-07-05"}
+{"query_id":"Q-dfcc938c3cd03e389b","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"BHP Billiton Energy Invests in Algeria, in an Advisory by Industrialinfo.com\"?","query_date":"2001-10-22"}
+{"query_id":"Q-e0018c584a015bcc50","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"todays bbc sci\"?","query_date":"2000-11-15"}
+{"query_id":"Q-e01fd0ce05698822f6","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"Rice University - Markets in Transition Symposium - Jan. 10, 2002\"?","query_date":"2001-11-15"}
+{"query_id":"Q-e02a289eef36478fe4","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"HPL NOM FOR NOVEMBER 10, 2000\"?","query_date":"2000-11-08"}
+{"query_id":"Q-e0b8e862a6d46484f1","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"Re: Enron Investment Partners\"?","query_date":"2000-12-04"}
+{"query_id":"Q-e0e3405d74af48d1e8","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"Strategy Meeting - Cancelled\"?","query_date":"2000-11-12"}
+{"query_id":"Q-e1536a2c55afd8522e","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"PetroStrategies Fall 2001 Newsletter\"?","query_date":"2001-09-18"}
+{"query_id":"Q-e185a0668a887d03de","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"Forrester Executive Strategy Forum, Nov 8th-10th, Boston, MA\"?","query_date":"2000-09-29"}
+{"query_id":"Q-e1c6b49915068bf550","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"PG&E BANKRUPTCY CASE-- IMPORTANT\"?","query_date":"2001-06-06"}
+{"query_id":"Q-e201121ad93d55cf76","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"IT Budget - Meeting\"?","query_date":"2000-11-12"}
+{"query_id":"Q-e2952e96d373e4ada7","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"Revised Presentation for Calpine\"?","query_date":"2001-06-03"}
+{"query_id":"Q-e38fef4797d03bd262","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"Event Policy Memo and Approval Form\"?","query_date":"2000-07-06"}
+{"query_id":"Q-e3cf7869bad8799988","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"PGS Fall Seminar Schedule\"?","query_date":"2001-08-23"}
+{"query_id":"Q-e479839794c02ea571","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"The Center -- Immediate Action Requested\"?","query_date":"2001-12-06"}
+{"query_id":"Q-e4b86fce7f32d92426","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"Download Frogger before it hops away!\"?","query_date":"2000-06-25"}
+{"query_id":"Q-e5166617e8d30db1f1","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"Weekly Market Review for 9/25 - 10/2\"?","query_date":"2000-10-01"}
+{"query_id":"Q-e52e5a419af2f41db8","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"Fw: Democrat poster boy\"?","query_date":"2002-01-26"}
+{"query_id":"Q-e5532ba8496e59d3d4","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"Storage Wildcards - Ziff Energy Group Conference\"?","query_date":"2001-06-04"}
+{"query_id":"Q-e6b6ab137cc250bee2","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Presentation Slides: Power Generation\"?","query_date":"2001-03-22"}
+{"query_id":"Q-e7d7a28284c871ea56","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"Re: Request for Bios\"?","query_date":"2001-05-07"}
+{"query_id":"Q-e88c2e0a16d947eb0e","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"HBS Club Dinner Boat Cruise October 6\"?","query_date":"2001-08-23"}
+{"query_id":"Q-eb46ea2826790dd6ab","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"Preliminary Cost Savings for EA\"?","query_date":"2001-11-18"}
+{"query_id":"Q-eb9a9c3120f7b82c5d","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"Lay It On the Line\"?","query_date":"2001-08-29"}
+{"query_id":"Q-eba44a62de1fcf7e18","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"Re: FW: 2nd lien info. and private lien info - The Stage Coach Apartments, Phillip Allen\"?","query_date":"2001-04-17"}
+{"query_id":"Q-ec37902dc3ff59f01b","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"ClickAtHome Portal is HERE!\"?","query_date":"2001-05-06"}
+{"query_id":"Q-ec83ea03c31b5193df","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"New Phone Number & Address\"?","query_date":"2000-08-31"}
+{"query_id":"Q-ec9e11dd44a892f1ab","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"Martin Luther King Day\"?","query_date":"2001-01-04"}
+{"query_id":"Q-ecd128e92a083569a3","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Cellblock Rumors 11/21/01\"?","query_date":"2001-11-20"}
+{"query_id":"Q-eed12b4a929a3c501e","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"EnronOnline/Enron Net Works Potential Opportunity with i2\"?","query_date":"2001-05-24"}
+{"query_id":"Q-ef194015346bc62da2","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"Re: Request for 9/30/00 Stock Holdings\"?","query_date":"2000-10-02"}
+{"query_id":"Q-ef4653bbc1a205f692","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"FW: Pipeline Dial Up access\"?","query_date":"2001-11-06"}
+{"query_id":"Q-f007c00662c5b0cf24","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"Mirant to Discuss Third Quarter Earnings\"?","query_date":"2001-10-22"}
+{"query_id":"Q-f0951342d7be2655f8","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"Re: Redneck Nativity scene\"?","query_date":"2000-12-03"}
+{"query_id":"Q-f0b702d93b476d0f4b","synthetic_user":"enron-farmer-d","query":"Is there an email whose entire subject is \"Re: Duke Exchange 2/00\"?","query_date":"2000-10-16"}
+{"query_id":"Q-f298742d777efccb26","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"Follow-up on Davis, Lockyer meeting\"?","query_date":"2001-06-11"}
+{"query_id":"Q-f2c5440e1f07fa1b68","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"Re: Do you want to reschedule a catch up ?\"?","query_date":"2001-02-27"}
+{"query_id":"Q-f39ca9e639665e14c4","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"Re: Take or pay/options\"?","query_date":"2001-04-01"}
+{"query_id":"Q-f3dee73e132a91f8a3","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"On Market Power in California\"?","query_date":"2001-04-25"}
+{"query_id":"Q-f4274fc12d0e2a077b","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"Global Markets Limits\"?","query_date":"2001-02-12"}
+{"query_id":"Q-f43d263cd49faee294","synthetic_user":"enron-taylor-m","query":"Is there an email whose entire subject is \"Re: More Ref Credits\"?","query_date":"2000-02-21"}
+{"query_id":"Q-f4ea35d7af4b1fc6c2","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"Re: Un-allocated Turbines\"?","query_date":"2000-10-12"}
+{"query_id":"Q-f58afd51fdee1fdc67","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"Enron Direct Canada-First Deal\"?","query_date":"2001-01-04"}
+{"query_id":"Q-f58fe6e7e6083071c2","synthetic_user":"enron-beck-s","query":"Is there an email whose entire subject is \"2001 Group Expenses\"?","query_date":"2000-11-08"}
+{"query_id":"Q-f6bdb841bb913b051a","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"Great news for all xSP! - The unveiling of the iCan Provider Suit e has come.\"?","query_date":"2001-06-11"}
+{"query_id":"Q-f6fd51a419821eea34","synthetic_user":"enron-lay-k","query":"Is there an email whose entire subject is \"RESPONSE TO PEGGY FOWLER LETTER\"?","query_date":"2002-01-07"}
+{"query_id":"Q-f7b811ffc82537644d","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"Triple Lutz Notes\"?","query_date":"2000-11-07"}
+{"query_id":"Q-f7d18f2e72022dee11","synthetic_user":"enron-kean-s","query":"Is there an email whose entire subject is \"Fwd:Ford chairman calls climate change world's #1 issue\"?","query_date":"2000-10-15"}
+{"query_id":"Q-f849031eed9c6ac954","synthetic_user":"enron-allen-p","query":"Is there an email whose entire subject is \"RE: Message from John and Louise - Enron Americas Management Offsite\"?","query_date":"2001-08-06"}
+{"query_id":"Q-f9796f6f7825148287","synthetic_user":"enron-thomas-p","query":"Is there an email whose entire subject is \"Membership rewards announcement - Pls distribute 1/18/02\"?","query_date":"2002-01-17"}
+{"query_id":"Q-fa8597d3a0e12d0957","synthetic_user":"enron-delainey-d","query":"Is there an email whose entire subject is \"Re: Producer Insurance Targets\"?","query_date":"2000-05-16"}
+{"query_id":"Q-fc81782254e1197345","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"Pulse Survey Memo from the Office of the Chairman\"?","query_date":"2000-12-03"}
+{"query_id":"Q-fe0cbf6a493fa25d82","synthetic_user":"enron-skilling-j","query":"Is there an email whose entire subject is \"Viewing Electronic Pay Stubs\"?","query_date":"2001-11-06"}
+{"query_id":"Q-fecbe1005176fbf379","synthetic_user":"enron-bass-e","query":"Is there an email whose entire subject is \"OpinionJournal - Extra\"?","query_date":"2000-12-05"}

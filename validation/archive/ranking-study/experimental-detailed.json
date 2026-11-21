@@ -1,0 +1,96 @@
+[
+  {
+    "mailbox": "box-f9410417c091",
+    "query": "напомни, где расписывали обезжиривающий концентрат для запёкшихся сковородок и говорили про Azelit и GRASS",
+    "expected_body_regex": "azelit",
+    "ok": true,
+    "returned": [
+      "L-c00311a3afe957bb2945",
+      "L-0d6ef025f2a39f7cb930",
+      "L-2a8a4ca95555e21c1983",
+      "L-3d4d9e8f949a5198ac53",
+      "L-5a520f56b8b84015c78d"
+    ]
+  },
+  {
+    "mailbox": "box-f9410417c091",
+    "query": "Поищи инструктаж насчёт бережного удаления пригоревшей еды с противня. Вроде называли Azelit и фирму GRASS",
+    "expected_body_regex": "azelit",
+    "ok": true,
+    "returned": [
+      "L-c00311a3afe957bb2945",
+      "L-71f8b0659bd2baccd226",
+      "L-0d6ef025f2a39f7cb930",
+      "L-2a8a4ca95555e21c1983",
+      "L-3d4d9e8f949a5198ac53"
+    ]
+  },
+  {
+    "mailbox": "box-fda57474896e",
+    "query": "был технический инцидент, пытались соединиться с базой Srvr, запомнились Ref и неполадки. Напомни подробности этой истории?",
+    "expected_body_regex": "(?i)srvr",
+    "ok": true,
+    "returned": [
+      "L-70203bbc1ce56764c01c",
+      "L-699863ad7ae1c4e6b875",
+      "L-d7bb2c25475db91647b4",
+      "L-a9e181093b52e636afec",
+      "L-fb18a2b1a5610df97596"
+    ]
+  },
+  {
+    "mailbox": "box-2d28af4e4602",
+    "query": "поищи старую запись с итоговым фискальным расчётом, запомнил интернет-кассу и обозначения ККТ ФН ФД ФП",
+    "expected_body_regex": "ккт",
+    "ok": true,
+    "returned": [
+      "L-155450630f5183fff9b2",
+      "L-abdcb315b5565493615b",
+      "L-d8ed59de6adb71168f24",
+      "L-a16c90b88cccf4a60bc0",
+      "L-cfe6dc8e50aa6bcec991"
+    ]
+  },
+  {
+    "mailbox": "box-f9410417c091",
+    "query": "где мой заказ с луноходом из пенопласта",
+    "expected_body_regex": null,
+    "ok": true,
+    "returned": []
+  },
+  {
+    "mailbox": "box-12259a301ee2",
+    "query": "выставленный счёт за аренду подводной лодки",
+    "expected_body_regex": null,
+    "ok": true,
+    "returned": []
+  },
+  {
+    "mailbox": "box-f9410417c091",
+    "query": "перчатки из титана на Луне",
+    "expected_body_regex": null,
+    "ok": true,
+    "returned": []
+  },
+  {
+    "mailbox": "box-f9410417c091",
+    "query": "сумма заказа на аквариумное мороженое",
+    "expected_body_regex": null,
+    "ok": true,
+    "returned": []
+  },
+  {
+    "mailbox": "box-f9410417c091",
+    "query": "оплата за космический полёт на Сатурн",
+    "expected_body_regex": null,
+    "ok": true,
+    "returned": []
+  },
+  {
+    "mailbox": "box-12259a301ee2",
+    "query": "Пожалуйста разыщи давно затерянное сообщение об аренде подводной лодки для океанографической экспедиции со счётом и платёжным поручением",
+    "expected_body_regex": null,
+    "ok": true,
+    "returned": []
+  }
+]

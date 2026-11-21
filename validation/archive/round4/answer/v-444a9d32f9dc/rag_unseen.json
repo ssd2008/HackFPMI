@@ -1,0 +1,152 @@
+{
+  "corpus_sha256": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+  "server_corpus_check": "sha256",
+  "fixture_sha256": "f25aa431e0db0a20bb68be1e6d3de1eeeda57dae2127b1c9b5dc81e957a6f382",
+  "scope": "Small task-authored regression set with deterministic, predeclared facts. References must open in the same snapshot. Fact-pattern and source checks do not evaluate arbitrary generated claims.",
+  "summary": {
+    "answerable": 6,
+    "all_facts_with_expected_citation": 2,
+    "unwarranted_no_evidence": 2,
+    "insufficient": 3,
+    "explicit_no_evidence": 3,
+    "citations_on_answerable": 6,
+    "expected_source_citations_on_answerable": 4,
+    "required_facts": 7,
+    "required_facts_with_citation": 3,
+    "originals_opened_in_scope": 6,
+    "modes": {
+      "extractive": 3,
+      "generative": 1,
+      "no_evidence": 5
+    }
+  },
+  "cases": [
+    {
+      "id": "unseen-01",
+      "answerable": true,
+      "mode": "extractive",
+      "answer": "«По магазину «Тихий клевер» сумма всех операций составила 1379.60 руб., комиссия банка — 44.61 руб.» [1].\n«02.10.2028 в 11:27 оформлен приход за коммунальные услуги «Тихий клевер»: 1 услуга по 3427.66, всего 3427.66.» [2].\n«ИТОГО: 2441.84.» [3].",
+      "answer_http_ms": 1830.1,
+      "opened_source_ids": [
+        "L-23aee915d4ff1bd22b59",
+        "L-fdc63a6870c7cf5897cb",
+        "L-796f8c2099a09816f183"
+      ],
+      "citations": 3,
+      "citations_to_expected": 1,
+      "facts_expected": 1,
+      "facts_cited": 1,
+      "all_expected_facts_cited": false
+    },
+    {
+      "id": "unseen-02",
+      "answerable": true,
+      "mode": "generative",
+      "answer": "Для заказа чёрной рамки AVS для мотоциклетного номера до 15.03.2028 18:00 необходимо отгрузить товар [1].",
+      "answer_http_ms": 3613.0,
+      "opened_source_ids": [
+        "L-8708a219c2024be91fce"
+      ],
+      "citations": 1,
+      "citations_to_expected": 1,
+      "facts_expected": 1,
+      "facts_cited": 1,
+      "all_expected_facts_cited": true
+    },
+    {
+      "id": "unseen-03",
+      "answerable": true,
+      "mode": "no_evidence",
+      "answer": "В найденных письмах недостаточно сведений для ответа.",
+      "answer_http_ms": 2.0,
+      "opened_source_ids": [],
+      "citations": 0,
+      "citations_to_expected": 0,
+      "facts_expected": 2,
+      "facts_cited": 0,
+      "all_expected_facts_cited": false
+    },
+    {
+      "id": "unseen-04",
+      "answerable": true,
+      "mode": "extractive",
+      "answer": "«23.08.2028 20:10:09 на платформу «EDIWeb» для компании АО «Полина Альбертовна Гурьева» (6853559850) поступил документ: уведомление о приемке SYN-5b2afe082f.» [1].",
+      "answer_http_ms": 932.7,
+      "opened_source_ids": [
+        "L-ea6b9109f27d29804e79"
+      ],
+      "citations": 1,
+      "citations_to_expected": 1,
+      "facts_expected": 1,
+      "facts_cited": 1,
+      "all_expected_facts_cited": true
+    },
+    {
+      "id": "unseen-05",
+      "answerable": true,
+      "mode": "extractive",
+      "answer": "«Уведомление о блокировке контейнера SYN-5ed15063b2 для Евгений Федосьевич Артемьев; дата 14.09.2028, время 16:59:13, терминал «Северный меридиан», клиент SYN-ae076868ff.» [1].",
+      "answer_http_ms": 318.8,
+      "opened_source_ids": [
+        "L-6ad7a43807ba4458a860"
+      ],
+      "citations": 1,
+      "citations_to_expected": 1,
+      "facts_expected": 1,
+      "facts_cited": 0,
+      "all_expected_facts_cited": false
+    },
+    {
+      "id": "unseen-06",
+      "answerable": true,
+      "mode": "no_evidence",
+      "answer": "В найденных письмах недостаточно сведений для ответа.",
+      "answer_http_ms": 5.6,
+      "opened_source_ids": [],
+      "citations": 0,
+      "citations_to_expected": 0,
+      "facts_expected": 1,
+      "facts_cited": 0,
+      "all_expected_facts_cited": false
+    },
+    {
+      "id": "unseen-07",
+      "answerable": false,
+      "mode": "no_evidence",
+      "answer": "В найденных письмах недостаточно сведений для ответа.",
+      "answer_http_ms": 1348.1,
+      "opened_source_ids": [],
+      "citations": 0,
+      "citations_to_expected": 0,
+      "facts_expected": 0,
+      "facts_cited": 0,
+      "all_expected_facts_cited": false
+    },
+    {
+      "id": "unseen-08",
+      "answerable": false,
+      "mode": "no_evidence",
+      "answer": "В найденных письмах недостаточно сведений для ответа.",
+      "answer_http_ms": 263.0,
+      "opened_source_ids": [],
+      "citations": 0,
+      "citations_to_expected": 0,
+      "facts_expected": 0,
+      "facts_cited": 0,
+      "all_expected_facts_cited": false
+    },
+    {
+      "id": "unseen-09",
+      "answerable": false,
+      "mode": "no_evidence",
+      "answer": "В найденных письмах недостаточно сведений для ответа.",
+      "answer_http_ms": 840.4,
+      "opened_source_ids": [],
+      "citations": 0,
+      "citations_to_expected": 0,
+      "facts_expected": 0,
+      "facts_cited": 0,
+      "all_expected_facts_cited": false
+    }
+  ]
+}

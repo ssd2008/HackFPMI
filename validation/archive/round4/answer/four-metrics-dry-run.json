@@ -1,0 +1,72 @@
+{
+  "official_vk": {
+    "queries": 99,
+    "positive": 99,
+    "single_positive": 42,
+    "verified_empty": 0,
+    "known_item_targets": 42,
+    "declared_windows": 99,
+    "recall_ceiling_at_10": 0.9375641606033763,
+    "sha256": {
+      "documents.jsonl": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+      "queries": "7a5b587ee7361ca2e35e1929cbbfdcc3154b4302b6fb830ae1c41846518d6017",
+      "qrels": "826362ae5592d58b3bb1cd382103dc0aef151cf014025258f0cddba0fefa0dd4"
+    }
+  },
+  "vk_dev": {
+    "queries": 250,
+    "positive": 200,
+    "single_positive": 100,
+    "verified_empty": 50,
+    "known_item_targets": 100,
+    "declared_windows": 73,
+    "recall_ceiling_at_10": 0.956721782718957,
+    "sha256": {
+      "documents.jsonl": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+      "manifest": "510db99c8af5b6f33062746ca9fcb9fd0d3b23672539694338aea3af790f65d3",
+      "panel": "3bcb21d4d39640fd9edc0bfc1b4e013b4d6582580e1c784df98dce9b14212825"
+    }
+  },
+  "personal_dev": {
+    "queries": 250,
+    "positive": 200,
+    "single_positive": 98,
+    "verified_empty": 50,
+    "known_item_targets": 100,
+    "declared_windows": 123,
+    "recall_ceiling_at_10": 0.9743648938822089,
+    "sha256": {
+      "documents.jsonl": "f882a2fe4f490127fe48feb9c44bfa76ef32d48a6971aa401561582ba8110998",
+      "manifest": "8fcae22d3359071988ba2c9e5d4c7f71167b9dc3aae8a289ba5d8df55b228782",
+      "panel": "c23f6545bbb4bd4e0997b04a729c389baabf38780d2085d55ab44dceab0e3173"
+    }
+  },
+  "vk_holdout": {
+    "queries": 250,
+    "positive": 200,
+    "single_positive": 100,
+    "verified_empty": 50,
+    "known_item_targets": 100,
+    "declared_windows": 59,
+    "recall_ceiling_at_10": 0.9828000872648537,
+    "sha256": {
+      "documents.jsonl": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+      "manifest": "7636c274c33ab1c58e2add793bc238f42bd24a045a077aab824770fae6e9207b",
+      "panel": "150802da79054d6ce1607224615eea87f2da453fa6490034373ae7d6ba122157"
+    }
+  },
+  "personal_holdout": {
+    "queries": 250,
+    "positive": 200,
+    "single_positive": 100,
+    "verified_empty": 50,
+    "known_item_targets": 100,
+    "declared_windows": 129,
+    "recall_ceiling_at_10": 0.9477186883648566,
+    "sha256": {
+      "documents.jsonl": "f882a2fe4f490127fe48feb9c44bfa76ef32d48a6971aa401561582ba8110998",
+      "manifest": "32f83d8b5f3a10c1cadc97619da5d011f2c80b98f4997323cbdf62232bd6adde",
+      "panel": "297a9cd9eb9ff6a6864c949a0321685a96721e2799615ccfd5a046f17a06c5ba"
+    }
+  }
+}

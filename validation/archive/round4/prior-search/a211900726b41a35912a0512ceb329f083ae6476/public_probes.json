@@ -1,0 +1,278 @@
+{
+  "search_probes": {
+    "fixture_sha256": "fdb80ba84fd2035a81110bfc48c678064faa1244fc064390aadeb6a7b7c0baef",
+    "documents_sha256": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+    "metrics": {
+      "positive_queries": 14,
+      "hit_at_1": 11,
+      "hit_at_5": 12,
+      "empty_queries": 7,
+      "correctly_empty": 7,
+      "returned_items": 65,
+      "invalid_mailbox_or_asof_items": 0,
+      "outside_explicit_received_window_items": 0,
+      "read_checks": 4,
+      "correct_reads": 4
+    },
+    "by_family": {
+      "abstention": {
+        "positive_queries": 0,
+        "hit_at_1": 0,
+        "hit_at_5": 0,
+        "empty_queries": 2,
+        "correctly_empty": 2,
+        "returned_items": 0,
+        "invalid_mailbox_or_asof_items": 0,
+        "outside_explicit_received_window_items": 0,
+        "read_checks": 0,
+        "correct_reads": 0
+      },
+      "payment_status": {
+        "positive_queries": 3,
+        "hit_at_1": 2,
+        "hit_at_5": 2,
+        "empty_queries": 2,
+        "correctly_empty": 2,
+        "returned_items": 8,
+        "invalid_mailbox_or_asof_items": 0,
+        "outside_explicit_received_window_items": 0,
+        "read_checks": 0,
+        "correct_reads": 0
+      },
+      "periods": {
+        "positive_queries": 3,
+        "hit_at_1": 2,
+        "hit_at_5": 2,
+        "empty_queries": 0,
+        "correctly_empty": 0,
+        "returned_items": 13,
+        "invalid_mailbox_or_asof_items": 0,
+        "outside_explicit_received_window_items": 0,
+        "read_checks": 0,
+        "correct_reads": 0
+      },
+      "scope_controls": {
+        "positive_queries": 2,
+        "hit_at_1": 2,
+        "hit_at_5": 2,
+        "empty_queries": 3,
+        "correctly_empty": 3,
+        "returned_items": 2,
+        "invalid_mailbox_or_asof_items": 0,
+        "outside_explicit_received_window_items": 0,
+        "read_checks": 0,
+        "correct_reads": 0
+      },
+      "topics": {
+        "positive_queries": 6,
+        "hit_at_1": 5,
+        "hit_at_5": 6,
+        "empty_queries": 0,
+        "correctly_empty": 0,
+        "returned_items": 42,
+        "invalid_mailbox_or_asof_items": 0,
+        "outside_explicit_received_window_items": 0,
+        "read_checks": 0,
+        "correct_reads": 0
+      }
+    }
+  },
+  "search_probes_extra": {
+    "fixture_sha256": "0697ec493732fdd24156b99f39d42a3a823b765bc20900cc500f7b17eddd36ad",
+    "documents_sha256": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+    "metrics": {
+      "positive_queries": 11,
+      "hit_at_1": 8,
+      "hit_at_5": 10,
+      "empty_queries": 4,
+      "correctly_empty": 4,
+      "returned_items": 94,
+      "invalid_mailbox_or_asof_items": 0,
+      "outside_explicit_received_window_items": 0,
+      "read_checks": 0,
+      "correct_reads": 0
+    },
+    "by_family": {
+      "accounting contract error": {
+        "positive_queries": 1,
+        "hit_at_1": 1,
+        "hit_at_5": 1,
+        "empty_queries": 0,
+        "correctly_empty": 0,
+        "returned_items": 10,
+        "invalid_mailbox_or_asof_items": 0,
+        "outside_explicit_received_window_items": 0,
+        "read_checks": 0,
+        "correct_reads": 0
+      },
+      "blocked tracking subscription": {
+        "positive_queries": 1,
+        "hit_at_1": 1,
+        "hit_at_5": 1,
+        "empty_queries": 0,
+        "correctly_empty": 0,
+        "returned_items": 10,
+        "invalid_mailbox_or_asof_items": 0,
+        "outside_explicit_received_window_items": 0,
+        "read_checks": 0,
+        "correct_reads": 0
+      },
+      "commodity futures": {
+        "positive_queries": 0,
+        "hit_at_1": 0,
+        "hit_at_5": 0,
+        "empty_queries": 1,
+        "correctly_empty": 1,
+        "returned_items": 0,
+        "invalid_mailbox_or_asof_items": 0,
+        "outside_explicit_received_window_items": 0,
+        "read_checks": 0,
+        "correct_reads": 0
+      },
+      "distinct recipient and purchaser": {
+        "positive_queries": 1,
+        "hit_at_1": 0,
+        "hit_at_5": 0,
+        "empty_queries": 0,
+        "correctly_empty": 0,
+        "returned_items": 0,
+        "invalid_mailbox_or_asof_items": 0,
+        "outside_explicit_received_window_items": 0,
+        "read_checks": 0,
+        "correct_reads": 0
+      },
+      "experience voucher": {
+        "positive_queries": 0,
+        "hit_at_1": 0,
+        "hit_at_5": 0,
+        "empty_queries": 1,
+        "correctly_empty": 1,
+        "returned_items": 0,
+        "invalid_mailbox_or_asof_items": 0,
+        "outside_explicit_received_window_items": 0,
+        "read_checks": 0,
+        "correct_reads": 0
+      },
+      "inflatable valve tool": {
+        "positive_queries": 1,
+        "hit_at_1": 1,
+        "hit_at_5": 1,
+        "empty_queries": 0,
+        "correctly_empty": 0,
+        "returned_items": 10,
+        "invalid_mailbox_or_asof_items": 0,
+        "outside_explicit_received_window_items": 0,
+        "read_checks": 0,
+        "correct_reads": 0
+      },
+      "language interpreting": {
+        "positive_queries": 0,
+        "hit_at_1": 0,
+        "hit_at_5": 0,
+        "empty_queries": 1,
+        "correctly_empty": 1,
+        "returned_items": 0,
+        "invalid_mailbox_or_asof_items": 0,
+        "outside_explicit_received_window_items": 0,
+        "read_checks": 0,
+        "correct_reads": 0
+      },
+      "merchant settlement statement": {
+        "positive_queries": 1,
+        "hit_at_1": 0,
+        "hit_at_5": 1,
+        "empty_queries": 0,
+        "correctly_empty": 0,
+        "returned_items": 10,
+        "invalid_mailbox_or_asof_items": 0,
+        "outside_explicit_received_window_items": 0,
+        "read_checks": 0,
+        "correct_reads": 0
+      },
+      "music versus industrial supplies": {
+        "positive_queries": 0,
+        "hit_at_1": 0,
+        "hit_at_5": 0,
+        "empty_queries": 1,
+        "correctly_empty": 1,
+        "returned_items": 0,
+        "invalid_mailbox_or_asof_items": 0,
+        "outside_explicit_received_window_items": 0,
+        "read_checks": 0,
+        "correct_reads": 0
+      },
+      "record lock in an HTTP service": {
+        "positive_queries": 1,
+        "hit_at_1": 1,
+        "hit_at_5": 1,
+        "empty_queries": 0,
+        "correctly_empty": 0,
+        "returned_items": 10,
+        "invalid_mailbox_or_asof_items": 0,
+        "outside_explicit_received_window_items": 0,
+        "read_checks": 0,
+        "correct_reads": 0
+      },
+      "scent and volume": {
+        "positive_queries": 1,
+        "hit_at_1": 1,
+        "hit_at_5": 1,
+        "empty_queries": 0,
+        "correctly_empty": 0,
+        "returned_items": 10,
+        "invalid_mailbox_or_asof_items": 0,
+        "outside_explicit_received_window_items": 0,
+        "read_checks": 0,
+        "correct_reads": 0
+      },
+      "several consumer devices together": {
+        "positive_queries": 1,
+        "hit_at_1": 1,
+        "hit_at_5": 1,
+        "empty_queries": 0,
+        "correctly_empty": 0,
+        "returned_items": 7,
+        "invalid_mailbox_or_asof_items": 0,
+        "outside_explicit_received_window_items": 0,
+        "read_checks": 0,
+        "correct_reads": 0
+      },
+      "two positions in a warehouse list": {
+        "positive_queries": 1,
+        "hit_at_1": 0,
+        "hit_at_5": 1,
+        "empty_queries": 0,
+        "correctly_empty": 0,
+        "returned_items": 10,
+        "invalid_mailbox_or_asof_items": 0,
+        "outside_explicit_received_window_items": 0,
+        "read_checks": 0,
+        "correct_reads": 0
+      },
+      "vehicle accessory at end of message": {
+        "positive_queries": 1,
+        "hit_at_1": 1,
+        "hit_at_5": 1,
+        "empty_queries": 0,
+        "correctly_empty": 0,
+        "returned_items": 7,
+        "invalid_mailbox_or_asof_items": 0,
+        "outside_explicit_received_window_items": 0,
+        "read_checks": 0,
+        "correct_reads": 0
+      },
+      "voucher and agent fee": {
+        "positive_queries": 1,
+        "hit_at_1": 1,
+        "hit_at_5": 1,
+        "empty_queries": 0,
+        "correctly_empty": 0,
+        "returned_items": 10,
+        "invalid_mailbox_or_asof_items": 0,
+        "outside_explicit_received_window_items": 0,
+        "read_checks": 0,
+        "correct_reads": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,461 @@
+{"query_id":"Q-0028365d86b475acdc","synthetic_user":"box-fda57474896e","query":"В каких письмах встречается идентификатор SYN-B9EB8E913534?","query_date":"2028-07-26"}
+{"query_id":"Q-00db96d1d2237e2b4b","synthetic_user":"box-90560850fd8e","query":"В каких письмах встречается идентификатор SYN-83856C71A1?","query_date":"2028-07-23"}
+{"query_id":"Q-02966e53a631bf26ee","synthetic_user":"box-f9410417c091","query":"Найди письма о топливных фильтрах, полученные 19 декабря 2026 года.","query_date":"2026-12-20"}
+{"query_id":"Q-043f9632b6c25583bf","synthetic_user":"box-fda57474896e","query":"В каких письмах встречается идентификатор SYN-1AC66ED995?","query_date":"2028-08-29"}
+{"query_id":"Q-04a780a1a02edf80b6","synthetic_user":"box-84dd8d9560e6","query":"Найди письма с обращениями покупателей о возврате товара за прошлую календарную неделю.","query_date":"2028-03-20"}
+{"query_id":"Q-04ba5282ed2237602c","synthetic_user":"box-84dd8d9560e6","query":"Какой трек-номер отправления указан в письме о заказе SYN-DE9908F27F?","query_date":"2028-04-27"}
+{"query_id":"Q-04eae5d8497c52c71b","synthetic_user":"box-2d28af4e4602","query":"Найди письма о коммунальных услугах, полученные 7 декабря 2026 года.","query_date":"2026-12-08"}
+{"query_id":"Q-0582e9b54f402ee637","synthetic_user":"box-84bd433469cb","query":"В каких письмах встречается идентификатор SYN-2240DD2C49?","query_date":"2028-10-12"}
+{"query_id":"Q-05b793a5b929bb6888","synthetic_user":"box-90560850fd8e","query":"На какую сумму был заказ SYN-0A375D5436?","query_date":"2028-07-04"}
+{"query_id":"Q-05fab58a8ad32bf669","synthetic_user":"box-2d28af4e4602","query":"Найди письма, подтверждающие успешную оплату, полученные 1 октября 2028 года.","query_date":"2028-10-02"}
+{"query_id":"Q-06ea280ab0afc7f77e","synthetic_user":"box-f9410417c091","query":"Какой трек-номер отправления указан в письме о заказе SYN-5CF2ADF6EC?","query_date":"2027-12-08"}
+{"query_id":"Q-08022865701185b35e","synthetic_user":"box-12259a301ee2","query":"В каких письмах встречается идентификатор SYN-57E6B56439?","query_date":"2028-08-25"}
+{"query_id":"Q-0e5c6dfb7d01beccec","synthetic_user":"box-90560850fd8e","query":"Найди уведомления об автовизитах на терминал за прошлый календарный месяц.","query_date":"2028-07-01"}
+{"query_id":"Q-0f6ab9db6bc654ac1c","synthetic_user":"box-90560850fd8e","query":"Найди уведомления о поступлении новых заказов, полученные вчера.","query_date":"2028-06-13"}
+{"query_id":"Q-0fc62a8babaf8d0f52","synthetic_user":"box-f9410417c091","query":"На какую сумму был заказ SYN-7849A0128A?","query_date":"2027-12-28"}
+{"query_id":"Q-1026d6aeb63e3c6756","synthetic_user":"box-f9410417c091","query":"В каких письмах встречается идентификатор SYN-A17480135?","query_date":"2028-01-01"}
+{"query_id":"Q-103335634732b28843","synthetic_user":"box-90560850fd8e","query":"До какого времени вчера просили решить, что делать с возвратом покупателя?","query_date":"2028-06-27"}
+{"query_id":"Q-1295ddf47194068091","synthetic_user":"box-2d28af4e4602","query":"В каком заказе из вчерашних можно найти сразу сервисную подписку и вознаграждение агента?","query_date":"2025-11-30"}
+{"query_id":"Q-12c67f175899737c16","synthetic_user":"box-fda57474896e","query":"В каких письмах встречается идентификатор SYN-839EB138BE21?","query_date":"2028-09-19"}
+{"query_id":"Q-12f593b0cabac3022b","synthetic_user":"box-90560850fd8e","query":"Найди письма о щётках или скребках для очистки автомобиля от снега и льда, полученные 16 июня 2028 года.","query_date":"2028-06-17"}
+{"query_id":"Q-13117866b0f58aea06","synthetic_user":"box-84bd433469cb","query":"В каких письмах встречается идентификатор SYN-0F21639621?","query_date":"2028-10-01"}
+{"query_id":"Q-149f424c9952564536","synthetic_user":"box-84bd433469cb","query":"Найди письма о разрешении таможни на выпуск контейнера, полученные вчера.","query_date":"2028-09-20"}
+{"query_id":"Q-15ae9b82a944f5e05d","synthetic_user":"box-12259a301ee2","query":"В каких письмах встречается идентификатор SYN-15AA600908?","query_date":"2028-09-01"}
+{"query_id":"Q-164902250216b7c4fd","synthetic_user":"box-12259a301ee2","query":"В каких письмах встречается идентификатор SYN-FE02E567E1?","query_date":"2028-10-01"}
+{"query_id":"Q-166867d68669f2f22a","synthetic_user":"box-f9410417c091","query":"Найди уведомления о поступлении новых заказов, полученные вчера.","query_date":"2026-11-22"}
+{"query_id":"Q-182602478a7517b4d2","synthetic_user":"box-f9410417c091","query":"В каких письмах встречается идентификатор SYN-86F778BC22?","query_date":"2027-12-23"}
+{"query_id":"Q-190a1458d795cd82aa","synthetic_user":"box-84dd8d9560e6","query":"Найди вчерашний заказ, где щетка для очистки снега совмещена со скребком.","query_date":"2028-03-08"}
+{"query_id":"Q-19ffb106661c2af897","synthetic_user":"box-84dd8d9560e6","query":"Какой трек-номер отправления указан в письме о заказе SYN-447C87E151?","query_date":"2028-04-13"}
+{"query_id":"Q-1b0b1606f0ae7c8f7a","synthetic_user":"box-90560850fd8e","query":"Найди письма с обращениями покупателей о возврате товара, полученные вчера.","query_date":"2028-06-24"}
+{"query_id":"Q-1dd4ca43778eda737e","synthetic_user":"box-84dd8d9560e6","query":"Какой трек-номер отправления указан в письме о заказе SYN-3BC0EB1FDA?","query_date":"2028-04-10"}
+{"query_id":"Q-1e3ab124764075f8f5","synthetic_user":"box-f9410417c091","query":"Мне нужны письма о топливных фильтрах.","query_date":"2027-11-21"}
+{"query_id":"Q-1ec4c196b106d39e2d","synthetic_user":"box-90560850fd8e","query":"В каких письмах встречается идентификатор SYN-0CF125A90F?","query_date":"2028-07-30"}
+{"query_id":"Q-1ed3d4d81cc9e9be54","synthetic_user":"box-84bd433469cb","query":"В каких письмах встречается идентификатор SYN-F8725169B8?","query_date":"2028-09-28"}
+{"query_id":"Q-23a8a5c3ebe2d18448","synthetic_user":"box-f9410417c091","query":"Найди уведомления о поступлении новых заказов, полученные вчера.","query_date":"2025-12-15"}
+{"query_id":"Q-2411f3fb5944acc61a","synthetic_user":"box-84dd8d9560e6","query":"Сколько стоил вчерашний заказ на пол-литра жидкого мыла с грейпфрутом?","query_date":"2028-03-08"}
+{"query_id":"Q-259700e52ade7f1ffc","synthetic_user":"box-84bd433469cb","query":"Найди письма о выгрузке контейнеров, полученные 16 сентября 2028 года.","query_date":"2028-09-17"}
+{"query_id":"Q-28a30b84f43a6029e9","synthetic_user":"box-fda57474896e","query":"В каких письмах встречается идентификатор SYN-119578E882F4?","query_date":"2028-08-12"}
+{"query_id":"Q-28fcfb9cf3148793be","synthetic_user":"box-90560850fd8e","query":"В каких письмах встречается идентификатор SYN-F4913E7B5F?","query_date":"2028-07-04"}
+{"query_id":"Q-2a950e929d201b2782","synthetic_user":"box-fda57474896e","query":"В каком вчерашнем отчёте об ошибке не нашлось поля, которое определяет, включён ли НДС в цену?","query_date":"2028-08-03"}
+{"query_id":"Q-2d034aa5b2e8951621","synthetic_user":"box-84bd433469cb","query":"В каких письмах встречается идентификатор SYN-BA4D23D881?","query_date":"2028-09-24"}
+{"query_id":"Q-2dfd4f3434a5702fa0","synthetic_user":"box-f9410417c091","query":"В каких письмах встречается идентификатор SYN-6D2548C0BF?","query_date":"2027-04-04"}
+{"query_id":"Q-2ee9924267e0466479","synthetic_user":"box-84bd433469cb","query":"Найди уведомления о погрузке контейнеров, полученные вчера.","query_date":"2028-09-08"}
+{"query_id":"Q-3022e58c0aebd10225","synthetic_user":"box-f9410417c091","query":"Какой трек-номер отправления указан в письме о заказе SYN-1952EACA50?","query_date":"2028-01-07"}
+{"query_id":"Q-31442c7445022125e8","synthetic_user":"box-84bd433469cb","query":"Мне нужны уведомления о погрузке контейнеров.","query_date":"2028-09-12"}
+{"query_id":"Q-33c903ccc0ed2a4a92","synthetic_user":"box-90560850fd8e","query":"Какой трек-номер отправления указан в письме о заказе SYN-5EB45D238F?","query_date":"2028-07-09"}
+{"query_id":"Q-343c3fcae87e991a70","synthetic_user":"box-2d28af4e4602","query":"Мне нужны письма, подтверждающие успешную оплату.","query_date":"2028-10-01"}
+{"query_id":"Q-35f640baa1e63ea22b","synthetic_user":"box-90560850fd8e","query":"Какой трек-номер отправления указан в письме о заказе SYN-B7631EE07B?","query_date":"2028-07-30"}
+{"query_id":"Q-374f7989be3a7462e8","synthetic_user":"box-84dd8d9560e6","query":"В каких письмах встречается идентификатор SYN-D853A7764B?","query_date":"2028-04-09"}
+{"query_id":"Q-39a7845ecee575cba4","synthetic_user":"box-90560850fd8e","query":"В каких письмах встречается идентификатор SYN-FF36634AD3?","query_date":"2028-07-06"}
+{"query_id":"Q-3a7dbe9a7a14e14de5","synthetic_user":"box-f9410417c091","query":"Найди письма о датчике положения коленчатого вала за прошлый календарный месяц.","query_date":"2027-12-01"}
+{"query_id":"Q-3db7402b00d062ffd3","synthetic_user":"box-f9410417c091","query":"Мне нужны уведомления о поступлении новых заказов.","query_date":"2025-12-31"}
+{"query_id":"Q-3ef098da3b06162dad","synthetic_user":"box-2d28af4e4602","query":"Найди письма, подтверждающие успешную оплату, полученные вчера.","query_date":"2028-10-11"}
+{"query_id":"Q-3fe68a4d7bbf116bfe","synthetic_user":"box-fda57474896e","query":"В каких письмах встречается идентификатор SYN-304ED43DF210?","query_date":"2028-07-30"}
+{"query_id":"Q-402d2ac49d8bf9945f","synthetic_user":"box-2d28af4e4602","query":"В каких письмах встречается идентификатор SYN-CEF5F3D57A?","query_date":"2028-11-10"}
+{"query_id":"Q-4225fc6ea1df8c4353","synthetic_user":"box-f9410417c091","query":"Найди уведомления о поступлении новых заказов, полученные с 1 декабря 2026 года по 31 декабря 2026 года.","query_date":"2027-01-01"}
+{"query_id":"Q-4235e423463a19764b","synthetic_user":"box-f9410417c091","query":"На какую сумму был заказ SYN-C55250D62E?","query_date":"2027-12-02"}
+{"query_id":"Q-425452a99af56570bf","synthetic_user":"box-fda57474896e","query":"Найди уведомления об отмене заказа покупателем за прошлую календарную неделю.","query_date":"2028-07-24"}
+{"query_id":"Q-42e69843a3833c6a54","synthetic_user":"box-f9410417c091","query":"Найди уведомления о поступлении новых заказов, полученные вчера.","query_date":"2026-12-17"}
+{"query_id":"Q-42eef0f56b6805ee78","synthetic_user":"box-90560850fd8e","query":"Какие длины у двух зимних стеклоочистителей из вчерашнего заказа?","query_date":"2028-06-27"}
+{"query_id":"Q-433f028361f2bf770b","synthetic_user":"box-2d28af4e4602","query":"Мне нужны письма, подтверждающие успешную оплату.","query_date":"2028-10-12"}
+{"query_id":"Q-458e5772b52aa6f744","synthetic_user":"box-84dd8d9560e6","query":"Во сколько обошёлся заказ на удлинитель длиной 125 мм из вчерашнего письма?","query_date":"2028-03-08"}
+{"query_id":"Q-4591a7c7f6650a39b5","synthetic_user":"box-f9410417c091","query":"В каких письмах встречается идентификатор SYN-2F6D40462E?","query_date":"2028-01-02"}
+{"query_id":"Q-46fe5b76b7c33e5bc4","synthetic_user":"box-84dd8d9560e6","query":"Найди уведомления о поступлении новых заказов, полученные с 6 апреля 2026 года по 12 апреля 2026 года.","query_date":"2026-04-13"}
+{"query_id":"Q-47aa3494ace745e6ac","synthetic_user":"box-84dd8d9560e6","query":"В каких письмах встречается идентификатор SYN-B39B92D6C0?","query_date":"2028-03-24"}
+{"query_id":"Q-47bebf227005d799c6","synthetic_user":"box-84bd433469cb","query":"В каких письмах встречается идентификатор SYN-B315D1F873?","query_date":"2028-09-20"}
+{"query_id":"Q-4804dc46b0067828c6","synthetic_user":"box-f9410417c091","query":"Мне нужны уведомления о поступлении новых заказов.","query_date":"2026-12-15"}
+{"query_id":"Q-493c625b51ffcb5ed7","synthetic_user":"box-fda57474896e","query":"В каких письмах встречается идентификатор SYN-C8E4326318?","query_date":"2028-07-20"}
+{"query_id":"Q-4afcdcda7b34c94bbd","synthetic_user":"box-84dd8d9560e6","query":"На какую сумму был заказ SYN-2F2D5354CF?","query_date":"2028-03-27"}
+{"query_id":"Q-4b1433fb1240e59b72","synthetic_user":"box-90560850fd8e","query":"Мне нужны уведомления о поступлении новых заказов.","query_date":"2027-07-19"}
+{"query_id":"Q-4cc54e993fba63d34c","synthetic_user":"box-2d28af4e4602","query":"Найди письма о коммунальных услугах, полученные с 25 октября 2027 года по 31 октября 2027 года.","query_date":"2027-11-01"}
+{"query_id":"Q-4e62a55df2c93cc008","synthetic_user":"box-84dd8d9560e6","query":"В каких письмах встречается идентификатор SYN-26539E2E9C?","query_date":"2028-04-28"}
+{"query_id":"Q-4ecc71a0771d1e8d8f","synthetic_user":"box-f9410417c091","query":"Какой трек-номер отправления указан в письме о заказе SYN-C2EF75EEEC?","query_date":"2027-12-19"}
+{"query_id":"Q-4f01727a54c3adf4f4","synthetic_user":"box-84bd433469cb","query":"Какое из вчерашних сообщений сообщает, что контейнер ещё только ждут, и называет плановую дату?","query_date":"2028-09-05"}
+{"query_id":"Q-52006019eefbd0ff2b","synthetic_user":"box-84dd8d9560e6","query":"В каких письмах встречается идентификатор SYN-4B80FA48ED?","query_date":"2028-04-18"}
+{"query_id":"Q-526449b6536e05a242","synthetic_user":"box-fda57474896e","query":"В каких письмах встречается идентификатор SYN-9B7357D4C8E5?","query_date":"2028-09-05"}
+{"query_id":"Q-56dc8cf7192da80bf7","synthetic_user":"box-90560850fd8e","query":"На какую сумму был заказ SYN-776E50A31B?","query_date":"2028-07-12"}
+{"query_id":"Q-59be239e2079df31b0","synthetic_user":"box-12259a301ee2","query":"В каких письмах встречается идентификатор SYN-234A32ECAA?","query_date":"2028-10-01"}
+{"query_id":"Q-5afb91d0a88e65ac02","synthetic_user":"box-84bd433469cb","query":"Мне нужны письма о разрешении таможни на выпуск контейнера.","query_date":"2028-09-14"}
+{"query_id":"Q-5baf3db2f8d40a8528","synthetic_user":"box-12259a301ee2","query":"Найди письма, подтверждающие успешную оплату, полученные 19 августа 2028 года.","query_date":"2028-08-20"}
+{"query_id":"Q-5dd29845a22f6fe504","synthetic_user":"box-fda57474896e","query":"В каких письмах встречается идентификатор SYN-7AD4923BB577?","query_date":"2028-07-27"}
+{"query_id":"Q-5e36573ebe044b97be","synthetic_user":"box-84dd8d9560e6","query":"Найди уведомления о поступлении новых заказов, полученные вчера.","query_date":"2027-05-15"}
+{"query_id":"Q-5e72735457d734b500","synthetic_user":"box-84bd433469cb","query":"Найди уведомления о погрузке контейнеров, полученные 17 сентября 2028 года.","query_date":"2028-09-18"}
+{"query_id":"Q-6327b66d8624089589","synthetic_user":"box-2d28af4e4602","query":"В каких письмах встречается идентификатор SYN-0540F744A0?","query_date":"2028-10-23"}
+{"query_id":"Q-639588502a68bf3fd9","synthetic_user":"box-84dd8d9560e6","query":"Найди письма о щётках или скребках для очистки автомобиля от снега и льда, полученные вчера.","query_date":"2028-03-09"}
+{"query_id":"Q-69aa483dfaf46315ca","synthetic_user":"box-2d28af4e4602","query":"Найди письма, подтверждающие успешную оплату, полученные вчера.","query_date":"2028-09-29"}
+{"query_id":"Q-6e73fdf0237c1f0062","synthetic_user":"box-84bd433469cb","query":"В каких письмах встречается идентификатор SYN-ECD974194B?","query_date":"2028-10-31"}
+{"query_id":"Q-6eea5e1b42ca5cd052","synthetic_user":"box-90560850fd8e","query":"В каких письмах встречается идентификатор SYN-A9E4986382?","query_date":"2028-07-05"}
+{"query_id":"Q-6f1abc46281989f8cb","synthetic_user":"box-2d28af4e4602","query":"В каких письмах встречается идентификатор SYN-BAD281CB07?","query_date":"2028-10-12"}
+{"query_id":"Q-74fd8dcc3e25c77404","synthetic_user":"box-84bd433469cb","query":"В каких письмах встречается идентификатор SYN-0A9289234D0C?","query_date":"2028-10-11"}
+{"query_id":"Q-75bf6635f433f1d7a5","synthetic_user":"box-f9410417c091","query":"Найди письма о датчике положения коленчатого вала, полученные вчера.","query_date":"2027-12-01"}
+{"query_id":"Q-75c57e239380c4fec5","synthetic_user":"box-84dd8d9560e6","query":"Найди письма с обращениями покупателей о возврате товара, полученные 15 марта 2028 года.","query_date":"2028-03-16"}
+{"query_id":"Q-77387a8853b96c5500","synthetic_user":"box-90560850fd8e","query":"Мне нужны письма об ароматизаторах для автомобиля.","query_date":"2028-06-29"}
+{"query_id":"Q-78aa5f807456b269d9","synthetic_user":"box-84dd8d9560e6","query":"Мне нужны письма о щётках или скребках для очистки автомобиля от снега и льда.","query_date":"2028-03-13"}
+{"query_id":"Q-7911cbf16921f5b03c","synthetic_user":"box-90560850fd8e","query":"В каких письмах встречается идентификатор SYN-EFBFD68152?","query_date":"2028-06-28"}
+{"query_id":"Q-7aeffaf6c9e0a5ac59","synthetic_user":"box-fda57474896e","query":"Найди уведомления об отмене заказа покупателем, полученные с 1 июля 2028 года по 31 июля 2028 года.","query_date":"2028-08-01"}
+{"query_id":"Q-7bc3a0e3326aa43479","synthetic_user":"box-84dd8d9560e6","query":"В каких письмах встречается идентификатор SYN-2BF761956E?","query_date":"2028-03-29"}
+{"query_id":"Q-7e5970b4cdd188031a","synthetic_user":"box-2d28af4e4602","query":"Найди письма, подтверждающие успешную оплату, полученные 29 сентября 2028 года.","query_date":"2028-09-30"}
+{"query_id":"Q-7ea754a4523a6be230","synthetic_user":"box-fda57474896e","query":"В каких письмах встречается идентификатор SYN-B5B5C74D6250?","query_date":"2027-10-26"}
+{"query_id":"Q-7ef942f93d7350c3cb","synthetic_user":"box-84dd8d9560e6","query":"Найди уведомления о поступлении новых заказов, полученные 10 апреля 2027 года.","query_date":"2027-04-11"}
+{"query_id":"Q-80e7ac9cd2e1ca26ba","synthetic_user":"box-84dd8d9560e6","query":"В каких письмах встречается идентификатор SYN-6A2CCC047E?","query_date":"2028-03-28"}
+{"query_id":"Q-8133ba04da03876766","synthetic_user":"box-84dd8d9560e6","query":"Какой трек-номер отправления указан в письме о заказе SYN-642E7210B5?","query_date":"2028-03-31"}
+{"query_id":"Q-813c5165f7cb1ae59e","synthetic_user":"box-fda57474896e","query":"Найди уведомления об отмене заказа покупателем, полученные 21 июля 2028 года.","query_date":"2028-07-22"}
+{"query_id":"Q-8223a691b09025e2a1","synthetic_user":"box-2d28af4e4602","query":"В каких письмах встречается идентификатор SYN-3FD6B9C250?","query_date":"2028-11-05"}
+{"query_id":"Q-82791cd5b1549a9b2a","synthetic_user":"box-f9410417c091","query":"Найди уведомления о поступлении новых заказов, полученные 15 ноября 2027 года.","query_date":"2027-11-16"}
+{"query_id":"Q-82fdc660214b8552cc","synthetic_user":"box-fda57474896e","query":"В каких письмах встречается идентификатор SYN-13CB852B42?","query_date":"2028-09-16"}
+{"query_id":"Q-84eb055bdc8d667d32","synthetic_user":"box-f9410417c091","query":"В каких письмах встречается идентификатор SYN-AD9CF47792?","query_date":"2028-01-07"}
+{"query_id":"Q-859874bd84655ea25a","synthetic_user":"box-f9410417c091","query":"На какую сумму был заказ SYN-3AF2A7B62F?","query_date":"2027-12-25"}
+{"query_id":"Q-85be18ce868dc4fa82","synthetic_user":"box-84dd8d9560e6","query":"Мне нужны письма об ароматизаторах для автомобиля.","query_date":"2028-03-16"}
+{"query_id":"Q-8abf626d5b77d1e9f3","synthetic_user":"box-2d28af4e4602","query":"В каких вчерашних онлайн-заказах способом оплаты указан FasterPayments?","query_date":"2025-11-30"}
+{"query_id":"Q-8aff118da29940bbc2","synthetic_user":"box-f9410417c091","query":"Найди письма о топливных фильтрах, полученные вчера.","query_date":"2027-11-27"}
+{"query_id":"Q-8b4e28c842418de2d0","synthetic_user":"box-90560850fd8e","query":"В каких письмах встречается идентификатор SYN-1AD9C9A585?","query_date":"2029-08-19"}
+{"query_id":"Q-8b6e08e46d64b8fd62","synthetic_user":"box-f9410417c091","query":"В каких письмах встречается идентификатор SYN-49C45F9732?","query_date":"2027-12-11"}
+{"query_id":"Q-8e03227efd83b0e36e","synthetic_user":"box-84dd8d9560e6","query":"В каких письмах встречается идентификатор SYN-32554FD445?","query_date":"2028-04-28"}
+{"query_id":"Q-8e2ffe86b60d767685","synthetic_user":"box-90560850fd8e","query":"Мне нужны уведомления о поступлении новых заказов.","query_date":"2028-06-14"}
+{"query_id":"Q-9514d98f6d76ebae76","synthetic_user":"box-84bd433469cb","query":"Найди уведомления об автовизитах на терминал, полученные вчера.","query_date":"2028-09-12"}
+{"query_id":"Q-96225b50de15e33276","synthetic_user":"box-90560850fd8e","query":"В каких письмах встречается идентификатор SYN-391583DBF4?","query_date":"2028-07-03"}
+{"query_id":"Q-99192da5877e2573a7","synthetic_user":"box-84bd433469cb","query":"Найди письма о выгрузке контейнеров, полученные вчера.","query_date":"2028-09-11"}
+{"query_id":"Q-9b1bd82dad611c0ba0","synthetic_user":"box-90560850fd8e","query":"На какую сумму был заказ SYN-B15750B72C?","query_date":"2028-07-27"}
+{"query_id":"Q-9e95c05aabf18d9bca","synthetic_user":"box-84dd8d9560e6","query":"Какой трек-номер отправления указан в письме о заказе SYN-2AD92E0ADE?","query_date":"2028-04-19"}
+{"query_id":"Q-9ed78bb8958253facb","synthetic_user":"box-f9410417c091","query":"Мне нужны письма о датчике положения коленчатого вала.","query_date":"2027-12-02"}
+{"query_id":"Q-9fae220cd44cdc8390","synthetic_user":"box-90560850fd8e","query":"На какую сумму был заказ SYN-DD7E57ACF3?","query_date":"2028-07-18"}
+{"query_id":"Q-a0f8571b47381751aa","synthetic_user":"box-90560850fd8e","query":"Мне нужны письма об ароматизаторах для автомобиля.","query_date":"2028-06-16"}
+{"query_id":"Q-a12d8c5ad921f8649b","synthetic_user":"box-12259a301ee2","query":"В каких письмах встречается идентификатор SYN-A1A1CF127D?","query_date":"2028-09-17"}
+{"query_id":"Q-a1c9ca7db7948684ed","synthetic_user":"box-2d28af4e4602","query":"Найди письма о коммунальных услугах, полученные вчера.","query_date":"2027-10-07"}
+{"query_id":"Q-a37d5592b1bb8e677b","synthetic_user":"box-90560850fd8e","query":"В каких письмах встречается идентификатор SYN-93BC98765E?","query_date":"2028-07-08"}
+{"query_id":"Q-a45d0598b370defa60","synthetic_user":"box-90560850fd8e","query":"Мне нужны письма об ароматизаторах для автомобиля.","query_date":"2028-06-22"}
+{"query_id":"Q-a4b5bd7d70723b38db","synthetic_user":"box-84dd8d9560e6","query":"На какую сумму был заказ SYN-495AC0F445?","query_date":"2028-03-16"}
+{"query_id":"Q-a796efcade10a34e50","synthetic_user":"box-84dd8d9560e6","query":"В каких письмах встречается идентификатор SYN-7143769D2C?","query_date":"2028-05-02"}
+{"query_id":"Q-aa735395ee543f1d17","synthetic_user":"box-90560850fd8e","query":"Какой трек-номер отправления указан в письме о заказе SYN-1DA0C0E70D?","query_date":"2028-08-01"}
+{"query_id":"Q-ab4cc1cf2dec30b85d","synthetic_user":"box-f9410417c091","query":"Мне нужны письма о датчике положения коленчатого вала.","query_date":"2027-11-23"}
+{"query_id":"Q-ab73df7919e1254bee","synthetic_user":"box-fda57474896e","query":"В каких письмах встречается идентификатор SYN-14919CCFCDCD?","query_date":"2028-07-23"}
+{"query_id":"Q-ad92ea16cdc23c1bec","synthetic_user":"box-2d28af4e4602","query":"Найди письма о коммунальных услугах, полученные 30 сентября 2028 года.","query_date":"2028-10-01"}
+{"query_id":"Q-ae01b35afae0ba8410","synthetic_user":"box-90560850fd8e","query":"В каких письмах встречается идентификатор SYN-EAB7857FD2?","query_date":"2028-07-09"}
+{"query_id":"Q-ae697e270232fe4cc6","synthetic_user":"box-2d28af4e4602","query":"Найди письма, подтверждающие успешную оплату за прошлую календарную неделю.","query_date":"2028-10-09"}
+{"query_id":"Q-b074248b54d62d436d","synthetic_user":"box-12259a301ee2","query":"В каких письмах встречается идентификатор SYN-CF72DA972B?","query_date":"2028-10-03"}
+{"query_id":"Q-b1beefe173884a308e","synthetic_user":"box-84dd8d9560e6","query":"В каких письмах встречается идентификатор SYN-460022D709?","query_date":"2028-03-28"}
+{"query_id":"Q-b1e31e5554be676695","synthetic_user":"box-2d28af4e4602","query":"В каких письмах встречается идентификатор SYN-97F1FDA793?","query_date":"2028-11-14"}
+{"query_id":"Q-b342fca1fb0e7008a9","synthetic_user":"box-84dd8d9560e6","query":"На какую сумму был заказ SYN-75F73A6116?","query_date":"2028-04-08"}
+{"query_id":"Q-b36d9013e30b3cf952","synthetic_user":"box-f9410417c091","query":"В каких письмах встречается идентификатор SYN-DC45306E8A?","query_date":"2027-12-01"}
+{"query_id":"Q-b477d5c52c999b803f","synthetic_user":"box-84bd433469cb","query":"Найди письма о разрешении таможни на выпуск контейнера, полученные 18 сентября 2028 года.","query_date":"2028-09-19"}
+{"query_id":"Q-b542e688c0324a5a16","synthetic_user":"box-84bd433469cb","query":"В каких письмах встречается идентификатор SYN-F2B4D5AE9D?","query_date":"2028-09-26"}
+{"query_id":"Q-b7fd70435200c1e418","synthetic_user":"box-90560850fd8e","query":"Найди письма об ароматизаторах для автомобиля, полученные 17 июля 2026 года.","query_date":"2026-07-18"}
+{"query_id":"Q-b8995220c964eab253","synthetic_user":"box-84bd433469cb","query":"В каких письмах встречается идентификатор SYN-6C33DBCC1B?","query_date":"2028-10-06"}
+{"query_id":"Q-bbb560c4f8b6b2dbe1","synthetic_user":"box-12259a301ee2","query":"В каких письмах встречается идентификатор SYN-54D4C1C875?","query_date":"2028-10-05"}
+{"query_id":"Q-bc44072dd66c67c541","synthetic_user":"box-84dd8d9560e6","query":"Найди письма о щётках или скребках для очистки автомобиля от снега и льда, полученные 14 марта 2028 года.","query_date":"2028-03-15"}
+{"query_id":"Q-bc70677995f3f5e978","synthetic_user":"box-2d28af4e4602","query":"Найди письма, подтверждающие успешную оплату, полученные 4 октября 2028 года.","query_date":"2028-10-05"}
+{"query_id":"Q-bccf574ea2f4709a64","synthetic_user":"box-fda57474896e","query":"В каких письмах встречается идентификатор SYN-B5E0D65DBDFC?","query_date":"2028-09-16"}
+{"query_id":"Q-bcebdf3d078542004a","synthetic_user":"box-84bd433469cb","query":"Найди письма о разрешении таможни на выпуск контейнера за прошлый календарный месяц.","query_date":"2028-10-01"}
+{"query_id":"Q-bd118757c383d132e6","synthetic_user":"box-90560850fd8e","query":"Найди письма об ароматизаторах для автомобиля, полученные вчера.","query_date":"2028-06-23"}
+{"query_id":"Q-bd68657b4f350fd96e","synthetic_user":"box-84bd433469cb","query":"В каких письмах встречается идентификатор SYN-087BE45EA0?","query_date":"2028-10-25"}
+{"query_id":"Q-bfa87eeb1c97e0c928","synthetic_user":"box-f9410417c091","query":"Какой трек-номер отправления указан в письме о заказе SYN-048B2235D9?","query_date":"2027-12-11"}
+{"query_id":"Q-c19f69e71ea254f265","synthetic_user":"box-90560850fd8e","query":"Мне нужны письма о щётках или скребках для очистки автомобиля от снега и льда.","query_date":"2028-06-15"}
+{"query_id":"Q-c2558c109cebe0a2bd","synthetic_user":"box-f9410417c091","query":"Найди уведомления о поступлении новых заказов за прошлый календарный месяц.","query_date":"2027-02-01"}
+{"query_id":"Q-c29460f44bb8cd082d","synthetic_user":"box-2d28af4e4602","query":"Мне нужны письма, подтверждающие успешную оплату.","query_date":"2028-10-06"}
+{"query_id":"Q-c34150c346fa4b47ea","synthetic_user":"box-90560850fd8e","query":"Найди письма о щётках или скребках для очистки автомобиля от снега и льда, полученные 27 июня 2028 года.","query_date":"2028-06-28"}
+{"query_id":"Q-c3d4f90be1590f140e","synthetic_user":"box-84bd433469cb","query":"Найди письма о разрешении таможни на выпуск контейнера, полученные вчера.","query_date":"2028-09-18"}
+{"query_id":"Q-c6c381664b7148e909","synthetic_user":"box-2d28af4e4602","query":"В каких письмах встречается идентификатор SYN-6DA5EEC11B?","query_date":"2028-10-19"}
+{"query_id":"Q-c70cbd31e49db8b369","synthetic_user":"box-2d28af4e4602","query":"В каких письмах встречается идентификатор SYN-FF250E5211?","query_date":"2028-10-31"}
+{"query_id":"Q-c83053be9ebd22b1e2","synthetic_user":"box-84dd8d9560e6","query":"Найди уведомления о поступлении новых заказов, полученные вчера.","query_date":"2028-03-21"}
+{"query_id":"Q-c8814cb6f3a117e08d","synthetic_user":"box-84dd8d9560e6","query":"Мне нужны уведомления о поступлении новых заказов.","query_date":"2027-04-12"}
+{"query_id":"Q-cbc5f83c177036fe49","synthetic_user":"box-84bd433469cb","query":"Где вчера подтвердили, что судно уже встало у причала?","query_date":"2028-09-05"}
+{"query_id":"Q-cd84fabf26ff98e003","synthetic_user":"box-90560850fd8e","query":"Найди уведомления о поступлении новых заказов, полученные с 1 августа 2027 года по 31 августа 2027 года.","query_date":"2027-09-01"}
+{"query_id":"Q-ce33331eaca8819873","synthetic_user":"box-84dd8d9560e6","query":"Найди уведомления о поступлении новых заказов, полученные вчера.","query_date":"2028-04-10"}
+{"query_id":"Q-ce5c4f847265cda30a","synthetic_user":"box-12259a301ee2","query":"В каких письмах встречается идентификатор SYN-B6EE566C90?","query_date":"2028-09-10"}
+{"query_id":"Q-cf47e57cc637b039d6","synthetic_user":"box-84dd8d9560e6","query":"Найди письма об ароматизаторах для автомобиля, полученные 9 марта 2028 года.","query_date":"2028-03-10"}
+{"query_id":"Q-d496d2d7f94b541545","synthetic_user":"box-84dd8d9560e6","query":"Найди письма о щётках или скребках для очистки автомобиля от снега и льда, полученные 6 марта 2028 года.","query_date":"2028-03-07"}
+{"query_id":"Q-d6d5a4c9c937d47e16","synthetic_user":"box-84dd8d9560e6","query":"На какую сумму был заказ SYN-1438F84471?","query_date":"2028-03-20"}
+{"query_id":"Q-d9de043f1c06b47d12","synthetic_user":"box-84bd433469cb","query":"В каких письмах встречается идентификатор SYN-E163399B527A?","query_date":"2029-10-26"}
+{"query_id":"Q-db8febb94678e55507","synthetic_user":"box-2d28af4e4602","query":"В каких письмах встречается идентификатор SYN-70BF15BDB7?","query_date":"2028-11-07"}
+{"query_id":"Q-dc9d3a93cd6e9eb928","synthetic_user":"box-84dd8d9560e6","query":"На какую сумму был заказ SYN-2835EB0783?","query_date":"2028-05-08"}
+{"query_id":"Q-dfb0b75cf2a30909a9","synthetic_user":"box-90560850fd8e","query":"Найди письма о щётках или скребках для очистки автомобиля от снега и льда, полученные 23 июня 2028 года.","query_date":"2028-06-24"}
+{"query_id":"Q-e02c793a35696338d3","synthetic_user":"box-84dd8d9560e6","query":"В каких письмах встречается идентификатор SYN-BFB26000BC?","query_date":"2028-04-22"}
+{"query_id":"Q-e41cc8c2f3003b44b9","synthetic_user":"box-fda57474896e","query":"Найди уведомления об отмене заказа покупателем, полученные вчера.","query_date":"2028-07-24"}
+{"query_id":"Q-e47a20d241e80a8a44","synthetic_user":"box-2d28af4e4602","query":"В каких письмах встречается идентификатор SYN-20CD955E9C?","query_date":"2028-11-19"}
+{"query_id":"Q-e5a2b6d678b7a6b222","synthetic_user":"box-f9410417c091","query":"Найди письма об ароматизаторах для автомобиля за прошлый календарный месяц.","query_date":"2027-12-01"}
+{"query_id":"Q-e5c8fa15bf94b3d43e","synthetic_user":"box-f9410417c091","query":"В каких письмах встречается идентификатор SYN-A74FEE68C4?","query_date":"2027-12-27"}
+{"query_id":"Q-e5d9607cdd32cf55c4","synthetic_user":"box-12259a301ee2","query":"В каких письмах встречается идентификатор SYN-A784457F26?","query_date":"2028-09-29"}
+{"query_id":"Q-e5f84ce4ac14117ad2","synthetic_user":"box-2d28af4e4602","query":"В каких письмах встречается идентификатор SYN-306C394AC0?","query_date":"2028-10-23"}
+{"query_id":"Q-e6e91c199460585dcc","synthetic_user":"box-90560850fd8e","query":"В каком вчерашнем заказе для машины упоминается салфетка из искусственной замши в тубусе?","query_date":"2028-06-27"}
+{"query_id":"Q-e7d100894be6bf6845","synthetic_user":"box-90560850fd8e","query":"Найди письма с обращениями покупателей о возврате товара, полученные 22 июня 2028 года.","query_date":"2028-06-23"}
+{"query_id":"Q-ef8b0ed51281586c42","synthetic_user":"box-90560850fd8e","query":"В каких письмах встречается идентификатор SYN-F21A2A0DF0?","query_date":"2028-07-17"}
+{"query_id":"Q-f03b7a32a62d4a34ff","synthetic_user":"box-2d28af4e4602","query":"Мне нужны письма о коммунальных услугах.","query_date":"2027-03-13"}
+{"query_id":"Q-f1f5fcfbc60ce4078c","synthetic_user":"box-84bd433469cb","query":"В каких письмах встречается идентификатор SYN-BF2C0BEE14?","query_date":"2028-10-09"}
+{"query_id":"Q-f2182bf74f09cf9cc6","synthetic_user":"box-f9410417c091","query":"В каких письмах встречается идентификатор SYN-8B0974795C?","query_date":"2027-12-21"}
+{"query_id":"Q-f30816c4f8e61a253a","synthetic_user":"box-2d28af4e4602","query":"В каких письмах встречается идентификатор SYN-1DAC97612A?","query_date":"2028-10-22"}
+{"query_id":"Q-f3a34617f281d8353a","synthetic_user":"box-90560850fd8e","query":"Какой трек-номер отправления указан в письме о заказе SYN-400BBEA89A?","query_date":"2028-07-14"}
+{"query_id":"Q-f4ccaebd3eb41aba1c","synthetic_user":"box-84bd433469cb","query":"Найди письма о разрешении таможни на выпуск контейнера, полученные вчера.","query_date":"2028-09-15"}
+{"query_id":"Q-f6b5cc725c227010ed","synthetic_user":"box-f9410417c091","query":"Какой трек-номер отправления указан в письме о заказе SYN-AC0A32D72E?","query_date":"2027-11-25"}
+{"query_id":"Q-f6c749275f40bf8f10","synthetic_user":"box-84dd8d9560e6","query":"Мне нужны письма с обращениями покупателей о возврате товара.","query_date":"2028-03-16"}
+{"query_id":"Q-f7960098676312ed55","synthetic_user":"box-84dd8d9560e6","query":"В каких письмах встречается идентификатор SYN-403409EDF3?","query_date":"2028-05-05"}
+{"query_id":"Q-f7ca2458c713a34e92","synthetic_user":"box-f9410417c091","query":"В каких письмах встречается идентификатор SYN-4F1280DC72?","query_date":"2028-01-03"}
+{"query_id":"Q-f90ea05764580d5cd6","synthetic_user":"box-fda57474896e","query":"Найди уведомления об отмене заказа покупателем, полученные вчера.","query_date":"2028-07-30"}
+{"query_id":"Q-fa656705cb8ff46cf8","synthetic_user":"box-f9410417c091","query":"На какую сумму был заказ SYN-1493D3060E?","query_date":"2027-12-19"}
+{"query_id":"Q-fabb0fe19a43b54275","synthetic_user":"box-f9410417c091","query":"В каких письмах встречается идентификатор SYN-61750CBC18?","query_date":"2027-12-17"}
+{"query_id":"Q-fb295b90b9436ae741","synthetic_user":"box-84bd433469cb","query":"Найди уведомления об автовизитах на терминал, полученные вчера.","query_date":"2028-09-14"}
+{"query_id":"Q-fbf9e3d7291dfa64dd","synthetic_user":"box-2d28af4e4602","query":"Найди письма о коммунальных услугах, полученные 3 октября 2025 года.","query_date":"2025-10-04"}
+{"query_id":"Q-fe5a6922b51634ad95","synthetic_user":"box-12259a301ee2","query":"В каких письмах встречается идентификатор SYN-3FDC58346F?","query_date":"2028-09-22"}
+{"query_id":"Q-fe7cb56a3aa0fde3d4","synthetic_user":"box-84dd8d9560e6","query":"Мне нужны письма о щётках или скребках для очистки автомобиля от снега и льда.","query_date":"2028-03-08"}
+{"query_id":"Q-feb0f31acf3631ddc0","synthetic_user":"box-f9410417c091","query":"Найди уведомления о поступлении новых заказов, полученные 16 ноября 2027 года.","query_date":"2027-11-17"}
+{"query_id":"Q-ff4a00a7bdba1b80e4","synthetic_user":"box-90560850fd8e","query":"Найди письма о щётках или скребках для очистки автомобиля от снега и льда, полученные 26 июля 2029 года.","query_date":"2029-07-27"}
+{"query_id":"Q-005e9d2f80158f1d32","synthetic_user":"box-2d28af4e4602","query":"Есть письмо, где упоминается номер SYN-9C47C428D7?","query_date":"2028-09-29"}
+{"query_id":"Q-00868416b911ea468f","synthetic_user":"box-f9410417c091","query":"Есть письмо, где упоминается номер SYN-C3A3B282B4?","query_date":"2027-11-16"}
+{"query_id":"Q-04d601275a77643f45","synthetic_user":"box-84bd433469cb","query":"Найди у меня переписку с номером SYN-40AB634491.","query_date":"2029-10-18"}
+{"query_id":"Q-0e98e2ef054f3142cd","synthetic_user":"box-84dd8d9560e6","query":"Есть письмо, где упоминается номер SYN-29D347C936?","query_date":"2028-03-15"}
+{"query_id":"Q-1bca3c007ea3e45c6d","synthetic_user":"box-84dd8d9560e6","query":"Есть письмо, где упоминается номер SYN-E92D0D056E?","query_date":"2028-03-20"}
+{"query_id":"Q-1f95f31654d07f98d8","synthetic_user":"box-2d28af4e4602","query":"Есть письмо, где упоминается номер SYN-6C85734917?","query_date":"2028-10-03"}
+{"query_id":"Q-1feffd64f27e69b37a","synthetic_user":"box-f9410417c091","query":"Найди у меня переписку с номером SYN-EE284EFA20.","query_date":"2028-12-18"}
+{"query_id":"Q-20a384bd521f2b1147","synthetic_user":"box-fda57474896e","query":"Есть письмо, где упоминается номер SYN-F40B255FE6?","query_date":"2028-07-07"}
+{"query_id":"Q-236aca694a03a9241e","synthetic_user":"box-2d28af4e4602","query":"Есть письмо, где упоминается номер SYN-6DA5EEC11B?","query_date":"2028-10-01"}
+{"query_id":"Q-253975fa4fd15662af","synthetic_user":"box-84dd8d9560e6","query":"Найди у меня переписку с номером SYN-5804A4DC10.","query_date":"2028-05-10"}
+{"query_id":"Q-2abb60ccfd4987375b","synthetic_user":"box-84bd433469cb","query":"Есть письмо, где упоминается номер SYN-E3B4C1D3F3?","query_date":"2028-09-15"}
+{"query_id":"Q-2f9c8199fb0488a142","synthetic_user":"box-90560850fd8e","query":"Найди у меня переписку с номером SYN-4F43B3E02C.","query_date":"2029-07-26"}
+{"query_id":"Q-369ce8081ec360da58","synthetic_user":"box-84bd433469cb","query":"Найди у меня переписку с номером SYN-5FB9A6E358.","query_date":"2029-10-18"}
+{"query_id":"Q-3d02494bc45fbfca31","synthetic_user":"box-12259a301ee2","query":"Найди у меня переписку с номером SYN-163E3F0B47.","query_date":"2028-08-20"}
+{"query_id":"Q-3fb4bff4b9f8b47f98","synthetic_user":"box-f9410417c091","query":"Найди у меня переписку с номером SYN-F9ACF155FE.","query_date":"2028-12-18"}
+{"query_id":"Q-4241e2eeca0dd03fc4","synthetic_user":"box-84dd8d9560e6","query":"Есть письмо, где упоминается номер SYN-023EE98F2E?","query_date":"2028-03-07"}
+{"query_id":"Q-48de1899e7c1edefcd","synthetic_user":"box-90560850fd8e","query":"Есть письмо, где упоминается номер SYN-7D232571AD?","query_date":"2028-06-14"}
+{"query_id":"Q-4a9f49d5b5b51c2342","synthetic_user":"box-12259a301ee2","query":"Есть письмо, где упоминается номер SYN-FE02E567E1?","query_date":"2028-08-16"}
+{"query_id":"Q-553a750fa311cf499b","synthetic_user":"box-2d28af4e4602","query":"Найди у меня переписку с номером SYN-EABA1EEFDF.","query_date":"2028-10-10"}
+{"query_id":"Q-627b4af7dda38f61fa","synthetic_user":"box-84bd433469cb","query":"Найди у меня переписку с номером SYN-90140769B7.","query_date":"2029-10-18"}
+{"query_id":"Q-65b36246b8691e3abc","synthetic_user":"box-84bd433469cb","query":"Найди у меня переписку с номером SYN-214A2CA82F.","query_date":"2029-10-18"}
+{"query_id":"Q-665d3860462c440281","synthetic_user":"box-84dd8d9560e6","query":"Найди у меня переписку с номером SYN-83EBF0982E.","query_date":"2028-05-10"}
+{"query_id":"Q-667a33452c23651c76","synthetic_user":"box-12259a301ee2","query":"Найди у меня переписку с номером SYN-BCA479CD74.","query_date":"2028-08-20"}
+{"query_id":"Q-670479c40b39ca3449","synthetic_user":"box-f9410417c091","query":"Найди у меня переписку с номером SYN-811FC45017.","query_date":"2028-12-18"}
+{"query_id":"Q-6abb4ca2e61e41c737","synthetic_user":"box-fda57474896e","query":"Найди у меня переписку с номером SYN-6A3C7CE87F.","query_date":"2028-09-07"}
+{"query_id":"Q-6d06e6958620997c67","synthetic_user":"box-fda57474896e","query":"Найди у меня переписку с номером SYN-ABA1CD5B7A.","query_date":"2028-09-07"}
+{"query_id":"Q-7020c587738f8543f5","synthetic_user":"box-12259a301ee2","query":"Есть письмо, где упоминается номер SYN-CF72DA972B?","query_date":"2028-08-16"}
+{"query_id":"Q-71f9b782227125fe18","synthetic_user":"box-84dd8d9560e6","query":"Есть письмо, где упоминается номер SYN-2AD92E0ADE?","query_date":"2028-03-12"}
+{"query_id":"Q-7bf608797b46a6a45a","synthetic_user":"box-12259a301ee2","query":"Найди у меня переписку с номером SYN-26FA29EFFB.","query_date":"2028-08-20"}
+{"query_id":"Q-7e41abd571394ea7cb","synthetic_user":"box-fda57474896e","query":"Найди у меня переписку с номером SYN-D5E6F97725.","query_date":"2028-09-07"}
+{"query_id":"Q-800b3474b9d636deb9","synthetic_user":"box-84bd433469cb","query":"Есть письмо, где упоминается номер SYN-003A71B3AA?","query_date":"2028-09-07"}
+{"query_id":"Q-8849347a07d51ae3b3","synthetic_user":"box-f9410417c091","query":"Найди у меня переписку с номером SYN-1D3E060E9E.","query_date":"2028-12-18"}
+{"query_id":"Q-886a716c8b459c7c0a","synthetic_user":"box-90560850fd8e","query":"Есть письмо, где упоминается номер SYN-C40249D12E?","query_date":"2028-06-21"}
+{"query_id":"Q-8c811f9c0e4233bcf1","synthetic_user":"box-2d28af4e4602","query":"Есть письмо, где упоминается номер SYN-426C5E8C4E?","query_date":"2028-09-27"}
+{"query_id":"Q-90ab91e69147aab563","synthetic_user":"box-fda57474896e","query":"Найди у меня переписку с номером SYN-DC1A8FD13F.","query_date":"2028-09-07"}
+{"query_id":"Q-90f4d01629937dc509","synthetic_user":"box-90560850fd8e","query":"Есть письмо, где упоминается номер SYN-D292FC8C8B?","query_date":"2028-06-26"}
+{"query_id":"Q-97bd78e061f3af02ac","synthetic_user":"box-84dd8d9560e6","query":"Найди у меня переписку с номером SYN-3BED39A4C7.","query_date":"2028-05-10"}
+{"query_id":"Q-99e6dda63dbf8d794c","synthetic_user":"box-fda57474896e","query":"Есть письмо, где упоминается номер SYN-0EBC787B8AB4?","query_date":"2028-07-09"}
+{"query_id":"Q-9be86b4f93f91e2e46","synthetic_user":"box-12259a301ee2","query":"Есть письмо, где упоминается номер SYN-234A32ECAA?","query_date":"2028-08-15"}
+{"query_id":"Q-9f2bbd5a0d51fc5f9c","synthetic_user":"box-84bd433469cb","query":"Есть письмо, где упоминается номер SYN-AE49DF8A38?","query_date":"2028-09-09"}
+{"query_id":"Q-a6460a7f0178d6707b","synthetic_user":"box-2d28af4e4602","query":"Найди у меня переписку с номером SYN-F5945E20F9.","query_date":"2028-10-10"}
+{"query_id":"Q-bba5daef0dda4d7026","synthetic_user":"box-84dd8d9560e6","query":"Найди у меня переписку с номером SYN-A772ECE9F9.","query_date":"2028-05-10"}
+{"query_id":"Q-bf204a09220bc33aa4","synthetic_user":"box-2d28af4e4602","query":"Найди у меня переписку с номером SYN-7FC6EDB243.","query_date":"2028-10-10"}
+{"query_id":"Q-d0749e52cd047f647b","synthetic_user":"box-2d28af4e4602","query":"Найди у меня переписку с номером SYN-5BD38A32FE.","query_date":"2028-10-10"}
+{"query_id":"Q-e0078b3837e771d828","synthetic_user":"box-90560850fd8e","query":"Найди у меня переписку с номером SYN-D159831A43.","query_date":"2029-07-26"}
+{"query_id":"Q-e1dc83f750c6472a58","synthetic_user":"box-f9410417c091","query":"Есть письмо, где упоминается номер SYN-687E2286DF?","query_date":"2027-11-21"}
+{"query_id":"Q-e4b33b547b456f18b6","synthetic_user":"box-fda57474896e","query":"Есть письмо, где упоминается номер SYN-4AFBFBE609?","query_date":"2028-07-28"}
+{"query_id":"Q-e55db3de8ea55544f1","synthetic_user":"box-f9410417c091","query":"Есть письмо, где упоминается номер SYN-AD283E7A80?","query_date":"2027-11-22"}
+{"query_id":"Q-f42bd641b742c7362a","synthetic_user":"box-90560850fd8e","query":"Есть письмо, где упоминается номер SYN-911E8FDF2D?","query_date":"2028-06-19"}
+{"query_id":"Q-fbecbb22d6d6b8ca34","synthetic_user":"box-90560850fd8e","query":"Найди у меня переписку с номером SYN-0DE5B98FD0.","query_date":"2029-07-26"}
+{"query_id":"Q-0028365d86b475acdc-P","synthetic_user":"box-fda57474896e","query":"Покажи переписку, в которой упоминается номер SYN-B9EB8E913534.","query_date":"2028-07-26"}
+{"query_id":"Q-00db96d1d2237e2b4b-P","synthetic_user":"box-90560850fd8e","query":"Покажи переписку, в которой упоминается номер SYN-83856C71A1.","query_date":"2028-07-23"}
+{"query_id":"Q-02966e53a631bf26ee-P","synthetic_user":"box-f9410417c091","query":"Покажи сообщения, где среди товаров есть фильтр для топлива за 19 декабря 2026 года.","query_date":"2026-12-20"}
+{"query_id":"Q-043f9632b6c25583bf-P","synthetic_user":"box-fda57474896e","query":"Покажи переписку, в которой упоминается номер SYN-1AC66ED995.","query_date":"2028-08-29"}
+{"query_id":"Q-04a780a1a02edf80b6-P","synthetic_user":"box-84dd8d9560e6","query":"Покажи заявки клиентов, которые хотят вернуть покупку за период с 13 марта 2028 года по 19 марта 2028 года.","query_date":"2028-03-20"}
+{"query_id":"Q-04ba5282ed2237602c-P","synthetic_user":"box-84dd8d9560e6","query":"Из письма про заказ SYN-DE9908F27F можно узнать почтовый идентификатор?","query_date":"2028-04-27"}
+{"query_id":"Q-04eae5d8497c52c71b-P","synthetic_user":"box-2d28af4e4602","query":"Покажи сообщения, где речь идёт об оплате ЖКУ за 7 декабря 2026 года.","query_date":"2026-12-08"}
+{"query_id":"Q-0582e9b54f402ee637-P","synthetic_user":"box-84bd433469cb","query":"Покажи переписку, в которой упоминается номер SYN-2240DD2C49.","query_date":"2028-10-12"}
+{"query_id":"Q-05b793a5b929bb6888-P","synthetic_user":"box-90560850fd8e","query":"Сколько рублей составил заказ SYN-0A375D5436?","query_date":"2028-07-04"}
+{"query_id":"Q-05fab58a8ad32bf669-P","synthetic_user":"box-2d28af4e4602","query":"Покажи сообщения о том, что платёж прошёл за 1 октября 2028 года.","query_date":"2028-10-02"}
+{"query_id":"Q-06ea280ab0afc7f77e-P","synthetic_user":"box-f9410417c091","query":"Из письма про заказ SYN-5CF2ADF6EC можно узнать почтовый идентификатор?","query_date":"2027-12-08"}
+{"query_id":"Q-08022865701185b35e-P","synthetic_user":"box-12259a301ee2","query":"Покажи переписку, в которой упоминается номер SYN-57E6B56439.","query_date":"2028-08-25"}
+{"query_id":"Q-0e5c6dfb7d01beccec-P","synthetic_user":"box-90560850fd8e","query":"Покажи письма о регистрации или изменении визита автомобиля на терминал за период с 1 июня 2028 года по 30 июня 2028 года.","query_date":"2028-07-01"}
+{"query_id":"Q-0e5c6dfb7d01beccec-E","synthetic_user":"box-90560850fd8e","query":"Нади уведомления об автовизитах на терминал за прошлый календарный месяц.","query_date":"2028-07-01"}
+{"query_id":"Q-0f6ab9db6bc654ac1c-P","synthetic_user":"box-90560850fd8e","query":"Покажи письма о заказах, которые только что поступили в обработку за вчера.","query_date":"2028-06-13"}
+{"query_id":"Q-0f6ab9db6bc654ac1c-E","synthetic_user":"box-90560850fd8e","query":"Нади уведомления о поступлении новых заказов, полученные вчера.","query_date":"2028-06-13"}
+{"query_id":"Q-0fc62a8babaf8d0f52-P","synthetic_user":"box-f9410417c091","query":"Сколько рублей составил заказ SYN-7849A0128A?","query_date":"2027-12-28"}
+{"query_id":"Q-1026d6aeb63e3c6756-P","synthetic_user":"box-f9410417c091","query":"Покажи переписку, в которой упоминается номер SYN-A17480135.","query_date":"2028-01-01"}
+{"query_id":"Q-12c67f175899737c16-P","synthetic_user":"box-fda57474896e","query":"Покажи переписку, в которой упоминается номер SYN-839EB138BE21.","query_date":"2028-09-19"}
+{"query_id":"Q-12f593b0cabac3022b-P","synthetic_user":"box-90560850fd8e","query":"Покажи сообщения о щётках для снега и автомобильных скребках за 16 июня 2028 года.","query_date":"2028-06-17"}
+{"query_id":"Q-13117866b0f58aea06-P","synthetic_user":"box-84bd433469cb","query":"Покажи переписку, в которой упоминается номер SYN-0F21639621.","query_date":"2028-10-01"}
+{"query_id":"Q-149f424c9952564536-P","synthetic_user":"box-84bd433469cb","query":"Покажи сообщения, где таможня разрешила выпустить груз за вчера.","query_date":"2028-09-20"}
+{"query_id":"Q-15ae9b82a944f5e05d-P","synthetic_user":"box-12259a301ee2","query":"Покажи переписку, в которой упоминается номер SYN-15AA600908.","query_date":"2028-09-01"}
+{"query_id":"Q-164902250216b7c4fd-P","synthetic_user":"box-12259a301ee2","query":"Покажи переписку, в которой упоминается номер SYN-FE02E567E1.","query_date":"2028-10-01"}
+{"query_id":"Q-166867d68669f2f22a-P","synthetic_user":"box-f9410417c091","query":"Покажи письма о заказах, которые только что поступили в обработку за вчера.","query_date":"2026-11-22"}
+{"query_id":"Q-182602478a7517b4d2-P","synthetic_user":"box-f9410417c091","query":"Покажи переписку, в которой упоминается номер SYN-86F778BC22.","query_date":"2027-12-23"}
+{"query_id":"Q-19ffb106661c2af897-P","synthetic_user":"box-84dd8d9560e6","query":"Из письма про заказ SYN-447C87E151 можно узнать почтовый идентификатор?","query_date":"2028-04-13"}
+{"query_id":"Q-1b0b1606f0ae7c8f7a-P","synthetic_user":"box-90560850fd8e","query":"Покажи заявки клиентов, которые хотят вернуть покупку за вчера.","query_date":"2028-06-24"}
+{"query_id":"Q-1dd4ca43778eda737e-P","synthetic_user":"box-84dd8d9560e6","query":"Из письма про заказ SYN-3BC0EB1FDA можно узнать почтовый идентификатор?","query_date":"2028-04-10"}
+{"query_id":"Q-1e3ab124764075f8f5-P","synthetic_user":"box-f9410417c091","query":"Покажи сообщения, где среди товаров есть фильтр для топлива.","query_date":"2027-11-21"}
+{"query_id":"Q-1ec4c196b106d39e2d-P","synthetic_user":"box-90560850fd8e","query":"Покажи переписку, в которой упоминается номер SYN-0CF125A90F.","query_date":"2028-07-30"}
+{"query_id":"Q-1ed3d4d81cc9e9be54-P","synthetic_user":"box-84bd433469cb","query":"Покажи переписку, в которой упоминается номер SYN-F8725169B8.","query_date":"2028-09-28"}
+{"query_id":"Q-23a8a5c3ebe2d18448-P","synthetic_user":"box-f9410417c091","query":"Покажи письма о заказах, которые только что поступили в обработку за вчера.","query_date":"2025-12-15"}
+{"query_id":"Q-23a8a5c3ebe2d18448-E","synthetic_user":"box-f9410417c091","query":"Нади уведомления о поступлении новых заказов, полученные вчера.","query_date":"2025-12-15"}
+{"query_id":"Q-259700e52ade7f1ffc-P","synthetic_user":"box-84bd433469cb","query":"Покажи уведомления, где контейнер выгрузили за 16 сентября 2028 года.","query_date":"2028-09-17"}
+{"query_id":"Q-28a30b84f43a6029e9-P","synthetic_user":"box-fda57474896e","query":"Покажи переписку, в которой упоминается номер SYN-119578E882F4.","query_date":"2028-08-12"}
+{"query_id":"Q-28fcfb9cf3148793be-P","synthetic_user":"box-90560850fd8e","query":"Покажи переписку, в которой упоминается номер SYN-F4913E7B5F.","query_date":"2028-07-04"}
+{"query_id":"Q-2d034aa5b2e8951621-P","synthetic_user":"box-84bd433469cb","query":"Покажи переписку, в которой упоминается номер SYN-BA4D23D881.","query_date":"2028-09-24"}
+{"query_id":"Q-2dfd4f3434a5702fa0-P","synthetic_user":"box-f9410417c091","query":"Покажи переписку, в которой упоминается номер SYN-6D2548C0BF.","query_date":"2027-04-04"}
+{"query_id":"Q-2ee9924267e0466479-P","synthetic_user":"box-84bd433469cb","query":"Покажи письма, в которых контейнеры погрузили за вчера.","query_date":"2028-09-08"}
+{"query_id":"Q-3022e58c0aebd10225-P","synthetic_user":"box-f9410417c091","query":"Из письма про заказ SYN-1952EACA50 можно узнать почтовый идентификатор?","query_date":"2028-01-07"}
+{"query_id":"Q-31442c7445022125e8-P","synthetic_user":"box-84bd433469cb","query":"Покажи письма, в которых контейнеры погрузили.","query_date":"2028-09-12"}
+{"query_id":"Q-33c903ccc0ed2a4a92-P","synthetic_user":"box-90560850fd8e","query":"Из письма про заказ SYN-5EB45D238F можно узнать почтовый идентификатор?","query_date":"2028-07-09"}
+{"query_id":"Q-343c3fcae87e991a70-P","synthetic_user":"box-2d28af4e4602","query":"Покажи сообщения о том, что платёж прошёл.","query_date":"2028-10-01"}
+{"query_id":"Q-35f640baa1e63ea22b-P","synthetic_user":"box-90560850fd8e","query":"Из письма про заказ SYN-B7631EE07B можно узнать почтовый идентификатор?","query_date":"2028-07-30"}
+{"query_id":"Q-374f7989be3a7462e8-P","synthetic_user":"box-84dd8d9560e6","query":"Покажи переписку, в которой упоминается номер SYN-D853A7764B.","query_date":"2028-04-09"}
+{"query_id":"Q-39a7845ecee575cba4-P","synthetic_user":"box-90560850fd8e","query":"Покажи переписку, в которой упоминается номер SYN-FF36634AD3.","query_date":"2028-07-06"}
+{"query_id":"Q-3a7dbe9a7a14e14de5-P","synthetic_user":"box-f9410417c091","query":"Покажи сообщения, где речь идёт про автомобильный датчик коленвала за период с 1 ноября 2027 года по 30 ноября 2027 года.","query_date":"2027-12-01"}
+{"query_id":"Q-3a7dbe9a7a14e14de5-E","synthetic_user":"box-f9410417c091","query":"Найди писмьа о датчике положения коленчатого вала за прошлый календарный месяц.","query_date":"2027-12-01"}
+{"query_id":"Q-3db7402b00d062ffd3-P","synthetic_user":"box-f9410417c091","query":"Покажи письма о заказах, которые только что поступили в обработку.","query_date":"2025-12-31"}
+{"query_id":"Q-3ef098da3b06162dad-P","synthetic_user":"box-2d28af4e4602","query":"Покажи сообщения о том, что платёж прошёл за вчера.","query_date":"2028-10-11"}
+{"query_id":"Q-3fe68a4d7bbf116bfe-P","synthetic_user":"box-fda57474896e","query":"Покажи переписку, в которой упоминается номер SYN-304ED43DF210.","query_date":"2028-07-30"}
+{"query_id":"Q-402d2ac49d8bf9945f-P","synthetic_user":"box-2d28af4e4602","query":"Покажи переписку, в которой упоминается номер SYN-CEF5F3D57A.","query_date":"2028-11-10"}
+{"query_id":"Q-4225fc6ea1df8c4353-P","synthetic_user":"box-f9410417c091","query":"Покажи письма о заказах, которые только что поступили в обработку за период с 1 декабря 2026 года по 31 декабря 2026 года.","query_date":"2027-01-01"}
+{"query_id":"Q-4235e423463a19764b-P","synthetic_user":"box-f9410417c091","query":"Сколько рублей составил заказ SYN-C55250D62E?","query_date":"2027-12-02"}
+{"query_id":"Q-425452a99af56570bf-P","synthetic_user":"box-fda57474896e","query":"Покажи письма о заказах, от которых отказался клиент за период с 17 июля 2028 года по 23 июля 2028 года.","query_date":"2028-07-24"}
+{"query_id":"Q-425452a99af56570bf-E","synthetic_user":"box-fda57474896e","query":"Нади уведомления об отмене заказа покупателем за прошлую календарную неделю.","query_date":"2028-07-24"}
+{"query_id":"Q-42e69843a3833c6a54-P","synthetic_user":"box-f9410417c091","query":"Покажи письма о заказах, которые только что поступили в обработку за вчера.","query_date":"2026-12-17"}
+{"query_id":"Q-433f028361f2bf770b-P","synthetic_user":"box-2d28af4e4602","query":"Покажи сообщения о том, что платёж прошёл.","query_date":"2028-10-12"}
+{"query_id":"Q-4591a7c7f6650a39b5-P","synthetic_user":"box-f9410417c091","query":"Покажи переписку, в которой упоминается номер SYN-2F6D40462E.","query_date":"2028-01-02"}
+{"query_id":"Q-46fe5b76b7c33e5bc4-P","synthetic_user":"box-84dd8d9560e6","query":"Покажи письма о заказах, которые только что поступили в обработку за период с 6 апреля 2026 года по 12 апреля 2026 года.","query_date":"2026-04-13"}
+{"query_id":"Q-47aa3494ace745e6ac-P","synthetic_user":"box-84dd8d9560e6","query":"Покажи переписку, в которой упоминается номер SYN-B39B92D6C0.","query_date":"2028-03-24"}
+{"query_id":"Q-47bebf227005d799c6-P","synthetic_user":"box-84bd433469cb","query":"Покажи переписку, в которой упоминается номер SYN-B315D1F873.","query_date":"2028-09-20"}
+{"query_id":"Q-4804dc46b0067828c6-P","synthetic_user":"box-f9410417c091","query":"Покажи письма о заказах, которые только что поступили в обработку.","query_date":"2026-12-15"}
+{"query_id":"Q-493c625b51ffcb5ed7-P","synthetic_user":"box-fda57474896e","query":"Покажи переписку, в которой упоминается номер SYN-C8E4326318.","query_date":"2028-07-20"}
+{"query_id":"Q-4afcdcda7b34c94bbd-P","synthetic_user":"box-84dd8d9560e6","query":"Сколько рублей составил заказ SYN-2F2D5354CF?","query_date":"2028-03-27"}
+{"query_id":"Q-4b1433fb1240e59b72-P","synthetic_user":"box-90560850fd8e","query":"Покажи письма о заказах, которые только что поступили в обработку.","query_date":"2027-07-19"}
+{"query_id":"Q-4cc54e993fba63d34c-P","synthetic_user":"box-2d28af4e4602","query":"Покажи сообщения, где речь идёт об оплате ЖКУ за период с 25 октября 2027 года по 31 октября 2027 года.","query_date":"2027-11-01"}
+{"query_id":"Q-4cc54e993fba63d34c-E","synthetic_user":"box-2d28af4e4602","query":"Найди писмьа о коммунальных услугах, полученные с 25 октября 2027 года по 31 октября 2027 года.","query_date":"2027-11-01"}
+{"query_id":"Q-4e62a55df2c93cc008-P","synthetic_user":"box-84dd8d9560e6","query":"Покажи переписку, в которой упоминается номер SYN-26539E2E9C.","query_date":"2028-04-28"}
+{"query_id":"Q-4ecc71a0771d1e8d8f-P","synthetic_user":"box-f9410417c091","query":"Из письма про заказ SYN-C2EF75EEEC можно узнать почтовый идентификатор?","query_date":"2027-12-19"}
+{"query_id":"Q-52006019eefbd0ff2b-P","synthetic_user":"box-84dd8d9560e6","query":"Покажи переписку, в которой упоминается номер SYN-4B80FA48ED.","query_date":"2028-04-18"}
+{"query_id":"Q-526449b6536e05a242-P","synthetic_user":"box-fda57474896e","query":"Покажи переписку, в которой упоминается номер SYN-9B7357D4C8E5.","query_date":"2028-09-05"}
+{"query_id":"Q-56dc8cf7192da80bf7-P","synthetic_user":"box-90560850fd8e","query":"Сколько рублей составил заказ SYN-776E50A31B?","query_date":"2028-07-12"}
+{"query_id":"Q-59be239e2079df31b0-P","synthetic_user":"box-12259a301ee2","query":"Покажи переписку, в которой упоминается номер SYN-234A32ECAA.","query_date":"2028-10-01"}
+{"query_id":"Q-5afb91d0a88e65ac02-P","synthetic_user":"box-84bd433469cb","query":"Покажи сообщения, где таможня разрешила выпустить груз.","query_date":"2028-09-14"}
+{"query_id":"Q-5baf3db2f8d40a8528-P","synthetic_user":"box-12259a301ee2","query":"Покажи сообщения о том, что платёж прошёл за 19 августа 2028 года.","query_date":"2028-08-20"}
+{"query_id":"Q-5baf3db2f8d40a8528-E","synthetic_user":"box-12259a301ee2","query":"Найди писмьа, подтверждающие успешную оплату, полученные 19 августа 2028 года.","query_date":"2028-08-20"}
+{"query_id":"Q-5dd29845a22f6fe504-P","synthetic_user":"box-fda57474896e","query":"Покажи переписку, в которой упоминается номер SYN-7AD4923BB577.","query_date":"2028-07-27"}
+{"query_id":"Q-5e36573ebe044b97be-P","synthetic_user":"box-84dd8d9560e6","query":"Покажи письма о заказах, которые только что поступили в обработку за вчера.","query_date":"2027-05-15"}
+{"query_id":"Q-5e72735457d734b500-P","synthetic_user":"box-84bd433469cb","query":"Покажи письма, в которых контейнеры погрузили за 17 сентября 2028 года.","query_date":"2028-09-18"}
+{"query_id":"Q-6327b66d8624089589-P","synthetic_user":"box-2d28af4e4602","query":"Покажи переписку, в которой упоминается номер SYN-0540F744A0.","query_date":"2028-10-23"}
+{"query_id":"Q-639588502a68bf3fd9-P","synthetic_user":"box-84dd8d9560e6","query":"Покажи сообщения о щётках для снега и автомобильных скребках за вчера.","query_date":"2028-03-09"}
+{"query_id":"Q-639588502a68bf3fd9-E","synthetic_user":"box-84dd8d9560e6","query":"Найди писмьа о щётках или скребках для очистки автомобиля от снега и льда, полученные вчера.","query_date":"2028-03-09"}
+{"query_id":"Q-69aa483dfaf46315ca-P","synthetic_user":"box-2d28af4e4602","query":"Покажи сообщения о том, что платёж прошёл за вчера.","query_date":"2028-09-29"}
+{"query_id":"Q-6e73fdf0237c1f0062-P","synthetic_user":"box-84bd433469cb","query":"Покажи переписку, в которой упоминается номер SYN-ECD974194B.","query_date":"2028-10-31"}
+{"query_id":"Q-6eea5e1b42ca5cd052-P","synthetic_user":"box-90560850fd8e","query":"Покажи переписку, в которой упоминается номер SYN-A9E4986382.","query_date":"2028-07-05"}
+{"query_id":"Q-6f1abc46281989f8cb-P","synthetic_user":"box-2d28af4e4602","query":"Покажи переписку, в которой упоминается номер SYN-BAD281CB07.","query_date":"2028-10-12"}
+{"query_id":"Q-74fd8dcc3e25c77404-P","synthetic_user":"box-84bd433469cb","query":"Покажи переписку, в которой упоминается номер SYN-0A9289234D0C.","query_date":"2028-10-11"}
+{"query_id":"Q-75bf6635f433f1d7a5-P","synthetic_user":"box-f9410417c091","query":"Покажи сообщения, где речь идёт про автомобильный датчик коленвала за вчера.","query_date":"2027-12-01"}
+{"query_id":"Q-75c57e239380c4fec5-P","synthetic_user":"box-84dd8d9560e6","query":"Покажи заявки клиентов, которые хотят вернуть покупку за 15 марта 2028 года.","query_date":"2028-03-16"}
+{"query_id":"Q-77387a8853b96c5500-P","synthetic_user":"box-90560850fd8e","query":"Покажи сообщения, в которых есть автомобильные освежители воздуха.","query_date":"2028-06-29"}
+{"query_id":"Q-78aa5f807456b269d9-P","synthetic_user":"box-84dd8d9560e6","query":"Покажи сообщения о щётках для снега и автомобильных скребках.","query_date":"2028-03-13"}
+{"query_id":"Q-7911cbf16921f5b03c-P","synthetic_user":"box-90560850fd8e","query":"Покажи переписку, в которой упоминается номер SYN-EFBFD68152.","query_date":"2028-06-28"}
+{"query_id":"Q-7aeffaf6c9e0a5ac59-P","synthetic_user":"box-fda57474896e","query":"Покажи письма о заказах, от которых отказался клиент за период с 1 июля 2028 года по 31 июля 2028 года.","query_date":"2028-08-01"}
+{"query_id":"Q-7aeffaf6c9e0a5ac59-E","synthetic_user":"box-fda57474896e","query":"Нади уведомления об отмене заказа покупателем, полученные с 1 июля 2028 года по 31 июля 2028 года.","query_date":"2028-08-01"}
+{"query_id":"Q-7bc3a0e3326aa43479-P","synthetic_user":"box-84dd8d9560e6","query":"Покажи переписку, в которой упоминается номер SYN-2BF761956E.","query_date":"2028-03-29"}
+{"query_id":"Q-7e5970b4cdd188031a-P","synthetic_user":"box-2d28af4e4602","query":"Покажи сообщения о том, что платёж прошёл за 29 сентября 2028 года.","query_date":"2028-09-30"}
+{"query_id":"Q-7ea754a4523a6be230-P","synthetic_user":"box-fda57474896e","query":"Покажи переписку, в которой упоминается номер SYN-B5B5C74D6250.","query_date":"2027-10-26"}
+{"query_id":"Q-7ef942f93d7350c3cb-P","synthetic_user":"box-84dd8d9560e6","query":"Покажи письма о заказах, которые только что поступили в обработку за 10 апреля 2027 года.","query_date":"2027-04-11"}
+{"query_id":"Q-7ef942f93d7350c3cb-E","synthetic_user":"box-84dd8d9560e6","query":"Нади уведомления о поступлении новых заказов, полученные 10 апреля 2027 года.","query_date":"2027-04-11"}
+{"query_id":"Q-80e7ac9cd2e1ca26ba-P","synthetic_user":"box-84dd8d9560e6","query":"Покажи переписку, в которой упоминается номер SYN-6A2CCC047E.","query_date":"2028-03-28"}
+{"query_id":"Q-8133ba04da03876766-P","synthetic_user":"box-84dd8d9560e6","query":"Из письма про заказ SYN-642E7210B5 можно узнать почтовый идентификатор?","query_date":"2028-03-31"}
+{"query_id":"Q-813c5165f7cb1ae59e-P","synthetic_user":"box-fda57474896e","query":"Покажи письма о заказах, от которых отказался клиент за 21 июля 2028 года.","query_date":"2028-07-22"}
+{"query_id":"Q-813c5165f7cb1ae59e-E","synthetic_user":"box-fda57474896e","query":"Нади уведомления об отмене заказа покупателем, полученные 21 июля 2028 года.","query_date":"2028-07-22"}
+{"query_id":"Q-8223a691b09025e2a1-P","synthetic_user":"box-2d28af4e4602","query":"Покажи переписку, в которой упоминается номер SYN-3FD6B9C250.","query_date":"2028-11-05"}
+{"query_id":"Q-82791cd5b1549a9b2a-P","synthetic_user":"box-f9410417c091","query":"Покажи письма о заказах, которые только что поступили в обработку за 15 ноября 2027 года.","query_date":"2027-11-16"}
+{"query_id":"Q-82791cd5b1549a9b2a-E","synthetic_user":"box-f9410417c091","query":"Нади уведомления о поступлении новых заказов, полученные 15 ноября 2027 года.","query_date":"2027-11-16"}
+{"query_id":"Q-82fdc660214b8552cc-P","synthetic_user":"box-fda57474896e","query":"Покажи переписку, в которой упоминается номер SYN-13CB852B42.","query_date":"2028-09-16"}
+{"query_id":"Q-84eb055bdc8d667d32-P","synthetic_user":"box-f9410417c091","query":"Покажи переписку, в которой упоминается номер SYN-AD9CF47792.","query_date":"2028-01-07"}
+{"query_id":"Q-859874bd84655ea25a-P","synthetic_user":"box-f9410417c091","query":"Сколько рублей составил заказ SYN-3AF2A7B62F?","query_date":"2027-12-25"}
+{"query_id":"Q-85be18ce868dc4fa82-P","synthetic_user":"box-84dd8d9560e6","query":"Покажи сообщения, в которых есть автомобильные освежители воздуха.","query_date":"2028-03-16"}
+{"query_id":"Q-8aff118da29940bbc2-P","synthetic_user":"box-f9410417c091","query":"Покажи сообщения, где среди товаров есть фильтр для топлива за вчера.","query_date":"2027-11-27"}
+{"query_id":"Q-8b4e28c842418de2d0-P","synthetic_user":"box-90560850fd8e","query":"Покажи переписку, в которой упоминается номер SYN-1AD9C9A585.","query_date":"2029-08-19"}
+{"query_id":"Q-8b6e08e46d64b8fd62-P","synthetic_user":"box-f9410417c091","query":"Покажи переписку, в которой упоминается номер SYN-49C45F9732.","query_date":"2027-12-11"}
+{"query_id":"Q-8e03227efd83b0e36e-P","synthetic_user":"box-84dd8d9560e6","query":"Покажи переписку, в которой упоминается номер SYN-32554FD445.","query_date":"2028-04-28"}
+{"query_id":"Q-8e2ffe86b60d767685-P","synthetic_user":"box-90560850fd8e","query":"Покажи письма о заказах, которые только что поступили в обработку.","query_date":"2028-06-14"}
+{"query_id":"Q-9514d98f6d76ebae76-P","synthetic_user":"box-84bd433469cb","query":"Покажи письма о регистрации или изменении визита автомобиля на терминал за вчера.","query_date":"2028-09-12"}
+{"query_id":"Q-9514d98f6d76ebae76-E","synthetic_user":"box-84bd433469cb","query":"Нади уведомления об автовизитах на терминал, полученные вчера.","query_date":"2028-09-12"}
+{"query_id":"Q-96225b50de15e33276-P","synthetic_user":"box-90560850fd8e","query":"Покажи переписку, в которой упоминается номер SYN-391583DBF4.","query_date":"2028-07-03"}
+{"query_id":"Q-99192da5877e2573a7-P","synthetic_user":"box-84bd433469cb","query":"Покажи уведомления, где контейнер выгрузили за вчера.","query_date":"2028-09-11"}
+{"query_id":"Q-9b1bd82dad611c0ba0-P","synthetic_user":"box-90560850fd8e","query":"Сколько рублей составил заказ SYN-B15750B72C?","query_date":"2028-07-27"}
+{"query_id":"Q-9e95c05aabf18d9bca-P","synthetic_user":"box-84dd8d9560e6","query":"Из письма про заказ SYN-2AD92E0ADE можно узнать почтовый идентификатор?","query_date":"2028-04-19"}
+{"query_id":"Q-9ed78bb8958253facb-P","synthetic_user":"box-f9410417c091","query":"Покажи сообщения, где речь идёт про автомобильный датчик коленвала.","query_date":"2027-12-02"}
+{"query_id":"Q-9fae220cd44cdc8390-P","synthetic_user":"box-90560850fd8e","query":"Сколько рублей составил заказ SYN-DD7E57ACF3?","query_date":"2028-07-18"}
+{"query_id":"Q-a0f8571b47381751aa-P","synthetic_user":"box-90560850fd8e","query":"Покажи сообщения, в которых есть автомобильные освежители воздуха.","query_date":"2028-06-16"}
+{"query_id":"Q-a12d8c5ad921f8649b-P","synthetic_user":"box-12259a301ee2","query":"Покажи переписку, в которой упоминается номер SYN-A1A1CF127D.","query_date":"2028-09-17"}
+{"query_id":"Q-a1c9ca7db7948684ed-P","synthetic_user":"box-2d28af4e4602","query":"Покажи сообщения, где речь идёт об оплате ЖКУ за вчера.","query_date":"2027-10-07"}
+{"query_id":"Q-a1c9ca7db7948684ed-E","synthetic_user":"box-2d28af4e4602","query":"Найди писмьа о коммунальных услугах, полученные вчера.","query_date":"2027-10-07"}
+{"query_id":"Q-a37d5592b1bb8e677b-P","synthetic_user":"box-90560850fd8e","query":"Покажи переписку, в которой упоминается номер SYN-93BC98765E.","query_date":"2028-07-08"}
+{"query_id":"Q-a45d0598b370defa60-P","synthetic_user":"box-90560850fd8e","query":"Покажи сообщения, в которых есть автомобильные освежители воздуха.","query_date":"2028-06-22"}
+{"query_id":"Q-a4b5bd7d70723b38db-P","synthetic_user":"box-84dd8d9560e6","query":"Сколько рублей составил заказ SYN-495AC0F445?","query_date":"2028-03-16"}
+{"query_id":"Q-a796efcade10a34e50-P","synthetic_user":"box-84dd8d9560e6","query":"Покажи переписку, в которой упоминается номер SYN-7143769D2C.","query_date":"2028-05-02"}
+{"query_id":"Q-aa735395ee543f1d17-P","synthetic_user":"box-90560850fd8e","query":"Из письма про заказ SYN-1DA0C0E70D можно узнать почтовый идентификатор?","query_date":"2028-08-01"}
+{"query_id":"Q-ab4cc1cf2dec30b85d-P","synthetic_user":"box-f9410417c091","query":"Покажи сообщения, где речь идёт про автомобильный датчик коленвала.","query_date":"2027-11-23"}
+{"query_id":"Q-ab73df7919e1254bee-P","synthetic_user":"box-fda57474896e","query":"Покажи переписку, в которой упоминается номер SYN-14919CCFCDCD.","query_date":"2028-07-23"}
+{"query_id":"Q-ad92ea16cdc23c1bec-P","synthetic_user":"box-2d28af4e4602","query":"Покажи сообщения, где речь идёт об оплате ЖКУ за 30 сентября 2028 года.","query_date":"2028-10-01"}
+{"query_id":"Q-ae01b35afae0ba8410-P","synthetic_user":"box-90560850fd8e","query":"Покажи переписку, в которой упоминается номер SYN-EAB7857FD2.","query_date":"2028-07-09"}
+{"query_id":"Q-ae697e270232fe4cc6-P","synthetic_user":"box-2d28af4e4602","query":"Покажи сообщения о том, что платёж прошёл за период с 2 октября 2028 года по 8 октября 2028 года.","query_date":"2028-10-09"}
+{"query_id":"Q-ae697e270232fe4cc6-E","synthetic_user":"box-2d28af4e4602","query":"Найди писмьа, подтверждающие успешную оплату за прошлую календарную неделю.","query_date":"2028-10-09"}
+{"query_id":"Q-b074248b54d62d436d-P","synthetic_user":"box-12259a301ee2","query":"Покажи переписку, в которой упоминается номер SYN-CF72DA972B.","query_date":"2028-10-03"}
+{"query_id":"Q-b1beefe173884a308e-P","synthetic_user":"box-84dd8d9560e6","query":"Покажи переписку, в которой упоминается номер SYN-460022D709.","query_date":"2028-03-28"}
+{"query_id":"Q-b1e31e5554be676695-P","synthetic_user":"box-2d28af4e4602","query":"Покажи переписку, в которой упоминается номер SYN-97F1FDA793.","query_date":"2028-11-14"}
+{"query_id":"Q-b342fca1fb0e7008a9-P","synthetic_user":"box-84dd8d9560e6","query":"Сколько рублей составил заказ SYN-75F73A6116?","query_date":"2028-04-08"}
+{"query_id":"Q-b36d9013e30b3cf952-P","synthetic_user":"box-f9410417c091","query":"Покажи переписку, в которой упоминается номер SYN-DC45306E8A.","query_date":"2027-12-01"}
+{"query_id":"Q-b477d5c52c999b803f-P","synthetic_user":"box-84bd433469cb","query":"Покажи сообщения, где таможня разрешила выпустить груз за 18 сентября 2028 года.","query_date":"2028-09-19"}
+{"query_id":"Q-b542e688c0324a5a16-P","synthetic_user":"box-84bd433469cb","query":"Покажи переписку, в которой упоминается номер SYN-F2B4D5AE9D.","query_date":"2028-09-26"}
+{"query_id":"Q-b7fd70435200c1e418-P","synthetic_user":"box-90560850fd8e","query":"Покажи сообщения, в которых есть автомобильные освежители воздуха за 17 июля 2026 года.","query_date":"2026-07-18"}
+{"query_id":"Q-b7fd70435200c1e418-E","synthetic_user":"box-90560850fd8e","query":"Найди писмьа об ароматизаторах для автомобиля, полученные 17 июля 2026 года.","query_date":"2026-07-18"}
+{"query_id":"Q-b8995220c964eab253-P","synthetic_user":"box-84bd433469cb","query":"Покажи переписку, в которой упоминается номер SYN-6C33DBCC1B.","query_date":"2028-10-06"}
+{"query_id":"Q-bbb560c4f8b6b2dbe1-P","synthetic_user":"box-12259a301ee2","query":"Покажи переписку, в которой упоминается номер SYN-54D4C1C875.","query_date":"2028-10-05"}
+{"query_id":"Q-bc44072dd66c67c541-P","synthetic_user":"box-84dd8d9560e6","query":"Покажи сообщения о щётках для снега и автомобильных скребках за 14 марта 2028 года.","query_date":"2028-03-15"}
+{"query_id":"Q-bc70677995f3f5e978-P","synthetic_user":"box-2d28af4e4602","query":"Покажи сообщения о том, что платёж прошёл за 4 октября 2028 года.","query_date":"2028-10-05"}
+{"query_id":"Q-bccf574ea2f4709a64-P","synthetic_user":"box-fda57474896e","query":"Покажи переписку, в которой упоминается номер SYN-B5E0D65DBDFC.","query_date":"2028-09-16"}
+{"query_id":"Q-bcebdf3d078542004a-P","synthetic_user":"box-84bd433469cb","query":"Покажи сообщения, где таможня разрешила выпустить груз за период с 1 сентября 2028 года по 30 сентября 2028 года.","query_date":"2028-10-01"}
+{"query_id":"Q-bcebdf3d078542004a-E","synthetic_user":"box-84bd433469cb","query":"Найди писмьа о разрешении таможни на выпуск контейнера за прошлый календарный месяц.","query_date":"2028-10-01"}
+{"query_id":"Q-bd118757c383d132e6-P","synthetic_user":"box-90560850fd8e","query":"Покажи сообщения, в которых есть автомобильные освежители воздуха за вчера.","query_date":"2028-06-23"}
+{"query_id":"Q-bd68657b4f350fd96e-P","synthetic_user":"box-84bd433469cb","query":"Покажи переписку, в которой упоминается номер SYN-087BE45EA0.","query_date":"2028-10-25"}
+{"query_id":"Q-bfa87eeb1c97e0c928-P","synthetic_user":"box-f9410417c091","query":"Из письма про заказ SYN-048B2235D9 можно узнать почтовый идентификатор?","query_date":"2027-12-11"}
+{"query_id":"Q-c19f69e71ea254f265-P","synthetic_user":"box-90560850fd8e","query":"Покажи сообщения о щётках для снега и автомобильных скребках.","query_date":"2028-06-15"}
+{"query_id":"Q-c2558c109cebe0a2bd-P","synthetic_user":"box-f9410417c091","query":"Покажи письма о заказах, которые только что поступили в обработку за период с 1 января 2027 года по 31 января 2027 года.","query_date":"2027-02-01"}
+{"query_id":"Q-c29460f44bb8cd082d-P","synthetic_user":"box-2d28af4e4602","query":"Покажи сообщения о том, что платёж прошёл.","query_date":"2028-10-06"}
+{"query_id":"Q-c34150c346fa4b47ea-P","synthetic_user":"box-90560850fd8e","query":"Покажи сообщения о щётках для снега и автомобильных скребках за 27 июня 2028 года.","query_date":"2028-06-28"}
+{"query_id":"Q-c3d4f90be1590f140e-P","synthetic_user":"box-84bd433469cb","query":"Покажи сообщения, где таможня разрешила выпустить груз за вчера.","query_date":"2028-09-18"}
+{"query_id":"Q-c3d4f90be1590f140e-E","synthetic_user":"box-84bd433469cb","query":"Найди писмьа о разрешении таможни на выпуск контейнера, полученные вчера.","query_date":"2028-09-18"}
+{"query_id":"Q-c6c381664b7148e909-P","synthetic_user":"box-2d28af4e4602","query":"Покажи переписку, в которой упоминается номер SYN-6DA5EEC11B.","query_date":"2028-10-19"}
+{"query_id":"Q-c70cbd31e49db8b369-P","synthetic_user":"box-2d28af4e4602","query":"Покажи переписку, в которой упоминается номер SYN-FF250E5211.","query_date":"2028-10-31"}
+{"query_id":"Q-c83053be9ebd22b1e2-P","synthetic_user":"box-84dd8d9560e6","query":"Покажи письма о заказах, которые только что поступили в обработку за вчера.","query_date":"2028-03-21"}
+{"query_id":"Q-c8814cb6f3a117e08d-P","synthetic_user":"box-84dd8d9560e6","query":"Покажи письма о заказах, которые только что поступили в обработку.","query_date":"2027-04-12"}
+{"query_id":"Q-cd84fabf26ff98e003-P","synthetic_user":"box-90560850fd8e","query":"Покажи письма о заказах, которые только что поступили в обработку за период с 1 августа 2027 года по 31 августа 2027 года.","query_date":"2027-09-01"}
+{"query_id":"Q-cd84fabf26ff98e003-E","synthetic_user":"box-90560850fd8e","query":"Нади уведомления о поступлении новых заказов, полученные с 1 августа 2027 года по 31 августа 2027 года.","query_date":"2027-09-01"}
+{"query_id":"Q-ce33331eaca8819873-P","synthetic_user":"box-84dd8d9560e6","query":"Покажи письма о заказах, которые только что поступили в обработку за вчера.","query_date":"2028-04-10"}
+{"query_id":"Q-ce5c4f847265cda30a-P","synthetic_user":"box-12259a301ee2","query":"Покажи переписку, в которой упоминается номер SYN-B6EE566C90.","query_date":"2028-09-10"}
+{"query_id":"Q-cf47e57cc637b039d6-P","synthetic_user":"box-84dd8d9560e6","query":"Покажи сообщения, в которых есть автомобильные освежители воздуха за 9 марта 2028 года.","query_date":"2028-03-10"}
+{"query_id":"Q-d496d2d7f94b541545-P","synthetic_user":"box-84dd8d9560e6","query":"Покажи сообщения о щётках для снега и автомобильных скребках за 6 марта 2028 года.","query_date":"2028-03-07"}
+{"query_id":"Q-d6d5a4c9c937d47e16-P","synthetic_user":"box-84dd8d9560e6","query":"Сколько рублей составил заказ SYN-1438F84471?","query_date":"2028-03-20"}
+{"query_id":"Q-d9de043f1c06b47d12-P","synthetic_user":"box-84bd433469cb","query":"Покажи переписку, в которой упоминается номер SYN-E163399B527A.","query_date":"2029-10-26"}
+{"query_id":"Q-db8febb94678e55507-P","synthetic_user":"box-2d28af4e4602","query":"Покажи переписку, в которой упоминается номер SYN-70BF15BDB7.","query_date":"2028-11-07"}
+{"query_id":"Q-dc9d3a93cd6e9eb928-P","synthetic_user":"box-84dd8d9560e6","query":"Сколько рублей составил заказ SYN-2835EB0783?","query_date":"2028-05-08"}
+{"query_id":"Q-dfb0b75cf2a30909a9-P","synthetic_user":"box-90560850fd8e","query":"Покажи сообщения о щётках для снега и автомобильных скребках за 23 июня 2028 года.","query_date":"2028-06-24"}
+{"query_id":"Q-dfb0b75cf2a30909a9-E","synthetic_user":"box-90560850fd8e","query":"Найди писмьа о щётках или скребках для очистки автомобиля от снега и льда, полученные 23 июня 2028 года.","query_date":"2028-06-24"}
+{"query_id":"Q-e02c793a35696338d3-P","synthetic_user":"box-84dd8d9560e6","query":"Покажи переписку, в которой упоминается номер SYN-BFB26000BC.","query_date":"2028-04-22"}
+{"query_id":"Q-e41cc8c2f3003b44b9-P","synthetic_user":"box-fda57474896e","query":"Покажи письма о заказах, от которых отказался клиент за вчера.","query_date":"2028-07-24"}
+{"query_id":"Q-e47a20d241e80a8a44-P","synthetic_user":"box-2d28af4e4602","query":"Покажи переписку, в которой упоминается номер SYN-20CD955E9C.","query_date":"2028-11-19"}
+{"query_id":"Q-e5a2b6d678b7a6b222-P","synthetic_user":"box-f9410417c091","query":"Покажи сообщения, в которых есть автомобильные освежители воздуха за период с 1 ноября 2027 года по 30 ноября 2027 года.","query_date":"2027-12-01"}
+{"query_id":"Q-e5a2b6d678b7a6b222-E","synthetic_user":"box-f9410417c091","query":"Найди писмьа об ароматизаторах для автомобиля за прошлый календарный месяц.","query_date":"2027-12-01"}
+{"query_id":"Q-e5c8fa15bf94b3d43e-P","synthetic_user":"box-f9410417c091","query":"Покажи переписку, в которой упоминается номер SYN-A74FEE68C4.","query_date":"2027-12-27"}
+{"query_id":"Q-e5d9607cdd32cf55c4-P","synthetic_user":"box-12259a301ee2","query":"Покажи переписку, в которой упоминается номер SYN-A784457F26.","query_date":"2028-09-29"}
+{"query_id":"Q-e5f84ce4ac14117ad2-P","synthetic_user":"box-2d28af4e4602","query":"Покажи переписку, в которой упоминается номер SYN-306C394AC0.","query_date":"2028-10-23"}
+{"query_id":"Q-e7d100894be6bf6845-P","synthetic_user":"box-90560850fd8e","query":"Покажи заявки клиентов, которые хотят вернуть покупку за 22 июня 2028 года.","query_date":"2028-06-23"}
+{"query_id":"Q-e7d100894be6bf6845-E","synthetic_user":"box-90560850fd8e","query":"Найди писмьа с обращениями покупателей о возврате товара, полученные 22 июня 2028 года.","query_date":"2028-06-23"}
+{"query_id":"Q-ef8b0ed51281586c42-P","synthetic_user":"box-90560850fd8e","query":"Покажи переписку, в которой упоминается номер SYN-F21A2A0DF0.","query_date":"2028-07-17"}
+{"query_id":"Q-f03b7a32a62d4a34ff-P","synthetic_user":"box-2d28af4e4602","query":"Покажи сообщения, где речь идёт об оплате ЖКУ.","query_date":"2027-03-13"}
+{"query_id":"Q-f1f5fcfbc60ce4078c-P","synthetic_user":"box-84bd433469cb","query":"Покажи переписку, в которой упоминается номер SYN-BF2C0BEE14.","query_date":"2028-10-09"}
+{"query_id":"Q-f2182bf74f09cf9cc6-P","synthetic_user":"box-f9410417c091","query":"Покажи переписку, в которой упоминается номер SYN-8B0974795C.","query_date":"2027-12-21"}
+{"query_id":"Q-f30816c4f8e61a253a-P","synthetic_user":"box-2d28af4e4602","query":"Покажи переписку, в которой упоминается номер SYN-1DAC97612A.","query_date":"2028-10-22"}
+{"query_id":"Q-f3a34617f281d8353a-P","synthetic_user":"box-90560850fd8e","query":"Из письма про заказ SYN-400BBEA89A можно узнать почтовый идентификатор?","query_date":"2028-07-14"}
+{"query_id":"Q-f4ccaebd3eb41aba1c-P","synthetic_user":"box-84bd433469cb","query":"Покажи сообщения, где таможня разрешила выпустить груз за вчера.","query_date":"2028-09-15"}
+{"query_id":"Q-f6b5cc725c227010ed-P","synthetic_user":"box-f9410417c091","query":"Из письма про заказ SYN-AC0A32D72E можно узнать почтовый идентификатор?","query_date":"2027-11-25"}
+{"query_id":"Q-f6c749275f40bf8f10-P","synthetic_user":"box-84dd8d9560e6","query":"Покажи заявки клиентов, которые хотят вернуть покупку.","query_date":"2028-03-16"}
+{"query_id":"Q-f7960098676312ed55-P","synthetic_user":"box-84dd8d9560e6","query":"Покажи переписку, в которой упоминается номер SYN-403409EDF3.","query_date":"2028-05-05"}
+{"query_id":"Q-f7ca2458c713a34e92-P","synthetic_user":"box-f9410417c091","query":"Покажи переписку, в которой упоминается номер SYN-4F1280DC72.","query_date":"2028-01-03"}
+{"query_id":"Q-f90ea05764580d5cd6-P","synthetic_user":"box-fda57474896e","query":"Покажи письма о заказах, от которых отказался клиент за вчера.","query_date":"2028-07-30"}
+{"query_id":"Q-fa656705cb8ff46cf8-P","synthetic_user":"box-f9410417c091","query":"Сколько рублей составил заказ SYN-1493D3060E?","query_date":"2027-12-19"}
+{"query_id":"Q-fabb0fe19a43b54275-P","synthetic_user":"box-f9410417c091","query":"Покажи переписку, в которой упоминается номер SYN-61750CBC18.","query_date":"2027-12-17"}
+{"query_id":"Q-fb295b90b9436ae741-P","synthetic_user":"box-84bd433469cb","query":"Покажи письма о регистрации или изменении визита автомобиля на терминал за вчера.","query_date":"2028-09-14"}
+{"query_id":"Q-fbf9e3d7291dfa64dd-P","synthetic_user":"box-2d28af4e4602","query":"Покажи сообщения, где речь идёт об оплате ЖКУ за 3 октября 2025 года.","query_date":"2025-10-04"}
+{"query_id":"Q-fe5a6922b51634ad95-P","synthetic_user":"box-12259a301ee2","query":"Покажи переписку, в которой упоминается номер SYN-3FDC58346F.","query_date":"2028-09-22"}
+{"query_id":"Q-fe7cb56a3aa0fde3d4-P","synthetic_user":"box-84dd8d9560e6","query":"Покажи сообщения о щётках для снега и автомобильных скребках.","query_date":"2028-03-08"}
+{"query_id":"Q-feb0f31acf3631ddc0-P","synthetic_user":"box-f9410417c091","query":"Покажи письма о заказах, которые только что поступили в обработку за 16 ноября 2027 года.","query_date":"2027-11-17"}
+{"query_id":"Q-ff4a00a7bdba1b80e4-P","synthetic_user":"box-90560850fd8e","query":"Покажи сообщения о щётках для снега и автомобильных скребках за 26 июля 2029 года.","query_date":"2029-07-27"}

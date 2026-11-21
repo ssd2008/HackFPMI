@@ -1,0 +1,89 @@
+{
+  "corpus_sha256": "f882a2fe4f490127fe48feb9c44bfa76ef32d48a6971aa401561582ba8110998",
+  "cases": [
+    {
+      "id": "Q-077178d909ac9bd52c",
+      "mailbox": "gmail",
+      "date": "2026-10-14",
+      "query": "До какого числа у команды ещё будет Slack Pro, судя по вчерашнему письму?",
+      "sources": [
+        "gmail-1a1342cc85b34777"
+      ],
+      "facts": [
+        "(?:15\\s+октябр[ья]|October\\s+15(?:th)?)"
+      ],
+      "answerability": "answerable",
+      "evidence": "through October 15th"
+    },
+    {
+      "id": "Q-287b524a1a11aeb02d",
+      "mailbox": "gmail",
+      "date": "2025-04-24",
+      "query": "Сколько кредитов мне вчера подарил сервис для генерации презентаций?",
+      "sources": [
+        "gmail-196649398f2b42c1"
+      ],
+      "facts": [
+        "(?<!\\d)400(?!\\d)"
+      ],
+      "answerability": "answerable",
+      "evidence": "400 free AI credits"
+    },
+    {
+      "id": "Q-29573a68cbacab26df",
+      "mailbox": "gmail",
+      "date": "2026-11-16",
+      "query": "Где вчера прислали ссылку на ноутбук с ансамблем трансформеров и GDA и какой score был указан?",
+      "sources": [
+        "gmail-1a1dffdc0875aaec"
+      ],
+      "facts": [
+        "(?<!\\d)0[.,]680(?!\\d)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Score : 0.680"
+    },
+    {
+      "id": "Q-6c08867855429f5088",
+      "mailbox": "gmail",
+      "date": "2026-09-15",
+      "query": "По вчерашним правилам соревнования, сколько фрагментов исходной картинки надо расставить?",
+      "sources": [
+        "gmail-1a09f67310b6f17b"
+      ],
+      "facts": [
+        "(?<!\\d)576(?!\\d)"
+      ],
+      "answerability": "answerable",
+      "evidence": "576 фрагментов"
+    },
+    {
+      "id": "Q-cb3974b1a888f6bb81",
+      "mailbox": "gmail",
+      "date": "2026-03-24",
+      "query": "Сколько задач я решил за неделю по вчерашнему отчёту Stepik о тренажёре по математике?",
+      "sources": [
+        "gmail-19d1a339c5f211d1"
+      ],
+      "facts": [
+        "(?<!\\d)39(?!\\d)"
+      ],
+      "answerability": "answerable",
+      "evidence": "39 задач"
+    },
+    {
+      "id": "Q-fba71d91a393b381f2",
+      "mailbox": "yandex",
+      "date": "2023-04-06",
+      "query": "Какой город назвали столицей Тотального диктанта во вчерашнем приглашении?",
+      "sources": [
+        "yandex-83ecb521bf320f677287-1576569503-310"
+      ],
+      "facts": [
+        "Нижний\\ Тагил"
+      ],
+      "answerability": "answerable",
+      "evidence": "Нижний Тагил"
+    }
+  ]
+}

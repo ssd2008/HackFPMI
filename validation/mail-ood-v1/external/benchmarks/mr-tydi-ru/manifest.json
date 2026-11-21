@@ -1,0 +1,19 @@
+{
+  "source": "Mr. TyDi v1.1 Russian test",
+  "language": "ru",
+  "raw_corpus_rows": 9597504,
+  "documents": 24050,
+  "complete_corpus": false,
+  "queries": 995,
+  "qrels": 1168,
+  "unique_judged_documents": 1100,
+  "adjacent_unjudged_documents": 2950,
+  "random_unjudged_documents": 20000,
+  "query_pool": "Original published judgments with at least one positive; restricted to the indicated split.",
+  "raw_to_local_id": "Prefix raw document IDs with mr-tydi-ru/; prefix raw question IDs with mr-tydi-ru/q/. LoTTE namespaced forum and search.",
+  "sha256": {
+    "documents.jsonl": "3895fd498dbe14eee48cc6bb0692be4818292fe3f7e6492d59c8087ecc41ed23",
+    "qrels_dev.jsonl": "3e49074dcb99e0fe222cfdd0348ae82facb1135739df649aedf1a88b94835348",
+    "queries_dev.jsonl": "71bab97c74189135415689d5db4ecdaac050087528e9176fe53711b21df56607"
+  }
+}

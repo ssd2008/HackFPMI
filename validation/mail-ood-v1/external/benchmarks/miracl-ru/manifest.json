@@ -1,0 +1,19 @@
+{
+  "source": "MIRACL Russian dev, public qrels",
+  "language": "ru",
+  "raw_corpus_rows": 9543918,
+  "documents": 67309,
+  "complete_corpus": false,
+  "queries": 1252,
+  "qrels": 13100,
+  "unique_judged_documents": 12607,
+  "adjacent_unjudged_documents": 34702,
+  "random_unjudged_documents": 20000,
+  "query_pool": "Original published judgments with at least one positive; restricted to the indicated split.",
+  "raw_to_local_id": "Prefix raw document IDs with miracl-ru/; prefix raw question IDs with miracl-ru/q/. LoTTE namespaced forum and search.",
+  "sha256": {
+    "documents.jsonl": "58d6745538f21f3cc4aa7eea13a55d96c4a88dd08051d8b6367fb4de25ee364f",
+    "qrels_dev.jsonl": "4ed0e8ae40a8d080c477be20bfa3b9f195ba13bb4304945e297ca54e7a658f88",
+    "queries_dev.jsonl": "e98e348af89bbcbc5be6549bf45f469775feee51e3567bc4ffe02808271c98b5"
+  }
+}

@@ -1,0 +1,751 @@
+{
+  "team_commit": "2aa11eb7750a23d71a9b79fc38f83445763504dc",
+  "revisions": {
+    "d0rj/RuBQ_2.0": "e113ce1c7b749dd7d34e2651acbbd45fe1180017",
+    "d0rj/RuBQ_2.0-paragraphs": "383cf3ba0395865ada07329c8601bee840cbeb2b",
+    "miracl/miracl": "5be20db9509754dadad47689368639fcec739c00",
+    "miracl/miracl-corpus": "d921ec7e349ce0d28daf30b2da9da5ee698bef0d",
+    "castorini/mr-tydi": "1d43c80218d06d0ef80f5b172ccabd848b948bc1",
+    "castorini/mr-tydi-corpus": "3a3aa212bbe94a8cc0dc858710a3dad49d532054",
+    "unicamp-dl/mmarco": "6d039c4638c0ba3e46a9cb7b498b145e7edc6230",
+    "BeIR/scifact": "b3b5335604bf5ee3c4447671af975ea25143d4f5",
+    "BeIR/scifact-qrels": "2938d17dc3b09882fdb8c12bbbe2e2dc0e75a029",
+    "colbertv2/lotte_passages": "3be7f857585299f1268d29d3591202d731ea84a1",
+    "colbertv2/lotte": "1a87807da631e4197d77f7e720c38941abcf26d1"
+  },
+  "raw_bytes": 29920290264,
+  "files": {
+    "rubq-2.0/questions/.gitattributes": {
+      "source": "https://huggingface.co/datasets/d0rj/RuBQ_2.0/resolve/e113ce1c7b749dd7d34e2651acbbd45fe1180017/.gitattributes",
+      "source_bytes": 2307,
+      "git_blob": "28df5f900b358436f0267334b3e3e9af33f917ba",
+      "sha256": "f4e703ea6e44bbebe53aceed2a89c11e40b88b7ae130c480c89860ab805ffc8f"
+    },
+    "rubq-2.0/questions/README.md": {
+      "source": "https://huggingface.co/datasets/d0rj/RuBQ_2.0/resolve/e113ce1c7b749dd7d34e2651acbbd45fe1180017/README.md",
+      "source_bytes": 1740,
+      "git_blob": "ee52391378fd60987adf980cde01465fa7dd1ebe",
+      "sha256": "99f58f936113f7d49e7ba087c693f61087a30741d6afd10ae04e56d118d65dc7"
+    },
+    "rubq-2.0/questions/data/dev-00000-of-00001-d7e3040a344e1e68.parquet": {
+      "source": "https://huggingface.co/datasets/d0rj/RuBQ_2.0/resolve/e113ce1c7b749dd7d34e2651acbbd45fe1180017/data/dev-00000-of-00001-d7e3040a344e1e68.parquet",
+      "source_bytes": 248696,
+      "published_sha256": "498c6f4486b57b32e225bc0ad11b5bea97c85e6816a5459a002895be8daea0e6",
+      "sha256": "498c6f4486b57b32e225bc0ad11b5bea97c85e6816a5459a002895be8daea0e6"
+    },
+    "rubq-2.0/questions/data/paragraphs-00000-of-00001-d1f2ba7d11822891.parquet": {
+      "source": "https://huggingface.co/datasets/d0rj/RuBQ_2.0/resolve/e113ce1c7b749dd7d34e2651acbbd45fe1180017/data/paragraphs-00000-of-00001-d1f2ba7d11822891.parquet",
+      "source_bytes": 24269133,
+      "published_sha256": "3537ca9891477964dc9706a44d9190d2567eb6568c63cc4396ee3d94ddfea54f",
+      "sha256": "3537ca9891477964dc9706a44d9190d2567eb6568c63cc4396ee3d94ddfea54f"
+    },
+    "rubq-2.0/questions/data/test-00000-of-00001-d519841742f463e6.parquet": {
+      "source": "https://huggingface.co/datasets/d0rj/RuBQ_2.0/resolve/e113ce1c7b749dd7d34e2651acbbd45fe1180017/data/test-00000-of-00001-d519841742f463e6.parquet",
+      "source_bytes": 921501,
+      "published_sha256": "8b53f6fed3df6d3ea9d8b2b7d9a46df683cd4778e26eb9a70642cc13ae3884c1",
+      "sha256": "8b53f6fed3df6d3ea9d8b2b7d9a46df683cd4778e26eb9a70642cc13ae3884c1"
+    },
+    "rubq-2.0/paragraphs/.gitattributes": {
+      "source": "https://huggingface.co/datasets/d0rj/RuBQ_2.0-paragraphs/resolve/383cf3ba0395865ada07329c8601bee840cbeb2b/.gitattributes",
+      "source_bytes": 2307,
+      "git_blob": "28df5f900b358436f0267334b3e3e9af33f917ba",
+      "sha256": "f4e703ea6e44bbebe53aceed2a89c11e40b88b7ae130c480c89860ab805ffc8f"
+    },
+    "rubq-2.0/paragraphs/README.md": {
+      "source": "https://huggingface.co/datasets/d0rj/RuBQ_2.0-paragraphs/resolve/383cf3ba0395865ada07329c8601bee840cbeb2b/README.md",
+      "source_bytes": 911,
+      "git_blob": "b107139f45e7e8b1dd60fad37cbb8ca50109c5af",
+      "sha256": "e654c7c872afea53da329a2cf666b593f7aae3ba809520990a75366f493a9ac2"
+    },
+    "rubq-2.0/paragraphs/data/paragraphs-00000-of-00001-d1f2ba7d11822891.parquet": {
+      "source": "https://huggingface.co/datasets/d0rj/RuBQ_2.0-paragraphs/resolve/383cf3ba0395865ada07329c8601bee840cbeb2b/data/paragraphs-00000-of-00001-d1f2ba7d11822891.parquet",
+      "source_bytes": 24269133,
+      "published_sha256": "3537ca9891477964dc9706a44d9190d2567eb6568c63cc4396ee3d94ddfea54f",
+      "sha256": "3537ca9891477964dc9706a44d9190d2567eb6568c63cc4396ee3d94ddfea54f"
+    },
+    "miracl-ru/topics/README.md": {
+      "source": "https://huggingface.co/datasets/miracl/miracl/resolve/5be20db9509754dadad47689368639fcec739c00/README.md",
+      "source_bytes": 3557,
+      "git_blob": "328c8bd054189d17c9969f1d854a54003ad2f672",
+      "sha256": "218fdac67872c9732e8b35416c650582837c27923a7e579ab2d4f446a3199218"
+    },
+    "miracl-ru/topics/miracl-v1.0-ru/qrels/qrels.miracl-v1.0-ru-dev.tsv": {
+      "source": "https://huggingface.co/datasets/miracl/miracl/resolve/5be20db9509754dadad47689368639fcec739c00/miracl-v1.0-ru/qrels/qrels.miracl-v1.0-ru-dev.tsv",
+      "source_bytes": 255921,
+      "git_blob": "351e800d2734f8a9dd776a8777e607ebc284d078",
+      "sha256": "f877b43c7f53b76aab25e406e5a607ef1c5adba4ffaa11e1b252a4326735a19b"
+    },
+    "miracl-ru/topics/miracl-v1.0-ru/qrels/qrels.miracl-v1.0-ru-train.tsv": {
+      "source": "https://huggingface.co/datasets/miracl/miracl/resolve/5be20db9509754dadad47689368639fcec739c00/miracl-v1.0-ru/qrels/qrels.miracl-v1.0-ru-train.tsv",
+      "source_bytes": 663142,
+      "git_blob": "f6e3384655710aaae6e51ceb715ec8d9af68dcc3",
+      "sha256": "bf1f737cda0d66bc38fef5f9d91843f7a89428c5c5a8a3dce4764f527ec344ef"
+    },
+    "miracl-ru/topics/miracl-v1.0-ru/topics/topics.miracl-v1.0-ru-dev.tsv": {
+      "source": "https://huggingface.co/datasets/miracl/miracl/resolve/5be20db9509754dadad47689368639fcec739c00/miracl-v1.0-ru/topics/topics.miracl-v1.0-ru-dev.tsv",
+      "source_bytes": 108525,
+      "git_blob": "c8ac8d871938adc6530971e0df5f8515d6104741",
+      "sha256": "91a7c3b6d21f79a12b5330f0a62811962f9370a0bf539cba8b3fecaa095f0616"
+    },
+    "miracl-ru/topics/miracl-v1.0-ru/topics/topics.miracl-v1.0-ru-test-a.tsv": {
+      "source": "https://huggingface.co/datasets/miracl/miracl/resolve/5be20db9509754dadad47689368639fcec739c00/miracl-v1.0-ru/topics/topics.miracl-v1.0-ru-test-a.tsv",
+      "source_bytes": 83173,
+      "git_blob": "4ff3c2198736a47590e2217d34d85ffbd562713c",
+      "sha256": "f3862ab6fdf86e8f29374792b37f356bf5fba94ebb856b84ce427dc423d73dae"
+    },
+    "miracl-ru/topics/miracl-v1.0-ru/topics/topics.miracl-v1.0-ru-test-b.tsv": {
+      "source": "https://huggingface.co/datasets/miracl/miracl/resolve/5be20db9509754dadad47689368639fcec739c00/miracl-v1.0-ru/topics/topics.miracl-v1.0-ru-test-b.tsv",
+      "source_bytes": 53644,
+      "git_blob": "da091c1c76253d9154cb82ebe836bc546bbed336",
+      "sha256": "0799ceff2e130dd5b1188fcd585058f25827a976c24bcad5cb95f7732eee4598"
+    },
+    "miracl-ru/topics/miracl-v1.0-ru/topics/topics.miracl-v1.0-ru-train.tsv": {
+      "source": "https://huggingface.co/datasets/miracl/miracl/resolve/5be20db9509754dadad47689368639fcec739c00/miracl-v1.0-ru/topics/topics.miracl-v1.0-ru-train.tsv",
+      "source_bytes": 406366,
+      "git_blob": "57b9992519f1773a08b5b83f26f295fc155fac13",
+      "sha256": "19c64bbd6cc0a689dbece3a684e8ab87e42e20aa2b0897fdc552235090d95628"
+    },
+    "miracl-ru/corpus/README.md": {
+      "source": "https://huggingface.co/datasets/miracl/miracl-corpus/resolve/d921ec7e349ce0d28daf30b2da9da5ee698bef0d/README.md",
+      "source_bytes": 6851,
+      "git_blob": "cf995fbc7fd20f7e9c58465966e315eefb4bea90",
+      "sha256": "e8779ef1087590dae1d74396ca575e792f3fd1a3bcf2aa3caf6b2733c4f41bad"
+    },
+    "miracl-ru/corpus/miracl-corpus-v1.0-ru/docs-0.jsonl.gz": {
+      "source": "https://huggingface.co/datasets/miracl/miracl-corpus/resolve/d921ec7e349ce0d28daf30b2da9da5ee698bef0d/miracl-corpus-v1.0-ru/docs-0.jsonl.gz",
+      "source_bytes": 100436081,
+      "published_sha256": "699b5ee09f2be4afcf787637602d87ce9cf86156ac6d52e40a5af4044f4c5ed8",
+      "sha256": "699b5ee09f2be4afcf787637602d87ce9cf86156ac6d52e40a5af4044f4c5ed8"
+    },
+    "miracl-ru/corpus/miracl-corpus-v1.0-ru/docs-1.jsonl.gz": {
+      "source": "https://huggingface.co/datasets/miracl/miracl-corpus/resolve/d921ec7e349ce0d28daf30b2da9da5ee698bef0d/miracl-corpus-v1.0-ru/docs-1.jsonl.gz",
+      "source_bytes": 98036311,
+      "published_sha256": "c2c611d61905988484e9fd4019146a3d3e1fc23cbef36079a766860d65522262",
+      "sha256": "c2c611d61905988484e9fd4019146a3d3e1fc23cbef36079a766860d65522262"
+    },
+    "miracl-ru/corpus/miracl-corpus-v1.0-ru/docs-10.jsonl.gz": {
+      "source": "https://huggingface.co/datasets/miracl/miracl-corpus/resolve/d921ec7e349ce0d28daf30b2da9da5ee698bef0d/miracl-corpus-v1.0-ru/docs-10.jsonl.gz",
+      "source_bytes": 75656001,
+      "published_sha256": "d42cf2abe388135efb8c51199dfa2666d99f9206ce16468da5a2cae226077479",
+      "sha256": "d42cf2abe388135efb8c51199dfa2666d99f9206ce16468da5a2cae226077479"
+    },
+    "miracl-ru/corpus/miracl-corpus-v1.0-ru/docs-11.jsonl.gz": {
+      "source": "https://huggingface.co/datasets/miracl/miracl-corpus/resolve/d921ec7e349ce0d28daf30b2da9da5ee698bef0d/miracl-corpus-v1.0-ru/docs-11.jsonl.gz",
+      "source_bytes": 78271034,
+      "published_sha256": "f0ad276a1d7a1f78bb9825e38a18cb3444b3477be775b21852409f3a0997418d",
+      "sha256": "f0ad276a1d7a1f78bb9825e38a18cb3444b3477be775b21852409f3a0997418d"
+    },
+    "miracl-ru/corpus/miracl-corpus-v1.0-ru/docs-12.jsonl.gz": {
+      "source": "https://huggingface.co/datasets/miracl/miracl-corpus/resolve/d921ec7e349ce0d28daf30b2da9da5ee698bef0d/miracl-corpus-v1.0-ru/docs-12.jsonl.gz",
+      "source_bytes": 76539873,
+      "published_sha256": "d342158c26ceaf7afa0aa0dc9a84615358d5176b9be69211a8ee6cac1d18bc7f",
+      "sha256": "d342158c26ceaf7afa0aa0dc9a84615358d5176b9be69211a8ee6cac1d18bc7f"
+    },
+    "miracl-ru/corpus/miracl-corpus-v1.0-ru/docs-13.jsonl.gz": {
+      "source": "https://huggingface.co/datasets/miracl/miracl-corpus/resolve/d921ec7e349ce0d28daf30b2da9da5ee698bef0d/miracl-corpus-v1.0-ru/docs-13.jsonl.gz",
+      "source_bytes": 78171375,
+      "published_sha256": "3dbc7963a3de84babe89eb9d0d4761291ea76ffa57e546a6486da6d334cb1baf",
+      "sha256": "3dbc7963a3de84babe89eb9d0d4761291ea76ffa57e546a6486da6d334cb1baf"
+    },
+    "miracl-ru/corpus/miracl-corpus-v1.0-ru/docs-14.jsonl.gz": {
+      "source": "https://huggingface.co/datasets/miracl/miracl-corpus/resolve/d921ec7e349ce0d28daf30b2da9da5ee698bef0d/miracl-corpus-v1.0-ru/docs-14.jsonl.gz",
+      "source_bytes": 78271662,
+      "published_sha256": "a925a0b9270269ed5012ad0cdb803140edbdfb38e86c798d0666633dde495289",
+      "sha256": "a925a0b9270269ed5012ad0cdb803140edbdfb38e86c798d0666633dde495289"
+    },
+    "miracl-ru/corpus/miracl-corpus-v1.0-ru/docs-15.jsonl.gz": {
+      "source": "https://huggingface.co/datasets/miracl/miracl-corpus/resolve/d921ec7e349ce0d28daf30b2da9da5ee698bef0d/miracl-corpus-v1.0-ru/docs-15.jsonl.gz",
+      "source_bytes": 79432861,
+      "published_sha256": "bf5948805fc0a8b5c3d064fd4ecaa98e915c20f1d144eaa1f6cef8ed581702f8",
+      "sha256": "bf5948805fc0a8b5c3d064fd4ecaa98e915c20f1d144eaa1f6cef8ed581702f8"
+    },
+    "miracl-ru/corpus/miracl-corpus-v1.0-ru/docs-16.jsonl.gz": {
+      "source": "https://huggingface.co/datasets/miracl/miracl-corpus/resolve/d921ec7e349ce0d28daf30b2da9da5ee698bef0d/miracl-corpus-v1.0-ru/docs-16.jsonl.gz",
+      "source_bytes": 81415343,
+      "published_sha256": "aa4f3665fecfb3cce4f93f8cc09a81a9214e53d77612350f831c157b417cde40",
+      "sha256": "aa4f3665fecfb3cce4f93f8cc09a81a9214e53d77612350f831c157b417cde40"
+    },
+    "miracl-ru/corpus/miracl-corpus-v1.0-ru/docs-17.jsonl.gz": {
+      "source": "https://huggingface.co/datasets/miracl/miracl-corpus/resolve/d921ec7e349ce0d28daf30b2da9da5ee698bef0d/miracl-corpus-v1.0-ru/docs-17.jsonl.gz",
+      "source_bytes": 81955644,
+      "published_sha256": "297506bf253de9aa4c459741aad32a86d753d3849f87b1d365c412010b9b7c10",
+      "sha256": "297506bf253de9aa4c459741aad32a86d753d3849f87b1d365c412010b9b7c10"
+    },
+    "miracl-ru/corpus/miracl-corpus-v1.0-ru/docs-18.jsonl.gz": {
+      "source": "https://huggingface.co/datasets/miracl/miracl-corpus/resolve/d921ec7e349ce0d28daf30b2da9da5ee698bef0d/miracl-corpus-v1.0-ru/docs-18.jsonl.gz",
+      "source_bytes": 81041807,
+      "published_sha256": "85b096e858899c245188a7682ed1a41d8ff4eb03865ef6531ceb0019b8aeb45f",
+      "sha256": "85b096e858899c245188a7682ed1a41d8ff4eb03865ef6531ceb0019b8aeb45f"
+    },
+    "miracl-ru/corpus/miracl-corpus-v1.0-ru/docs-19.jsonl.gz": {
+      "source": "https://huggingface.co/datasets/miracl/miracl-corpus/resolve/d921ec7e349ce0d28daf30b2da9da5ee698bef0d/miracl-corpus-v1.0-ru/docs-19.jsonl.gz",
+      "source_bytes": 6749385,
+      "published_sha256": "d74cfbbfd614ff59ea9f146b73d3eb3fd23899b4a649cc77af6d38973fe2d7a5",
+      "sha256": "d74cfbbfd614ff59ea9f146b73d3eb3fd23899b4a649cc77af6d38973fe2d7a5"
+    },
+    "miracl-ru/corpus/miracl-corpus-v1.0-ru/docs-2.jsonl.gz": {
+      "source": "https://huggingface.co/datasets/miracl/miracl-corpus/resolve/d921ec7e349ce0d28daf30b2da9da5ee698bef0d/miracl-corpus-v1.0-ru/docs-2.jsonl.gz",
+      "source_bytes": 90050391,
+      "published_sha256": "8842fda047c88bd609fc2e346d4a150be764715f26bc04ccfb6bcdce109f6a16",
+      "sha256": "8842fda047c88bd609fc2e346d4a150be764715f26bc04ccfb6bcdce109f6a16"
+    },
+    "miracl-ru/corpus/miracl-corpus-v1.0-ru/docs-3.jsonl.gz": {
+      "source": "https://huggingface.co/datasets/miracl/miracl-corpus/resolve/d921ec7e349ce0d28daf30b2da9da5ee698bef0d/miracl-corpus-v1.0-ru/docs-3.jsonl.gz",
+      "source_bytes": 89443294,
+      "published_sha256": "84b986cfddc875c43aaee9b4f5feb1bb0fed75a38fe7c22114474ef9ba2dc530",
+      "sha256": "84b986cfddc875c43aaee9b4f5feb1bb0fed75a38fe7c22114474ef9ba2dc530"
+    },
+    "miracl-ru/corpus/miracl-corpus-v1.0-ru/docs-4.jsonl.gz": {
+      "source": "https://huggingface.co/datasets/miracl/miracl-corpus/resolve/d921ec7e349ce0d28daf30b2da9da5ee698bef0d/miracl-corpus-v1.0-ru/docs-4.jsonl.gz",
+      "source_bytes": 82032411,
+      "published_sha256": "fb807d21d62e71602d6bb6c720f4991b1fb1984f1582ebf0918308d8f8c6fc8c",
+      "sha256": "fb807d21d62e71602d6bb6c720f4991b1fb1984f1582ebf0918308d8f8c6fc8c"
+    },
+    "miracl-ru/corpus/miracl-corpus-v1.0-ru/docs-5.jsonl.gz": {
+      "source": "https://huggingface.co/datasets/miracl/miracl-corpus/resolve/d921ec7e349ce0d28daf30b2da9da5ee698bef0d/miracl-corpus-v1.0-ru/docs-5.jsonl.gz",
+      "source_bytes": 88457515,
+      "published_sha256": "2f36e35b8181e18ea1839a1770aafa146ffbfee697a518a9befd502cca75ab47",
+      "sha256": "2f36e35b8181e18ea1839a1770aafa146ffbfee697a518a9befd502cca75ab47"
+    },
+    "miracl-ru/corpus/miracl-corpus-v1.0-ru/docs-6.jsonl.gz": {
+      "source": "https://huggingface.co/datasets/miracl/miracl-corpus/resolve/d921ec7e349ce0d28daf30b2da9da5ee698bef0d/miracl-corpus-v1.0-ru/docs-6.jsonl.gz",
+      "source_bytes": 81102964,
+      "published_sha256": "6f024330ffcd2a99c9d60e396275b3d6174406260779693c004e59abdb40a6d9",
+      "sha256": "6f024330ffcd2a99c9d60e396275b3d6174406260779693c004e59abdb40a6d9"
+    },
+    "miracl-ru/corpus/miracl-corpus-v1.0-ru/docs-7.jsonl.gz": {
+      "source": "https://huggingface.co/datasets/miracl/miracl-corpus/resolve/d921ec7e349ce0d28daf30b2da9da5ee698bef0d/miracl-corpus-v1.0-ru/docs-7.jsonl.gz",
+      "source_bytes": 80229752,
+      "published_sha256": "6d0d631753a1c8bf3aad78b2fb77e6d813fc588444457bed974ed77a3139b471",
+      "sha256": "6d0d631753a1c8bf3aad78b2fb77e6d813fc588444457bed974ed77a3139b471"
+    },
+    "miracl-ru/corpus/miracl-corpus-v1.0-ru/docs-8.jsonl.gz": {
+      "source": "https://huggingface.co/datasets/miracl/miracl-corpus/resolve/d921ec7e349ce0d28daf30b2da9da5ee698bef0d/miracl-corpus-v1.0-ru/docs-8.jsonl.gz",
+      "source_bytes": 74478227,
+      "published_sha256": "c4a9d0bfc5093c25f533648a6ee24fdddc05876a8c780e86505eb7465abde4a1",
+      "sha256": "c4a9d0bfc5093c25f533648a6ee24fdddc05876a8c780e86505eb7465abde4a1"
+    },
+    "miracl-ru/corpus/miracl-corpus-v1.0-ru/docs-9.jsonl.gz": {
+      "source": "https://huggingface.co/datasets/miracl/miracl-corpus/resolve/d921ec7e349ce0d28daf30b2da9da5ee698bef0d/miracl-corpus-v1.0-ru/docs-9.jsonl.gz",
+      "source_bytes": 73515957,
+      "published_sha256": "2224fcf093a0d96203228fa03a69d1002b7950d15b6984400c7674dac194aea4",
+      "sha256": "2224fcf093a0d96203228fa03a69d1002b7950d15b6984400c7674dac194aea4"
+    },
+    "mr-tydi-ru/topics/README.md": {
+      "source": "https://huggingface.co/datasets/castorini/mr-tydi/resolve/1d43c80218d06d0ef80f5b172ccabd848b948bc1/README.md",
+      "source_bytes": 2800,
+      "git_blob": "efff8af9a64efa56a525883d2dee06fbf8c0fa95",
+      "sha256": "e5256dd16d5b08bff083cbc8dbf9446d2e7349b7f9750b76c57c79a388f3d7b1"
+    },
+    "mr-tydi-ru/topics/mrtydi-v1.1-russian/dev.jsonl.gz": {
+      "source": "https://huggingface.co/datasets/castorini/mr-tydi/resolve/1d43c80218d06d0ef80f5b172ccabd848b948bc1/mrtydi-v1.1-russian/dev.jsonl.gz",
+      "source_bytes": 51224,
+      "published_sha256": "778912f4dca8e653cd3c0a4b8a42f78d9f9d2064e4d47a5e7799251e96b6518c",
+      "sha256": "778912f4dca8e653cd3c0a4b8a42f78d9f9d2064e4d47a5e7799251e96b6518c"
+    },
+    "mr-tydi-ru/topics/mrtydi-v1.1-russian/ir-format-data/qrels.dev.txt": {
+      "source": "https://huggingface.co/datasets/castorini/mr-tydi/resolve/1d43c80218d06d0ef80f5b172ccabd848b948bc1/mrtydi-v1.1-russian/ir-format-data/qrels.dev.txt",
+      "source_bytes": 25931,
+      "git_blob": "29ca01249510c1c173a8865875bfe7389d824895",
+      "sha256": "fba1fbc2cbb176ce60556c02c20bf13bc3ab893bff63c08bb87cfd5b3329d5d0"
+    },
+    "mr-tydi-ru/topics/mrtydi-v1.1-russian/ir-format-data/qrels.test.txt": {
+      "source": "https://huggingface.co/datasets/castorini/mr-tydi/resolve/1d43c80218d06d0ef80f5b172ccabd848b948bc1/mrtydi-v1.1-russian/ir-format-data/qrels.test.txt",
+      "source_bytes": 22536,
+      "git_blob": "e2ad7a53189ed04c7e7c4bd0dbc5be03e9fe9ae1",
+      "sha256": "03a3b145296c120551282c4f6c14b0342bcc863d2f1e92ff212b041db697e803"
+    },
+    "mr-tydi-ru/topics/mrtydi-v1.1-russian/ir-format-data/qrels.train.txt": {
+      "source": "https://huggingface.co/datasets/castorini/mr-tydi/resolve/1d43c80218d06d0ef80f5b172ccabd848b948bc1/mrtydi-v1.1-russian/ir-format-data/qrels.train.txt",
+      "source_bytes": 101240,
+      "git_blob": "1abd354f9aceefdf60cc2faa82cf7366727ceb1a",
+      "sha256": "217bb855e957c6e1e6b6bbee96d662cb280e9112291a0eca5889ffc3f05c083d"
+    },
+    "mr-tydi-ru/topics/mrtydi-v1.1-russian/ir-format-data/topics.dev.txt": {
+      "source": "https://huggingface.co/datasets/castorini/mr-tydi/resolve/1d43c80218d06d0ef80f5b172ccabd848b948bc1/mrtydi-v1.1-russian/ir-format-data/topics.dev.txt",
+      "source_bytes": 120060,
+      "git_blob": "110ae8a1ade17198563a3413f67198db922da0c7",
+      "sha256": "88028123ba3c9c159a3fed225369282ce5bf9db9464a7c6d55e45269e05ca01c"
+    },
+    "mr-tydi-ru/topics/mrtydi-v1.1-russian/ir-format-data/topics.test.txt": {
+      "source": "https://huggingface.co/datasets/castorini/mr-tydi/resolve/1d43c80218d06d0ef80f5b172ccabd848b948bc1/mrtydi-v1.1-russian/ir-format-data/topics.test.txt",
+      "source_bytes": 91213,
+      "git_blob": "1d9e1c78008bf7ef77c1cfd9ad7d7efc800ad98a",
+      "sha256": "9add9bf2f0f489993d03f93108deff741bbffe799c1c0ecc55e5ee2ea18e6070"
+    },
+    "mr-tydi-ru/topics/mrtydi-v1.1-russian/ir-format-data/topics.train.txt": {
+      "source": "https://huggingface.co/datasets/castorini/mr-tydi/resolve/1d43c80218d06d0ef80f5b172ccabd848b948bc1/mrtydi-v1.1-russian/ir-format-data/topics.train.txt",
+      "source_bytes": 470349,
+      "git_blob": "f66091167b8dbaaf0672ff5e142eb082b905baec",
+      "sha256": "fb4ac4c837e144ce6053620f91d7248484d0132b4dc107f8390971f6f31f6ff7"
+    },
+    "mr-tydi-ru/topics/mrtydi-v1.1-russian/test.jsonl.gz": {
+      "source": "https://huggingface.co/datasets/castorini/mr-tydi/resolve/1d43c80218d06d0ef80f5b172ccabd848b948bc1/mrtydi-v1.1-russian/test.jsonl.gz",
+      "source_bytes": 40114,
+      "published_sha256": "1f8d5ec77e4cd14ee72997818fb8cb7f57a5abcc61e26be077229cb0b4e720de",
+      "sha256": "1f8d5ec77e4cd14ee72997818fb8cb7f57a5abcc61e26be077229cb0b4e720de"
+    },
+    "mr-tydi-ru/topics/mrtydi-v1.1-russian/train.jsonl.gz": {
+      "source": "https://huggingface.co/datasets/castorini/mr-tydi/resolve/1d43c80218d06d0ef80f5b172ccabd848b948bc1/mrtydi-v1.1-russian/train.jsonl.gz",
+      "source_bytes": 53968020,
+      "published_sha256": "3e71c50805576587aca2ec8aac4d800daaf772fd6f1eb0816082d6ff9c2d3c8d",
+      "sha256": "3e71c50805576587aca2ec8aac4d800daaf772fd6f1eb0816082d6ff9c2d3c8d"
+    },
+    "mr-tydi-ru/corpus/README.md": {
+      "source": "https://huggingface.co/datasets/castorini/mr-tydi-corpus/resolve/3a3aa212bbe94a8cc0dc858710a3dad49d532054/README.md",
+      "source_bytes": 1499,
+      "git_blob": "ad42c2840066c8529d6c8ceba6390f851369e2af",
+      "sha256": "00270e7d2ba42c7d07022888514e2c06ac58e978177474c097c5097c469f0d7e"
+    },
+    "mr-tydi-ru/corpus/mrtydi-v1.1-russian/corpus.jsonl.gz": {
+      "source": "https://huggingface.co/datasets/castorini/mr-tydi-corpus/resolve/3a3aa212bbe94a8cc0dc858710a3dad49d532054/mrtydi-v1.1-russian/corpus.jsonl.gz",
+      "source_bytes": 1588019137,
+      "published_sha256": "c468bdb502a2f596469b3bb52448f670a1efd2ab7301beab79753c14cfd5bb79",
+      "sha256": "c468bdb502a2f596469b3bb52448f670a1efd2ab7301beab79753c14cfd5bb79"
+    },
+    "mmarco-ru/README.md": {
+      "source": "https://huggingface.co/datasets/unicamp-dl/mmarco/resolve/6d039c4638c0ba3e46a9cb7b498b145e7edc6230/README.md",
+      "source_bytes": 3661,
+      "git_blob": "78ca6f78e4c5523e9693476005bb86f6c3186ce0",
+      "sha256": "bff638032720d33c3e99843ebde1b12a6b65ab517d0491ab8cd0a89737a297ca"
+    },
+    "mmarco-ru/data/google/collections/russian_collection.tsv": {
+      "source": "https://huggingface.co/datasets/unicamp-dl/mmarco/resolve/6d039c4638c0ba3e46a9cb7b498b145e7edc6230/data/google/collections/russian_collection.tsv",
+      "source_bytes": 5769514997,
+      "published_sha256": "f8d4fef1a57672dff9331565c53a94af711d75fbb69c3aaf3907dfe8ac954461",
+      "sha256": "f8d4fef1a57672dff9331565c53a94af711d75fbb69c3aaf3907dfe8ac954461"
+    },
+    "mmarco-ru/data/google/queries/dev/russian_queries.dev.small.tsv": {
+      "source": "https://huggingface.co/datasets/unicamp-dl/mmarco/resolve/6d039c4638c0ba3e46a9cb7b498b145e7edc6230/data/google/queries/dev/russian_queries.dev.small.tsv",
+      "source_bytes": 508429,
+      "published_sha256": "80448d2992019eb384ceb55e5c7f008644248a5e830f21df312fa6e99bc3c5ba",
+      "sha256": "80448d2992019eb384ceb55e5c7f008644248a5e830f21df312fa6e99bc3c5ba"
+    },
+    "mmarco-ru/data/google/queries/train/russian_queries.train.tsv": {
+      "source": "https://huggingface.co/datasets/unicamp-dl/mmarco/resolve/6d039c4638c0ba3e46a9cb7b498b145e7edc6230/data/google/queries/train/russian_queries.train.tsv",
+      "source_bytes": 62396828,
+      "published_sha256": "0bbeda7b586fff04b4e9229e7623f5b2783802952eeab4c3a4a5c488a6368cf4",
+      "sha256": "0bbeda7b586fff04b4e9229e7623f5b2783802952eeab4c3a4a5c488a6368cf4"
+    },
+    "mmarco-ru/data/qrels.dev.small.tsv": {
+      "source": "https://huggingface.co/datasets/unicamp-dl/mmarco/resolve/6d039c4638c0ba3e46a9cb7b498b145e7edc6230/data/qrels.dev.small.tsv",
+      "source_bytes": 143300,
+      "published_sha256": "ddc607dbe7b748d7168e8675a242f0811d47febaa2e69d3af09d7ab249c68d7e",
+      "sha256": "ddc607dbe7b748d7168e8675a242f0811d47febaa2e69d3af09d7ab249c68d7e"
+    },
+    "beir-scifact/hf/.gitattributes": {
+      "source": "https://huggingface.co/datasets/BeIR/scifact/resolve/b3b5335604bf5ee3c4447671af975ea25143d4f5/.gitattributes",
+      "source_bytes": 1566,
+      "git_blob": "a770de78287b5353fb380cf8774b1e6caf2881d9",
+      "sha256": "c16b7ce3cc1b9e89f2da9d83012ae183208eaf99ae6c2b138c91ef551fe15861"
+    },
+    "beir-scifact/hf/README.md": {
+      "source": "https://huggingface.co/datasets/BeIR/scifact/resolve/b3b5335604bf5ee3c4447671af975ea25143d4f5/README.md",
+      "source_bytes": 10407,
+      "git_blob": "ba04c008d728d6d04fcaba4174e1e9306538b5e6",
+      "sha256": "b5f57be1839fdb75867073986a019a78afe0a149950f79d1165509efc5e5cf2f"
+    },
+    "beir-scifact/hf/corpus/corpus-00000-of-00001.parquet": {
+      "source": "https://huggingface.co/datasets/BeIR/scifact/resolve/b3b5335604bf5ee3c4447671af975ea25143d4f5/corpus/corpus-00000-of-00001.parquet",
+      "source_bytes": 4469916,
+      "published_sha256": "243324b35f03d82bd6d98a5f575966876e86cad7ce16e5333a35b1b793dc4f45",
+      "sha256": "243324b35f03d82bd6d98a5f575966876e86cad7ce16e5333a35b1b793dc4f45"
+    },
+    "beir-scifact/hf/queries/queries-00000-of-00001.parquet": {
+      "source": "https://huggingface.co/datasets/BeIR/scifact/resolve/b3b5335604bf5ee3c4447671af975ea25143d4f5/queries/queries-00000-of-00001.parquet",
+      "source_bytes": 64982,
+      "published_sha256": "1c37956c5dc8b810b60302323c24d1a9e79e26411ba8f5ad9d0888642e2a9034",
+      "sha256": "1c37956c5dc8b810b60302323c24d1a9e79e26411ba8f5ad9d0888642e2a9034"
+    },
+    "beir-scifact/hf-qrels/.gitattributes": {
+      "source": "https://huggingface.co/datasets/BeIR/scifact-qrels/resolve/2938d17dc3b09882fdb8c12bbbe2e2dc0e75a029/.gitattributes",
+      "source_bytes": 1566,
+      "git_blob": "a770de78287b5353fb380cf8774b1e6caf2881d9",
+      "sha256": "c16b7ce3cc1b9e89f2da9d83012ae183208eaf99ae6c2b138c91ef551fe15861"
+    },
+    "beir-scifact/hf-qrels/README.md": {
+      "source": "https://huggingface.co/datasets/BeIR/scifact-qrels/resolve/2938d17dc3b09882fdb8c12bbbe2e2dc0e75a029/README.md",
+      "source_bytes": 13995,
+      "git_blob": "bc58b6940a415a26e38244f8c688ff5ef134abf0",
+      "sha256": "fd34a2830e557f1e32d46d0b34a218d280c9800ee4071579610d4ff587b4fd45"
+    },
+    "beir-scifact/hf-qrels/test.tsv": {
+      "source": "https://huggingface.co/datasets/BeIR/scifact-qrels/resolve/2938d17dc3b09882fdb8c12bbbe2e2dc0e75a029/test.tsv",
+      "source_bytes": 5389,
+      "git_blob": "c62f58c75f10c0cee23483b7269bff2902ae4080",
+      "sha256": "0864bb985e0ca2367ba217977e72004d549054b2b06666ed9d4825ac7c21284c"
+    },
+    "beir-scifact/hf-qrels/train.tsv": {
+      "source": "https://huggingface.co/datasets/BeIR/scifact-qrels/resolve/2938d17dc3b09882fdb8c12bbbe2e2dc0e75a029/train.tsv",
+      "source_bytes": 14502,
+      "git_blob": "3d7882aacef0cbe3befa238357e4bb165165d8ba",
+      "sha256": "a53f2114831916c096b6c37d9e54da68cef4efdcdbd5ed46533601af972acf1d"
+    },
+    "lotte/hf/README.md": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte_passages/resolve/3be7f857585299f1268d29d3591202d731ea84a1/README.md",
+      "source_bytes": 895,
+      "git_blob": "13dba27452fc2b235fb7bf9fb3b258bc363e8e80",
+      "sha256": "16a7b3577ef6919a2d664f1072070ea18740a5de460d4e3ace033dba20647974"
+    },
+    "lotte/hf/lifestyle/dev_collection.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte_passages/resolve/3be7f857585299f1268d29d3591202d731ea84a1/lifestyle/dev_collection.jsonl",
+      "source_bytes": 271297849,
+      "published_sha256": "6e51b9160d01edf15b4b3fa3ef3dd1fabf1bfe276437b5de3b4d7691d6b958c7",
+      "sha256": "6e51b9160d01edf15b4b3fa3ef3dd1fabf1bfe276437b5de3b4d7691d6b958c7"
+    },
+    "lotte/hf/lifestyle/test_collection.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte_passages/resolve/3be7f857585299f1268d29d3591202d731ea84a1/lifestyle/test_collection.jsonl",
+      "source_bytes": 109435521,
+      "published_sha256": "6afca45a7a83ceaf5f1144631c57ab7796750037732970534511dab49a79ad9b",
+      "sha256": "6afca45a7a83ceaf5f1144631c57ab7796750037732970534511dab49a79ad9b"
+    },
+    "lotte/hf/pooled/dev/collection.tsv": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte_passages/resolve/3be7f857585299f1268d29d3591202d731ea84a1/pooled/dev/collection.tsv",
+      "source_bytes": 2257322186,
+      "published_sha256": "717361f0ca05a2093a0441ba2e4464ddfcbc0bacb724ac5c4f89cd08a20b34af",
+      "sha256": "717361f0ca05a2093a0441ba2e4464ddfcbc0bacb724ac5c4f89cd08a20b34af"
+    },
+    "lotte/hf/pooled/dev/qas.forum.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte_passages/resolve/3be7f857585299f1268d29d3591202d731ea84a1/pooled/dev/qas.forum.jsonl",
+      "source_bytes": 1877876,
+      "published_sha256": "5a16b0bd663dcc37b6df16514657beb09f13210bd719f19b2e7aa3141e4ad140",
+      "sha256": "5a16b0bd663dcc37b6df16514657beb09f13210bd719f19b2e7aa3141e4ad140"
+    },
+    "lotte/hf/pooled/dev/qas.search.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte_passages/resolve/3be7f857585299f1268d29d3591202d731ea84a1/pooled/dev/qas.search.jsonl",
+      "source_bytes": 832440,
+      "published_sha256": "be92516e59e833880619cc5a34068caed7a94cdd237907c97b177ea38aad94ff",
+      "sha256": "be92516e59e833880619cc5a34068caed7a94cdd237907c97b177ea38aad94ff"
+    },
+    "lotte/hf/pooled/dev/questions.forum.tsv": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte_passages/resolve/3be7f857585299f1268d29d3591202d731ea84a1/pooled/dev/questions.forum.tsv",
+      "source_bytes": 628387,
+      "git_blob": "b3b07697c994b517b1109f94eeb72a48835afdf5",
+      "sha256": "945af19f8166be90d36740a9db67143b0024ff1a91483af9541bac6ccafd74ae"
+    },
+    "lotte/hf/pooled/dev/questions.search.tsv": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte_passages/resolve/3be7f857585299f1268d29d3591202d731ea84a1/pooled/dev/questions.search.tsv",
+      "source_bytes": 134123,
+      "git_blob": "4a1f5028806c9d590b9b852378fe5da2a91de9eb",
+      "sha256": "406922b75baaba0c21a0d1700ac7d3f2e8cec7216dbfe81712d6ff118d7882fa"
+    },
+    "lotte/hf/pooled/test/collection.tsv": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte_passages/resolve/3be7f857585299f1268d29d3591202d731ea84a1/pooled/test/collection.tsv",
+      "source_bytes": 2362870480,
+      "published_sha256": "f9100f25af3da05e25aa98debcdb0eac537e41ff4f774103e772df6c42523e5a",
+      "sha256": "f9100f25af3da05e25aa98debcdb0eac537e41ff4f774103e772df6c42523e5a"
+    },
+    "lotte/hf/pooled/test/qas.forum.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte_passages/resolve/3be7f857585299f1268d29d3591202d731ea84a1/pooled/test/qas.forum.jsonl",
+      "source_bytes": 1802600,
+      "published_sha256": "b87e549daee5194eb44db0c7c2b11111d4b5b8101851e0e72fca3a1c0d2fed54",
+      "sha256": "b87e549daee5194eb44db0c7c2b11111d4b5b8101851e0e72fca3a1c0d2fed54"
+    },
+    "lotte/hf/pooled/test/qas.search.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte_passages/resolve/3be7f857585299f1268d29d3591202d731ea84a1/pooled/test/qas.search.jsonl",
+      "source_bytes": 1093531,
+      "published_sha256": "0001d79059752ec5dff5cdd5ceb9df64eb36b7c32055a25a4c67e64c51929752",
+      "sha256": "0001d79059752ec5dff5cdd5ceb9df64eb36b7c32055a25a4c67e64c51929752"
+    },
+    "lotte/hf/pooled/test/questions.forum.tsv": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte_passages/resolve/3be7f857585299f1268d29d3591202d731ea84a1/pooled/test/questions.forum.tsv",
+      "source_bytes": 612455,
+      "git_blob": "a80cf5cea57c16b98d936a6c9b29b4bc968e7343",
+      "sha256": "ee909264c8f26732bfc9e05aa1f4473303f69d571eb437ecd4b3735849d1decd"
+    },
+    "lotte/hf/pooled/test/questions.search.tsv": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte_passages/resolve/3be7f857585299f1268d29d3591202d731ea84a1/pooled/test/questions.search.tsv",
+      "source_bytes": 180439,
+      "git_blob": "9333fa0e393886cb959e1836c08b54414aba7b62",
+      "sha256": "7d3a0f5898afaf47358492f56e76f0a1cba434056801f7ecafc80ac3f9ef70bb"
+    },
+    "lotte/hf/recreation/dev/metadata.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte_passages/resolve/3be7f857585299f1268d29d3591202d731ea84a1/recreation/dev/metadata.jsonl",
+      "source_bytes": 62645644,
+      "published_sha256": "e9f5049dcfbf1e23b3a56fd5fd115fefd20e22fb6bfb6eab8302c72f010a25b0",
+      "sha256": "e9f5049dcfbf1e23b3a56fd5fd115fefd20e22fb6bfb6eab8302c72f010a25b0"
+    },
+    "lotte/hf/recreation/dev_collection.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte_passages/resolve/3be7f857585299f1268d29d3591202d731ea84a1/recreation/dev_collection.jsonl",
+      "source_bytes": 358984797,
+      "published_sha256": "86d835558f0603a3c4812efc300a495b73128377f77cc6a993adbdd1e8ced2ac",
+      "sha256": "86d835558f0603a3c4812efc300a495b73128377f77cc6a993adbdd1e8ced2ac"
+    },
+    "lotte/hf/recreation/test/metadata.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte_passages/resolve/3be7f857585299f1268d29d3591202d731ea84a1/recreation/test/metadata.jsonl",
+      "source_bytes": 48080972,
+      "published_sha256": "f06403cfe5b9dbd981b753883e55edba4339fe1d0cae22d5b830904681cfdbb6",
+      "sha256": "f06403cfe5b9dbd981b753883e55edba4339fe1d0cae22d5b830904681cfdbb6"
+    },
+    "lotte/hf/recreation/test_collection.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte_passages/resolve/3be7f857585299f1268d29d3591202d731ea84a1/recreation/test_collection.jsonl",
+      "source_bytes": 139978928,
+      "published_sha256": "ce63cea2a05a39f81a1a9d4c8b94b7aaba92886295758fe847975a255363aa35",
+      "sha256": "ce63cea2a05a39f81a1a9d4c8b94b7aaba92886295758fe847975a255363aa35"
+    },
+    "lotte/hf/science/dev/metadata.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte_passages/resolve/3be7f857585299f1268d29d3591202d731ea84a1/science/dev/metadata.jsonl",
+      "source_bytes": 98229878,
+      "published_sha256": "280999ec1fada3c13d8d3e93cf09a0416972e70621cc9a82369c89065d3cf942",
+      "sha256": "280999ec1fada3c13d8d3e93cf09a0416972e70621cc9a82369c89065d3cf942"
+    },
+    "lotte/hf/science/dev_collection.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte_passages/resolve/3be7f857585299f1268d29d3591202d731ea84a1/science/dev_collection.jsonl",
+      "source_bytes": 440049785,
+      "published_sha256": "1301b01053b63aa6fc4a5a3e2f4450470daecf09675237ea9b10bdb0bb211dcc",
+      "sha256": "1301b01053b63aa6fc4a5a3e2f4450470daecf09675237ea9b10bdb0bb211dcc"
+    },
+    "lotte/hf/science/test/metadata.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte_passages/resolve/3be7f857585299f1268d29d3591202d731ea84a1/science/test/metadata.jsonl",
+      "source_bytes": 488037920,
+      "published_sha256": "4348219741c3722f80794e558df6f48bc31060ee75e82e0b0b43268fb989b3d5",
+      "sha256": "4348219741c3722f80794e558df6f48bc31060ee75e82e0b0b43268fb989b3d5"
+    },
+    "lotte/hf/science/test_collection.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte_passages/resolve/3be7f857585299f1268d29d3591202d731ea84a1/science/test_collection.jsonl",
+      "source_bytes": 1542757822,
+      "published_sha256": "04d219c998e2c44eff644a18d831858c125b26c622eb469ea1d0cff4ce22dc1f",
+      "sha256": "04d219c998e2c44eff644a18d831858c125b26c622eb469ea1d0cff4ce22dc1f"
+    },
+    "lotte/hf/technology/dev/metadata.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte_passages/resolve/3be7f857585299f1268d29d3591202d731ea84a1/technology/dev/metadata.jsonl",
+      "source_bytes": 322609239,
+      "published_sha256": "57bf617c6c5e9ba1eb672cec684f56c364cd0ba71592c53c0f28e3e1e54de306",
+      "sha256": "57bf617c6c5e9ba1eb672cec684f56c364cd0ba71592c53c0f28e3e1e54de306"
+    },
+    "lotte/hf/technology/dev_collection.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte_passages/resolve/3be7f857585299f1268d29d3591202d731ea84a1/technology/dev_collection.jsonl",
+      "source_bytes": 956766750,
+      "published_sha256": "75c022241668f40d84d7a1207a3ffd9a1e8358bb6c36c590a66480635347be54",
+      "sha256": "75c022241668f40d84d7a1207a3ffd9a1e8358bb6c36c590a66480635347be54"
+    },
+    "lotte/hf/technology/test/metadata.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte_passages/resolve/3be7f857585299f1268d29d3591202d731ea84a1/technology/test/metadata.jsonl",
+      "source_bytes": 175021314,
+      "published_sha256": "23ddb8ef99cebe93c7aabd30996da00a58ad0b733286c56807260fb2deb8f185",
+      "sha256": "23ddb8ef99cebe93c7aabd30996da00a58ad0b733286c56807260fb2deb8f185"
+    },
+    "lotte/hf/technology/test_collection.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte_passages/resolve/3be7f857585299f1268d29d3591202d731ea84a1/technology/test_collection.jsonl",
+      "source_bytes": 584436206,
+      "published_sha256": "21efa70220ff0c46e2217aca7e29c5087f4d7fb384d24be095da39ad1c3d1f25",
+      "sha256": "21efa70220ff0c46e2217aca7e29c5087f4d7fb384d24be095da39ad1c3d1f25"
+    },
+    "lotte/hf/writing/dev/metadata.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte_passages/resolve/3be7f857585299f1268d29d3591202d731ea84a1/writing/dev/metadata.jsonl",
+      "source_bytes": 64250360,
+      "published_sha256": "f95c48ca6be3cb12cfd701d84cea856e196597f52c5f51093b705b03323861a2",
+      "sha256": "f95c48ca6be3cb12cfd701d84cea856e196597f52c5f51093b705b03323861a2"
+    },
+    "lotte/hf/writing/dev_collection.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte_passages/resolve/3be7f857585299f1268d29d3591202d731ea84a1/writing/dev_collection.jsonl",
+      "source_bytes": 351559853,
+      "published_sha256": "247698707676fd043a693bd22f220f31a4b2f727e6daf6030d4de1958f161e58",
+      "sha256": "247698707676fd043a693bd22f220f31a4b2f727e6daf6030d4de1958f161e58"
+    },
+    "lotte/hf/writing/test/metadata.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte_passages/resolve/3be7f857585299f1268d29d3591202d731ea84a1/writing/test/metadata.jsonl",
+      "source_bytes": 48764042,
+      "published_sha256": "ea43b79934dc12bbd75b9b4a42c537017811b300d7b3bfddf402e7f44f15d562",
+      "sha256": "ea43b79934dc12bbd75b9b4a42c537017811b300d7b3bfddf402e7f44f15d562"
+    },
+    "lotte/hf/writing/test_collection.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte_passages/resolve/3be7f857585299f1268d29d3591202d731ea84a1/writing/test_collection.jsonl",
+      "source_bytes": 154674326,
+      "published_sha256": "b9e3bc1aa25d0033995068e6b5d777b080738086f4955722e52147f5d13874bd",
+      "sha256": "b9e3bc1aa25d0033995068e6b5d777b080738086f4955722e52147f5d13874bd"
+    },
+    "lotte/hf-topics/README.md": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte/resolve/1a87807da631e4197d77f7e720c38941abcf26d1/README.md",
+      "source_bytes": 533,
+      "git_blob": "5d0471e11fe614df3b2614352e40f9c6b4d1fca2",
+      "sha256": "bcf3ec269fed9728ba391d9335aa7009182ff44be602deef9b20131fd6f3db54"
+    },
+    "lotte/hf-topics/lifestyle/dev_qas.forum.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte/resolve/1a87807da631e4197d77f7e720c38941abcf26d1/lifestyle/dev_qas.forum.jsonl",
+      "source_bytes": 426225,
+      "published_sha256": "547f0047d4c4b3f99ee0859e588727a30a4f82f694199417b9c3ed8eeb6e4ee8",
+      "sha256": "547f0047d4c4b3f99ee0859e588727a30a4f82f694199417b9c3ed8eeb6e4ee8"
+    },
+    "lotte/hf-topics/lifestyle/dev_qas.search.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte/resolve/1a87807da631e4197d77f7e720c38941abcf26d1/lifestyle/dev_qas.search.jsonl",
+      "source_bytes": 135512,
+      "published_sha256": "a67be736efa5a7961d4bb2a768ae3efc3c195d163541b665581919cd21ae9d3f",
+      "sha256": "a67be736efa5a7961d4bb2a768ae3efc3c195d163541b665581919cd21ae9d3f"
+    },
+    "lotte/hf-topics/lifestyle/test_qas.forum.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte/resolve/1a87807da631e4197d77f7e720c38941abcf26d1/lifestyle/test_qas.forum.jsonl",
+      "source_bytes": 392538,
+      "published_sha256": "65ec46e9687d76fb7da9bdc9fb259bd7388a2c52b1f5efdd3b5c760587807624",
+      "sha256": "65ec46e9687d76fb7da9bdc9fb259bd7388a2c52b1f5efdd3b5c760587807624"
+    },
+    "lotte/hf-topics/lifestyle/test_qas.search.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte/resolve/1a87807da631e4197d77f7e720c38941abcf26d1/lifestyle/test_qas.search.jsonl",
+      "source_bytes": 210658,
+      "published_sha256": "4215b80512270e328c0f267b5b4b60b4a8914e34d4b5182994822acc53cdd539",
+      "sha256": "4215b80512270e328c0f267b5b4b60b4a8914e34d4b5182994822acc53cdd539"
+    },
+    "lotte/hf-topics/pooled/dev_qas.forum.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte/resolve/1a87807da631e4197d77f7e720c38941abcf26d1/pooled/dev_qas.forum.jsonl",
+      "source_bytes": 2111337,
+      "published_sha256": "3787acc2fb866d2e162815fba4159c1656eef50da4e34dddbee3bebfce27eaa4",
+      "sha256": "3787acc2fb866d2e162815fba4159c1656eef50da4e34dddbee3bebfce27eaa4"
+    },
+    "lotte/hf-topics/pooled/dev_qas.search.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte/resolve/1a87807da631e4197d77f7e720c38941abcf26d1/pooled/dev_qas.search.jsonl",
+      "source_bytes": 899856,
+      "published_sha256": "371311e96eaa17c706944a6dbd0c5d06c8558b0347806053110424a5c865d62b",
+      "sha256": "371311e96eaa17c706944a6dbd0c5d06c8558b0347806053110424a5c865d62b"
+    },
+    "lotte/hf-topics/pooled/test_qas.forum.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte/resolve/1a87807da631e4197d77f7e720c38941abcf26d1/pooled/test_qas.forum.jsonl",
+      "source_bytes": 2035076,
+      "published_sha256": "338f0cbcf07c8be1fa51cd9c09a76597d0e221c906ce1006008409bddeb47d58",
+      "sha256": "338f0cbcf07c8be1fa51cd9c09a76597d0e221c906ce1006008409bddeb47d58"
+    },
+    "lotte/hf-topics/pooled/test_qas.search.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte/resolve/1a87807da631e4197d77f7e720c38941abcf26d1/pooled/test_qas.search.jsonl",
+      "source_bytes": 1182521,
+      "published_sha256": "47d69255519dfe754752b4b85ece19dc84cabf45310a50686b32b8018dd6ed3c",
+      "sha256": "47d69255519dfe754752b4b85ece19dc84cabf45310a50686b32b8018dd6ed3c"
+    },
+    "lotte/hf-topics/recreation/dev_qas.forum.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte/resolve/1a87807da631e4197d77f7e720c38941abcf26d1/recreation/dev_qas.forum.jsonl",
+      "source_bytes": 413764,
+      "published_sha256": "b7781efdf3bb212423fd86d4100dba32e70e478b5c8812d830b15278c612a60e",
+      "sha256": "b7781efdf3bb212423fd86d4100dba32e70e478b5c8812d830b15278c612a60e"
+    },
+    "lotte/hf-topics/recreation/dev_qas.search.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte/resolve/1a87807da631e4197d77f7e720c38941abcf26d1/recreation/dev_qas.search.jsonl",
+      "source_bytes": 178806,
+      "published_sha256": "62e1493346982aef59a7d56ab29bcb7452f0844ce8c6a397586255242ebef7a3",
+      "sha256": "62e1493346982aef59a7d56ab29bcb7452f0844ce8c6a397586255242ebef7a3"
+    },
+    "lotte/hf-topics/recreation/test_qas.forum.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte/resolve/1a87807da631e4197d77f7e720c38941abcf26d1/recreation/test_qas.forum.jsonl",
+      "source_bytes": 353276,
+      "published_sha256": "02bc3c158485b4195f7500f7e5f983096875a32eb8e582db46adff8f29aad911",
+      "sha256": "02bc3c158485b4195f7500f7e5f983096875a32eb8e582db46adff8f29aad911"
+    },
+    "lotte/hf-topics/recreation/test_qas.search.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte/resolve/1a87807da631e4197d77f7e720c38941abcf26d1/recreation/test_qas.search.jsonl",
+      "source_bytes": 275367,
+      "published_sha256": "ea28b4ac82904db9452ec94b13718fd7b479d8a2378ce02ad619a876f682c6cf",
+      "sha256": "ea28b4ac82904db9452ec94b13718fd7b479d8a2378ce02ad619a876f682c6cf"
+    },
+    "lotte/hf-topics/science/dev_qas.forum.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte/resolve/1a87807da631e4197d77f7e720c38941abcf26d1/science/dev_qas.forum.jsonl",
+      "source_bytes": 422340,
+      "published_sha256": "f929396d93d4e3c2058033dd65714b1f6205732d853b4ff97e310a59558a64f9",
+      "sha256": "f929396d93d4e3c2058033dd65714b1f6205732d853b4ff97e310a59558a64f9"
+    },
+    "lotte/hf-topics/science/dev_qas.search.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte/resolve/1a87807da631e4197d77f7e720c38941abcf26d1/science/dev_qas.search.jsonl",
+      "source_bytes": 173684,
+      "published_sha256": "73a191b46bb59e1c4d0c7328d74583f0422a303b72b0b729914ea51c089c9a38",
+      "sha256": "73a191b46bb59e1c4d0c7328d74583f0422a303b72b0b729914ea51c089c9a38"
+    },
+    "lotte/hf-topics/science/test_qas.forum.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte/resolve/1a87807da631e4197d77f7e720c38941abcf26d1/science/test_qas.forum.jsonl",
+      "source_bytes": 443622,
+      "published_sha256": "7ade8bca406b097ba3e4b9908ffd8241111629bcb15320144225cc5809e977f3",
+      "sha256": "7ade8bca406b097ba3e4b9908ffd8241111629bcb15320144225cc5809e977f3"
+    },
+    "lotte/hf-topics/science/test_qas.search.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte/resolve/1a87807da631e4197d77f7e720c38941abcf26d1/science/test_qas.search.jsonl",
+      "source_bytes": 197738,
+      "published_sha256": "5c80f6ed2e517f08739278ce0585dc2a3986815b929fa9a219c491556f04c9fb",
+      "sha256": "5c80f6ed2e517f08739278ce0585dc2a3986815b929fa9a219c491556f04c9fb"
+    },
+    "lotte/hf-topics/technology/dev_qas.forum.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte/resolve/1a87807da631e4197d77f7e720c38941abcf26d1/technology/dev_qas.forum.jsonl",
+      "source_bytes": 438461,
+      "published_sha256": "2b4890cb5f8c693f1e7778fa104d538dc7134004d2cfaedbffbc87191b322c04",
+      "sha256": "2b4890cb5f8c693f1e7778fa104d538dc7134004d2cfaedbffbc87191b322c04"
+    },
+    "lotte/hf-topics/technology/dev_qas.search.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte/resolve/1a87807da631e4197d77f7e720c38941abcf26d1/technology/dev_qas.search.jsonl",
+      "source_bytes": 278706,
+      "published_sha256": "13757b60a97ec2cb718f9a777a3af2ea815afcd6971c1f3d3449e5af5609d569",
+      "sha256": "13757b60a97ec2cb718f9a777a3af2ea815afcd6971c1f3d3449e5af5609d569"
+    },
+    "lotte/hf-topics/technology/test_qas.forum.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte/resolve/1a87807da631e4197d77f7e720c38941abcf26d1/technology/test_qas.forum.jsonl",
+      "source_bytes": 438881,
+      "published_sha256": "2ae44ce8f311e02ea4b2c99198d8b02a9830a57c8ce45b4880a9ebe4e71f7040",
+      "sha256": "2ae44ce8f311e02ea4b2c99198d8b02a9830a57c8ce45b4880a9ebe4e71f7040"
+    },
+    "lotte/hf-topics/technology/test_qas.search.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte/resolve/1a87807da631e4197d77f7e720c38941abcf26d1/technology/test_qas.search.jsonl",
+      "source_bytes": 190032,
+      "published_sha256": "c6df31ea50dd284eb80383339687844480d8ddaa5ee72a94a46ec72ae78c41d5",
+      "sha256": "c6df31ea50dd284eb80383339687844480d8ddaa5ee72a94a46ec72ae78c41d5"
+    },
+    "lotte/hf-topics/writing/dev_qas.forum.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte/resolve/1a87807da631e4197d77f7e720c38941abcf26d1/writing/dev_qas.forum.jsonl",
+      "source_bytes": 428332,
+      "published_sha256": "d780993e0ab707c097c6001d88a05fd29c4e4a8222428e40c714884bb8f795f1",
+      "sha256": "d780993e0ab707c097c6001d88a05fd29c4e4a8222428e40c714884bb8f795f1"
+    },
+    "lotte/hf-topics/writing/dev_qas.search.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte/resolve/1a87807da631e4197d77f7e720c38941abcf26d1/writing/dev_qas.search.jsonl",
+      "source_bytes": 145596,
+      "published_sha256": "a272aca0019c815d4916647eb21436192d72028e7e99d9c5cd036133cf4eb207",
+      "sha256": "a272aca0019c815d4916647eb21436192d72028e7e99d9c5cd036133cf4eb207"
+    },
+    "lotte/hf-topics/writing/test_qas.forum.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte/resolve/1a87807da631e4197d77f7e720c38941abcf26d1/writing/test_qas.forum.jsonl",
+      "source_bytes": 395913,
+      "published_sha256": "62763613850de9b85decf65f0363d5a865d471f0f8810562019261cd7dd5a5b1",
+      "sha256": "62763613850de9b85decf65f0363d5a865d471f0f8810562019261cd7dd5a5b1"
+    },
+    "lotte/hf-topics/writing/test_qas.search.jsonl": {
+      "source": "https://huggingface.co/datasets/colbertv2/lotte/resolve/1a87807da631e4197d77f7e720c38941abcf26d1/writing/test_qas.search.jsonl",
+      "source_bytes": 315010,
+      "published_sha256": "21276945872c578470b2e97fb570e64227c8236a9154b7af1407eff2eccc37c9",
+      "sha256": "21276945872c578470b2e97fb570e64227c8236a9154b7af1407eff2eccc37c9"
+    },
+    "enron/enron_mail_20150507.tar.gz": {
+      "source": "https://www.cs.cmu.edu/~enron/enron_mail_20150507.tar.gz",
+      "source_bytes": 443254787,
+      "sha256": "b3da1b3fe0369ec3140bb4fbce94702c33b7da810ec15d718b3fadf5cd748ca7",
+      "local_gzip_crc_verified": true
+    },
+    "msmarco-passage/collectionandqueries.tar.gz": {
+      "source": "https://msmarco-gkbqakfehxgtezgg.b01.azurefd.net/msmarcoranking/collectionandqueries.tar.gz",
+      "source_bytes": 1057717952,
+      "sha256": "decac356eb8cc5b9cea2e30b8738dc6f367e4147aaefe8fc7526ddda382fd2fc",
+      "local_gzip_crc_verified": true
+    },
+    "msmarco-doc/msmarco-docs.tsv.gz": {
+      "source": "https://msmarco-gkbqakfehxgtezgg.b01.azurefd.net/msmarcoranking/msmarco-docs.tsv.gz",
+      "source_bytes": 8446274598,
+      "sha256": "78f5cbaae6be4376561a3a16f475c9be6dbcd50e696a67b08fd825c21a263b35",
+      "local_gzip_crc_verified": true
+    },
+    "msmarco-doc/msmarco-doctrain-queries.tsv.gz": {
+      "source": "https://msmarco-gkbqakfehxgtezgg.b01.azurefd.net/msmarcoranking/msmarco-doctrain-queries.tsv.gz",
+      "source_bytes": 6457962,
+      "sha256": "45cf2d92116faaa0cd14ade28b14136402230d677ebc88b2ab65d81efb7e8035",
+      "published_content_md5": "QIbTGpzy17acSTJgkFgRHQ=="
+    },
+    "msmarco-doc/msmarco-doctrain-qrels.tsv.gz": {
+      "source": "https://msmarco-gkbqakfehxgtezgg.b01.azurefd.net/msmarcoranking/msmarco-doctrain-qrels.tsv.gz",
+      "source_bytes": 2385717,
+      "sha256": "f734da158920a2b5ab1b6237b3a2f2d4833109b42c9afb611ccc88ec782a2595",
+      "published_content_md5": "nRYJ4kAROwUE/S5hyzbZJA=="
+    },
+    "msmarco-doc/msmarco-docdev-queries.tsv.gz": {
+      "source": "https://msmarco-gkbqakfehxgtezgg.b01.azurefd.net/msmarcoranking/msmarco-docdev-queries.tsv.gz",
+      "source_bytes": 91837,
+      "sha256": "7863b3d5d1c8631c75ff90c59e8323b082a05a658d093b3388e370d225295f31",
+      "published_content_md5": "rCBZPXG5wyqyYzIw+c3xDQ=="
+    },
+    "msmarco-doc/msmarco-docdev-qrels.tsv.gz": {
+      "source": "https://msmarco-gkbqakfehxgtezgg.b01.azurefd.net/msmarcoranking/msmarco-docdev-qrels.tsv.gz",
+      "source_bytes": 38553,
+      "sha256": "5cdd88e814c1a0bdcc6f1b9138ce6a39e3e5c9b134c84d4b209d704d2caa61f2",
+      "published_content_md5": "Xur660lgl5pi5/7ZMnMlTg=="
+    }
+  }
+}

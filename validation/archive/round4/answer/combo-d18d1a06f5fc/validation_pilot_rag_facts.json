@@ -1,0 +1,132 @@
+{
+  "corpus_sha256": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+  "server_corpus_check": "sha256",
+  "fixture_sha256": "96b5bceebe21d68164e12d2063cb4fe6ff42ef41bda1d48ef90860b2c958a4be",
+  "scope": "Small task-authored regression set with deterministic, predeclared facts. References must open in the same snapshot. Fact-pattern and source checks do not evaluate arbitrary generated claims.",
+  "summary": {
+    "answerable": 5,
+    "all_facts_with_expected_citation": 4,
+    "unwarranted_no_evidence": 0,
+    "insufficient": 2,
+    "explicit_no_evidence": 1,
+    "citations_on_answerable": 7,
+    "expected_source_citations_on_answerable": 5,
+    "required_facts": 6,
+    "required_facts_with_citation": 5,
+    "originals_opened_in_scope": 10,
+    "modes": {
+      "extractive": 5,
+      "generative": 1,
+      "no_evidence": 1
+    }
+  },
+  "cases": [
+    {
+      "id": "vk-pilot-01",
+      "answerable": true,
+      "mode": "extractive",
+      "answer": "«Счёт от 20.08.2027 на 504.75.» [1].",
+      "answer_http_ms": 378.9,
+      "opened_source_ids": [
+        "L-d2db3bf9b0e8873699f7"
+      ],
+      "citations": 1,
+      "citations_to_expected": 1,
+      "facts_expected": 1,
+      "facts_cited": 1,
+      "all_expected_facts_cited": true
+    },
+    {
+      "id": "vk-pilot-02",
+      "answerable": true,
+      "mode": "generative",
+      "answer": "Заказ на ударный гайковёрт с пневмоприводом и моментом 780 Нм стоит 6655.17 рублей [1].",
+      "answer_http_ms": 1030.8,
+      "opened_source_ids": [
+        "L-9822b31c1104f4365ef7"
+      ],
+      "citations": 1,
+      "citations_to_expected": 1,
+      "facts_expected": 1,
+      "facts_cited": 1,
+      "all_expected_facts_cited": true
+    },
+    {
+      "id": "vk-pilot-03",
+      "answerable": true,
+      "mode": "extractive",
+      "answer": "«Чтобы получить возвраты, покажите сотруднику точки штрихкод из приложения или личного кабинета: в разделе FBS/FBO Ксения Семеновна Николаева и FBO В пункте выдачи нажмите «Получить возвраты».» «Всего в точке выдачи ждут 457 возвратов.» [1].",
+      "answer_http_ms": 5826.7,
+      "opened_source_ids": [
+        "L-6a424bc0727869055ae7"
+      ],
+      "citations": 1,
+      "citations_to_expected": 1,
+      "facts_expected": 2,
+      "facts_cited": 2,
+      "all_expected_facts_cited": true
+    },
+    {
+      "id": "vk-pilot-06",
+      "answerable": false,
+      "mode": "no_evidence",
+      "answer": "В найденных письмах недостаточно сведений для ответа.",
+      "answer_http_ms": 1.1,
+      "opened_source_ids": [],
+      "citations": 0,
+      "citations_to_expected": 0,
+      "facts_expected": 0,
+      "facts_cited": 0,
+      "all_expected_facts_cited": false
+    },
+    {
+      "id": "vk-pilot-07",
+      "answerable": true,
+      "mode": "extractive",
+      "answer": "«иммуногенетика — 416» [1].",
+      "answer_http_ms": 7.4,
+      "opened_source_ids": [
+        "L-bd1cb09f05969c6fdd9b"
+      ],
+      "citations": 1,
+      "citations_to_expected": 1,
+      "facts_expected": 1,
+      "facts_cited": 1,
+      "all_expected_facts_cited": true
+    },
+    {
+      "id": "vk-pilot-08",
+      "answerable": true,
+      "mode": "extractive",
+      "answer": "«Источник — этап производства ОНПР-53.7.1 от 15.07.2027 7:49:22.» [1].\n«Источник: Сосновежск, ОНПР-53.7.1, 15.07.2027 (Этап производства).» [2].\n«Источник — этап производства ОНПР-584.5.2 от 16.07.2027 9:00:42.» [3].",
+      "answer_http_ms": 3712.3,
+      "opened_source_ids": [
+        "L-007247dd284d021f4391",
+        "L-90f99c21faf719433087",
+        "L-68d750048f4200051628"
+      ],
+      "citations": 3,
+      "citations_to_expected": 1,
+      "facts_expected": 1,
+      "facts_cited": 0,
+      "all_expected_facts_cited": false
+    },
+    {
+      "id": "vk-pilot-12",
+      "answerable": false,
+      "mode": "extractive",
+      "answer": "«В «Служба Берег»\", mail-2493d19222@example.invalid, SYN-31c1bcffa3 05.03.2028» [1].\n«В «Служба Берег»\", mail-880e777b8d@example.invalid, SYN-b15e5da7b8 05.03.2028» [2].\n«Письмо в Общество с ограниченной ответственностью «Медико-санитарная часть no 157», mail-1198cad28e@example.invalid, SYN-702762c369 от 05.03.2028» [3].",
+      "answer_http_ms": 2991.9,
+      "opened_source_ids": [
+        "L-bb48b61ec7dacb193b6b",
+        "L-3697244be91b0ea6e091",
+        "L-cac9ceb839bc02db1d4d"
+      ],
+      "citations": 3,
+      "citations_to_expected": 0,
+      "facts_expected": 0,
+      "facts_cited": 0,
+      "all_expected_facts_cited": false
+    }
+  ]
+}

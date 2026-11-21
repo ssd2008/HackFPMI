@@ -1,0 +1,126 @@
+{
+  "corpus_sha256": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+  "server_corpus_check": "sha256",
+  "fixture_sha256": "3962c73ee0719ea5e166402d6dd81c645dffe08e4f82cb17c321344d81d2aa92",
+  "scope": "Small task-authored regression set with deterministic, predeclared facts. References must open in the same snapshot. Fact-pattern and source checks do not evaluate arbitrary generated claims.",
+  "summary": {
+    "answerable": 5,
+    "all_facts_with_expected_citation": 3,
+    "unwarranted_no_evidence": 1,
+    "insufficient": 2,
+    "explicit_no_evidence": 1,
+    "citations_on_answerable": 4,
+    "expected_source_citations_on_answerable": 4,
+    "required_facts": 7,
+    "required_facts_with_citation": 3,
+    "originals_opened_in_scope": 5,
+    "modes": {
+      "extractive": 3,
+      "generative": 2,
+      "no_evidence": 2
+    }
+  },
+  "cases": [
+    {
+      "id": "confirmation-01",
+      "answerable": true,
+      "mode": "extractive",
+      "answer": "««Подписка на журнал» (код 4), 1 шт. по 28.78 RUB, НДС 6.97 RUB;» [1].",
+      "answer_http_ms": 556.5,
+      "opened_source_ids": [
+        "L-d6bde3cf974ca12ee331"
+      ],
+      "citations": 1,
+      "citations_to_expected": 1,
+      "facts_expected": 1,
+      "facts_cited": 1,
+      "all_expected_facts_cited": true
+    },
+    {
+      "id": "confirmation-02",
+      "answerable": true,
+      "mode": "generative",
+      "answer": "На судне \"Сосновежск\" [1].",
+      "answer_http_ms": 461.4,
+      "opened_source_ids": [
+        "L-16e3555eeed4f66535e9"
+      ],
+      "citations": 1,
+      "citations_to_expected": 1,
+      "facts_expected": 1,
+      "facts_cited": 1,
+      "all_expected_facts_cited": true
+    },
+    {
+      "id": "confirmation-03",
+      "answerable": true,
+      "mode": "no_evidence",
+      "answer": "В найденных письмах недостаточно сведений для ответа.",
+      "answer_http_ms": 2.6,
+      "opened_source_ids": [],
+      "citations": 0,
+      "citations_to_expected": 0,
+      "facts_expected": 2,
+      "facts_cited": 0,
+      "all_expected_facts_cited": false
+    },
+    {
+      "id": "confirmation-04",
+      "answerable": true,
+      "mode": "extractive",
+      "answer": "«Изменился статус позиции заказа SYN-f4fd1cdb2c: «Штуцер соединительный латунный ёлочка 9мм», категория «СпецТехника».» «Уведомление об изменениях статусов позиций заказов для «Служба Берег».» [1].",
+      "answer_http_ms": 1159.1,
+      "opened_source_ids": [
+        "L-522b6d04922ad01cd318"
+      ],
+      "citations": 1,
+      "citations_to_expected": 1,
+      "facts_expected": 2,
+      "facts_cited": 0,
+      "all_expected_facts_cited": false
+    },
+    {
+      "id": "confirmation-05",
+      "answerable": true,
+      "mode": "generative",
+      "answer": "Компьютер SERVER01 [1].",
+      "answer_http_ms": 652.4,
+      "opened_source_ids": [
+        "L-5124b7630fdb25eadf35"
+      ],
+      "citations": 1,
+      "citations_to_expected": 1,
+      "facts_expected": 1,
+      "facts_cited": 1,
+      "all_expected_facts_cited": true
+    },
+    {
+      "id": "confirmation-06",
+      "answerable": false,
+      "mode": "no_evidence",
+      "answer": "В найденных письмах недостаточно сведений для ответа.",
+      "answer_http_ms": 1.5,
+      "opened_source_ids": [],
+      "citations": 0,
+      "citations_to_expected": 0,
+      "facts_expected": 0,
+      "facts_cited": 0,
+      "all_expected_facts_cited": false
+    },
+    {
+      "id": "confirmation-07",
+      "answerable": false,
+      "mode": "extractive",
+      "answer": "«Возврату SYN-05a4f96896 присвоен статус «В работе».» [1].",
+      "answer_http_ms": 911.9,
+      "opened_source_ids": [
+        "L-c80d585ed970016ddee5"
+      ],
+      "citations": 1,
+      "citations_to_expected": 0,
+      "facts_expected": 0,
+      "facts_cited": 0,
+      "all_expected_facts_cited": false
+    }
+  ]
+}

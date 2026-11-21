@@ -1,0 +1,32 @@
+{
+  "beir-scifact": {
+    "raw_corpus_rows": 5183,
+    "documents": 5183,
+    "queries": 300,
+    "qrels": 339
+  },
+  "lotte": {
+    "raw_corpus_rows": 2819103,
+    "documents": 90528,
+    "queries": 13894,
+    "qrels": 72660
+  },
+  "mmarco-ru": {
+    "raw_corpus_rows": 8841823,
+    "documents": 29433,
+    "queries": 6980,
+    "qrels": 7437
+  },
+  "msmarco-passage": {
+    "raw_corpus_rows": 8841823,
+    "documents": 29433,
+    "queries": 6980,
+    "qrels": 7437
+  },
+  "rubq-2.0": {
+    "raw_corpus_rows": 56952,
+    "documents": 56952,
+    "queries": 1694,
+    "qrels": 2847
+  }
+}

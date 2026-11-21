@@ -1,0 +1,89 @@
+[
+  {
+    "name": "opposite hotel decision",
+    "query": "Бронь гостиницы не была подтверждена",
+    "expected_present": [
+      "conditional",
+      "mixed",
+      "no",
+      "other",
+      "question",
+      "unknown"
+    ],
+    "expected_absent": [
+      "yes"
+    ],
+    "actual": [
+      "conditional",
+      "mixed",
+      "no",
+      "other",
+      "question",
+      "unknown"
+    ],
+    "passed": true
+  },
+  {
+    "name": "positive hotel decision",
+    "query": "Бронь гостиницы подтверждена",
+    "expected_present": [
+      "conditional",
+      "mixed",
+      "other",
+      "question",
+      "unknown",
+      "yes"
+    ],
+    "expected_absent": [
+      "no"
+    ],
+    "actual": [
+      "conditional",
+      "mixed",
+      "other",
+      "question",
+      "shipping",
+      "unknown",
+      "yes"
+    ],
+    "passed": true
+  },
+  {
+    "name": "yes/no question admits both outcomes",
+    "query": "Бронь гостиницы подтверждена?",
+    "expected_present": [
+      "mixed",
+      "no",
+      "yes"
+    ],
+    "expected_absent": [],
+    "actual": [
+      "conditional",
+      "mixed",
+      "no",
+      "other",
+      "question",
+      "shipping",
+      "unknown",
+      "yes"
+    ],
+    "passed": true
+  },
+  {
+    "name": "shared entity, different action",
+    "query": "Доставка заказа не была подтверждена",
+    "expected_present": [
+      "payment"
+    ],
+    "expected_absent": [
+      "shipping"
+    ],
+    "actual": [
+      "mixed",
+      "no",
+      "payment",
+      "question"
+    ],
+    "passed": true
+  }
+]

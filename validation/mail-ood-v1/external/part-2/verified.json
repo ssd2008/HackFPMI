@@ -1,0 +1,27 @@
+{
+  "miracl-ru": {
+    "raw_corpus_rows": 9543918,
+    "documents": 67309,
+    "queries": 1252,
+    "qrels": 13100
+  },
+  "mr-tydi-ru": {
+    "raw_corpus_rows": 9597504,
+    "documents": 24050,
+    "queries": 995,
+    "qrels": 1168
+  },
+  "msmarco-doc": {
+    "raw_corpus_rows": 3213835,
+    "documents": 15185,
+    "queries": 5193,
+    "qrels": 5193
+  },
+  "enron-mail": {
+    "archive_messages": 517401,
+    "documents": 37109,
+    "primary_tasks": 2757,
+    "empty": 500,
+    "variants": 2257
+  }
+}

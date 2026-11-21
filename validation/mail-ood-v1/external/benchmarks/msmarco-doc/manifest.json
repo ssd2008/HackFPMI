@@ -1,0 +1,19 @@
+{
+  "source": "MS MARCO Document v1 dev",
+  "language": "en",
+  "raw_corpus_rows": 3213835,
+  "documents": 15185,
+  "complete_corpus": false,
+  "queries": 5193,
+  "qrels": 5193,
+  "unique_judged_documents": 5185,
+  "adjacent_unjudged_documents": 0,
+  "random_unjudged_documents": 10000,
+  "query_pool": "Original published judgments with at least one positive; restricted to the indicated split.",
+  "raw_to_local_id": "Prefix raw document IDs with msmarco-doc/; prefix raw question IDs with msmarco-doc/q/. LoTTE namespaced forum and search.",
+  "sha256": {
+    "documents.jsonl": "42a3f7837314bc4e39fc7bf1b5ee22126d561d7c43b95bead32b5dc5e4e6e8f0",
+    "qrels_dev.jsonl": "6ec5cdf9e4a858e016c1f1aebf93ef1808749063d2b93e1c1610b1ef87f6efce",
+    "queries_dev.jsonl": "3185a90ffb50956f4718e8fb0d8899665485cc61fda2307614d7312d7bc5deda"
+  }
+}

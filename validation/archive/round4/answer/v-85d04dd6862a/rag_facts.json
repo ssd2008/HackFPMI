@@ -1,0 +1,166 @@
+{
+  "corpus_sha256": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+  "server_corpus_check": "sha256",
+  "fixture_sha256": "b4a1ed962112b26f5a9777a6c9ac031ce6b327d92467eb8d23cadf58716be70d",
+  "scope": "Small task-authored regression set with deterministic, predeclared facts. References must open in the same snapshot. Fact-pattern and source checks do not evaluate arbitrary generated claims.",
+  "summary": {
+    "answerable": 6,
+    "all_facts_with_expected_citation": 6,
+    "unwarranted_no_evidence": 0,
+    "insufficient": 4,
+    "explicit_no_evidence": 4,
+    "citations_on_answerable": 6,
+    "expected_source_citations_on_answerable": 6,
+    "required_facts": 11,
+    "required_facts_with_citation": 11,
+    "originals_opened_in_scope": 6,
+    "modes": {
+      "generative": 6,
+      "no_evidence": 4
+    }
+  },
+  "cases": [
+    {
+      "id": "order-amount-demo",
+      "answerable": true,
+      "mode": "generative",
+      "answer": "Сумма заказа SYN-077f40913b составляет 431.03 рубля [1].",
+      "answer_http_ms": 1024.3,
+      "opened_source_ids": [
+        "L-c00311a3afe957bb2945"
+      ],
+      "citations": 1,
+      "citations_to_expected": 1,
+      "facts_expected": 2,
+      "facts_cited": 2,
+      "all_expected_facts_cited": true
+    },
+    {
+      "id": "order-amount-air-filter",
+      "answerable": true,
+      "mode": "generative",
+      "answer": "2606.53 RUB [1].",
+      "answer_http_ms": 446.5,
+      "opened_source_ids": [
+        "L-001c924b405319fed6b3"
+      ],
+      "citations": 1,
+      "citations_to_expected": 1,
+      "facts_expected": 2,
+      "facts_cited": 2,
+      "all_expected_facts_cited": true
+    },
+    {
+      "id": "order-amount-air-freshener",
+      "answerable": true,
+      "mode": "generative",
+      "answer": "Общая сумма заказа SYN-6294834ac7 составляет 573.26 рублей [1].",
+      "answer_http_ms": 674.0,
+      "opened_source_ids": [
+        "L-02c30fde1637c04a676d"
+      ],
+      "citations": 1,
+      "citations_to_expected": 1,
+      "facts_expected": 2,
+      "facts_cited": 2,
+      "all_expected_facts_cited": true
+    },
+    {
+      "id": "dispatch-date-demo",
+      "answerable": true,
+      "mode": "generative",
+      "answer": "Заказ SYN-077f40913b должен быть отгружен до 19.12.2027 18:00 [1].",
+      "answer_http_ms": 898.0,
+      "opened_source_ids": [
+        "L-c00311a3afe957bb2945"
+      ],
+      "citations": 1,
+      "citations_to_expected": 1,
+      "facts_expected": 2,
+      "facts_cited": 2,
+      "all_expected_facts_cited": true
+    },
+    {
+      "id": "dispatch-date-air-filter",
+      "answerable": true,
+      "mode": "generative",
+      "answer": "До 18.11.2027 21:00 нужно отгрузить заказ SYN-b1a3d6564f [1].",
+      "answer_http_ms": 917.9,
+      "opened_source_ids": [
+        "L-001c924b405319fed6b3"
+      ],
+      "citations": 1,
+      "citations_to_expected": 1,
+      "facts_expected": 2,
+      "facts_cited": 2,
+      "all_expected_facts_cited": true
+    },
+    {
+      "id": "declined-payment",
+      "answerable": true,
+      "mode": "generative",
+      "answer": "Операция оплаты отклонена [1].",
+      "answer_http_ms": 1191.0,
+      "opened_source_ids": [
+        "L-d22c15fcd5eb40166f62"
+      ],
+      "citations": 1,
+      "citations_to_expected": 1,
+      "facts_expected": 1,
+      "facts_cited": 1,
+      "all_expected_facts_cited": true
+    },
+    {
+      "id": "unreported-tracking",
+      "answerable": false,
+      "mode": "no_evidence",
+      "answer": "В найденных письмах недостаточно сведений для ответа.",
+      "answer_http_ms": 1.1,
+      "opened_source_ids": [],
+      "citations": 0,
+      "citations_to_expected": 0,
+      "facts_expected": 0,
+      "facts_cited": 0,
+      "all_expected_facts_cited": false
+    },
+    {
+      "id": "unknown-order",
+      "answerable": false,
+      "mode": "no_evidence",
+      "answer": "В найденных письмах недостаточно сведений для ответа.",
+      "answer_http_ms": 0.7,
+      "opened_source_ids": [],
+      "citations": 0,
+      "citations_to_expected": 0,
+      "facts_expected": 0,
+      "facts_cited": 0,
+      "all_expected_facts_cited": false
+    },
+    {
+      "id": "future-order",
+      "answerable": false,
+      "mode": "no_evidence",
+      "answer": "В найденных письмах недостаточно сведений для ответа.",
+      "answer_http_ms": 5.6,
+      "opened_source_ids": [],
+      "citations": 0,
+      "citations_to_expected": 0,
+      "facts_expected": 0,
+      "facts_cited": 0,
+      "all_expected_facts_cited": false
+    },
+    {
+      "id": "other-mailbox",
+      "answerable": false,
+      "mode": "no_evidence",
+      "answer": "В найденных письмах недостаточно сведений для ответа.",
+      "answer_http_ms": 0.8,
+      "opened_source_ids": [],
+      "citations": 0,
+      "citations_to_expected": 0,
+      "facts_expected": 0,
+      "facts_cited": 0,
+      "all_expected_facts_cited": false
+    }
+  ]
+}

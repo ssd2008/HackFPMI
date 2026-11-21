@@ -1,0 +1,19 @@
+{
+  "source": "mMARCO Russian Google Translate dev.small",
+  "language": "ru",
+  "raw_corpus_rows": 8841823,
+  "documents": 29433,
+  "complete_corpus": false,
+  "queries": 6980,
+  "qrels": 7437,
+  "unique_judged_documents": 7433,
+  "adjacent_unjudged_documents": 0,
+  "random_unjudged_documents": 22000,
+  "query_pool": "Original published judgments with at least one positive; restricted to the indicated split.",
+  "raw_to_local_id": "Prefix raw document IDs with mmarco-ru/; prefix raw question IDs with mmarco-ru/q/. LoTTE namespaced forum and search.",
+  "sha256": {
+    "documents.jsonl": "1333a2470f9fd5d4ec04afe95fdc0d4dd551d65929bf421d35618bb7f073f2f2",
+    "qrels_dev.jsonl": "296932dbb2f98b3481c8687d3593cef0084d47bd050cf18bd0aaaed732c09101",
+    "queries_dev.jsonl": "8c5df4a298f1da5187d04756cbfa866fc340a8f697069acaebc0f79dd608a5ac"
+  }
+}

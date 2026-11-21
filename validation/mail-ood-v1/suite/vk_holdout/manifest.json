@@ -1,0 +1,42 @@
+{
+  "documents": 16376,
+  "queries": 1213,
+  "qrels": 1762,
+  "primary_tasks": 1698,
+  "empty": 485,
+  "variants": 1225,
+  "reviewed_primary": 5,
+  "semantic_silver": 54,
+  "rag_answerable": 55,
+  "rag_unanswerable": 12,
+  "families": {
+    "future_identifier": 332,
+    "other_mailbox": 153,
+    "identifier": 1088,
+    "semantic": 54,
+    "order_total": 54,
+    "tracking_number": 12,
+    "reviewed_semantic": 5
+  },
+  "positive_links": 1741,
+  "positive_documents": 1563,
+  "mailboxes": [
+    "box-a55c522c6949",
+    "box-a971835ab404",
+    "box-d7961fc39a68",
+    "box-dfac33a7123c",
+    "box-fad2b057e79a"
+  ],
+  "single": 1030,
+  "multiple": 183,
+  "sha256": {
+    "cases.jsonl": "295acfb292f3c8d9f51122c82cc8e50297a176487b7ab41293500b43eb9d4de7",
+    "documents.jsonl": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+    "qrels_dev.jsonl": "eba2c2224fad31e6ebbe45eb1c9fc0a28dee494560aa0c0dda5e387e8e15065f",
+    "qrels_empty.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "qrels_variants.jsonl": "ed1507b5a42bafd4861ecbd2e18fa6a31eac0ea76b1beff43429a2be2615bfb6",
+    "queries_dev.jsonl": "9177dd417a68efe21fcc8da30f719282906e5df17b6bf0f8bada9e5d411cb97b",
+    "queries_empty.jsonl": "ec3bdcbaa63c6a678a5ff5b16361cb47da6b613374a8e5cff4bd3a03c2d8f582",
+    "queries_variants.jsonl": "11ffda136fcd549de4cd58c5cd7420d21c62aaeb1969c69a5c2cc2515717dd47"
+  }
+}

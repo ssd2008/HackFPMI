@@ -1,0 +1,45 @@
+{
+  "documents": 37109,
+  "queries": 2257,
+  "qrels": 4935,
+  "primary_tasks": 2757,
+  "empty": 500,
+  "variants": 2257,
+  "reviewed_primary": 0,
+  "semantic_silver": 475,
+  "rag_answerable": 0,
+  "rag_unanswerable": 0,
+  "families": {
+    "subject": 1100,
+    "semantic_no_date": 77,
+    "sender": 682,
+    "semantic": 398,
+    "future_subject": 500
+  },
+  "positive_links": 4935,
+  "positive_documents": 4137,
+  "mailboxes": [
+    "enron-allen-p",
+    "enron-bass-e",
+    "enron-beck-s",
+    "enron-delainey-d",
+    "enron-farmer-d",
+    "enron-kean-s",
+    "enron-lay-k",
+    "enron-skilling-j",
+    "enron-taylor-m",
+    "enron-thomas-p"
+  ],
+  "single": 1162,
+  "multiple": 1095,
+  "sha256": {
+    "cases.jsonl": "d666b2958d13da276eaaabbeb782dc512434373dd3d0a36fd73f689d30d493fa",
+    "documents.jsonl": "2d7c406872a9b6686fed6f65be662fed362c6dc4599da8d44d8b9564ccb0295c",
+    "qrels_dev.jsonl": "52312c152204c3c7ff8f1e67394073f95f94a828255f2fb6dc6fb48a0ff24ff1",
+    "qrels_empty.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "qrels_variants.jsonl": "178f4c4ca9bb563011da163b54e38454788e60dc79829fd1c47f9a9c109a89ab",
+    "queries_dev.jsonl": "924e6b9b373ae7bdcb4df49fca4b153388e5eab1d37ab847593d81eaa3b4f15d",
+    "queries_empty.jsonl": "7440e42d95d2c6021cad37757df6868af76125047986912e3f685901b255a0d6",
+    "queries_variants.jsonl": "29325035f6d683cc0555c3f7cd706732faf5294e16835552255fa7ec7eb12523"
+  }
+}

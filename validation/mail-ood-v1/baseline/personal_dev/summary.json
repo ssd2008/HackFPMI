@@ -1,0 +1,147 @@
+{
+  "primary": {
+    "queries": 1967,
+    "positive": 1815,
+    "verified_empty": 152,
+    "ndcg_at_10": 0.76906,
+    "known_recall_at_10": 0.79773,
+    "mrr_at_10_single": 0.88224,
+    "success_at_1_single": 0.86317,
+    "false_nonempty": 14,
+    "false_nonempty_rate": 0.09211,
+    "false_empty": 45,
+    "false_empty_rate": 0.02479,
+    "outside_explicit_window_documents": 1953
+  },
+  "by_family_primary": {
+    "future_subject": {
+      "queries": 150,
+      "positive": 0,
+      "verified_empty": 150,
+      "ndcg_at_10": null,
+      "known_recall_at_10": null,
+      "mrr_at_10_single": null,
+      "success_at_1_single": null,
+      "false_nonempty": 12,
+      "false_nonempty_rate": 0.08,
+      "false_empty": 0,
+      "false_empty_rate": null,
+      "outside_explicit_window_documents": 0
+    },
+    "reviewed_semantic": {
+      "queries": 15,
+      "positive": 13,
+      "verified_empty": 2,
+      "ndcg_at_10": 0.97642,
+      "known_recall_at_10": 1.0,
+      "mrr_at_10_single": 1.0,
+      "success_at_1_single": 1,
+      "false_nonempty": 2,
+      "false_nonempty_rate": 1,
+      "false_empty": 0,
+      "false_empty_rate": 0,
+      "outside_explicit_window_documents": 0
+    },
+    "semantic": {
+      "queries": 239,
+      "positive": 239,
+      "verified_empty": 0,
+      "ndcg_at_10": 0.84763,
+      "known_recall_at_10": 0.87364,
+      "mrr_at_10_single": 0.94074,
+      "success_at_1_single": 0.93333,
+      "false_nonempty": 0,
+      "false_nonempty_rate": null,
+      "false_empty": 9,
+      "false_empty_rate": 0.03766,
+      "outside_explicit_window_documents": 283
+    },
+    "semantic_no_date": {
+      "queries": 38,
+      "positive": 38,
+      "verified_empty": 0,
+      "ndcg_at_10": 0.68315,
+      "known_recall_at_10": 0.58173,
+      "mrr_at_10_single": null,
+      "success_at_1_single": null,
+      "false_nonempty": 0,
+      "false_nonempty_rate": null,
+      "false_empty": 0,
+      "false_empty_rate": 0,
+      "outside_explicit_window_documents": 0
+    },
+    "sender": {
+      "queries": 1065,
+      "positive": 1065,
+      "verified_empty": 0,
+      "ndcg_at_10": 0.66446,
+      "known_recall_at_10": 0.70412,
+      "mrr_at_10_single": 0.77704,
+      "success_at_1_single": 0.74766,
+      "false_nonempty": 0,
+      "false_nonempty_rate": null,
+      "false_empty": 33,
+      "false_empty_rate": 0.03099,
+      "outside_explicit_window_documents": 1670
+    },
+    "subject": {
+      "queries": 460,
+      "positive": 460,
+      "verified_empty": 0,
+      "ndcg_at_10": 0.97165,
+      "known_recall_at_10": 0.98713,
+      "mrr_at_10_single": 0.97233,
+      "success_at_1_single": 0.9599,
+      "false_nonempty": 0,
+      "false_nonempty_rate": null,
+      "false_empty": 3,
+      "false_empty_rate": 0.00652,
+      "outside_explicit_window_documents": 0
+    }
+  },
+  "by_mailbox_primary": {
+    "box-37e4ff4a5a57": {
+      "queries": 1967,
+      "positive": 1815,
+      "verified_empty": 152,
+      "ndcg_at_10": 0.76906,
+      "known_recall_at_10": 0.79773,
+      "mrr_at_10_single": 0.88224,
+      "success_at_1_single": 0.86317,
+      "false_nonempty": 14,
+      "false_nonempty_rate": 0.09211,
+      "false_empty": 45,
+      "false_empty_rate": 0.02479,
+      "outside_explicit_window_documents": 1953
+    }
+  },
+  "by_variant": {
+    "original": {
+      "queries": 1967,
+      "positive": 1815,
+      "verified_empty": 152,
+      "ndcg_at_10": 0.76906,
+      "known_recall_at_10": 0.79773,
+      "mrr_at_10_single": 0.88224,
+      "success_at_1_single": 0.86317,
+      "false_nonempty": 14,
+      "false_nonempty_rate": 0.09211,
+      "false_empty": 45,
+      "false_empty_rate": 0.02479,
+      "outside_explicit_window_documents": 1953
+    }
+  },
+  "backend_ms": {
+    "p50": 3.29,
+    "p95": 7.389,
+    "p99": 9.093,
+    "max": 29.376
+  },
+  "scope_check": "All ranked IDs belonged to the requested mailbox and were visible as of query_date.",
+  "corpus_sha256": "f882a2fe4f490127fe48feb9c44bfa76ef32d48a6971aa401561582ba8110998",
+  "settings": {
+    "repeats": 1,
+    "workers": 2,
+    "top_k": 10
+  }
+}

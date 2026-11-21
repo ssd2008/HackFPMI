@@ -1,0 +1,973 @@
+{
+  "corpus_sha256": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+  "cases": [
+    {
+      "id": "Q-0a8da754b81620b1f7",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2028-01-16",
+      "query": "На какую сумму был заказ SYN-882C77350C?",
+      "sources": [
+        "L-718ae93bccb1bc958c1d"
+      ],
+      "facts": [
+        "(?<!\\d)149[.,]73(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "общую сумму 149.73 RUB"
+    },
+    {
+      "id": "Q-0c34d3029d37cca851",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-30",
+      "query": "На какую сумму был заказ SYN-F67FBDBF7D?",
+      "sources": [
+        "L-3bfd36fcd2c07519d76b"
+      ],
+      "facts": [
+        "(?<!\\d)4[ \\u00a0\\u202f]?253[.,]00(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма заказа — 4253.00 RUB"
+    },
+    {
+      "id": "Q-0cee3e2ecb7e5d8092",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2028-01-08",
+      "query": "На какую сумму был заказ SYN-1EACD9A8C2?",
+      "sources": [
+        "L-d6da6bb6c6eebacac731"
+      ],
+      "facts": [
+        "(?<!\\d)4[ \\u00a0\\u202f]?954[.,]43(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "на сумму 4954.43 RUB"
+    },
+    {
+      "id": "Q-119613ac8f552f15af",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-14",
+      "query": "На какую сумму был заказ SYN-191EF5F2DF?",
+      "sources": [
+        "L-060f6c6bb5474515f4c4"
+      ],
+      "facts": [
+        "(?<!\\d)653[.,]23(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "общую сумму 653.23 RUB"
+    },
+    {
+      "id": "Q-11a07867ba3c380b29",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-11-29",
+      "query": "На какую сумму был заказ SYN-199A0770B8?",
+      "sources": [
+        "L-3b7a8f7c0301d228d4f4"
+      ],
+      "facts": [
+        "(?<!\\d)181[.,]50(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма — 181.50 RUB"
+    },
+    {
+      "id": "Q-1798498b5323092b7a",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2028-01-07",
+      "query": "На какую сумму был заказ SYN-025BC11533?",
+      "sources": [
+        "L-1be9337e2942cbb3502d"
+      ],
+      "facts": [
+        "(?<!\\d)2[ \\u00a0\\u202f]?323[.,]84(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма — 2323.84 RUB"
+    },
+    {
+      "id": "Q-17a424d96dd0dd8d0b",
+      "mailbox": "box-a971835ab404",
+      "date": "2028-02-12",
+      "query": "На какую сумму был заказ SYN-E315B26239?",
+      "sources": [
+        "L-dab36c3fba8ff86103ff"
+      ],
+      "facts": [
+        "(?<!\\d)278[.,]88(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "на сумму 278.88 руб."
+    },
+    {
+      "id": "Q-18b214d4261bf4a978",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-09",
+      "query": "На какую сумму был заказ SYN-6235915BC2?",
+      "sources": [
+        "L-246b9c427f930aaceb02"
+      ],
+      "facts": [
+        "(?<!\\d)3[ \\u00a0\\u202f]?966[.,]16(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма — 3966.16 RUB"
+    },
+    {
+      "id": "Q-1ea576970ef74b9242",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-09",
+      "query": "На какую сумму был заказ SYN-362E90FFC0?",
+      "sources": [
+        "L-f14f8a567fbe84547315"
+      ],
+      "facts": [
+        "(?<!\\d)4[ \\u00a0\\u202f]?889[.,]75(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "на сумму 4889.75 RUB"
+    },
+    {
+      "id": "Q-20cb4e5b45a518dd4d",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-26",
+      "query": "Какой трек-номер отправления указан в письме о заказе SYN-EDD6783AEB?",
+      "sources": [
+        "L-536cbc7d3c7ae31483f4"
+      ],
+      "facts": [],
+      "answerability": "unanswerable",
+      "evidence": "SYN-edd6783aeb"
+    },
+    {
+      "id": "Q-22c3af0c2265c4d3f2",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-22",
+      "query": "На какую сумму был заказ SYN-192B1DCF4E?",
+      "sources": [
+        "L-2b0210d1c96e4ae7380f"
+      ],
+      "facts": [
+        "(?<!\\d)7[ \\u00a0\\u202f]?200[.,]86(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма заказа — 7200.86 RUB"
+    },
+    {
+      "id": "Q-2f893aa6f1a575fd5e",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-29",
+      "query": "На какую сумму был заказ SYN-6218BF3EFB?",
+      "sources": [
+        "L-918347b7caf4d79481da"
+      ],
+      "facts": [
+        "(?<!\\d)654[.,]65(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "на сумму 654.65 RUB"
+    },
+    {
+      "id": "Q-310cbc272446cd1ab7",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-27",
+      "query": "На какую сумму был заказ SYN-F3FD666853?",
+      "sources": [
+        "L-a3d8b5b3e44ea6a1cb3b"
+      ],
+      "facts": [
+        "(?<!\\d)660[.,]01(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма — 660.01 RUB"
+    },
+    {
+      "id": "Q-3672da1c0ec74e15a9",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-07",
+      "query": "На какую сумму был заказ SYN-D6FC4162CC?",
+      "sources": [
+        "L-7ef1be3fa811c3f773f8"
+      ],
+      "facts": [
+        "(?<!\\d)4[ \\u00a0\\u202f]?321[.,]46(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма — 4321.46 RUB"
+    },
+    {
+      "id": "Q-38ff06303d677cb1e5",
+      "mailbox": "box-a971835ab404",
+      "date": "2028-02-07",
+      "query": "На какую сумму был заказ SYN-453C8D80EC?",
+      "sources": [
+        "L-d7b1d5defa16fb0d6ed8"
+      ],
+      "facts": [
+        "(?<!\\d)278[.,]88(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "на сумму 278.88 руб."
+    },
+    {
+      "id": "Q-3ad404e3eb5491dc7f",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-31",
+      "query": "На какую сумму был заказ SYN-B21ED620C7?",
+      "sources": [
+        "L-2b0f6c22f05ca8534a11"
+      ],
+      "facts": [
+        "(?<!\\d)367[.,]08(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма — 367.08 RUB"
+    },
+    {
+      "id": "Q-3cc67d3e52a75f0f89",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2028-01-24",
+      "query": "Какой трек-номер отправления указан в письме о заказе SYN-9181FA3ADB?",
+      "sources": [
+        "L-17d57e50d7c8c5d81f60"
+      ],
+      "facts": [],
+      "answerability": "unanswerable",
+      "evidence": "SYN-9181fa3adb"
+    },
+    {
+      "id": "Q-3d65e8c1672afa5e17",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-25",
+      "query": "На какую сумму был заказ SYN-53AA4ED13B?",
+      "sources": [
+        "L-6002eb20696c87753d4e"
+      ],
+      "facts": [
+        "(?<!\\d)3[ \\u00a0\\u202f]?389[.,]77(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма — 3389.77 RUB"
+    },
+    {
+      "id": "Q-4f880f8c5f9b6481fc",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-25",
+      "query": "На какую сумму был заказ SYN-FB27EDC6AC?",
+      "sources": [
+        "L-cc92f30b32d92d6d91a6"
+      ],
+      "facts": [
+        "(?<!\\d)2[ \\u00a0\\u202f]?239[.,]89(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма — 2239.89 RUB"
+    },
+    {
+      "id": "Q-4ff4b2ea8b9f33b0da",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-18",
+      "query": "На какую сумму был заказ SYN-CE00A0D3AD?",
+      "sources": [
+        "L-b3ad58cf69dd5b3e1235"
+      ],
+      "facts": [
+        "(?<!\\d)327[.,]79(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "общую сумму 327.79 RUB"
+    },
+    {
+      "id": "Q-527a6fcedc393570a6",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2028-01-23",
+      "query": "Какой трек-номер отправления указан в письме о заказе SYN-65D067E803?",
+      "sources": [
+        "L-354395eca65d2e74a140"
+      ],
+      "facts": [],
+      "answerability": "unanswerable",
+      "evidence": "SYN-65d067e803"
+    },
+    {
+      "id": "Q-62e8edb9d8db99c8e5",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2028-01-19",
+      "query": "Какой трек-номер отправления указан в письме о заказе SYN-56CAB2A66E?",
+      "sources": [
+        "L-12991cb593625a14e850"
+      ],
+      "facts": [],
+      "answerability": "unanswerable",
+      "evidence": "SYN-56cab2a66e"
+    },
+    {
+      "id": "Q-69931fbd12181d7c4d",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-07",
+      "query": "Какой трек-номер отправления указан в письме о заказе SYN-E21E3CC550?",
+      "sources": [
+        "L-913099aa844a9f6e43c9"
+      ],
+      "facts": [],
+      "answerability": "unanswerable",
+      "evidence": "SYN-e21e3cc550"
+    },
+    {
+      "id": "Q-7a556765a3222cff69",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-03",
+      "query": "На какую сумму был заказ SYN-70BE64A6B9?",
+      "sources": [
+        "L-899a436b245577654f85"
+      ],
+      "facts": [
+        "(?<!\\d)497[.,]23(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма — 497.23 RUB"
+    },
+    {
+      "id": "Q-7b1ccffd5df748fc4a",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2028-01-19",
+      "query": "На какую сумму был заказ SYN-870AAD3CE9?",
+      "sources": [
+        "L-4a4724fe0c09e4bf5258"
+      ],
+      "facts": [
+        "(?<!\\d)618[.,]59(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма — 618.59 RUB"
+    },
+    {
+      "id": "Q-7efb310bfdcba6b43c",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-24",
+      "query": "На какую сумму был заказ SYN-F2F7F1BC4A?",
+      "sources": [
+        "L-a76edfd5a70acd639f3f"
+      ],
+      "facts": [
+        "(?<!\\d)5[ \\u00a0\\u202f]?220[.,]27(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма заказа — 5220.27 RUB"
+    },
+    {
+      "id": "Q-8063a784917fd74c9c",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-24",
+      "query": "На какую сумму был заказ SYN-D271DB74DB?",
+      "sources": [
+        "L-1aebfec1afd7c03fed4f"
+      ],
+      "facts": [
+        "(?<!\\d)5[ \\u00a0\\u202f]?406[.,]70(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма заказа — 5406.70 RUB"
+    },
+    {
+      "id": "Q-8178f795b1fd10b089",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2028-01-12",
+      "query": "На какую сумму был заказ SYN-0A1E47C479?",
+      "sources": [
+        "L-61154ab6e37398829fa6"
+      ],
+      "facts": [
+        "(?<!\\d)3[ \\u00a0\\u202f]?831[.,]81(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма — 3831.81 RUB"
+    },
+    {
+      "id": "Q-828590539694e9320a",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-26",
+      "query": "Какой трек-номер отправления указан в письме о заказе SYN-F1571B0C7C?",
+      "sources": [
+        "L-ea1c5495015c35f36998"
+      ],
+      "facts": [],
+      "answerability": "unanswerable",
+      "evidence": "SYN-f1571b0c7c"
+    },
+    {
+      "id": "Q-8293e2e9c703937d2d",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-29",
+      "query": "На какую сумму был заказ SYN-60B2BF29AA?",
+      "sources": [
+        "L-49d3031cc7e5efe75bfb"
+      ],
+      "facts": [
+        "(?<!\\d)5[ \\u00a0\\u202f]?674[.,]49(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма — 5674.49 RUB"
+    },
+    {
+      "id": "Q-82ab0d0b38a21eee3e",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-07",
+      "query": "На какую сумму был заказ SYN-482C7A77C0?",
+      "sources": [
+        "L-a42150776775290e06bd"
+      ],
+      "facts": [
+        "(?<!\\d)5[ \\u00a0\\u202f]?720[.,]89(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма заказа — 5720.89 RUB"
+    },
+    {
+      "id": "Q-8915f57a4332f58fdb",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2028-01-14",
+      "query": "На какую сумму был заказ SYN-EC3FFC1791?",
+      "sources": [
+        "L-aceab0b85c76077052a0"
+      ],
+      "facts": [
+        "(?<!\\d)445[.,]15(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма заказа — 445.15 RUB"
+    },
+    {
+      "id": "Q-8b537b0daffd95cac6",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-24",
+      "query": "На какую сумму был заказ SYN-954A96E7CB?",
+      "sources": [
+        "L-811bc309e0f36ba40839"
+      ],
+      "facts": [
+        "(?<!\\d)4[ \\u00a0\\u202f]?010[.,]19(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "общую сумму 4010.19 RUB"
+    },
+    {
+      "id": "Q-8e6e2c39261caa2bfc",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2028-01-08",
+      "query": "На какую сумму был заказ SYN-080CAF17F5?",
+      "sources": [
+        "L-0c6737078950834f495f"
+      ],
+      "facts": [
+        "(?<!\\d)7[ \\u00a0\\u202f]?076[.,]82(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма — 7076.82 RUB"
+    },
+    {
+      "id": "Q-8f1962f143eb31e16a",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-12",
+      "query": "На какую сумму был заказ SYN-D3FA0C63E1?",
+      "sources": [
+        "L-0112ed35ad257ce057ff"
+      ],
+      "facts": [
+        "(?<!\\d)6[ \\u00a0\\u202f]?584[.,]14(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма — 6584.14 RUB"
+    },
+    {
+      "id": "Q-941c9544ecf2f30b48",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-03",
+      "query": "На какую сумму был заказ SYN-770C2100A2?",
+      "sources": [
+        "L-ee6e7d708c16e81aec67"
+      ],
+      "facts": [
+        "(?<!\\d)4[ \\u00a0\\u202f]?869[.,]99(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "общую сумму 4869.99 RUB"
+    },
+    {
+      "id": "Q-997a297f3b3138002f",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-21",
+      "query": "На какую сумму был заказ SYN-0696ED4526?",
+      "sources": [
+        "L-bbf4285f671fb8a16e48"
+      ],
+      "facts": [
+        "(?<!\\d)6[ \\u00a0\\u202f]?216[.,]55(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "на сумму 6216.55 RUB"
+    },
+    {
+      "id": "Q-9a770dbad883644f08",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2028-01-10",
+      "query": "На какую сумму был заказ SYN-36DE1748A1?",
+      "sources": [
+        "L-6ff6e88cf370063e3092"
+      ],
+      "facts": [
+        "(?<!\\d)1[ \\u00a0\\u202f]?284[.,]60(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма — 1284.60 RUB"
+    },
+    {
+      "id": "Q-9d3e8f41f62b0c5ce4",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2028-01-20",
+      "query": "На какую сумму был заказ SYN-B8D1FF0E8A?",
+      "sources": [
+        "L-63b04c3381953ffa3d6e"
+      ],
+      "facts": [
+        "(?<!\\d)5[ \\u00a0\\u202f]?331[.,]40(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "на сумму 5331.40 RUB"
+    },
+    {
+      "id": "Q-9e878572003c28f2a3",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-14",
+      "query": "На какую сумму был заказ SYN-A0E0F2446E?",
+      "sources": [
+        "L-85af5b641ebfebbb9a73"
+      ],
+      "facts": [
+        "(?<!\\d)4[ \\u00a0\\u202f]?793[.,]84(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма заказа — 4793.84 RUB"
+    },
+    {
+      "id": "Q-a032895794c66ff108",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-23",
+      "query": "На какую сумму был заказ SYN-E58E60944B?",
+      "sources": [
+        "L-04c1c0caf028280295c8"
+      ],
+      "facts": [
+        "(?<!\\d)6[ \\u00a0\\u202f]?640[.,]91(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма — 6640.91 RUB"
+    },
+    {
+      "id": "Q-a99a61e88ecb809e8e",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-08",
+      "query": "На какую сумму был заказ SYN-A66B964F6F?",
+      "sources": [
+        "L-60d6af292258e301eaf9"
+      ],
+      "facts": [
+        "(?<!\\d)5[ \\u00a0\\u202f]?897[.,]96(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма заказа — 5897.96 RUB"
+    },
+    {
+      "id": "Q-aa22e030188385aa01",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-02-02",
+      "query": "На какую сумму был заказ SYN-71F25DB0F2?",
+      "sources": [
+        "L-73c89482ddd07f0479f4"
+      ],
+      "facts": [
+        "(?<!\\d)5[ \\u00a0\\u202f]?136[.,]87(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма — 5136.87 RUB"
+    },
+    {
+      "id": "Q-aab174f4685bc179bb",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2028-01-15",
+      "query": "На какую сумму был заказ SYN-7AEAE82106?",
+      "sources": [
+        "L-8342ac025067772daa8e"
+      ],
+      "facts": [
+        "(?<!\\d)503[.,]02(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма — 503.02 RUB"
+    },
+    {
+      "id": "Q-ae0b7bd1e0a855ce86",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-25",
+      "query": "На какую сумму был заказ SYN-DD43065D10?",
+      "sources": [
+        "L-2d3074ded74de9b3162d"
+      ],
+      "facts": [
+        "(?<!\\d)6[ \\u00a0\\u202f]?387[.,]43(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма заказа — 6387.43 RUB"
+    },
+    {
+      "id": "Q-b2b77887dc05e582b4",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-19",
+      "query": "На какую сумму был заказ SYN-EB2007EAD6?",
+      "sources": [
+        "L-a1192f56d91e716d09ba"
+      ],
+      "facts": [
+        "(?<!\\d)7[ \\u00a0\\u202f]?200[.,]86(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма заказа — 7200.86 RUB"
+    },
+    {
+      "id": "Q-b37a56a0108e953c6d",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-19",
+      "query": "На какую сумму был заказ SYN-1A0D1A1E2C?",
+      "sources": [
+        "L-a5e8e76fe4f67ceff257"
+      ],
+      "facts": [
+        "(?<!\\d)5[ \\u00a0\\u202f]?442[.,]51(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма — 5442.51 RUB"
+    },
+    {
+      "id": "Q-b46dd67e6d7c4583cc",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-16",
+      "query": "На какую сумму был заказ SYN-0CE3D7B79A?",
+      "sources": [
+        "L-9a42f80f7c5ae4c2c396"
+      ],
+      "facts": [
+        "(?<!\\d)4[ \\u00a0\\u202f]?405[.,]60(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма заказа — 4405.60 RUB"
+    },
+    {
+      "id": "Q-b69785da962fdadb8a",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-09",
+      "query": "Какую сумму указали за передний амортизатор в письме, пришедшем вчера?",
+      "sources": [
+        "L-004b7739add6c099832d"
+      ],
+      "facts": [
+        "(?<!\\d)3589[.,]16(?!\\d)"
+      ],
+      "answerability": "answerable",
+      "evidence": "3589.16 RUB"
+    },
+    {
+      "id": "Q-bd697e485d7f319f77",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-11",
+      "query": "На какую сумму был заказ SYN-F2A5808E2A?",
+      "sources": [
+        "L-9f112fc9d533dff45348"
+      ],
+      "facts": [
+        "(?<!\\d)6[ \\u00a0\\u202f]?344[.,]63(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма — 6344.63 RUB"
+    },
+    {
+      "id": "Q-bf01090b60a5174b12",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2028-01-14",
+      "query": "Какой трек-номер отправления указан в письме о заказе SYN-6DD0AA60E8?",
+      "sources": [
+        "L-a5f03ffa37bea6dd4bbe"
+      ],
+      "facts": [],
+      "answerability": "unanswerable",
+      "evidence": "SYN-6dd0aa60e8"
+    },
+    {
+      "id": "Q-c17f30cd5edfe33b1f",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-26",
+      "query": "На какую сумму был заказ SYN-2203CFA9A3?",
+      "sources": [
+        "L-6b382a47a634c17fcca7"
+      ],
+      "facts": [
+        "(?<!\\d)5[ \\u00a0\\u202f]?210[.,]01(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма — 5210.01 RUB"
+    },
+    {
+      "id": "Q-c2c9ea0e44dfd6c38e",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-17",
+      "query": "На какую сумму был заказ SYN-2D6C75D843?",
+      "sources": [
+        "L-c1677349157404b59fae"
+      ],
+      "facts": [
+        "(?<!\\d)707[.,]52(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "на сумму 707.52 RUB"
+    },
+    {
+      "id": "Q-c43a5a5b13e2767fb0",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-10",
+      "query": "Какой трек-номер отправления указан в письме о заказе SYN-56E84EEC9C?",
+      "sources": [
+        "L-9cc72fe4a8619daff067"
+      ],
+      "facts": [],
+      "answerability": "unanswerable",
+      "evidence": "SYN-56e84eec9c"
+    },
+    {
+      "id": "Q-d17888bd1b50fe4ae8",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-25",
+      "query": "Какой трек-номер отправления указан в письме о заказе SYN-16987D4942?",
+      "sources": [
+        "L-429c6dbc7842ec159805"
+      ],
+      "facts": [],
+      "answerability": "unanswerable",
+      "evidence": "SYN-16987d4942"
+    },
+    {
+      "id": "Q-d5bdb34d0eb17f9eae",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2028-01-04",
+      "query": "На какую сумму был заказ SYN-EA1E3921DA?",
+      "sources": [
+        "L-ade01ba99f5797fbd616"
+      ],
+      "facts": [
+        "(?<!\\d)3[ \\u00a0\\u202f]?001[.,]35(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма — 3001.35 RUB"
+    },
+    {
+      "id": "Q-da444c14d9ed9d81fd",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2028-01-10",
+      "query": "Какой трек-номер отправления указан в письме о заказе SYN-2D9C8F317C?",
+      "sources": [
+        "L-aac860d94df56f41467e"
+      ],
+      "facts": [],
+      "answerability": "unanswerable",
+      "evidence": "SYN-2d9c8f317c"
+    },
+    {
+      "id": "Q-df3aa0df46ade1c7e4",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-17",
+      "query": "На какую сумму был заказ SYN-BB2936FD8C?",
+      "sources": [
+        "L-4efd05e895c305bd3c54"
+      ],
+      "facts": [
+        "(?<!\\d)7[ \\u00a0\\u202f]?792[.,]61(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма — 7792.61 RUB"
+    },
+    {
+      "id": "Q-dfcf5cd0158aa8e8a1",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2028-01-13",
+      "query": "На какую сумму был заказ SYN-6E4EC3A208?",
+      "sources": [
+        "L-9700a3c2ab0345993d5b"
+      ],
+      "facts": [
+        "(?<!\\d)5[ \\u00a0\\u202f]?887[.,]68(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма — 5887.68 RUB"
+    },
+    {
+      "id": "Q-e0cc06d07999ca8722",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-25",
+      "query": "На какую сумму был заказ SYN-BDB6D278B6?",
+      "sources": [
+        "L-5d507d74d6440ec55a8a"
+      ],
+      "facts": [
+        "(?<!\\d)561[.,]65(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма — 561.65 RUB"
+    },
+    {
+      "id": "Q-ebb4d06508b8ce72ec",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-15",
+      "query": "На какую сумму был заказ SYN-B82CF1A5F6?",
+      "sources": [
+        "L-48ef1f1bb872d1856dac"
+      ],
+      "facts": [
+        "(?<!\\d)5[ \\u00a0\\u202f]?649[.,]81(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма — 5649.81 RUB"
+    },
+    {
+      "id": "Q-ecd3950dd1e8e74742",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-22",
+      "query": "На какую сумму был заказ SYN-802A5CED62?",
+      "sources": [
+        "L-b6ca21d6aa0dbce230fc"
+      ],
+      "facts": [
+        "(?<!\\d)5[ \\u00a0\\u202f]?210[.,]95(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма — 5210.95 RUB"
+    },
+    {
+      "id": "Q-ef85d4920537a3cc04",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2028-01-23",
+      "query": "На какую сумму был заказ SYN-0DD292EDB2?",
+      "sources": [
+        "L-0c4513845b5332ed3891"
+      ],
+      "facts": [
+        "(?<!\\d)7[ \\u00a0\\u202f]?067[.,]49(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма — 7067.49 RUB"
+    },
+    {
+      "id": "Q-f04e221b8244472f80",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2028-01-11",
+      "query": "Какой трек-номер отправления указан в письме о заказе SYN-165C2E0F39?",
+      "sources": [
+        "L-96f80b8a889da85557d6"
+      ],
+      "facts": [],
+      "answerability": "unanswerable",
+      "evidence": "SYN-165c2e0f39"
+    },
+    {
+      "id": "Q-f34bd109ab9b54e688",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2027-12-17",
+      "query": "На какую сумму был заказ SYN-87B47A4A16?",
+      "sources": [
+        "L-c3495465eabbf174e4a1"
+      ],
+      "facts": [
+        "(?<!\\d)302[.,]17(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма — 302.17 RUB"
+    },
+    {
+      "id": "Q-f5e8d6ee797ff71a63",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2028-01-02",
+      "query": "Какой трек-номер отправления указан в письме о заказе SYN-ADB1E91B65?",
+      "sources": [
+        "L-b14df5ac8e876d310d0f"
+      ],
+      "facts": [],
+      "answerability": "unanswerable",
+      "evidence": "SYN-adb1e91b65"
+    },
+    {
+      "id": "Q-fbfda3e780225fe1fc",
+      "mailbox": "box-fad2b057e79a",
+      "date": "2028-01-17",
+      "query": "На какую сумму был заказ SYN-12AD35F07E?",
+      "sources": [
+        "L-8b06f998cacbbc69c7c7"
+      ],
+      "facts": [
+        "(?<!\\d)692[.,]15(?!\\d)",
+        "(?:\\bRUB\\b|руб|₽)"
+      ],
+      "answerability": "answerable",
+      "evidence": "Общая сумма — 692.15 RUB"
+    }
+  ]
+}

@@ -1,0 +1,198 @@
+{
+  "name": "Новые проверки точной фразы",
+  "version": 1,
+  "documents_sha256": "5550554a796a0f20e0f930939a453e2871993b436be60e68f45b64f69043774e",
+  "global_anchors": [],
+  "cases": [
+    {
+      "id": "q01",
+      "family": "new_exact_subject",
+      "mailbox": "gmail",
+      "date": "2026-11-21",
+      "query": "Открой письмо со словами «Email confirmation required».",
+      "expected": [
+        "gmail-19022e57c0ffa0ff"
+      ],
+      "evidence_all": [
+        "Email\\ confirmation\\ required"
+      ]
+    },
+    {
+      "id": "q02",
+      "family": "new_exact_subject",
+      "mailbox": "gmail",
+      "date": "2026-11-21",
+      "query": "Открой письмо со словами \"discover top tips for\".",
+      "expected": [
+        "gmail-191c981df7fa16b7"
+      ],
+      "evidence_all": [
+        "discover\\ top\\ tips\\ for"
+      ]
+    },
+    {
+      "id": "q03",
+      "family": "new_exact_subject",
+      "mailbox": "gmail",
+      "date": "2026-11-21",
+      "query": "Открой письмо со словами «придется вводить задачи вручную».",
+      "expected": [
+        "gmail-19dc81af249d3e3e"
+      ],
+      "evidence_all": [
+        "придется\\ вводить\\ задачи\\ вручную"
+      ]
+    },
+    {
+      "id": "q04",
+      "family": "new_exact_body",
+      "mailbox": "gmail",
+      "date": "2026-11-21",
+      "query": "Открой письмо со словами \"предназначенным для новых\".",
+      "expected": [
+        "gmail-19b4b19fdfd20c8c"
+      ],
+      "evidence_all": [
+        "предназначенным\\ для\\ новых"
+      ]
+    },
+    {
+      "id": "q05",
+      "family": "new_exact_body_late",
+      "mailbox": "gmail",
+      "date": "2026-11-21",
+      "query": "Открой письмо со словами «Build only natural editorial».",
+      "expected": [
+        "gmail-18f3d24ea4bf1322"
+      ],
+      "evidence_all": [
+        "Build\\ only\\ natural\\ editorial"
+      ]
+    },
+    {
+      "id": "q06",
+      "family": "new_exact_body_late",
+      "mailbox": "gmail",
+      "date": "2026-11-21",
+      "query": "Открой письмо со словами \"make communications more straightf\".",
+      "expected": [
+        "gmail-18f7092810755584"
+      ],
+      "evidence_all": [
+        "make\\ communications\\ more\\ straightf"
+      ]
+    },
+    {
+      "id": "q07",
+      "family": "new_two_literals",
+      "mailbox": "gmail",
+      "date": "2026-11-21",
+      "query": "Ищу письмо, где встречаются и «Команда Олимпиадных», и \"профориентационную лабораторию KIDSDEV\".",
+      "expected": [
+        "gmail-1a1161f68523025d"
+      ],
+      "evidence_all": [
+        "Команда\\ Олимпиадных",
+        "профориентационную\\ лабораторию\\ KIDSDEV"
+      ]
+    },
+    {
+      "id": "q08",
+      "family": "new_two_literals",
+      "mailbox": "gmail",
+      "date": "2026-11-21",
+      "query": "Ищу письмо, где встречаются и \"Claim Your\", и «Trading Balance Awaits».",
+      "expected": [
+        "gmail-195c6b0f96b3daa9"
+      ],
+      "evidence_all": [
+        "Claim\\ Your",
+        "Trading\\ Balance\\ Awaits"
+      ]
+    },
+    {
+      "id": "q09",
+      "family": "new_absent_word_order",
+      "mailbox": "gmail",
+      "date": "2026-11-21",
+      "query": "Найди точное словосочетание «Wireless with Charging».",
+      "expected": [],
+      "evidence_all": [
+        "Wireless\\ with\\ Charging"
+      ]
+    },
+    {
+      "id": "q10",
+      "family": "new_absent_word_order",
+      "mailbox": "yandex",
+      "date": "2026-11-21",
+      "query": "Найди точное словосочетание \"остаётся Вам только перейти\".",
+      "expected": [],
+      "evidence_all": [
+        "остаётся\\ Вам\\ только\\ перейти"
+      ]
+    },
+    {
+      "id": "q11",
+      "family": "new_incompatible_literals",
+      "mailbox": "gmail",
+      "date": "2026-11-21",
+      "query": "Ищу одно письмо, в котором одновременно написаны «Mathematical Problem Solving» и \"списке свой стиль приключений\".",
+      "expected": [],
+      "evidence_all": [
+        "Mathematical\\ Problem\\ Solving",
+        "списке\\ свой\\ стиль\\ приключений"
+      ]
+    },
+    {
+      "id": "q12",
+      "family": "new_incompatible_literals",
+      "mailbox": "gmail",
+      "date": "2026-11-21",
+      "query": "Ищу одно письмо, в котором одновременно написаны \"Мощная статистика занятий\" и «cap emoji stickers back».",
+      "expected": [],
+      "evidence_all": [
+        "Мощная\\ статистика\\ занятий",
+        "cap\\ emoji\\ stickers\\ back"
+      ]
+    },
+    {
+      "id": "q13",
+      "family": "new_one_letter_difference",
+      "mailbox": "yandex",
+      "date": "2026-11-21",
+      "query": "Где буквально написано \"обновили ваци настройки\"?",
+      "expected": [],
+      "evidence_all": [
+        "обновили\\ ваци\\ настройки"
+      ]
+    },
+    {
+      "id": "q14",
+      "family": "new_future_literal",
+      "mailbox": "gmail",
+      "date": "2026-08-31",
+      "query": "Найди фразу «миллион уже стартовала».",
+      "expected": [],
+      "evidence_all": [
+        "миллион\\ уже\\ стартовала"
+      ]
+    },
+    {
+      "id": "q15",
+      "family": "new_other_mailbox_literal",
+      "mailbox": "yandex",
+      "date": "2026-11-21",
+      "query": "Найди точную фразу \"подобрали классные коттеджи\".",
+      "expected": [],
+      "evidence_all": [
+        "подобрали\\ классные\\ коттеджи"
+      ]
+    }
+  ],
+  "read_checks": [],
+  "method": [
+    "Независимый детерминированный отбор по исходному корпусу. Все использованные письма исключены из положительных примеров предыдущего набора.",
+    "Положительная цель однозначна по всем буквальным фрагментам и доступности. Сопоставление без учёта регистра. Отрицательные примеры перепроверены полным проходом по корпусу."
+  ]
+}

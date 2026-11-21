@@ -1,0 +1,39 @@
+{
+  "source_revision": "fade3eae6a4807c35b19cfce20dfa805fc8c0cdf",
+  "engine_revisions": [
+    "5fe3f5d3739ac523d0b4088f15eef4b50391dd28",
+    "78979130983382e9ffadcac30aad15fba17c2e9b"
+  ],
+  "source_url": "https://github.com/vladislavneon/RuBQ/tree/fade3eae6a4807c35b19cfce20dfa805fc8c0cdf/RuBQ_2.0",
+  "annotation_paper": "https://openreview.net/pdf?id=P5UQFFoQ4PJ",
+  "source_license": "https://github.com/vladislavneon/RuBQ/blob/fade3eae6a4807c35b19cfce20dfa805fc8c0cdf/LICENSE.txt",
+  "raw_sha256": {
+    "RuBQ_2.0_paragraphs.json": "f91c2fd1d688b1d9f0f89f33c61d678c834e4e52ed9e1324bb76477374c5a6ab",
+    "RuBQ_2.0_test.json": "63d9e32a1bdefb2de713a9ccf3a0f9f0a4a48f2fdddd35b3908d6846b63dc85b"
+  },
+  "adapter_sha256": {
+    "documents.jsonl": "a7477747d97c05e4d67be59d42035009d28c1e54b5efc36fc1c9112c938ccda0",
+    "queries.jsonl": "31db2cd4c3d6f0eac4440d6f5e1d6d9f8525791e0cdbcce88fc9cf4b4a965f5b",
+    "qrels.jsonl": "112944d6f381e8378b90ab779283fe53b1e6a464f951ea5b2e514677fec3d58e",
+    "clusters.json": "3b9834a7a9971bb455b16a8d46f51989a40884332f209e77114866341a18c9ae"
+  },
+  "paragraphs": 56952,
+  "wikipedia_pages": 9105,
+  "official_test_questions": 2330,
+  "scored_questions": 1694,
+  "without_confirmed_passage_excluded": 636,
+  "positive_pairs": 2847,
+  "unique_scored_positive_passages": 2711,
+  "support_page_clusters": 1444,
+  "largest_cluster_questions": 10,
+  "question_policy": "All original Russian test questions with nonempty paragraphs_uids.with_answer. No subsampling.",
+  "qrels_policy": "Binary gain only for author-provided, crowd-verified with_answer IDs. Other IDs receive zero metric gain. No answer strings, SPARQL, related-ID lists or labels are supplied to the ranker.",
+  "corpus_policy": "Every official paragraph, in release order. Only original paragraph text, one synthetic mailbox, unknown receipt dates. Fixed query date 2020-12-15.",
+  "primary": "Macro nDCG@10, paired candidate minus baseline. Also macro known Recall@10, Hit@10, MRR@10 and counts of empty results for these positive questions.",
+  "bootstrap": {
+    "unit": "Transitive components of queries sharing a gold supporting Wikipedia page",
+    "estimator": "Query-weighted paired percentile interval for nDCG@10 delta",
+    "draws": 10000,
+    "seed": 20261121
+  }
+}

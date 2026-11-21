@@ -1,0 +1,38 @@
+{
+  "corpus_sha256": "f882a2fe4f490127fe48feb9c44bfa76ef32d48a6971aa401561582ba8110998",
+  "server_corpus_check": "sha256",
+  "fixture_sha256": "ad53118624a02c489fa88a33e47276e0eab173d81b4333bbf49a91a13b16539c",
+  "scope": "Small task-authored regression set with deterministic, predeclared facts. References must open in the same snapshot. Fact-pattern and source checks do not evaluate arbitrary generated claims.",
+  "summary": {
+    "answerable": 1,
+    "all_facts_with_expected_citation": 0,
+    "unwarranted_no_evidence": 0,
+    "insufficient": 0,
+    "explicit_no_evidence": 0,
+    "citations_on_answerable": 1,
+    "expected_source_citations_on_answerable": 1,
+    "required_facts": 1,
+    "required_facts_with_citation": 0,
+    "originals_opened_in_scope": 1,
+    "modes": {
+      "extractive": 1
+    }
+  },
+  "cases": [
+    {
+      "id": "Q-ce15491d421b2a980f",
+      "answerable": true,
+      "mode": "extractive",
+      "answer": "«Региональный этап ВсОШ по информатике (профиль Искусственный интеллект) в Москве, 2025-26 учебный год» [1].",
+      "answer_http_ms": 9882.5,
+      "opened_source_ids": [
+        "L-eebd75cd33a5223fbd0a"
+      ],
+      "citations": 1,
+      "citations_to_expected": 1,
+      "facts_expected": 1,
+      "facts_cited": 0,
+      "all_expected_facts_cited": false
+    }
+  ]
+}

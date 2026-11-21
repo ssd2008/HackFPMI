@@ -1,0 +1,19 @@
+{
+  "source": "LoTTE pooled test, forum and search",
+  "language": "en",
+  "raw_corpus_rows": 2819103,
+  "documents": 90528,
+  "complete_corpus": false,
+  "queries": 13894,
+  "qrels": 72660,
+  "unique_judged_documents": 68528,
+  "adjacent_unjudged_documents": 0,
+  "random_unjudged_documents": 22000,
+  "query_pool": "Original published judgments with at least one positive; restricted to the indicated split.",
+  "raw_to_local_id": "Prefix raw document IDs with lotte/; prefix raw question IDs with lotte/q/. LoTTE namespaced forum and search.",
+  "sha256": {
+    "documents.jsonl": "3ef1ef9d028ef8c1604f497fd6f40142a4dbc03dbef1d7a5b13ccbd0799f3607",
+    "qrels_dev.jsonl": "f72e07f6e82e3e9160655fba4a3cdaa35a9c7637beb594a4148b76e6b7191a3a",
+    "queries_dev.jsonl": "a2d2ad4e1e7d4855d258a3959a367d630b96111cea4dc532016fb301f0959469"
+  }
+}

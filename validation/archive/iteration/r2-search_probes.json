@@ -1,0 +1,347 @@
+{
+  "name": "Независимые диагностические пробы почтового поиска",
+  "tested_at_utc": "2026-11-21T10:34:11.603512+00:00",
+  "url": "http://127.0.0.1:18769",
+  "request_limit": 10,
+  "fixture_sha256": "fdb80ba84fd2035a81110bfc48c678064faa1244fc064390aadeb6a7b7c0baef",
+  "documents_sha256": "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9c8daa5",
+  "metrics": {
+    "positive_queries": 14,
+    "hit_at_1": 11,
+    "hit_at_5": 12,
+    "empty_queries": 7,
+    "correctly_empty": 7,
+    "returned_items": 65,
+    "invalid_mailbox_or_asof_items": 0,
+    "outside_explicit_received_window_items": 0,
+    "read_checks": 4,
+    "correct_reads": 4
+  },
+  "cases": [
+    {
+      "id": "roadside-kit",
+      "family": "topics",
+      "expected": [
+        "L-5d9fd776aba847e15674"
+      ],
+      "results": [
+        "L-7d64885dd1f0eecab631",
+        "L-6ff06c67b9b67ab18baa",
+        "L-17b7467a03193af392f5",
+        "L-5d9fd776aba847e15674",
+        "L-1ec4763c172689a46610",
+        "L-faafaabbc6a420dd1479",
+        "L-16f90936f7183ec107ca",
+        "L-6df69e309acb17adc2bc",
+        "L-01d22887f69167d2a2ca",
+        "L-6a3907d53df05fb7d035"
+      ],
+      "first_expected_rank": 4,
+      "invalid_mailbox_or_asof": [],
+      "outside_received_window": []
+    },
+    {
+      "id": "remeasure",
+      "family": "topics",
+      "expected": [
+        "L-4e87e6f3681079ce1329",
+        "L-8312b5ed19fe7c62c08a"
+      ],
+      "results": [
+        "L-4e87e6f3681079ce1329",
+        "L-8312b5ed19fe7c62c08a",
+        "L-83e49b2741443b9e698f",
+        "L-6b5afcf16f6d4edb715b",
+        "L-bbf6167462c9342f6afa",
+        "L-48d4e7d8ead4ec3068d6",
+        "L-48ebd470a4f54d3c340b",
+        "L-a4850ad7d69b1ee3ba7f",
+        "L-8b5087da30877f512168",
+        "L-a5b10e2af504738d1f0a"
+      ],
+      "first_expected_rank": 1,
+      "invalid_mailbox_or_asof": [],
+      "outside_received_window": []
+    },
+    {
+      "id": "stockout",
+      "family": "topics",
+      "expected": [
+        "L-011be98d8507267c2768",
+        "L-7b716ac725d947e60745"
+      ],
+      "results": [
+        "L-7b716ac725d947e60745",
+        "L-011be98d8507267c2768",
+        "L-16b1ded4f92aca902532",
+        "L-11c9db808177eb850307",
+        "L-066f36b1fd4849b65f4a",
+        "L-1ecc5845c992f0440aa6",
+        "L-847344f93766b77a2191",
+        "L-2afd2ba6fc70e348ec2b",
+        "L-60a891e1fb3bb0c29353",
+        "L-adb3bb87b69ecb743578"
+      ],
+      "first_expected_rank": 1,
+      "invalid_mailbox_or_asof": [],
+      "outside_received_window": []
+    },
+    {
+      "id": "unclaimed-returns",
+      "family": "topics",
+      "expected": [
+        "L-38f4f03e95342bd962fa",
+        "L-acda0099ea6756376b43"
+      ],
+      "results": [
+        "L-acda0099ea6756376b43"
+      ],
+      "first_expected_rank": 1,
+      "invalid_mailbox_or_asof": [],
+      "outside_received_window": []
+    },
+    {
+      "id": "cancelled-bits",
+      "family": "topics",
+      "expected": [
+        "L-e6e58ab04a8f09a07b92"
+      ],
+      "results": [
+        "L-e6e58ab04a8f09a07b92",
+        "L-a45abd02573cad5d02c0",
+        "L-108bf6d6304866b1c26d",
+        "L-2a2c61b613639a34eca8",
+        "L-1e25c846019f3f2d881d",
+        "L-eae3e97937ab011606b5",
+        "L-7c6a05540f90af2742c8",
+        "L-23109c89703ab9e789ba",
+        "L-fca371afcc4268385a39",
+        "L-719b32e407304182aa10"
+      ],
+      "first_expected_rank": 1,
+      "invalid_mailbox_or_asof": [],
+      "outside_received_window": []
+    },
+    {
+      "id": "registry-code",
+      "family": "topics",
+      "expected": [
+        "L-3b0467f6f5591e5459a5"
+      ],
+      "results": [
+        "L-3b0467f6f5591e5459a5"
+      ],
+      "first_expected_rank": 1,
+      "invalid_mailbox_or_asof": [],
+      "outside_received_window": []
+    },
+    {
+      "id": "acts-range",
+      "family": "periods",
+      "expected": [
+        "L-45fd09e3c00dc17746ca",
+        "L-61e4004bd0828e85ca64",
+        "L-1cf60f4c8310054a90bb"
+      ],
+      "results": [
+        "L-45fd09e3c00dc17746ca",
+        "L-61e4004bd0828e85ca64",
+        "L-1cf60f4c8310054a90bb",
+        "L-abe0ec38387850223847",
+        "L-56bf2000a84411563e08",
+        "L-62d2a7934789024be834",
+        "L-8e4744f623da6651a9aa",
+        "L-2e9f6b5bd8eaebc44424",
+        "L-378b4652b07bde6a98e7",
+        "L-e37008f7f52f826d684c"
+      ],
+      "first_expected_rank": 1,
+      "invalid_mailbox_or_asof": [],
+      "outside_received_window": []
+    },
+    {
+      "id": "status-approved",
+      "family": "payment_status",
+      "expected": [
+        "L-7d6882ea72e73cc00d19"
+      ],
+      "results": [],
+      "first_expected_rank": null,
+      "invalid_mailbox_or_asof": [],
+      "outside_received_window": []
+    },
+    {
+      "id": "status-declined",
+      "family": "payment_status",
+      "expected": [
+        "L-4f924773c201c7455af1"
+      ],
+      "results": [
+        "L-4f924773c201c7455af1"
+      ],
+      "first_expected_rank": 1,
+      "invalid_mailbox_or_asof": [],
+      "outside_received_window": []
+    },
+    {
+      "id": "reason-insufficient",
+      "family": "payment_status",
+      "expected": [
+        "L-2e867e3f6ce6b2c27883"
+      ],
+      "results": [
+        "L-2e867e3f6ce6b2c27883",
+        "L-54ce2f763702b6ecfb3f",
+        "L-e6d311c8265b6dabfb4e",
+        "L-1033df261c449a13472c",
+        "L-d0b7691b59f46b26279f",
+        "L-7547822e895c41824ce2",
+        "L-58c95a060a3adccfc1a1"
+      ],
+      "first_expected_rank": 1,
+      "invalid_mailbox_or_asof": [],
+      "outside_received_window": []
+    },
+    {
+      "id": "missing-field",
+      "family": "periods",
+      "expected": [
+        "L-804bd24f5b7e929edbbf"
+      ],
+      "results": [],
+      "first_expected_rank": null,
+      "invalid_mailbox_or_asof": [],
+      "outside_received_window": []
+    },
+    {
+      "id": "body-date-vs-received",
+      "family": "periods",
+      "expected": [
+        "L-d885af2e4682919b78b6"
+      ],
+      "results": [
+        "L-d885af2e4682919b78b6",
+        "L-55f17fdea7a79e5bd8cd",
+        "L-afa46002cba86b96f872"
+      ],
+      "first_expected_rank": 1,
+      "invalid_mailbox_or_asof": [],
+      "outside_received_window": []
+    },
+    {
+      "id": "unknown-date-allowed",
+      "family": "scope_controls",
+      "expected": [
+        "L-4e87e6f3681079ce1329"
+      ],
+      "results": [
+        "L-4e87e6f3681079ce1329"
+      ],
+      "first_expected_rank": 1,
+      "invalid_mailbox_or_asof": [],
+      "outside_received_window": []
+    },
+    {
+      "id": "id-on-receipt",
+      "family": "scope_controls",
+      "expected": [
+        "L-38f4f03e95342bd962fa"
+      ],
+      "results": [
+        "L-38f4f03e95342bd962fa"
+      ],
+      "first_expected_rank": 1,
+      "invalid_mailbox_or_asof": [],
+      "outside_received_window": []
+    },
+    {
+      "id": "id-before-receipt",
+      "family": "scope_controls",
+      "expected": [],
+      "results": [],
+      "first_expected_rank": null,
+      "invalid_mailbox_or_asof": [],
+      "outside_received_window": []
+    },
+    {
+      "id": "id-in-another-mailbox",
+      "family": "scope_controls",
+      "expected": [],
+      "results": [],
+      "first_expected_rank": null,
+      "invalid_mailbox_or_asof": [],
+      "outside_received_window": []
+    },
+    {
+      "id": "unknown-date-with-day",
+      "family": "scope_controls",
+      "expected": [],
+      "results": [],
+      "first_expected_rank": null,
+      "invalid_mailbox_or_asof": [],
+      "outside_received_window": []
+    },
+    {
+      "id": "absent-id",
+      "family": "abstention",
+      "expected": [],
+      "results": [],
+      "first_expected_rank": null,
+      "invalid_mailbox_or_asof": [],
+      "outside_received_window": []
+    },
+    {
+      "id": "absent-topic",
+      "family": "abstention",
+      "expected": [],
+      "results": [],
+      "first_expected_rank": null,
+      "invalid_mailbox_or_asof": [],
+      "outside_received_window": []
+    },
+    {
+      "id": "only-declined-today",
+      "family": "payment_status",
+      "expected": [],
+      "results": [],
+      "first_expected_rank": null,
+      "invalid_mailbox_or_asof": [],
+      "outside_received_window": []
+    },
+    {
+      "id": "only-approved-today",
+      "family": "payment_status",
+      "expected": [],
+      "results": [],
+      "first_expected_rank": null,
+      "invalid_mailbox_or_asof": [],
+      "outside_received_window": []
+    }
+  ],
+  "read_checks": [
+    {
+      "id": "on-day",
+      "status": 200,
+      "expected_status": 200,
+      "ok": true
+    },
+    {
+      "id": "previous-day",
+      "status": 404,
+      "expected_status": 404,
+      "ok": true
+    },
+    {
+      "id": "foreign-box",
+      "status": 404,
+      "expected_status": 404,
+      "ok": true
+    },
+    {
+      "id": "unknown-received",
+      "status": 200,
+      "expected_status": 200,
+      "ok": true
+    }
+  ]
+}

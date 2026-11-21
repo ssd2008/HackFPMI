@@ -1,0 +1,19 @@
+{
+  "source": "RuBQ 2.0 test, paragraphs_uids.with_answer",
+  "language": "ru",
+  "raw_corpus_rows": 56952,
+  "documents": 56952,
+  "complete_corpus": true,
+  "queries": 1694,
+  "qrels": 2847,
+  "unique_judged_documents": 2711,
+  "adjacent_unjudged_documents": 0,
+  "random_unjudged_documents": 54241,
+  "query_pool": "Original published judgments with at least one positive; restricted to the indicated split.",
+  "raw_to_local_id": "Prefix raw document IDs with rubq-2.0/; prefix raw question IDs with rubq-2.0/q/. LoTTE namespaced forum and search.",
+  "sha256": {
+    "documents.jsonl": "344a0b264ce78c9f99721239b4541e68fc9eebd2c1b2f29f57406a907ffe7629",
+    "qrels_dev.jsonl": "027c92f5c20ca8124c11d8b53127b9528a863796e9cb1c19cd77a39960112b02",
+    "queries_dev.jsonl": "a9d6d353117ab969fa2c5f994d4dbb04920c68a3b6516db89471e4110db0c9fb"
+  }
+}
