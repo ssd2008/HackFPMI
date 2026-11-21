@@ -14,6 +14,26 @@ from tools.import_mail_export import write_corpus
 
 
 class ReceiptDates(unittest.TestCase):
+    def test_english_receipt_ranges_and_dates_in_questions(self):
+        at = date(2025, 1, 8)
+        for query, start, end in (
+            ("Find invoices received between 2024-12-20 and 2025-01-02, inclusive.",
+             date(2024, 12, 20), date(2025, 1, 2)),
+            ("Which letters arrived from 2025-01-02 through yesterday?", date(2025, 1, 2), date(2025, 1, 7)),
+            ("Mail received during the week of 2025-01-01", date(2024, 12, 30), date(2025, 1, 5)),
+            ("Which messages arrived after 2025-01-04?", date(2025, 1, 5), None),
+            ("Which emails did I receive before today?", None, date(2025, 1, 7)),
+            ("What happened at the meeting on 2025-01-06?", None, None),
+            ("Какая сборная выиграла чемпионат в 2012 году?", None, None),
+            ("Кто получил Нобелевскую премию в 2012 году?", None, None),
+            ("В каком городе 06.01.2025 состоялась премьера?", None, None),
+            ("Какие письма пришли в 2012 году?", date(2012, 1, 1), date(2012, 12, 31)),
+            ("Invoices received between 2024-13-20 and 2025-01-02", date.max, date.min),
+        ):
+            with self.subTest(query=query):
+                scope = parse_date_scope(query, at)
+                self.assertEqual((scope.start, scope.end), (start, end))
+
     def test_calendar_periods_across_a_year_boundary(self):
         at = date(2025, 1, 3)  # Friday
         for expression, start, end in (

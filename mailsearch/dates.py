@@ -1,4 +1,4 @@
-"""Interpret Russian receipt-date filters relative to the mailbox snapshot."""
+"""Interpret receipt-date filters relative to the mailbox snapshot."""
 
 from __future__ import annotations
 
@@ -23,6 +23,31 @@ _YEAR_SUFFIX = r"(?:\s*(?:года?|г\.?))?"
 _WORD_DATE = rf"\d{{1,2}}\s+{_MONTH}(?:\s+\d{{4}}{_YEAR_SUFFIX})?"
 _ATOM = rf"(?:\d{{4}}-\d{{2}}-\d{{2}}|\d{{1,2}}[./]\d{{1,2}}[./]\d{{4}}|{_WORD_DATE})"
 _DAYS = {"сегодня": 0, "вчера": 1, "позавчера": 2}
+_ISO = r"\d{4}-\d{2}-\d{2}"
+_EN_DAY = rf"(?:{_ISO}|yesterday|today)"
+_EN_RECEIPT = re.compile(
+    r"\b(?:receiv(?:e|ed)|arrived|(?:e-?mails?|messages?|letters?)\s+(?:dated|delivered)|"
+    r"e-?mails?|messages?|letters?)\s+"
+    rf"(?:(?:between\s+(?P<between>{_EN_DAY})\s+and|from\s+(?P<from>{_EN_DAY})\s+(?:to|through))"
+    rf"\s+(?P<end>{_EN_DAY})(?:,?\s+inclusive)?|"
+    rf"(?:(?:during|in)\s+)?(?:the\s+)?week\s+of\s+(?P<week>{_ISO})|"
+    rf"(?:(?P<bound>on|before|after|since|through)\s+)?(?P<day>{_EN_DAY}))(?!\w)"
+)
+_FACT_QUESTION = re.compile(
+    r"^\s*(?:(?:в|на|у|из|к|для|от|с)\s+)?(?:кто|кого|кому|кем|что|чем|чего|"
+    r"как(?:ой|ая|ое|ие|ого|ую|их|ом|им|ими)?|где|откуда|когда|сколько|почему|"
+    r"чей|чья|чьи|каков[а-я]*|who|whom|whose|what|when|where|why|how|which)\b"
+)
+_MAIL_CONTEXT = re.compile(
+    r"\b(?:письм[а-я]*|сообщени[а-я]*|рассылк[а-я]*|уведомлени[а-я]*|входящ[а-я]*|"
+    r"квитанци[а-я]*|чеки?|счета?|заказы?|пришедш[а-я]*|присла[а-я]*|полученн[а-я]*|"
+    r"(?:мне|нам|я|мы)\s+(?:приш[а-я]*|получи[а-я]*)|отправител[а-я]*|почт[аеуы]|"
+    r"e-?mails?|messages?|letters?|inbox)\b"
+)
+_RELATIVE_RECEIPT = re.compile(
+    r"\b(?:вчера|сегодня|позавчера|за\s+(?:(?:последн|прошл|минувш)[а-я]*|период)|"
+    r"yesterday|today|last\s+(?:week|month))\b"
+)
 # Deadlines and dates quoted from the subject/body can coexist with a receipt-date filter.
 _EVENT = (
     r"(?:(?:срок(?:ом|и)?|дат[аыуе])\s+(?:оплаты|отгрузки|доставки|вылета|выезда|встречи)(?:\s+заказа)?|"
@@ -65,6 +90,8 @@ def _last_day(day: int, month: int, reference: date) -> date:
 def _read_day(raw: str, reference: date) -> date:
     if raw in _DAYS:
         return reference - timedelta(days=_DAYS[raw])
+    if raw in {"today", "yesterday"}:
+        return reference - timedelta(days=int(raw == "yesterday"))
     if re.fullmatch(r"\d{4}-\d{2}-\d{2}", raw):
         return date.fromisoformat(raw)
     if "." in raw[:3] or "/" in raw[:3]:
@@ -86,6 +113,28 @@ def parse_date_scope(query: str, reference: date) -> DateScope:
         return DateScope((original[:match.start()] + " " + original[match.end():]).strip(), start, end)
 
     try:
+        match = _EN_RECEIPT.search(text)
+        if match:
+            if match["end"]:
+                return scope(match, _read_day(match["between"] or match["from"], reference),
+                             _read_day(match["end"], reference))
+            if match["week"]:
+                anchor = date.fromisoformat(match["week"])
+                monday = anchor - timedelta(days=anchor.weekday())
+                return scope(match, monday, monday + timedelta(days=6))
+            day = _read_day(match["day"], reference)
+            bound = match["bound"]
+            if bound in {"since", "after"}:
+                return scope(match, day + timedelta(days=int(bound == "after")), None)
+            if bound in {"before", "through"}:
+                return scope(match, None, day - timedelta(days=int(bound == "before")))
+            return scope(match, day, day)
+
+        # A year in "Who won the championship in 2012?" identifies the subject.
+        # "Which messages arrived in 2012?" asks about the mailbox timeline.
+        if _FACT_QUESTION.match(text) and not _MAIL_CONTEXT.search(text) and not _RELATIVE_RECEIPT.search(text):
+            return DateScope(original)
+
         match = re.search(rf"\bс\s+(\d{{1,2}})\s+(?:по|до)\s+({_WORD_DATE})(?!\w)", text)
         if match:
             end = _read_day(match[2], reference)

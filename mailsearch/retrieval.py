@@ -36,6 +36,13 @@ _UNIT = r"(?:руб(?:лей|ля)?|rub|rur|eur|usd|год[а-я]*|кг|мл|к�
 _MEASUREMENT = re.compile(rf"(?:{_UNIT}[-_]?\d+|\d+[-_]?{_UNIT})")
 _SUBJECT = re.compile(r"(?im)^\s*(?:тема|subject)\s*:\s*([^\r\n]+)")
 _CLAUSE = re.compile(r"[\r\n]+|(?<=[.!?;])(?:\s+|(?=[А-ЯЁ]))")
+_PLAN_NOUN = r"(?:разрешени[а-я]*|заявк[а-я]*|запрос[а-я]*|подготовк[а-я]*|счет[а-я]*|план(?:а|у|ы|ом|ов)?)"
+_PLANNED_ACTION = re.compile(
+    rf"\b{_PLAN_NOUN}(?:\s+[а-я-]+){{0,2}}?\s+(?:на|к|для)\s+"
+    r"(?:(?:предстоящ|будущ|планов|срочн)[а-я]*\s+)?"
+    r"(?P<action>[а-я-]+(?:ни[еяю]|ци[юия]|к[ауеи]|т[ау])|возврат|ремонт)\b"
+)
+_PLAN_REQUEST = re.compile(rf"\b(?:{_PLAN_NOUN}|разреш[а-я]*|запланир[а-я]*|предстоящ[а-я]*)\b")
 _QUOTED = re.compile(r'«([^«»]*)»|"([^"]*)"')
 _LOCAL = threading.local()
 
@@ -300,13 +307,24 @@ class LexicalIndex:
         self.vocabulary: dict[str, int] = {}
         self.sequences: list[array] = []
         self.decisions: list[tuple[int, set[str]]] = []
+        planned_rows = defaultdict(list)
         columns, counts, pointers = array("i"), array("f"), array("i", [0])
         lengths = []
-        for doc in documents:
+        for row, doc in enumerate(documents):
             passages = _CLAUSE.split(doc["doc"])
             self.decisions.append(_decisions(passages))
             clauses = [_features(_words(clause)) for clause in passages]
             weights = Counter(term for clause in clauses for term in clause)
+            # A permit or order for an action can be useful context, but it does
+            # not report that the action happened. Keep a document at full weight
+            # if the same event is also named outside the prospective expression.
+            prospective = Counter(
+                term for match in _PLANNED_ACTION.finditer(doc["doc"].lower().replace("ё", "е"))
+                for term in _features([match["action"]])
+            )
+            for term, count in prospective.items():
+                if weights[term] == count:
+                    planned_rows[term].append(row)
             lengths.append(sum(weights.values()))
             subject = _SUBJECT.search(doc["doc"])
             if subject:
@@ -337,10 +355,37 @@ class LexicalIndex:
         values /= values + np.repeat(norms, np.diff(offsets))
         doc_frequency = np.bincount(indices, minlength=len(self.vocabulary))
         self.idf = np.log1p((size - doc_frequency + 0.5) / (doc_frequency + 0.5))
-        self.weights = csr_matrix(
+        sparse = csr_matrix(
             (values, indices, offsets), shape=(size, len(self.vocabulary)), dtype=np.float32
         )
-        self.weights.sort_indices()
+        # One sorted posting list per term. A short query should not copy every
+        # term from every visible letter just to look up its own terms.
+        self.postings = sparse.tocsc()
+        self.postings.sort_indices()
+        self.planned = {term: np.asarray(rows, dtype=np.int32) for term, rows in planned_rows.items()}
+
+    def posting(self, column: int) -> tuple[np.ndarray, np.ndarray]:
+        start, end = self.postings.indptr[column:column + 2]
+        return self.postings.indices[start:end], self.postings.data[start:end]
+
+    @staticmethod
+    def _locate(posted: np.ndarray, candidates: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+        # Every vocabulary entry occurs in at least one document.
+        slots = np.minimum(posted.searchsorted(candidates), len(posted) - 1)
+        return slots, posted[slots] == candidates
+
+    def contains(self, column: int, candidates: np.ndarray) -> np.ndarray:
+        posted, _ = self.posting(column)
+        return self._locate(posted, candidates)[1]
+
+    def rank_event_evidence(self, query: str, terms: set[str], rows: np.ndarray, scores: np.ndarray) -> None:
+        planned_terms = terms.intersection(self.planned)
+        if not planned_terms or _PLAN_REQUEST.search(query):
+            return
+        total = sum(self.idf[self.vocabulary[t]] for t in terms if t in self.vocabulary)
+        for term in sorted(planned_terms):
+            _, present = self._locate(self.planned[term], rows)
+            scores[present] -= 0.28 * self.idf[self.vocabulary[term]] / total
 
     def score(self, features: list[str], candidates: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
         # Repeating a term in a conversational query should not multiply its weight.
@@ -353,9 +398,24 @@ class LexicalIndex:
         # Words outside the corpus are still part of the request. Renormalizing
         # over known words alone turns "order for [unknown item]" into "order".
         weights *= (len(cols) / len(terms)) / weights.sum()
-        hits = self.weights[candidates][:, cols]
-        coverage = np.asarray((hits > 0) @ weights).ravel()
-        frequency = np.asarray(hits @ weights).ravel()
+        # For a large scope scatter once per term, then select the requested
+        # rows. For a small scope look up just those rows in each posting.
+        broad = len(candidates) * 8 >= len(self.sequences)
+        size = len(self.sequences) if broad else len(candidates)
+        coverage = np.zeros(size, dtype=np.float32)
+        frequency = np.zeros(size, dtype=np.float32)
+        for column, weight in sorted(zip(cols, weights)):
+            posted, strengths = self.posting(column)
+            if broad:
+                positions = posted
+            else:
+                slots, present = self._locate(posted, candidates)
+                positions = np.flatnonzero(present)
+                strengths = strengths[slots[positions]]
+            coverage[positions] += weight
+            frequency[positions] += strengths * weight
+        if broad:
+            coverage, frequency = coverage[candidates], frequency[candidates]
         return 0.48 * coverage + 0.52 * frequency, coverage
 
     def proximity(self, features: list[str], candidates: np.ndarray) -> np.ndarray:
@@ -401,7 +461,7 @@ class LexicalIndex:
         if not cols:
             empty = np.zeros(len(candidates), dtype=bool)
             return empty, empty
-        present = self.weights[candidates][:, cols] > 0
+        present = self.postings[:, cols].tocsr()[candidates] > 0
         idf = self.idf[cols]
         # Subtract the surprisal of a term that appears in a quarter of the
         # corpus: matching only common words like "order" and "amount" is weak.
@@ -495,8 +555,7 @@ class SearchEngine:
                 row = self.by_id.get(token, self.by_id.get("L-" + token[2:], -1))
                 rows = rows[rows == row]
             elif token in self.lexical.vocabulary:
-                hits = self.lexical.weights[rows, self.lexical.vocabulary[token]].toarray().ravel()
-                rows = rows[hits > 0]
+                rows = rows[self.lexical.contains(self.lexical.vocabulary[token], rows)]
             else:
                 return []
             if not len(rows):
@@ -519,7 +578,11 @@ class SearchEngine:
 
         terms = " ".join(w for w in words if _stem(w) not in _REQUEST_WORDS)
         vector = self.dense.query(terms)
-        cosine = self.dense.vectors[rows] @ vector
+        # Mailbox rows preserve corpus order through all scope filters. A single
+        # contiguous interval can use the mapped matrix directly without a copy.
+        contiguous = int(rows[-1]) - int(rows[0]) + 1 == len(rows)
+        vectors = self.dense.vectors[rows[0]:rows[-1] + 1] if contiguous else self.dense.vectors[rows]
+        cosine = vectors @ vector
         lexical, coverage = self.lexical.score(features, rows)
         semantic = np.clip((cosine - 0.74) / 0.17, 0, 1.25)
         lexical_weight = 0.25 + 0.30 * float(coverage.max())
@@ -537,7 +600,7 @@ class SearchEngine:
             focus = " ".join(w for w in words if _ALIAS.get(_stem(w), _stem(w)) in unknown)
             if focus:
                 backed, rare = self.lexical.literal_evidence(distinct, rows)
-                support = self.dense.vectors[rows] @ self.dense.query(focus)
+                support = vectors @ self.dense.query(focus)
                 # Two independent specific matches can identify a letter even
                 # when peripheral details were paraphrased. A single rare match
                 # still needs semantic support for the unfamiliar description.
@@ -560,6 +623,8 @@ class SearchEngine:
                     plausible[i] = False
         if identifiers:
             plausible[:] = True
+        if not phrases and not identifiers:
+            self.lexical.rank_event_evidence(scope.text, distinct, rows, scores)
         order = np.flatnonzero(plausible)
         order = order[np.argsort(-scores[order], kind="stable")[:limit]]
         return [(self.ids[rows[i]], float(scores[i])) for i in order]
