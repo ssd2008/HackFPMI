@@ -31,6 +31,7 @@ const longDate = new Intl.DateTimeFormat('ru-RU', {
   day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC'
 });
 const svgNs = 'http://www.w3.org/2000/svg';
+const iconSprite = new URL('icons.svg', document.currentScript.src);
 
 function node(tag, cls, content) {
   const result = document.createElement(tag);
@@ -43,7 +44,7 @@ function icon(name) {
   graphic.classList.add('icon');
   graphic.setAttribute('aria-hidden', 'true');
   const use = document.createElementNS(svgNs, 'use');
-  use.setAttribute('href', './static/icons.svg#' + name);
+  use.setAttribute('href', iconSprite.href + '#' + name);
   graphic.append(use);
   return graphic;
 }
