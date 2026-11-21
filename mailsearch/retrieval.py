@@ -17,6 +17,7 @@ import snowballstemmer
 from .dates import parse_date_scope
 from .dense import DenseIndex
 from .spelling import CorpusSpelling
+from .fields import MailFields, only_field_request
 
 
 _EMAIL = r"[a-z0-9_.+%-]+@[a-z0-9.-]+\.[a-z]{2,}"
@@ -476,6 +477,7 @@ class SearchEngine:
         self.ids = [doc["doc_id"] for doc in documents]
         self.by_id = {doc_id: i for i, doc_id in enumerate(self.ids)}
         self.documents = documents
+        self.fields = MailFields(documents)
         # The public format embeds its subject in doc. A separate subject field
         # in an imported mailbox is searchable without inventing adjacent words.
         self.literal_texts = [
@@ -498,6 +500,9 @@ class SearchEngine:
     ) -> list[tuple[str, float]]:
         box = self.boxes.get(synthetic_user)
         if box is None or limit < 1 or not query.strip():
+            return []
+        query, box, field_request = self.fields.restrict(query, box)
+        if not len(box):
             return []
         phrases = []
         if '"' in query or "«" in query:
@@ -536,8 +541,10 @@ class SearchEngine:
             return []
         words = _words(scope.text)
         features = _features(words, query=True) + articles
+        if field_request and not articles and only_field_request(scope.text):
+            features = []
         if not features:
-            if not words and not scope.bounded and not phrases:
+            if not words and not scope.bounded and not phrases and not field_request:
                 return []
             order = np.argsort(-self.dates[rows], kind="stable")[:limit]
             return [(self.ids[rows[i]], 1.0) for i in order]
