@@ -246,12 +246,6 @@ async function loadMailboxes({preserve = false} = {}) {
     files.disabled = data.attachment_search !== true;
     byId('attachment-status').hidden = !files.disabled;
     if (files.disabled) files.checked = false;
-    const paraphrase = byId('paraphrase');
-    paraphrase.disabled = data.paraphrase_search !== true;
-    if (paraphrase.disabled) paraphrase.checked = false;
-    const modeStatus = byId('paraphrase-status');
-    modeStatus.hidden = !paraphrase.disabled;
-    modeStatus.textContent = state.demo ? 'Доступно при подключении к API' : 'Требуется обновленный API';
     const visitor = !state.demo && data.visitor_mail === true;
     if (data.visitor_mail === false && visitorMail.token()) {
       visitorMail.end(visitorMail.token(), 'Подключение личной почты отключено.');
@@ -391,7 +385,7 @@ async function showSearch(query) {
   setListLoading('Ищем письма…');
   try {
     const data = await fetchJSON('/api/search', controller, {
-      mailbox: state.mailbox, date: state.date, ...dateRange(), query: text, limit: searchLimit, ...queryModes()
+      mailbox: state.mailbox, date: state.date, ...dateRange(), query: text, limit: searchLimit, ...fileOption()
     });
     if (!current('list', controller)) return;
     state.searchResults = data.items;
@@ -610,7 +604,7 @@ async function generateAnswer() {
   announce('Готовим ответ по найденным письмам.');
   try {
     const data = await fetchJSON('/api/answer', controller, {
-      mailbox: state.mailbox, date: state.date, ...dateRange(), query: state.query, ...queryModes()
+      mailbox: state.mailbox, date: state.date, ...dateRange(), query: state.query, ...fileOption()
     });
     if (!current('answer', controller)) return;
     ui.answer.setAttribute('aria-busy', 'false');
@@ -699,15 +693,9 @@ function fileOption() {
   const checkbox = byId('include-attachments');
   return checkbox.checked && !checkbox.disabled ? {include_attachments: true} : {};
 }
-function queryModes() {
-  const box = byId('paraphrase');
-  return {...fileOption(), ...(box.checked && !box.disabled ? {paraphrase: true} : {})};
-}
-for (const id of ['include-attachments', 'paraphrase']) {
-  byId(id).addEventListener('change', () => {
-    if (state.query) showSearch(state.query);
-  });
-}
+byId('include-attachments').addEventListener('change', () => {
+  if (state.query) showSearch(state.query);
+});
 byId('search-form').addEventListener('submit', event => {
   event.preventDefault();
   if (ui.input.disabled) return;
@@ -773,7 +761,6 @@ document.addEventListener('keydown', event => {
   ui.input.focus();
 });
 function resetMailboxView() {
-  byId('paraphrase').disabled = true;
   byId('include-attachments').disabled = true;
   byId('attachment-status').hidden = true;
   for (const kind of requests.keys()) cancel(kind);
@@ -808,7 +795,7 @@ function resetMailboxView() {
   byId('demo-label').hidden = !state.demo;
   byId('search-description').textContent = state.demo
     ? 'Ищите по словам в вымышленных письмах. Можно добавить «сегодня» или «вчера».'
-    : 'Ищите по теме, отправителю и содержимому. Можно описать письмо своими словами или указать время, например «чек за вчера».';
+    : 'Ищите по теме, отправителю и содержимому. Можно указать время, например «чек за вчера».';
   byId('leave-demo').hidden = !state.demo || !apiOrigin;
   setMode();
   personal.resetPrivate();
