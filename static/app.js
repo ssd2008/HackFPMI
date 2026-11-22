@@ -7,6 +7,7 @@ const ui = {
   title: byId('page-heading'), listTitle: byId('list-title'),
   list: byId('list-box'), count: byId('mail-count'), order: byId('order-label'),
   input: byId('search-input'), search: byId('search-button'), examples: byId('examples'),
+  paraphrase: byId('paraphrase'), attachments: byId('include-attachments'),
   answer: byId('answer-panel'), inbox: byId('back-inbox'), actions: byId('nav-actions'),
   urgent: byId('urgent-panel'), urgentItems: byId('urgent-items'),
   paging: byId('paging'), prev: byId('prev-page'), next: byId('next-page'),
@@ -187,6 +188,7 @@ function openMailbox(id, initialDate) {
   ui.date.disabled = false;
   ui.input.disabled = false;
   ui.search.disabled = false;
+  ui.paraphrase.disabled = state.demo;
   renderExamples(box);
   showFolder(state.actionsOnly);
   window.scrollTo(0, 0);
@@ -291,6 +293,12 @@ async function loadFolder(offset) {
     showListError('Не удалось загрузить письма', 'Проверьте подключение к локальной почте.', () => loadFolder(offset));
   }
 }
+function searchPayload() {
+  return {
+    mailbox: state.mailbox, date: state.date, query: state.query,
+    paraphrase: ui.paraphrase.checked, include_attachments: ui.attachments.checked
+  };
+}
 async function showSearch(query) {
   const text = query.trim();
   if (!text) { showInbox(); return; }
@@ -304,9 +312,7 @@ async function showSearch(query) {
   const controller = start('list');
   setListLoading('Ищем письма…');
   try {
-    const data = await fetchJSON('/api/search', controller, {
-      mailbox: state.mailbox, date: state.date, query: text, limit: searchLimit
-    });
+    const data = await fetchJSON('/api/search', controller, {...searchPayload(), limit: searchLimit});
     if (!current('list', controller)) return;
     state.searchResults = data.items;
     state.total = data.items.length;
@@ -314,6 +320,7 @@ async function showSearch(query) {
     byId('sort-text').textContent = Number.isFinite(latency)
       ? 'По релевантности · ' + numberFormat.format(Math.round(latency)) + ' мс'
       : 'По релевантности';
+    if (data.partial_attachment_search) byId('sort-text').textContent += ' · Вложения проверены частично';
     renderSearchPage(0);
     if (state.total) renderAnswerPrompt();
   } catch (error) {
@@ -516,9 +523,7 @@ async function generateAnswer() {
   mark.replaceChildren(spin);
   announce('Готовим ответ по найденным письмам.');
   try {
-    const data = await fetchJSON('/api/answer', controller, {
-      mailbox: state.mailbox, date: state.date, query: state.query
-    });
+    const data = await fetchJSON('/api/answer', controller, searchPayload());
     if (!current('answer', controller)) return;
     ui.answer.setAttribute('aria-busy', 'false');
     renderAnswer(data);
@@ -571,6 +576,15 @@ function renderMail(mail) {
     ui.readerContent.append(toggle);
   }
   ui.readerContent.append(body);
+  if (mail.attachments?.length) {
+    const section = node('section', '');
+    section.append(node('h3', '', 'Вложения'));
+    for (const file of mail.attachments) {
+      section.append(node('strong', '', file.filename || 'Файл'));
+      if (file.description) section.append(node('p', '', file.description));
+    }
+    ui.readerContent.append(section);
+  }
   ui.readerContent.scrollTop = 0;
 }
 async function openMail(id, subject) {
@@ -582,7 +596,7 @@ async function openMail(id, subject) {
   ui.readerContent.setAttribute('aria-busy', 'true');
   try {
     const mail = await fetchJSON('/api/mail/' + encodeURIComponent(id) + params({
-      mailbox: state.mailbox, date: state.date
+      include_attachments: ui.attachments.checked, mailbox: state.mailbox, date: state.date
     }), controller);
     if (!current('mail', controller) || !ui.reader.open) return;
     ui.readerContent.setAttribute('aria-busy', 'false');
@@ -608,6 +622,11 @@ ui.input.addEventListener('input', () => {
   if (!ui.input.value && state.query) showInbox();
   else updateQueryNotice();
 });
+for (const option of [ui.paraphrase, ui.attachments]) {
+  option.addEventListener('change', () => {
+    if (state.query) showSearch(state.query);
+  });
+}
 ui.inbox.addEventListener('click', showInbox);
 byId('nav-inbox').addEventListener('click', () => {
   if (state.query || state.actionsOnly) showInbox();
@@ -648,6 +667,9 @@ function setDemoMode(enabled) {
   clearAnswer();
   cancel('list');
   state.demo = enabled;
+  ui.paraphrase.checked = false;
+  ui.paraphrase.disabled = true;
+  byId('paraphrase-option').title = enabled ? 'Для поиска по пересказу подключитесь к API' : '';
   state.actionsOnly = false;
   state.mailbox = '';
   state.date = '';

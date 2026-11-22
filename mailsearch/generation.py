@@ -333,7 +333,7 @@ def _extractive(query: str, documents: list[dict]) -> dict:
     return {"answer": answer, "sources": sources, "mode": "extractive"}
 
 
-def answer_question(query: str, documents: list[dict]) -> dict:
+def answer_question(query: str, documents: list[dict], *, generate: bool = True) -> dict:
     """Generate a cited answer. Source positions always refer to returned IDs."""
     if _WHOLE_MAILBOX_COUNT.search(query):
         return {"answer": "По нескольким найденным письмам нельзя посчитать итог по всему ящику.",
@@ -352,6 +352,8 @@ def answer_question(query: str, documents: list[dict]) -> dict:
              "sources": [], "mode": "no_evidence"}
     if not selected:
         return empty
+    if not generate:
+        return _extractive(query, selected)
     passages = [_passage(document, query) for document in selected]
     # One copy of the model serves all users. Concurrent callers get immediate evidence.
     if not _inference_lock.acquire(timeout=0.5):

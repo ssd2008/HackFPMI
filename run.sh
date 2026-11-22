@@ -16,5 +16,9 @@ if ! cmp -s requirements.txt .venv/.mailsearch-requirements; then
     fi
     cp requirements.txt .venv/.mailsearch-requirements
 fi
-.venv/bin/python -m mailsearch.prepare --models-only
+if [ "${MAILSEARCH_GENERATIVE_ANSWERS:-0}" = "1" ]; then
+    .venv/bin/python -m mailsearch.prepare --models-only
+else
+    .venv/bin/python -m mailsearch.prepare --models-only --search-only
+fi
 exec .venv/bin/python -m mailsearch "$@"

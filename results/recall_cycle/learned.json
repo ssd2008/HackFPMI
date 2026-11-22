@@ -1,0 +1,53 @@
+{
+  "seed": 148239,
+  "sources": {
+    "marco": {
+      "queries": 1536,
+      "docs": 1614,
+      "positive_associations": 1614,
+      "supplied_negatives": 0
+    },
+    "miracl": {
+      "queries": 512,
+      "docs": 2008,
+      "positive_associations": 512,
+      "supplied_negatives": 1512
+    }
+  },
+  "excluded_external_query_forms": 2370,
+  "excluded_external_texts": 1090,
+  "sampling": "1536 mMARCO train query IDs from the aligned pool; 512 MIRACL train groups from the frozen sample",
+  "training_package_sha256": "dba74907879ffd2a335ee12622f8bd66133d9a3bd8b0511853af4558e1c55376",
+  "translation_sha256": "846dadfc8aac10fadcc2f00ae2d9e166f56c771aa82a8839f4db189b9f8d027d",
+  "negative_construction": "within-source top 7 E5 plus top 7 translated-TFIDF with positive lexical score and all supplied judged negatives, excluding the union of sampled positives and all positive judgments in full MIRACL train qrels",
+  "model": "pairwise logistic, C=0.1, standardized pair differences, no intercept",
+  "pairs": {
+    "marco_removed_known_positive_pairs": 0,
+    "marco_judged_from_full_qrels": 0,
+    "marco_pairs": 20185,
+    "marco_judged_negative_pairs": 0,
+    "miracl_removed_known_positive_pairs": 10,
+    "miracl_judged_from_full_qrels": 1542,
+    "miracl_pairs": 5604,
+    "miracl_judged_negative_pairs": 1512
+  },
+  "features": [
+    "e5",
+    "exact_body",
+    "translated_body",
+    "exact_title",
+    "translated_title",
+    "second_match",
+    "adjacent_pair"
+  ],
+  "coef": [
+    62.654650469590344,
+    -5.09499616710748,
+    6.949807621762465,
+    -2.7106174303757937,
+    2.1899747895810586,
+    0.5219296891070754,
+    0.8876030691503028
+  ],
+  "train_pair_accuracy": 0.951607274419326
+}

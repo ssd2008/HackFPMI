@@ -3,6 +3,7 @@ from __future__ import annotations
 from contextlib import asynccontextmanager
 from datetime import date as Date
 from os import getenv
+from pathlib import Path
 from time import perf_counter
 
 from fastapi import FastAPI, HTTPException, Query
@@ -22,13 +23,21 @@ DEMO_CORPUS_SHA256 = "06feb4791a52faeb777f1a8d4c22d99efd26a279943a19bdfbd0b14bc9
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     expected_sha256 = DEMO_CORPUS_SHA256 if frontend_origin else None
-    documents = load_jsonl(DATA / "documents.jsonl", expected_sha256=expected_sha256)
-
-    from .retrieval import SearchEngine
+    path = Path(getenv("MAILSEARCH_DOCUMENTS") or DATA / "documents.jsonl")
+    documents = load_jsonl(path, expected_sha256=expected_sha256)
 
     app.state.store = MailStore(documents)
-    app.state.search_engine = SearchEngine(documents, CACHE)
-    yield
+    from .ranking import build_engine_modes
+    from .live import AttachmentSearch
+
+    (app.state.ordinary_engine, app.state.paraphrase_engine,
+     app.state.search_engine) = build_engine_modes(documents, app.state.store)
+    app.state.attachments = AttachmentSearch(app.state.store, getenv("MAILSEARCH_FILES") or path.parent,
+                                            getenv("MAILSEARCH_TESSDATA") or ROOT / ".cache/tessdata")
+    try:
+        yield
+    finally:
+        app.state.attachments.close()
 
 
 app = FastAPI(title="Умный поиск в почте", lifespan=lifespan, docs_url=None, redoc_url=None)
@@ -67,12 +76,17 @@ app.mount("/static", StaticFiles(directory=ROOT / "static"), name="static")
 
 class MailQuery(BaseModel):
     model_config = ConfigDict(str_strip_whitespace=True, extra="forbid")
+    include_attachments: bool = False
     mailbox: str = Field(min_length=1, max_length=128)
     date: Date
     query: str = Field(min_length=1, max_length=1000)
 
 
-class SearchRequest(MailQuery):
+class RankedQuery(MailQuery):
+    paraphrase: bool | None = None
+
+
+class SearchRequest(RankedQuery):
     limit: int = Field(default=10, ge=1, le=100)
 
 
@@ -96,11 +110,23 @@ def checked_store(mailbox: str) -> MailStore:
     return store
 
 
-def ranked(request: MailQuery, limit: int) -> list[tuple[str, float]]:
+def ranked(request: RankedQuery, limit: int):
     store = checked_store(request.mailbox)
     at = request.date.isoformat()
-    hits = app.state.search_engine.search(request.mailbox, request.query, request.date, limit)
-    return [(doc_id, float(score)) for doc_id, score in hits if store.visible(request.mailbox, at, doc_id)]
+    engine = app.state.search_engine
+    query = request.query
+    if request.paraphrase is True:
+        from .ranking import paraphrase_query
+
+        engine = app.state.paraphrase_engine
+        query = paraphrase_query(query, request.date)
+    elif request.paraphrase is False:
+        engine = app.state.ordinary_engine
+    hits = engine.search(request.mailbox, query, request.date, limit)
+    evidence, partial = {}, False
+    if request.include_attachments:
+        hits, evidence, partial = app.state.attachments.search(request.mailbox, request.query, request.date, limit, hits)
+    return [(did, float(score)) for did, score in hits if store.visible(request.mailbox, at, did)], evidence, partial
 
 
 @app.get("/", include_in_schema=False)
@@ -148,27 +174,39 @@ def assistant_watch(request: WatchRequest):
 
 
 @app.get("/api/mail/{doc_id}")
-def message(doc_id: str, mailbox: str, date: Date):
+def message(doc_id: str, mailbox: str, date: Date, include_attachments: bool = False):
     store = checked_store(mailbox)
     if not store.visible(mailbox, date.isoformat(), doc_id):
         raise HTTPException(404, "Письмо не найдено")
-    return {**store.summaries[doc_id], "body": store.by_id[doc_id]["doc"],
+
+    row = store.by_id[doc_id]
+    items = row.get("attachments", [])
+    if include_attachments:
+        items, _ = app.state.attachments.read(row)
+    attachments = [{key: item[key] for key in ("filename", "description") if key in item}
+                   for item in items]
+    return {**store.summaries[doc_id], "body": row["doc"], "attachments": attachments,
             "requires_action": doc_id in store.actions_by_id}
 
 
 @app.post("/api/search")
 def search(request: SearchRequest):
     started = perf_counter()
-    hits = ranked(request, request.limit)
+    hits, _, partial = ranked(request, request.limit)
     items = [{**app.state.store.summaries[doc_id], "score": score} for doc_id, score in hits]
-    return {"items": items, "elapsed_ms": round((perf_counter() - started) * 1000, 2)}
+    return {"items": items, "partial_attachment_search": partial, "elapsed_ms": round((perf_counter() - started) * 1000, 2)}
 
 
 @app.post("/api/answer")
-def answer(request: MailQuery):
+def answer(request: RankedQuery):
     from .generation import answer_question
 
     store = checked_store(request.mailbox)
-    documents = [store.by_id[doc_id] for doc_id, _ in ranked(request, 5)]
-    result = answer_question(request.query, documents)
+    hits, evidence, _ = ranked(request, 5)
+    documents = [dict(store.by_id[did], attachments=evidence[did]) if did in evidence else store.by_id[did]
+                 for did, _ in hits]
+    from .attachments import searchable_documents
+
+    result = answer_question(request.query, searchable_documents(documents) if request.include_attachments else documents,
+                             generate=getenv("MAILSEARCH_GENERATIVE_ANSWERS") == "1")
     return {**result, "sources": [store.summaries[doc_id] for doc_id in result["sources"]]}
