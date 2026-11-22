@@ -17,7 +17,7 @@ import snowballstemmer
 
 from .dates import parse_date_scope
 from .dense import DenseIndex
-from .query_variants import EQUIVALENTS, expand_query
+from .query_variants import ABBREVIATION_PATTERN, EQUIVALENTS, PHRASES, expand_query, transliteration_index
 from .scoring import semantic_lexical_scale
 from .spelling import CorpusSpelling
 from .fields import MailFields, only_field_request
@@ -27,7 +27,7 @@ from .bilingual import BilingualMail
 _EMAIL = r"[a-z0-9_.+%-]+@[a-z0-9.-]+\.[a-z]{2,}"
 _OPAQUE = r"(?:syn|l)-[a-z0-9]+(?:-[a-z0-9]+)*"
 _WHOLE_OPAQUE = re.compile(rf"(?<![\w-]){_OPAQUE}(?![\w-])", re.I)
-_TOKEN = re.compile(rf"{_EMAIL}|{_OPAQUE}|\d+(?:[.,:/-]\d+)+|дог-р(?!\w)|[а-я]+|[a-z_][a-z_\d]*|\d+")
+_TOKEN = re.compile(rf"{_EMAIL}|{_OPAQUE}|\d+(?:[.,:/-]\d+)+|(?:{ABBREVIATION_PATTERN})(?!\w)|[а-я]+|[a-z_][a-z_\d]*|\d+")
 # Match complete candidate references before interpreting dates. At least four
 # digits avoids treating everyday names such as X5 or B2B as unique references.
 _CODE_CANDIDATE = re.compile(
@@ -252,11 +252,22 @@ def _article(token: str) -> bool:
     return len(token) >= 8 and ("-" in token or "/" in token)
 
 
+# Match complete adjacent lexical terms before adding evidence for a known abbreviation.
+_PHRASE_TERMS = {phrase: tuple(_ALIAS.get(_stem(w), _stem(w)) for w in phrase.split())
+                 for phrase in set(PHRASES.values())}
+_PHRASE_STARTS = defaultdict(list)
+for _phrase, _terms in _PHRASE_TERMS.items():
+    _PHRASE_STARTS[_terms[0]].append((_terms, "abbr:" + _phrase))
+
+
 def _features(words: list[str], *, query: bool = False) -> list[str]:
     result = []
     negation = False
     for word in words:
         if len(word) == 1 and not word.isdigit():
+            continue
+        if word in PHRASES:
+            result.extend(_PHRASE_TERMS[PHRASES[word]])
             continue
         stem = _stem(EQUIVALENTS.get(word, word))
         if word == "не":
@@ -278,6 +289,12 @@ def _features(words: list[str], *, query: bool = False) -> list[str]:
         result.append(term)
         if not query and term in _PORT_CONTEXT:
             result.extend(_PORT_CONTEXT[term])
+    markers = []
+    for index, term in enumerate(result):
+        for phrase, marker in _PHRASE_STARTS.get(term, ()):
+            if tuple(result[index:index + len(phrase)]) == phrase:
+                markers.append(marker)
+    result.extend(markers)
     return result
 
 
@@ -546,6 +563,7 @@ class SearchEngine:
         self.boxes = {key: np.asarray(rows, dtype=np.int32) for key, rows in boxes.items()}
         self.spelling = CorpusSpelling((d["doc"] for d in documents), _stem)
         self.lexical = LexicalIndex(documents)
+        self.transliterations = transliteration_index(self.lexical.vocabulary)
         self.dense = DenseIndex(documents, Path(cache_dir))
 
     def search(
@@ -573,7 +591,7 @@ class SearchEngine:
                 return " "
             return match[0]
 
-        text = _CODE_CANDIDATE.sub(extract_code, self.spelling.correct(query))
+        text = _CODE_CANDIDATE.sub(extract_code, self.spelling.correct(query, self.transliterations))
         scope = parse_date_scope(text, query_date)
         dates = self.dates[box]
         available = dates <= query_date.toordinal()
@@ -593,10 +611,11 @@ class SearchEngine:
             return []
         def has_word(word):
             stem = _stem(word)
-            column = self.lexical.vocabulary.get(_ALIAS.get(stem, stem))
+            key = "abbr:" + PHRASES[word] if word in PHRASES else _ALIAS.get(stem, stem)
+            column = self.lexical.vocabulary.get(key)
             return column is not None and self.lexical.contains(column, rows).any()
 
-        expanded = expand_query(scope.text, has_word)
+        expanded = expand_query(scope.text, has_word, self.transliterations)
         words = _words(expanded)
         features = _features(words, query=True) + articles
         if field_request and not articles and only_field_request(scope.text):

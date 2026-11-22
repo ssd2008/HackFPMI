@@ -43,13 +43,13 @@ class CorpusSpelling:
         self.stem = stem
         self.roots = {stem(w) for w in self.known}
 
-    def correct(self, query: str) -> str:
+    def correct(self, query: str, transliterations=()) -> str:
         def replace(match: re.Match) -> str:
             original = match[0]
             if not _WORD.fullmatch(original):
                 return original
             word = original.replace("ё", "е")
-            if word in VARIANTS or word in self.known or self.stem(word) in self.roots or _CALENDAR.match(word):
+            if word in transliterations or word in VARIANTS or word in self.known or self.stem(word) in self.roots or _CALENDAR.match(word):
                 return original
             result = None
             for neighbor in _edits(word):
