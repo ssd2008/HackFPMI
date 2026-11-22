@@ -8,12 +8,17 @@ from .dates import _ATOM, _read_day
 
 _WATCH = re.compile(r"\b(?:когда\s+(?:прид[её]т|поступит|появится)|как\s+только|отследи|подпишись|(?:сообщи|уведоми)\s+о\s+новом)\b", re.I)
 _EVENT_QUESTION = re.compile(r"мероприят|(?:на|куда).{0,55}приглас|ближайш.{0,30}событи", re.I)
-_INVITE = re.compile(r"приглаша(?:ем|ю)|приглашение\s+на|будем\s+рады\s+видеть", re.I)
+_INVITE = re.compile(
+    r"\b(?:приглаша(?:ем|ю|ет|ют)\b|приглашен(?:ие|ия)(?:\s+(?:на|в|к)\b|\s*:)"
+    r"|вы\s+приглашены\b|будем\s+рады\s+(?:вас\s+)?видеть\b"
+    r"|you(?:[’']re|\s+are)\s+invited\b|(?:we|i)\s+invite\s+you\b"
+    r"|(?:calendar\s+invitation|invitation\s+(?:to|for))\b)", re.I,
+)
 _EVENT_DATE = re.compile(rf"\b(?:{_ATOM})(?!\w)", re.I)
 _CLOCK = re.compile(r"\s*(?:в\s+)?((?:[01]?\d|2[0-3]):[0-5]\d)\b", re.I)
 _NOT_EVENT_DATE = re.compile(r"(?:\bдо|не\s+позднее|срок[:\s]*)\s*$", re.I)
 _WORD = re.compile(r"[а-яёa-z0-9]+", re.I)
-_STOP = set("найди найдите ищи покажи покажите когда пока появится придет поступит письмо письма почта почте уведомление уведомить уведоми сообщи напомни подпишись отследи как только какое какие где которое который меня мне мой моя могу можно ближайшее время пожалуйста нас кто что если есть писал писали про подсказка расскажи расскажите узнать тема теме".split())
+_STOP = set("найди найдите ищи покажи покажите когда пока появится придет поступит письмо письма почта почте уведомление уведомить уведоми сообщи напомни подпишись отследи как только какое какие где которое который меня мне мой моя могу можно ближайшее время пожалуйста нас кто что если есть писал писали про подсказка расскажи расскажите узнать тема теме жду ждем ждете ожидаю ожидаем".split())
 
 
 def _terms(query):
@@ -89,6 +94,15 @@ def assist(store, mailbox, at, query):
     return {"kind": "mail", "items": _matches(store, mailbox, at.isoformat(), query)[:6]}
 
 
+def invitation_inbox(store, mailbox, cutoff, offset, limit, **bounds):
+    items = [
+        store.summaries[row["doc_id"]]
+        for row in store.boxes[mailbox]
+        if store.visible(mailbox, cutoff, row["doc_id"], **bounds) and _INVITE.search(row["doc"])
+    ]
+    return {"items": items[offset:offset + limit], "total": len(items), "offset": offset, "limit": limit}
+
+
 def watch_matches(store, mailbox, at, after, query, seen):
     items = _matches(store, mailbox, at.isoformat(), query, after.isoformat(), seen)
-    return {"items": items[:5], "matched_ids": [item["id"] for item in items]}
+    return {"items": items[:5], "matched_ids": [item["id"] for item in items], "query_valid": bool(_terms(query))}

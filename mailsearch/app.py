@@ -14,7 +14,7 @@ from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, ConfigDict, Field
 
-from .assistant import assist, watch_matches
+from .assistant import assist, invitation_inbox, watch_matches
 from .visitor_api import VisitorAccess, frontend_origin as parse_frontend_origin, router as visitor_router
 from .visitor_inbox import VisitorInbox
 from .store import CACHE, DATA, ROOT, MailStore, load_jsonl
@@ -235,6 +235,13 @@ def actions(http: Request, mailbox: str, date: Date, offset: int = Query(0, ge=0
     return checked_store(http, mailbox).action_inbox(
         mailbox, date, offset, limit, **iso_date_range(date_from, date_to)
     )
+
+
+@app.get("/api/invitations")
+def invitations(http: Request, mailbox: str, date: Date, offset: int = Query(0, ge=0), limit: int = Query(25, ge=1, le=100),
+                date_from: Date | None = None, date_to: Date | None = None):
+    return invitation_inbox(checked_store(http, mailbox), mailbox, date.isoformat(), offset, limit,
+                            **iso_date_range(date_from, date_to))
 
 
 @app.post("/api/actions")

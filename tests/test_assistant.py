@@ -1,7 +1,7 @@
 from datetime import date
 import unittest
 
-from mailsearch.assistant import assist, watch_matches
+from mailsearch.assistant import assist, invitation_inbox, watch_matches
 from mailsearch.store import MailStore
 
 
@@ -39,6 +39,23 @@ class AssistantTests(unittest.TestCase):
         at = date(2026, 11, 22)
         watch = watch_matches(self.store, "main", at, self.at, query, baseline["matched_ids"])
         self.assertEqual(watch["matched_ids"], ["new"])
+
+    def test_invitation_folder_filters_mailbox_and_receipt_dates_before_paging(self):
+        bounds = {"date_from": "2026-11-20", "date_to": "2026-11-21"}
+        page = invitation_inbox(self.store, "main", "2026-11-22", 0, 2, **bounds)
+        self.assertEqual(page["total"], 4)
+        self.assertEqual([item["id"] for item in page["items"]], ["old", "registration"])
+        page = invitation_inbox(self.store, "main", "2026-11-22", 2, 2, **bounds)
+        self.assertEqual([item["id"] for item in page["items"]], ["past", "lecture"])
+
+    def test_watch_accepts_subject_without_assistant_command(self):
+        query = "Жду приглашение на ЕГЭ"
+        baseline = watch_matches(self.store, "main", self.at, self.at, query, [])
+        self.assertTrue(baseline["query_valid"])
+        self.assertEqual(baseline["matched_ids"], ["old"])
+        matches = watch_matches(self.store, "main", date(2026, 11, 22), self.at, query, baseline["matched_ids"])
+        self.assertEqual(matches["matched_ids"], ["new"])
+        self.assertFalse(watch_matches(self.store, "main", self.at, self.at, "жду письмо", [])["query_valid"])
 
     def test_manual_marks_merge_before_pagination(self):
         reply = self.store.action_inbox("main", self.at, 0, 1, ["lecture", "foreign", "future-mark", "task"])

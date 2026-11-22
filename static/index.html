@@ -62,10 +62,6 @@
           <svg class="icon" aria-hidden="true"><use href="./static/icons.svg#flask"></use></svg>
           <span>Демо</span>
         </span>
-        <button id="assistant-open" class="secondary assistant-open" type="button" aria-label="Ассистент" aria-controls="assistant-panel" aria-expanded="false" disabled>
-          <svg class="icon" aria-hidden="true"><use href="./static/icons.svg#sparkle"></use></svg>
-          <span>Ассистент</span>
-        </button>
       </div>
     </header>
 
@@ -81,6 +77,14 @@
         <button type="button" class="nav-inbox" id="nav-actions" disabled>
           <svg class="icon" aria-hidden="true"><use href="./static/icons.svg#checklist"></use></svg>
           <span>Требуют действия</span>
+        </button>
+        <button type="button" class="nav-inbox" id="nav-invitations" disabled>
+          <svg class="icon" aria-hidden="true"><use href="./static/icons.svg#calendar"></use></svg>
+          <span>Приглашения</span>
+        </button>
+        <button type="button" class="nav-inbox" id="nav-waiting" disabled>
+          <svg class="icon" aria-hidden="true"><use href="./static/icons.svg#clock"></use></svg>
+          <span>Ожидание</span>
         </button>
       </div>
       <div class="sidebar-footer">
@@ -126,6 +130,31 @@
         <div id="urgent-items" class="urgent-items"></div>
       </section>
       <section id="answer-panel" class="answer-panel" aria-label="Ответ по найденным письмам" hidden></section>
+      <section id="waiting-section" class="waiting-section" aria-labelledby="watch-heading" hidden>
+        <form id="watch-form" class="watch-form">
+          <span class="watch-form-icon">
+            <svg class="icon" aria-hidden="true"><use href="./static/icons.svg#bell"></use></svg>
+          </span>
+          <div class="watch-form-body">
+            <h2 id="watch-heading"><label for="watch-query">Какое письмо вы ждёте?</label></h2>
+            <p id="watch-help">Укажите тему, отправителя или ключевые слова. О новом письме сообщим в открытой почте.</p>
+            <div class="watch-form-controls">
+              <input id="watch-query" type="text" maxlength="1000" placeholder="Например, договор от Иванова" aria-describedby="watch-help" autocomplete="off" required>
+              <button id="watch-submit" class="primary" type="submit">
+                <svg class="icon" aria-hidden="true"><use href="./static/icons.svg#plus"></use></svg>
+                <span>Отслеживать</span>
+              </button>
+            </div>
+            <p id="watch-status" class="watch-status" role="status" hidden></p>
+          </div>
+        </form>
+        <section class="mail-section" aria-labelledby="watch-list-heading">
+          <div class="list-toolbar">
+            <h2 id="watch-list-heading">Отслеживаемые письма</h2>
+          </div>
+          <div id="watch-items"></div>
+        </section>
+      </section>
       <section class="mail-section" id="mail-section" aria-labelledby="list-title">
         <div class="list-toolbar">
           <div class="list-name">
@@ -155,33 +184,6 @@
     </main>
   </div>
 
-  <aside class="assistant-panel" id="assistant-panel" aria-labelledby="assistant-heading" hidden>
-    <header class="assistant-bar">
-      <div>
-        <h2 id="assistant-heading">Ассистент почты</h2>
-        <p id="assistant-box"></p>
-      </div>
-      <button class="icon-button" id="assistant-close" type="button" aria-label="Закрыть ассистента">
-        <svg class="icon" aria-hidden="true"><use href="./static/icons.svg#close"></use></svg>
-      </button>
-    </header>
-    <div class="assistant-content">
-      <div class="assistant-examples" aria-label="Примеры вопросов">
-        <button class="example-button" type="button">На какие мероприятия меня пригласили?</button>
-        <button class="example-button" type="button">Сообщи, когда придёт приглашение на ЕГЭ</button>
-      </div>
-      <div id="assistant-results" class="assistant-results" aria-live="polite"></div>
-      <section id="watch-panel" class="watch-panel" aria-labelledby="watch-heading" hidden>
-        <h3 id="watch-heading">Отслеживаемые письма</h3>
-        <div id="watch-items"></div>
-      </section>
-    </div>
-    <form id="assistant-form" class="assistant-form">
-      <label class="sr-only" for="assistant-query">Вопрос по почте</label>
-      <textarea id="assistant-query" rows="2" maxlength="1000" placeholder="Спросите о письмах или задайте отслеживание" required></textarea>
-      <button class="primary" type="submit">Спросить</button>
-    </form>
-  </aside>
   <div id="notifications" class="notifications" role="region" aria-label="Уведомления"></div>
 
   <dialog class="reader" id="reader" aria-labelledby="reader-heading">
