@@ -240,7 +240,7 @@ async function loadMailboxes({preserve = false} = {}) {
     const active = getBox(state.mailbox);
     const files = byId('include-attachments');
     files.disabled = data.attachment_search !== true;
-    files.parentElement.hidden = files.disabled;
+    byId('attachment-status').hidden = !files.disabled;
     if (files.disabled) files.checked = false;
     const visitor = !state.demo && data.visitor_mail === true;
     if (data.visitor_mail === false && visitorMail.token()) {
@@ -669,7 +669,8 @@ async function openMail(id, subject) {
 }
 
 function fileOption() {
-  return byId('include-attachments').checked ? {include_attachments: true} : {};
+  const checkbox = byId('include-attachments');
+  return checkbox.checked && !checkbox.disabled ? {include_attachments: true} : {};
 }
 byId('include-attachments').addEventListener('change', () => {
   if (state.query) showSearch(state.query);
@@ -741,6 +742,8 @@ document.addEventListener('keydown', event => {
   ui.input.focus();
 });
 function resetMailboxView() {
+  byId('include-attachments').disabled = true;
+  byId('attachment-status').hidden = true;
   for (const kind of requests.keys()) cancel(kind);
   closeReader();
   ui.readerContent.replaceChildren();
