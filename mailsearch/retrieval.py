@@ -17,6 +17,7 @@ import snowballstemmer
 
 from .dates import parse_date_scope
 from .dense import DenseIndex
+from .query_variants import EQUIVALENTS, expand_query
 from .scoring import semantic_lexical_scale
 from .spelling import CorpusSpelling
 from .fields import MailFields, only_field_request
@@ -26,7 +27,7 @@ from .bilingual import BilingualMail
 _EMAIL = r"[a-z0-9_.+%-]+@[a-z0-9.-]+\.[a-z]{2,}"
 _OPAQUE = r"(?:syn|l)-[a-z0-9]+(?:-[a-z0-9]+)*"
 _WHOLE_OPAQUE = re.compile(rf"(?<![\w-]){_OPAQUE}(?![\w-])", re.I)
-_TOKEN = re.compile(rf"{_EMAIL}|{_OPAQUE}|\d+(?:[.,:/-]\d+)+|[а-я]+|[a-z_][a-z_\d]*|\d+")
+_TOKEN = re.compile(rf"{_EMAIL}|{_OPAQUE}|\d+(?:[.,:/-]\d+)+|дог-р(?!\w)|[а-я]+|[a-z_][a-z_\d]*|\d+")
 # Match complete candidate references before interpreting dates. At least four
 # digits avoids treating everyday names such as X5 or B2B as unique references.
 _CODE_CANDIDATE = re.compile(
@@ -257,7 +258,7 @@ def _features(words: list[str], *, query: bool = False) -> list[str]:
     for word in words:
         if len(word) == 1 and not word.isdigit():
             continue
-        stem = _stem(word)
+        stem = _stem(EQUIVALENTS.get(word, word))
         if word == "не":
             negation = True
             continue
@@ -590,7 +591,13 @@ class SearchEngine:
             ], dtype=box.dtype)
         if not len(rows):
             return []
-        words = _words(scope.text)
+        def has_word(word):
+            stem = _stem(word)
+            column = self.lexical.vocabulary.get(_ALIAS.get(stem, stem))
+            return column is not None and self.lexical.contains(column, rows).any()
+
+        expanded = expand_query(scope.text, has_word)
+        words = _words(expanded)
         features = _features(words, query=True) + articles
         if field_request and not articles and only_field_request(scope.text):
             features = []
@@ -647,7 +654,7 @@ class SearchEngine:
                 and not self.fields.has_visible_sender(synthetic_user, query_date)):
             lexical_scale = semantic_lexical_scale(text)
         # Natural questions retain casing, punctuation and their original phrasing for E5.
-        terms = text if lexical_scale is not None else " ".join(w for w in words if _stem(w) not in _REQUEST_WORDS)
+        terms = text if lexical_scale is not None and expanded == scope.text else " ".join(w for w in words if _stem(w) not in _REQUEST_WORDS)
         vector = self.dense.query(terms)
         # Mailbox rows preserve corpus order through all scope filters. A single
         # contiguous interval can use the mapped matrix directly without a copy.

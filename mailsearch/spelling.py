@@ -5,6 +5,8 @@ from collections import Counter
 from collections.abc import Callable, Iterable
 import re
 
+from .query_variants import VARIANTS
+
 _ALPHABET = "абвгдежзийклмнопрстуфхцчшщъыьэюя"
 _WORD = re.compile(r"[а-яё]{6,32}")
 _IN_TEXT = re.compile(r"(?<!\w)[А-ЯЁа-яё]{5,32}(?!\w)")
@@ -47,7 +49,7 @@ class CorpusSpelling:
             if not _WORD.fullmatch(original):
                 return original
             word = original.replace("ё", "е")
-            if word in self.known or self.stem(word) in self.roots or _CALENDAR.match(word):
+            if word in VARIANTS or word in self.known or self.stem(word) in self.roots or _CALENDAR.match(word):
                 return original
             result = None
             for neighbor in _edits(word):
