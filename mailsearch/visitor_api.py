@@ -143,7 +143,7 @@ class Empty(BaseModel):
 
 class Connection(BaseModel):
     model_config = ConfigDict(extra="forbid")
-    provider: Literal["gmail", "yandex"]
+    provider: Literal["yandex"]
     address: str = Field(min_length=3, max_length=254)
     password: SecretStr = Field(min_length=1, max_length=1024)
 

@@ -90,7 +90,7 @@ class MailTransportTests(unittest.TestCase):
         self.imap_factory = self.enterContext(patch.object(transport.imaplib, 'IMAP4_SSL', return_value=self.imap))
 
     def fetch(self, *, known_validity='7', known_uids=None, batch_size=2, mailbox='local-a'):
-        return transport.fetch_inbox('gmail', 'me@example.test', 'test-app-pass', mailbox=mailbox,
+        return transport.fetch_inbox('yandex', 'me@yandex.ru', 'test-app-pass', mailbox=mailbox,
                                      known_validity=known_validity, known_uids=known_uids or set(), batch_size=batch_size)
 
     def assert_tls(self, factory, host, port, key):
@@ -101,9 +101,9 @@ class MailTransportTests(unittest.TestCase):
         self.assertEqual(kwargs[key].verify_mode, ssl.CERT_REQUIRED)
 
     def test_verify_authenticates_and_examines_without_loading_messages(self):
-        transport.verify_account('gmail', 'me@example.test', ' abcd\u00a0efgh ijkl mnop ')
-        self.assert_tls(self.imap_factory, 'imap.gmail.com', 993, 'ssl_context')
-        self.assertEqual(self.imap.calls, [('login', 'me@example.test', 'abcdefghijklmnop'), ('select', 'INBOX', True), ('logout',)])
+        transport.verify_account('yandex', 'me@yandex.ru', 'test-app-pass')
+        self.assert_tls(self.imap_factory, 'imap.yandex.ru', 993, 'ssl_context')
+        self.assertEqual(self.imap.calls, [('login', 'me', 'test-app-pass'), ('select', 'INBOX', True), ('logout',)])
         transport.verify_account('yandex', 'office@hosted.example', 'pass')
         self.assert_tls(self.imap_factory, 'imap.yandex.ru', 993, 'ssl_context')
         self.assertIn(('login', 'office@hosted.example', 'pass'), self.imap.calls)
@@ -192,26 +192,17 @@ class MailTransportTests(unittest.TestCase):
                 self.fetch()
             self.assertNotIn('private-', str(error.exception))
 
-    def test_gmail_login_classifies_recognized_responses_without_echoing_them(self):
-        failures = (
-            ("Application-specific password required", "app_password_required"),
-            ("Please log in via your web browser", "browser_confirmation_required"),
-            ("Invalid credentials", "login_rejected"),
-        )
-        for reply, reason in failures:
-            with self.subTest(reason=reason):
-                with patch.object(self.imap, "login", side_effect=imaplib.IMAP4.error(reply + " private-data")):
-                    with self.assertRaises(transport.AuthenticationError) as error:
-                        self.fetch()
-                self.assertEqual(error.exception.reason, reason)
-                self.assertNotIn("private-data", str(error.exception))
+    def test_gmail_is_rejected_before_opening_a_connection(self):
+        with self.assertRaises(transport.TransportError):
+            transport.verify_account("gmail", "reader@example.test", "test-app-pass")
+        self.imap_factory.assert_not_called()
 
     def test_capped_window_uses_only_recent_uids_and_never_fetches_a_whole_oversize_message(self):
         msg = raw_letter("Начало письма. " + "x" * 1000)
         msg.add_attachment(b"z" * 1024, maintype="application", subtype="octet-stream", filename="unused.bin")
         self.imap.records[15] = msg.as_bytes()
         with patch.object(transport, "MAX_MIME_BYTES", 1500), patch.object(transport, "MAX_BODY_CHARS", 60):
-            batch = transport.fetch_inbox("gmail", "reader@example.test", "fake", mailbox="account-fixture",
+            batch = transport.fetch_inbox("yandex", "reader@yandex.ru", "fake", mailbox="account-fixture",
                                          known_validity="7", known_uids={9}, max_messages=3)
         self.assertEqual((batch.current_uids, set(batch.messages), batch.total_available, batch.remaining),
                          ({9, 11, 15}, {11, 15}, 5, 0))

@@ -1,4 +1,4 @@
-"""Read-only TLS access to a provider-selected IMAP inbox."""
+"""Read-only TLS access to a Yandex Mail inbox."""
 from __future__ import annotations
 
 from collections.abc import Iterator
@@ -21,7 +21,7 @@ import ssl
 import certifi
 
 
-_HOSTS = {"gmail": "imap.gmail.com", "yandex": "imap.yandex.ru"}
+_IMAP_HOST = "imap.yandex.ru"
 _LOGGER = logging.getLogger(__name__)
 _TIMEOUT = 30
 MAX_MIME_BYTES = 256 * 1024
@@ -31,7 +31,6 @@ _SIZE = re.compile(rb"\bRFC822\.SIZE (\d+)\b", re.I)
 _DATE = re.compile(rb'\bINTERNALDATE "([^"]+)"', re.I)
 _HEADER_CONTROL = re.compile(r"[\x00-\x1f\x7f-\x9f\u2028\u2029]")
 _DOMAIN_LABEL = re.compile(r"[a-z\d](?:[a-z\d-]{0,61}[a-z\d])?", re.I | re.ASCII)
-_GMAIL_APP_PASSWORD = re.compile(r"[A-Za-z0-9]{16}")
 
 
 class TransportError(Exception):
@@ -73,43 +72,6 @@ def parse_address(value: str) -> Address:
         raise TransportError("Некорректный почтовый адрес.") from None
 
 
-def _account(provider: str, address: str, password: str):
-    if provider not in _HOSTS:
-        raise TransportError("Почтовый сервис не поддерживается.")
-    sender = parse_address(address)
-    if provider == "gmail" and isinstance(password, str):
-        compact = "".join(password.split())
-        if _GMAIL_APP_PASSWORD.fullmatch(compact):
-            password = compact
-    if not isinstance(password, str) or not password or _HEADER_CONTROL.search(password):
-        raise AuthenticationError("Проверьте формат пароля приложения.", reason="invalid_format")
-    # For a personal @yandex.ru account Yandex documents the local login; hosted domains use the full address.
-    login = sender.username if provider == "yandex" and sender.domain == "yandex.ru" else sender.addr_spec
-    return sender, login, password
-
-
-def _login_error(provider: str, reply: str) -> AuthenticationError:
-    if provider == "gmail":
-        reply = reply.casefold()
-        if "application-specific password required" in reply:
-            return AuthenticationError(
-                "Gmail требует пароль приложения. Создайте его в настройках того же аккаунта Google.",
-                reason="app_password_required",
-            )
-        if "please log in via your web browser" in reply:
-            return AuthenticationError(
-                "Gmail просит подтвердить вход. Откройте Gmail в браузере и проверьте оповещения о безопасности.",
-                reason="browser_confirmation_required",
-            )
-        return AuthenticationError(
-            "Gmail отклонил вход. Проверьте полный адрес и пароль приложения от этого аккаунта Google.",
-            reason="login_rejected",
-        )
-    return AuthenticationError(
-        "Проверьте пароль приложения и разрешение на чтение почты по IMAP.", reason="login_rejected",
-    )
-
-
 def _ok(response):
     status, data = response
     if status != "OK":
@@ -119,26 +81,35 @@ def _ok(response):
 
 @contextmanager
 def _inbox(provider: str, address: str, password: str):
-    _, login, password = _account(provider, address, password)
+    if provider != "yandex":
+        raise TransportError("Подключение доступно только для Яндекс Почты.")
+    account = parse_address(address)
+    if not isinstance(password, str) or not password or _HEADER_CONTROL.search(password):
+        raise AuthenticationError("Проверьте формат пароля приложения.", reason="invalid_format")
+    # Yandex uses the local login for @yandex.ru and the full address for hosted domains.
+    login = account.username if account.domain == "yandex.ru" else account.addr_spec
     client = None
     stage = "connect"
     try:
-        # The public IMAP providers use public roots, even if the Python install has no CA store.
+        # Use public roots even if the Python install has no CA store.
         context = ssl.create_default_context(cafile=certifi.where())
-        client = imaplib.IMAP4_SSL(_HOSTS[provider], 993, ssl_context=context, timeout=_TIMEOUT)
+        client = imaplib.IMAP4_SSL(_IMAP_HOST, 993, ssl_context=context, timeout=_TIMEOUT)
         client.debug = 0
         # imaplib quotes the password. Escape the username if it is not an IMAP atom.
         if re.search(r'[ (){%*"\\\]]', login):
             login = '"' + login.replace("\\", "\\\\").replace('"', '\\"') + '"'
         stage = "login"
         try:
-            authenticated, reply = client.login(login, password)
+            authenticated, _ = client.login(login, password)
         except imaplib.IMAP4.abort:
             raise
-        except imaplib.IMAP4.error as error:
-            raise _login_error(provider, str(error)) from None
+        except imaplib.IMAP4.error:
+            authenticated = "NO"
         if authenticated != "OK":
-            raise _login_error(provider, str(reply))
+            raise AuthenticationError(
+                "Проверьте пароль приложения и разрешение на чтение почты по IMAP.",
+                reason="login_rejected",
+            )
         stage = "select"
         selected = _ok(client.select("INBOX", readonly=True))
         if not selected or not isinstance(selected[0], bytes) or not selected[0].isdigit():

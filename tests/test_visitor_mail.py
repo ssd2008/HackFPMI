@@ -88,7 +88,7 @@ class VisitorTests(unittest.TestCase):
         return {"Authorization": "Bearer " + value["token"]}
 
     def connect(self, headers, password):
-        address = {"provider": "gmail", "address": "Reader@example.test", "password": password}
+        address = {"provider": "yandex", "address": "Reader@example.test", "password": password}
         return self.local.post("/api/visitor/accounts", headers={**headers, **EDIT}, json=address)
 
     def synced(self, headers):
@@ -214,10 +214,16 @@ class VisitorTests(unittest.TestCase):
         self.assertEqual(self.remote.get("/api/inbox", params={"mailbox": "archive-box", "date": DATE}).status_code, 404)
         self.assertEqual(self.remote.get("/api/visitor/accounts?token=" + headers["Authorization"].split()[1]).status_code, 401)
         self.assertEqual(self.remote.get("/api/visitor/accounts", headers={"Cookie": "session=fake"}).status_code, 401)
-        bad = {"address": "bad", "password": "do-not-echo", "provider": "gmail"}
+        bad = {"address": "bad", "password": "do-not-echo", "provider": "yandex"}
         result = self.remote.post("/api/visitor/accounts", headers={**origin, **headers, **EDIT}, json=bad)
         self.assertEqual(result.status_code, 422)
         self.assertNotIn("do-not-echo", result.text)
+        with patch.object(self.visitors, "connect") as connect:
+            unsupported = self.remote.post("/api/visitor/accounts", headers={**origin, **headers, **EDIT},
+                                           json={**bad, "address": "Reader@example.test", "provider": "gmail"})
+        self.assertEqual(unsupported.status_code, 422)
+        self.assertNotIn("do-not-echo", unsupported.text)
+        connect.assert_not_called()
         with patch.object(transport.imaplib, "IMAP4_SSL", side_effect=TimeoutError("do-not-echo")):
             with self.assertLogs("mailsearch.mail_transport", "WARNING") as logs:
                 unavailable = self.remote.post("/api/visitor/accounts", headers={**origin, **headers, **EDIT},
@@ -225,15 +231,15 @@ class VisitorTests(unittest.TestCase):
         self.assertEqual(unavailable.status_code, 424)
         self.assertEqual(unavailable.headers["access-control-allow-origin"], ORIGIN)
         self.assertNotIn("do-not-echo", unavailable.text)
-        self.assertEqual(logs.output, ["WARNING:mailsearch.mail_transport:IMAP provider=gmail stage=connect error=TimeoutError"])
+        self.assertEqual(logs.output, ["WARNING:mailsearch.mail_transport:IMAP provider=yandex stage=connect error=TimeoutError"])
         with self.assertLogs("mailsearch.visitor_mail", "WARNING") as auth_logs:
             for _ in range(6):
                 wrong = self.connect(headers, "do-not-echo")
                 self.assertEqual(wrong.status_code, 403)
-                self.assertIn("Gmail отклонил вход", wrong.json()["detail"])
+                self.assertIn("Проверьте пароль приложения", wrong.json()["detail"])
                 self.assertNotIn("do-not-echo", wrong.text)
         self.assertEqual(auth_logs.output, [
-            "WARNING:mailsearch.visitor_mail:IMAP provider=gmail stage=authentication result=login_rejected"
+            "WARNING:mailsearch.visitor_mail:IMAP provider=yandex stage=authentication result=login_rejected"
         ] * 6)
         self.assertEqual(self.connect(headers, "first-app").status_code, 429)
         independent = self.session()

@@ -104,7 +104,7 @@ app.include_router(visitor_router)
 @app.exception_handler(RequestValidationError)
 async def validation_error(request: Request, exc: RequestValidationError):
     if request.url.path.startswith("/api/visitor/"):
-        return JSONResponse({"detail": "Проверьте провайдера, адрес и пароль приложения."}, status_code=422)
+        return JSONResponse({"detail": "Для подключения укажите адрес и пароль приложения Яндекс Почты."}, status_code=422)
     return await request_validation_exception_handler(request, exc)
 
 
