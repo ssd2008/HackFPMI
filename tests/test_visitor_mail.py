@@ -226,10 +226,15 @@ class VisitorTests(unittest.TestCase):
         self.assertEqual(unavailable.headers["access-control-allow-origin"], ORIGIN)
         self.assertNotIn("do-not-echo", unavailable.text)
         self.assertEqual(logs.output, ["WARNING:mailsearch.mail_transport:IMAP provider=gmail stage=connect error=TimeoutError"])
-        for _ in range(6):
-            wrong = self.connect(headers, "do-not-echo")
-            self.assertEqual(wrong.status_code, 403)
-            self.assertNotIn("do-not-echo", wrong.text)
+        with self.assertLogs("mailsearch.visitor_mail", "WARNING") as auth_logs:
+            for _ in range(6):
+                wrong = self.connect(headers, "do-not-echo")
+                self.assertEqual(wrong.status_code, 403)
+                self.assertIn("Gmail отклонил вход", wrong.json()["detail"])
+                self.assertNotIn("do-not-echo", wrong.text)
+        self.assertEqual(auth_logs.output, [
+            "WARNING:mailsearch.visitor_mail:IMAP provider=gmail stage=authentication result=login_rejected"
+        ] * 6)
         self.assertEqual(self.connect(headers, "first-app").status_code, 429)
         independent = self.session()
         self.assertEqual(self.connect(independent, "first-app").status_code, 200)

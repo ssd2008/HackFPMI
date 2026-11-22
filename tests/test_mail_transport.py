@@ -101,7 +101,7 @@ class MailTransportTests(unittest.TestCase):
         self.assertEqual(kwargs[key].verify_mode, ssl.CERT_REQUIRED)
 
     def test_verify_authenticates_and_examines_without_loading_messages(self):
-        transport.verify_account('gmail', 'me@example.test', 'abcd efgh ijkl mnop')
+        transport.verify_account('gmail', 'me@example.test', ' abcd\u00a0efgh ijkl mnop ')
         self.assert_tls(self.imap_factory, 'imap.gmail.com', 993, 'ssl_context')
         self.assertEqual(self.imap.calls, [('login', 'me@example.test', 'abcdefghijklmnop'), ('select', 'INBOX', True), ('logout',)])
         transport.verify_account('yandex', 'office@hosted.example', 'pass')
@@ -191,6 +191,20 @@ class MailTransportTests(unittest.TestCase):
             with self.assertRaises(transport.AuthenticationError) as error:
                 self.fetch()
             self.assertNotIn('private-', str(error.exception))
+
+    def test_gmail_login_classifies_recognized_responses_without_echoing_them(self):
+        failures = (
+            ("Application-specific password required", "app_password_required"),
+            ("Please log in via your web browser", "browser_confirmation_required"),
+            ("Invalid credentials", "login_rejected"),
+        )
+        for reply, reason in failures:
+            with self.subTest(reason=reason):
+                with patch.object(self.imap, "login", side_effect=imaplib.IMAP4.error(reply + " private-data")):
+                    with self.assertRaises(transport.AuthenticationError) as error:
+                        self.fetch()
+                self.assertEqual(error.exception.reason, reason)
+                self.assertNotIn("private-data", str(error.exception))
 
     def test_capped_window_uses_only_recent_uids_and_never_fetches_a_whole_oversize_message(self):
         msg = raw_letter("Начало письма. " + "x" * 1000)

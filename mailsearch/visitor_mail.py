@@ -7,6 +7,7 @@ from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass, field
 from datetime import date, datetime, timezone
 from hashlib import sha256
+import logging
 from secrets import token_urlsafe
 from sys import getsizeof
 from threading import BoundedSemaphore, Event, Lock, RLock, Thread
@@ -14,6 +15,8 @@ from time import monotonic
 
 from . import mail_transport as transport
 from .visitor_inbox import VisitorInbox
+
+_LOGGER = logging.getLogger(__name__)
 
 SYNC_SECONDS = 300
 SESSION_SECONDS = 3600
@@ -204,11 +207,12 @@ class Visitors:
         try:
             try:
                 self.remote.verify_account(provider, address, password)
-            except transport.AuthenticationError:
+            except transport.AuthenticationError as error:
                 with self.lock:
                     if self.active(session):
                         session.failures.append(self.clock())
-                raise VisitorError(403, "Проверьте пароль приложения и разрешение на чтение почты по IMAP.") from None
+                _LOGGER.warning("IMAP provider=%s stage=authentication result=%s", provider, error.reason)
+                raise VisitorError(403, str(error)) from None
             except transport.TransportError:
                 # The public tunnel can replace a 502 with an HTML page without CORS headers.
                 raise VisitorError(424, "Сервер демо не смог подключиться к входящей почте по IMAP.") from None

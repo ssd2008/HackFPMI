@@ -31,6 +31,7 @@ _SIZE = re.compile(rb"\bRFC822\.SIZE (\d+)\b", re.I)
 _DATE = re.compile(rb'\bINTERNALDATE "([^"]+)"', re.I)
 _HEADER_CONTROL = re.compile(r"[\x00-\x1f\x7f-\x9f\u2028\u2029]")
 _DOMAIN_LABEL = re.compile(r"[a-z\d](?:[a-z\d-]{0,61}[a-z\d])?", re.I | re.ASCII)
+_GMAIL_APP_PASSWORD = re.compile(r"[A-Za-z0-9]{16}")
 
 
 class TransportError(Exception):
@@ -38,7 +39,11 @@ class TransportError(Exception):
 
 
 class AuthenticationError(TransportError):
-    """The provider rejected the supplied credentials."""
+    """A safe message and a fixed diagnostic reason for a failed login."""
+
+    def __init__(self, detail: str, *, reason: str):
+        super().__init__(detail)
+        self.reason = reason
 
 
 @dataclass
@@ -72,13 +77,37 @@ def _account(provider: str, address: str, password: str):
     if provider not in _HOSTS:
         raise TransportError("Почтовый сервис не поддерживается.")
     sender = parse_address(address)
+    if provider == "gmail" and isinstance(password, str):
+        compact = "".join(password.split())
+        if _GMAIL_APP_PASSWORD.fullmatch(compact):
+            password = compact
     if not isinstance(password, str) or not password or _HEADER_CONTROL.search(password):
-        raise AuthenticationError("Проверьте пароль приложения для почты.")
-    if provider == "gmail" and re.fullmatch(r"[A-Za-z0-9]{4}(?: [A-Za-z0-9]{4}){3}", password):
-        password = password.replace(" ", "")
+        raise AuthenticationError("Проверьте формат пароля приложения.", reason="invalid_format")
     # For a personal @yandex.ru account Yandex documents the local login; hosted domains use the full address.
     login = sender.username if provider == "yandex" and sender.domain == "yandex.ru" else sender.addr_spec
     return sender, login, password
+
+
+def _login_error(provider: str, reply: str) -> AuthenticationError:
+    if provider == "gmail":
+        reply = reply.casefold()
+        if "application-specific password required" in reply:
+            return AuthenticationError(
+                "Gmail требует пароль приложения. Создайте его в настройках того же аккаунта Google.",
+                reason="app_password_required",
+            )
+        if "please log in via your web browser" in reply:
+            return AuthenticationError(
+                "Gmail просит подтвердить вход. Откройте Gmail в браузере и проверьте оповещения о безопасности.",
+                reason="browser_confirmation_required",
+            )
+        return AuthenticationError(
+            "Gmail отклонил вход. Проверьте полный адрес и пароль приложения от этого аккаунта Google.",
+            reason="login_rejected",
+        )
+    return AuthenticationError(
+        "Проверьте пароль приложения и разрешение на чтение почты по IMAP.", reason="login_rejected",
+    )
 
 
 def _ok(response):
@@ -103,13 +132,13 @@ def _inbox(provider: str, address: str, password: str):
             login = '"' + login.replace("\\", "\\\\").replace('"', '\\"') + '"'
         stage = "login"
         try:
-            authenticated, _ = client.login(login, password)
-            if authenticated != "OK":
-                raise AuthenticationError("Проверьте пароль приложения и доступ по IMAP.")
+            authenticated, reply = client.login(login, password)
         except imaplib.IMAP4.abort:
             raise
-        except imaplib.IMAP4.error:
-            raise AuthenticationError("Проверьте пароль приложения и доступ по IMAP.") from None
+        except imaplib.IMAP4.error as error:
+            raise _login_error(provider, str(error)) from None
+        if authenticated != "OK":
+            raise _login_error(provider, str(reply))
         stage = "select"
         selected = _ok(client.select("INBOX", readonly=True))
         if not selected or not isinstance(selected[0], bytes) or not selected[0].isdigit():
