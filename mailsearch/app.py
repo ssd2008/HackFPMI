@@ -130,6 +130,7 @@ class MailQuery(BaseModel):
 
 class RangedMailQuery(MailQuery):
     include_attachments: bool = False
+    paraphrase: bool = False
     date_from: Date | None = None
     date_to: Date | None = None
 
@@ -175,12 +176,13 @@ def iso_date_range(date_from: Date | None, date_to: Date | None) -> dict[str, st
 def ranked(request: RangedMailQuery, limit: int, store: MailStore) -> list[tuple[str, float]]:
     at = request.date.isoformat()
     date_from, date_to = request.date_from, request.date_to
-    if isinstance(store, VisitorInbox):
-        hits = store.rank(request.query, request.date, limit, date_from=date_from, date_to=date_to)
+    engine = store.get_engine() if isinstance(store, VisitorInbox) else app.state.search_engine
+    if engine is None:
+        return []
+    if request.paraphrase and not (date_from or date_to):
+        hits = engine.search_description(request.mailbox, request.query, request.date, limit)
     else:
-        hits = app.state.search_engine.search(
-            request.mailbox, request.query, request.date, limit, date_from=date_from, date_to=date_to
-        )
+        hits = engine.search(request.mailbox, request.query, request.date, limit, date_from=date_from, date_to=date_to)
     bounds = iso_date_range(date_from, date_to)
     return [(doc_id, float(score)) for doc_id, score in hits if store.visible(request.mailbox, at, doc_id, **bounds)]
 
@@ -216,7 +218,7 @@ def mailboxes(http: Request):
     return {"mailboxes": boxes, "default_mailbox": default["id"],
             "default_date": default["latest_date"] or Date.today().isoformat(),
             "corpus_sha256": app.state.corpus_sha256,
-            "visitor_mail": http.state.visitors is not None, "attachment_search": True}
+            "visitor_mail": http.state.visitors is not None, "attachment_search": True, "paraphrase_search": True}
 
 
 @app.get("/api/inbox")

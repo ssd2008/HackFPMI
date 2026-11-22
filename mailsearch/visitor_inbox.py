@@ -18,9 +18,9 @@ class VisitorInbox(MailStore):
         self.engine = None
         self.attachment_cache = {}
 
-    def rank(self, query, at, limit, *, date_from=None, date_to=None):
+    def get_engine(self):
         if not self.rows:
-            return []
+            return None
         if self.engine is None:
             with self.index_lock:
                 if self.engine is None:
@@ -28,4 +28,8 @@ class VisitorInbox(MailStore):
 
                     with _INDEX_BUILDS:
                         self.engine = SearchEngine(self.rows, None, encoder=self.encoder)
-        return self.engine.search(self.mailbox, query, at, limit, date_from=date_from, date_to=date_to)
+        return self.engine
+
+    def rank(self, query, at, limit, *, date_from=None, date_to=None):
+        engine = self.get_engine()
+        return engine.search(self.mailbox, query, at, limit, date_from=date_from, date_to=date_to) if engine else []

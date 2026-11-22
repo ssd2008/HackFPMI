@@ -1,0 +1,10 @@
+{
+  "results/mail_rank/linear.joblib": "9866971403801575d643c43359629bf196432b8a42604a5a4144818954ddc27b",
+  "results/mail_rank/mlp.joblib": "b6c3b4afceae0fd871a47706a24c0b81f703e6f5ffad4c6fc92aa4c77b2a4267",
+  "results/mail_rank4/fusion.json": "594d1c0943bba40830b870e9b155a44e03895f0c62f17e357b4103fbc0dca347",
+  "results/mail_rank4/translation-full.json.gz": "08f571dca2c68e951b0de24081bd46bc1d40a719871a43723ac2db893aa81a0f",
+  "results/mail_rank4/translation.json.gz": "846dadfc8aac10fadcc2f00ae2d9e166f56c771aa82a8839f4db189b9f8d027d",
+  "results/recall_cycle/interaction-weights.json": "c3c715f46a3f734d855f7a31393a7bdb6234a740172ca43ff798a4287e0320e3",
+  "results/recall_cycle/learned.json": "7a7753d5d9e9f695d692c78a90e90457626980d473b3633adafd7aee8d970afc",
+  "results/recall_cycle/selected.json": "390a7cd6e7bfcc4e1d794913113c0cb28ab2f1c8bd7a34aafaf00353c9df35f3"
+}

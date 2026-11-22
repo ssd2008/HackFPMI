@@ -1,0 +1,21 @@
+{
+  "weights": {
+    "permission": 1.5,
+    "plan": 1.0
+  },
+  "training": "group-separated synthetic event notification tasks",
+  "candidate_records": 126,
+  "query_groups": 18,
+  "queries": {
+    "fit": 60,
+    "heldout": 30
+  },
+  "trial_count": 144,
+  "fit_ndcg": 0.913589018261537,
+  "heldout_ndcg": 0.8919618770472059,
+  "baseline": {
+    "fit": 0.8329874870442975,
+    "heldout": 0.759024552956742
+  },
+  "fixture_sha256": "cae18664dde4bafaa18c0a8e8d99f0106cac861e3b5912de317d0dab18cffd4f"
+}

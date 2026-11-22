@@ -534,6 +534,9 @@ class LexicalIndex:
 
 class SearchEngine:
     def __init__(self, documents: list[dict], cache_dir: Path | None, *, encoder: DenseIndex | None = None):
+        from threading import Lock
+        self._description_lock = Lock()
+        self._description_engine = None
         self.ids = [doc["doc_id"] for doc in documents]
         self.by_id = {doc_id: i for i, doc_id in enumerate(self.ids)}
         self.documents = documents
@@ -561,6 +564,19 @@ class SearchEngine:
         self.lexical = LexicalIndex(documents)
         self.transliterations = transliteration_index(self.lexical.vocabulary)
         self.dense = encoder.memory_index(documents) if encoder is not None else DenseIndex(documents, Path(cache_dir))
+
+    def search_description(self, mailbox, query, at, limit):
+        from experiments.mail_rank4.bilingual import BilingualSearch
+        from experiments.mail_rank4.model import COMMAND, STRUCTURED
+        if (mailbox not in self.boxes or query.strip() in self.by_id or STRUCTURED.search(query)
+                or parse_date_scope(query, at).bounded or len(query.split()) < 3
+                or self.fields.restrict(query, self.boxes[mailbox])[2]):
+            return self.search(mailbox, query, at, limit)
+        with self._description_lock:
+            if self._description_engine is None:
+                self._description_engine = BilingualSearch(self, self.documents, self.dense)
+        command = query if COMMAND.match(query) else "Найди " + query
+        return self._description_engine.search(mailbox, command, at, limit)
 
     def search(
         self, synthetic_user: str, query: str, query_date: date, limit: int = 10,

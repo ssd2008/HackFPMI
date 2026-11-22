@@ -44,11 +44,18 @@
             <div id="examples" class="examples" aria-label="Примеры поиска" hidden></div>
           </div>
         </details>
-        <label class="attachment-option">
-          <input type="checkbox" id="include-attachments" disabled>
-          <span>Искать во вложениях</span>
-          <small id="attachment-status" hidden>Недоступно на этом сервере</small>
-        </label>
+        <div class="search-options">
+          <label class="attachment-option">
+            <input type="checkbox" id="include-attachments" disabled>
+            <span>Искать во вложениях</span>
+            <small id="attachment-status" hidden>Недоступно на этом сервере</small>
+          </label>
+          <label class="attachment-option">
+            <input type="checkbox" id="paraphrase" disabled>
+            <span>Поиск по примерному описанию</span>
+            <small id="paraphrase-status" hidden>Требуется обновленный API</small>
+          </label>
+        </div>
       </form>
       <div class="topbar-actions">
         <span class="demo-label" id="demo-label" hidden title="Вымышленные письма для проверки интерфейса">

@@ -1,0 +1,69 @@
+{
+  "features": [
+    "mean_maxsim",
+    "q25_maxsim",
+    "best_maxsim",
+    "pooled_cosine",
+    "residual_maxsim"
+  ],
+  "coef": [
+    18.34854222151832,
+    -2.1650864944257595,
+    4.980687947606115,
+    14.991609470266253,
+    13.280515447096258
+  ],
+  "train": {
+    "seed": 148239,
+    "sources": {
+      "marco": {
+        "queries": 1536,
+        "docs": 1614,
+        "positive_associations": 1614,
+        "supplied_negatives": 0
+      },
+      "miracl": {
+        "queries": 512,
+        "docs": 2008,
+        "positive_associations": 512,
+        "supplied_negatives": 1512
+      }
+    },
+    "excluded_external_query_forms": 2370,
+    "excluded_external_texts": 1090,
+    "sampling": "1536 mMARCO train query IDs from the aligned pool; 512 MIRACL train groups from the frozen sample"
+  },
+  "training_package_sha256": "dba74907879ffd2a335ee12622f8bd66133d9a3bd8b0511853af4558e1c55376",
+  "pairs": {
+    "marco": {
+      "queries": 1536,
+      "pairs": 20185,
+      "judged_negative_pairs": 0
+    },
+    "miracl": {
+      "queries": 512,
+      "pairs": 5604,
+      "judged_negative_pairs": 1512
+    }
+  },
+  "mined_sha256": "177f99f1dbbcb677df339fe29adcfa9100a5e7dcf3464623e83d0fe908ace3ac",
+  "negative_construction": "same-source top 7 E5 and up to 7 positive-score translated TF-IDF plus supplied MIRACL judged negatives, known positives removed; unjudged negatives may be relevant",
+  "fit": "pairwise logistic regression C=0.1 on signed differences standardized without centering; each query total weight equal",
+  "train_split_check": {
+    "marco": {
+      "groups": 154,
+      "pairwise_accuracy_weighted_by_query": 0.8973296724920102,
+      "pooled_cosine_accuracy_weighted_by_query": 0.8725357164480542
+    },
+    "miracl": {
+      "groups": 51,
+      "pairwise_accuracy_weighted_by_query": 0.914971629677512,
+      "pooled_cosine_accuracy_weighted_by_query": 0.9043561558267439
+    }
+  },
+  "pool_fusion": {
+    "prior": "pool",
+    "learned_reciprocal_weight": 3,
+    "rank_offset_zero_based": 8
+  }
+}
