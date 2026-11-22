@@ -7,7 +7,7 @@ import json
 from huggingface_hub import hf_hub_download
 from huggingface_hub.errors import LocalEntryNotFoundError
 
-from . import E5_MODEL, E5_REVISION, QWEN_MODEL, QWEN_REVISION
+from . import E5_MODEL, E5_REVISION, E5_QUERY_GRAPH, QWEN_MODEL, QWEN_REVISION
 from .store import CACHE, DATA, load_jsonl
 
 
@@ -15,7 +15,7 @@ MODELS = {
     E5_MODEL: (
         E5_REVISION,
         ("config.json", "model.safetensors", "tokenizer.json", "tokenizer_config.json",
-         "special_tokens_map.json", "sentencepiece.bpe.model"),
+         "special_tokens_map.json", "sentencepiece.bpe.model", E5_QUERY_GRAPH),
     ),
     QWEN_MODEL: (
         QWEN_REVISION,

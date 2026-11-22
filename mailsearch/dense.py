@@ -11,11 +11,13 @@ import tempfile
 import threading
 
 import numpy as np
+import onnxruntime as ort
+from huggingface_hub import hf_hub_download
 import torch
 from filelock import FileLock
 from transformers import AutoModel, AutoTokenizer
 
-from . import E5_MODEL as MODEL, E5_REVISION as REVISION
+from . import E5_MODEL as MODEL, E5_REVISION as REVISION, E5_QUERY_GRAPH
 from .private_cache import protect_tokenizer
 
 DIMENSION = 384
@@ -52,6 +54,7 @@ class DenseIndex:
         # The pinned revision can be used entirely offline after first download.
         options = {"revision": REVISION, "local_files_only": True}
         try:
+            graph = hf_hub_download(MODEL, E5_QUERY_GRAPH, **options)
             self.tokenizer = AutoTokenizer.from_pretrained(MODEL, **options)
             self.model = AutoModel.from_pretrained(MODEL, **options)
         except OSError as exc:
@@ -70,6 +73,11 @@ class DenseIndex:
                 raise ValueError(f"Invalid shape of the vector index at {path}")
         # Short single queries are fast on the CPU even while a generator uses the GPU.
         self.model.to("cpu").float()
+        settings = ort.SessionOptions()
+        settings.intra_op_num_threads = 2
+        settings.inter_op_num_threads = 1
+        settings.add_session_config_entry("session.intra_op.allow_spinning", "0")
+        self.query_model = ort.InferenceSession(graph, settings, providers=["CPUExecutionProvider"])
         self.query("поиск")
 
     @torch.inference_mode()
@@ -126,8 +134,16 @@ class DenseIndex:
         return index
 
     def query(self, text: str) -> np.ndarray:
+        # The tokenizer mutates truncation settings. Inference can run concurrently
+        # once its independent input arrays have been created.
         with self._query_lock:
-            return self._encode(["query: " + text], "cpu")[0]
+            protect_tokenizer(self.tokenizer)
+            batch = self.tokenizer("query: " + text, max_length=TOKEN_LIMIT, truncation=True,
+                                   return_token_type_ids=True, return_tensors="np")
+        hidden = self.query_model.run(["last_hidden_state"], dict(batch))[0][0]
+        # A single unpadded query has no masked tokens.
+        mean = hidden.mean(axis=0)
+        return mean / np.linalg.norm(mean)
 
 
 if __name__ == "__main__":

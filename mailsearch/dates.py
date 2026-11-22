@@ -1,4 +1,4 @@
-"""Interpret Russian receipt-date filters relative to the mailbox snapshot."""
+"""Interpret receipt-date filters relative to the mailbox snapshot."""
 
 from __future__ import annotations
 
@@ -23,6 +23,54 @@ _YEAR_SUFFIX = r"(?:\s*(?:года?|г\.?))?"
 _WORD_DATE = rf"\d{{1,2}}\s+{_MONTH}(?:\s+\d{{4}}{_YEAR_SUFFIX})?"
 _ATOM = rf"(?:\d{{4}}-\d{{2}}-\d{{2}}|\d{{1,2}}[./]\d{{1,2}}[./]\d{{4}}|{_WORD_DATE})"
 _DAYS = {"сегодня": 0, "вчера": 1, "позавчера": 2}
+_ISO = r"\d{4}-\d{2}-\d{2}"
+_EN_DAY = rf"(?:{_ISO}|yesterday|today)"
+_EN_RECEIPT = re.compile(
+    r"\b(?:receiv(?:e|ed)|arrived|(?:e-?mails?|messages?|letters?)\s+(?:dated|delivered)|"
+    r"e-?mails?|messages?|letters?)\s+"
+    rf"(?:(?:between\s+(?P<between>{_EN_DAY})\s+and|from\s+(?P<from>{_EN_DAY})\s+(?:to|through))"
+    rf"\s+(?P<end>{_EN_DAY})(?:,?\s+inclusive)?|"
+    rf"(?:(?:during|in)\s+)?(?:the\s+)?week\s+of\s+(?P<week>{_ISO})|"
+    rf"(?:(?P<bound>on|before|after|since|through)\s+)?(?P<day>{_EN_DAY}))(?!\w)"
+)
+_FACT_QUESTION = re.compile(
+    r"^\s*(?:(?:в|на|у|из|к|для|от|с)\s+)?(?:кто|кого|кому|кем|что|чем|чего|"
+    r"как(?:ой|ая|ое|ие|ого|ую|их|ом|им|ими)?|где|откуда|когда|сколько|почему|"
+    r"чей|чья|чьи|каков[а-я]*|who|whom|whose|what|when|where|why|how|which)\b"
+)
+_ABSOLUTE_DATE_HINT = re.compile(rf"(?<!\w)(?:{_ATOM}|{_MONTH}|\d{{4}})(?!\w)")
+_MAIL_CONTEXT = re.compile(
+    r"\b(?:письм[а-я]*|сообщени[а-я]*|рассылк[а-я]*|уведомлени[а-я]*|входящ[а-я]*|"
+    r"квитанци[а-я]*|чеки?|счета?|заказы?|пришедш[а-я]*|присла[а-я]*|полученн[а-я]*|"
+    r"(?:мне|нам|я|мы)\s+(?:приш[а-я]*|получи[а-я]*)|отправител[а-я]*|почт[аеуы]|"
+    r"e-?mails?|messages?|letters?|inbox)\b"
+)
+_AMOUNT = re.compile(r"\b(?:сумм[а-я]*|сколько|стоимост[а-я]*|денег|amount|how much)\b")
+_BILLING_ACTION = re.compile(
+    r"\b(?:выстав(?:ил|лен)[а-я]*|начисл[а-я]*|списа(?:л|н)[а-я]*|зачисл[а-я]*|"
+    r"удержа(?:л|н)[а-я]*|billed|invoiced|debited|credited)\b"
+)
+_RELATIVE_RECEIPT = re.compile(
+    r"\b(?:(?:позавчера|вчера|сегодня)(?:шн[а-я]*)?|"
+    r"(?:за|на|в)\s+(?:(?:последн|прошл|минувш)[а-я]*|период)|"
+    r"yesterday|today|last\s+(?:week|month))\b"
+)
+# Deadlines and dates quoted from the subject/body can coexist with a receipt-date filter.
+_EVENT = (
+    r"(?:(?:срок(?:ом|и)?|дат[аыуе])\s+(?:оплаты|отгрузки|доставки|вылета|выезда|встречи)(?:\s+заказа)?|"
+    r"оплатить|отгрузить|доставить|вылететь|отправить\s+заказ|"
+    r"(?:доставк(?:а|ой|у)|вылет|выезд|встреч[ау])(?=\s+(?:на|к|до)\s))"
+)
+_FIELD = r"в\s+(?:теме|заголовке|тексте|теле)"
+_CONTENT_DATE = re.compile(
+    rf"\b(?:{_EVENT}\s*[:—–-]?\s*(?:(?:назначен[ао]?\s+)?(?:на|к|до|после)\s+)?{_ATOM}|"
+    rf"{_FIELD}\s+(?:письм[ае]\s+)?(?:(?:указан[ао]?|упомянут[ао]?|содержится|есть|стоит)\s+)?"
+    rf"(?:дат[ауы]\s*)?[:—–-]?\s*{_ATOM}|(?:дат(?:а|у|ой)\s+)?{_ATOM}\s+{_FIELD})(?!\w)"
+)
+_YEAR = re.compile(
+    r"\b(?:за|в)\s+(\d{4})\b(?![.,]\d|\s*(?:[₽€$%]|руб\w*|доллар\w*|евро|rub\b|usd\b|eur\b))"
+    r"(?:\s*(?:год(?:у|а)?\b|г\.))?"
+)
 
 
 @dataclass(frozen=True)
@@ -49,6 +97,8 @@ def _last_day(day: int, month: int, reference: date) -> date:
 def _read_day(raw: str, reference: date) -> date:
     if raw in _DAYS:
         return reference - timedelta(days=_DAYS[raw])
+    if raw in {"today", "yesterday"}:
+        return reference - timedelta(days=int(raw == "yesterday"))
     if re.fullmatch(r"\d{4}-\d{2}-\d{2}", raw):
         return date.fromisoformat(raw)
     if "." in raw[:3] or "/" in raw[:3]:
@@ -62,12 +112,38 @@ def _read_day(raw: str, reference: date) -> date:
 
 
 def parse_date_scope(query: str, reference: date) -> DateScope:
-    text = " ".join(unicodedata.normalize("NFKC", query).lower().replace("ё", "е").split())
+    original = " ".join(unicodedata.normalize("NFKC", query).lower().replace("ё", "е").split())
+    # Preserve offsets so only a receipt-date expression can be removed from the original terms.
+    text = _CONTENT_DATE.sub(lambda m: " " * len(m[0]), original)
 
     def scope(match: re.Match, start: date | None, end: date | None) -> DateScope:
-        return DateScope((text[:match.start()] + " " + text[match.end():]).strip(), start, end)
+        return DateScope((original[:match.start()] + " " + original[match.end():]).strip(), start, end)
 
     try:
+        match = _EN_RECEIPT.search(text)
+        if match:
+            if match["end"]:
+                return scope(match, _read_day(match["between"] or match["from"], reference),
+                             _read_day(match["end"], reference))
+            if match["week"]:
+                anchor = date.fromisoformat(match["week"])
+                monday = anchor - timedelta(days=anchor.weekday())
+                return scope(match, monday, monday + timedelta(days=6))
+            day = _read_day(match["day"], reference)
+            bound = match["bound"]
+            if bound in {"since", "after"}:
+                return scope(match, day + timedelta(days=int(bound == "after")), None)
+            if bound in {"before", "through"}:
+                return scope(match, None, day - timedelta(days=int(bound == "before")))
+            return scope(match, day, day)
+
+        # A year in "Who won the championship in 2012?" identifies the subject.
+        # "Which messages arrived in 2012?" asks about the mailbox timeline.
+        if (_FACT_QUESTION.match(text) and _ABSOLUTE_DATE_HINT.search(text)
+                and not _MAIL_CONTEXT.search(text) and not _RELATIVE_RECEIPT.search(text)
+                and not (_AMOUNT.search(text) and _BILLING_ACTION.search(text))):
+            return DateScope(original)
+
         match = re.search(rf"\bс\s+(\d{{1,2}})\s+(?:по|до)\s+({_WORD_DATE})(?!\w)", text)
         if match:
             end = _read_day(match[2], reference)
@@ -114,14 +190,16 @@ def parse_date_scope(query: str, reference: date) -> DateScope:
             return scope(match, reference - timedelta(days=count - 1), reference)
 
         match = re.search(
-            r"\b(?:за|на|в)\s+(?:(прошлую|прошлой|минувшую|этой|эту|текущую|последнюю|"
-            r"прошлый|прошлом|этом|этот|текущий|последний)\s+)?(недел[юеи]|месяц[е]?)\b", text
+            r"\b(?:за|на|в)\s+(?:(?P<period>прошл(?:ую|ой|ый|ом)|минувш(?:ую|ей|ий|ем)|"
+            r"эт(?:у|ой|от|ом)|текущ(?:ую|ей|ий|ем)|последн(?:юю|ей|ий|ем))\s+)?"
+            r"(?:(?P<calendar>календарн(?:ую|ой|ый|ом))\s+)?(?P<unit>недел[юеи]|месяце?)\b", text
         )
         if match:
-            period = match[1] or ""
-            previous = period.startswith(("прошл", "минувш"))
-            current = period.startswith(("эт", "текущ"))
-            if match[2].startswith("недел"):
+            period = match["period"] or ""
+            calendar_period = bool(match["calendar"])
+            previous = period.startswith(("прошл", "минувш")) or (calendar_period and period.startswith("последн"))
+            current = period.startswith(("эт", "текущ")) or (calendar_period and not period)
+            if match["unit"].startswith("недел"):
                 monday = reference - timedelta(days=reference.weekday())
                 if previous:
                     return scope(match, monday - timedelta(days=7), monday - timedelta(days=1))
@@ -138,11 +216,11 @@ def parse_date_scope(query: str, reference: date) -> DateScope:
             year = int(match[2]) if match[2] else reference.year - int(month > reference.month)
             return scope(match, date(year, month, 1), date(year, month, calendar.monthrange(year, month)[1]))
 
-        match = re.search(r"\b(?:за|в)\s+(\d{4})\s*(?:году|год|г\.)?\b", text)
+        match = _YEAR.search(text)
         if match:
             year = int(match[1])
             return scope(match, date(year, 1, 1), date(year, 12, 31))
     except (ValueError, OverflowError):
         # An invalid explicit date is an unsatisfiable request.
-        return DateScope(text, date.max, date.min)
-    return DateScope(text)
+        return DateScope(original, date.max, date.min)
+    return DateScope(original)
