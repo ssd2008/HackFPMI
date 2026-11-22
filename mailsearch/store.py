@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 CACHE = ROOT / ".cache" / "mailsearch"
 
-_HEAD = re.compile(r"^\s*(от|отправитель|тема|текст письма)\s*:\s*(.*)$", re.I)
+_HEAD = re.compile(r"^\s*(от|отправитель|кому|тема|текст письма)\s*:\s*(.*)$", re.I)
 _ORDER = re.compile(r"\bзаказ(?:а|у)?\s*(?:номер|№|no)?\s*(SYN-[0-9a-f]{6,})\b", re.I)
 _IDENTIFIER = re.compile(r"\bSYN-[0-9a-f]{6,}\b", re.I)
 _AMOUNT = re.compile(r"(?:сумм[ау]|стоимость)\s*[—–:\-]?\s*[\d\s]+[.,]\d\d", re.I)
@@ -38,7 +38,7 @@ def shorten(text: str, limit: int) -> str:
 
 def describe(row: dict) -> dict:
     lines = row["doc"].strip().splitlines()
-    sender = subject = ""
+    sender = recipient = subject = ""
     index = 0
     # Only the leading envelope is metadata. The reader always receives the original.
     while index < len(lines):
@@ -63,6 +63,8 @@ def describe(row: dict) -> dict:
             break
         if key == "тема":
             subject = value
+        elif key == "кому":
+            recipient = value
         else:
             sender = value
         index += 1
@@ -74,6 +76,7 @@ def describe(row: dict) -> dict:
             body = body[len(opening):].lstrip()
     return {
         "id": row["doc_id"], "subject": subject, "sender": sender or None,
+        **({"recipient": recipient} if recipient else {}),
         "date": row["doc_dt"], "snippet": shorten(body, 235),
     }
 

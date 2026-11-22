@@ -100,6 +100,17 @@ class MailTransportTests(unittest.TestCase):
         self.assertTrue(kwargs[key].check_hostname)
         self.assertEqual(kwargs[key].verify_mode, ssl.CERT_REQUIRED)
 
+    def test_sent_discovery_fallback_and_missing_folder(self):
+        from unittest.mock import Mock
+        client = Mock()
+        client.list.return_value = ("OK", [b'(\\Noselect \\Sent) "/" "Sent Items"', b'() "/" Sent'])
+        self.assertEqual(transport._sent_folder(client), b"Sent")
+        client.list.return_value = ("OK", [b'() "/" "&BB4EQgQ,BEAEMAQyBDsENQQ9BD0ESwQ1-"'])
+        self.assertEqual(transport._sent_folder(client), b'"&BB4EQgQ,BEAEMAQyBDsENQQ9BD0ESwQ1-"')
+        client.list.return_value = ("OK", [b'() "/" INBOX'])
+        with self.assertRaises(transport.TransportError):
+            transport._sent_folder(client)
+
     def test_verify_authenticates_and_examines_without_loading_messages(self):
         transport.verify_account('yandex', 'me@yandex.ru', 'test-app-pass')
         self.assert_tls(self.imap_factory, 'imap.yandex.ru', 993, 'ssl_context')

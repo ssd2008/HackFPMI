@@ -37,6 +37,7 @@ class _Account:
     provider: str
     address: str
     password: str = field(repr=False)
+    folder: str = "inbox"
     id: str = field(default_factory=lambda: "account-" + token_urlsafe(18))
     validity: str | None = None
     rows: dict = field(default_factory=dict, repr=False)
@@ -53,7 +54,7 @@ class _Account:
     next_sync: float = 0
 
     def summary(self):
-        return dict(id=self.id, provider=self.provider, address=self.address, last_synced=self.last_synced,
+        return dict(id=self.id, provider=self.provider, address=self.address, folder=self.folder, last_synced=self.last_synced,
                     status="syncing" if self.syncing else "error" if self.error else "idle",
                     error=self.error, pending=self.pending, count=len(self.rows),
                     sync_limit=MAILBOX_LIMIT, total_available=self.total_available)
@@ -186,11 +187,12 @@ class Visitors:
     def boxes(self, session):
         with self.lock:
             self._require(session)
-            return [dict(id=a.id, label=a.address, kind="live", count=len(a.rows), latest_date=a.latest,
+            return [dict(id=a.id, label=a.address + (" (Отправленные)" if a.folder == "sent" else ""),
+                         folder=a.folder, kind="live", count=len(a.rows), latest_date=a.latest,
                          examples=[], today=date.today().isoformat()) for a in session.accounts.values()]
 
-    def connect(self, session, provider, address, password):
-        key = (provider, address)
+    def connect(self, session, provider, address, password, folder="inbox"):
+        key = (provider, address, folder)
         with self.lock:
             self._require(session)
             now = self.clock()
@@ -198,7 +200,7 @@ class Visitors:
                 session.failures.popleft()
             if len(session.failures) + len(session.logging_in) >= 6 or key in session.logging_in:
                 raise VisitorError(429, "Подождите минуту перед следующей попыткой подключения.")
-            existing = next((a for a in session.accounts.values() if (a.provider, a.address) == key), None)
+            existing = next((a for a in session.accounts.values() if (a.provider, a.address, a.folder) == key), None)
             if existing is None and len(session.accounts) + len(session.logging_in) >= 4:
                 raise VisitorError(429, "В одной сессии можно подключить до четырёх ящиков.")
             if not self.verifications.acquire(blocking=False):
@@ -206,7 +208,7 @@ class Visitors:
             session.logging_in.add(key)
         try:
             try:
-                self.remote.verify_account(provider, address, password)
+                self.remote.verify_account(provider, address, password, folder)
             except transport.AuthenticationError as error:
                 with self.lock:
                     if self.active(session):
@@ -215,13 +217,13 @@ class Visitors:
                 raise VisitorError(403, str(error)) from None
             except transport.TransportError:
                 # The public tunnel can replace a 502 with an HTML page without CORS headers.
-                raise VisitorError(424, "Сервер демо не смог подключиться к входящей почте по IMAP.") from None
+                raise VisitorError(424, "Сервер демо не смог подключиться к выбранной папке по IMAP.") from None
             except Exception:
                 raise VisitorError(502, "Не удалось проверить подключение к почте.") from None
             with self.lock:
                 self._require(session)
                 # Replace the object on reconnection: a worker with the previous credentials cannot publish.
-                account = _Account(provider, address, password)
+                account = _Account(provider, address, password, folder)
                 if existing is not None:
                     account.id, account.rows, account.validity = existing.id, existing.rows, existing.validity
                     account.last_synced, account.latest = existing.last_synced, existing.latest
@@ -280,7 +282,8 @@ class Visitors:
             validity, password = account.validity, account.password
         try:
             batch = self.remote.fetch_inbox(account.provider, account.address, password, mailbox=account.id,
-                                            known_validity=validity, known_uids=known, max_messages=MAILBOX_LIMIT)
+                                            known_validity=validity, known_uids=known, max_messages=MAILBOX_LIMIT,
+                                            folder=account.folder)
         except Exception as exc:
             # Never forward a provider response, password, address or message into a log or HTTP error.
             with self.lock:
@@ -288,7 +291,7 @@ class Visitors:
                     account.syncing = False
                     account.next_sync = self.clock() + SYNC_SECONDS
                     account.error = ("Проверьте пароль приложения и разрешение на чтение почты по IMAP."
-                                     if isinstance(exc, transport.AuthenticationError) else "Не удалось обновить входящие.")
+                                     if isinstance(exc, transport.AuthenticationError) else "Не удалось обновить папку.")
             return
         with self.lock:
             if not self._current(session, account):

@@ -13,12 +13,13 @@ from scipy.sparse import csr_matrix
 
 from .dates import parse_date_scope
 from .dense import DenseIndex
+from .query_variants import EQUIVALENTS, expand_query
 from .private_cache import stem_word, text_cache
 
 
 _EMAIL = r"[a-z0-9_.+%-]+@[a-z0-9.-]+\.[a-z]{2,}"
 _OPAQUE = r"(?:syn|l)-[a-z0-9]+(?:-[a-z0-9]+)*"
-_TOKEN = re.compile(rf"{_EMAIL}|{_OPAQUE}|\d+(?:[.,:/-]\d+)+|[а-я]+|[a-z_][a-z_\d]*|\d+")
+_TOKEN = re.compile(rf"{_EMAIL}|{_OPAQUE}|\d+(?:[.,:/-]\d+)+|дог-р(?!\w)|[а-я]+|[a-z_][a-z_\d]*|\d+")
 _SUBJECT = re.compile(r"(?im)^\s*(?:тема|subject)\s*:\s*([^\r\n]+)")
 
 
@@ -77,7 +78,7 @@ def _features(words: list[str], *, query: bool = False) -> list[str]:
     for word in words:
         if len(word) == 1 and not word.isdigit():
             continue
-        stem = _stem(word)
+        stem = _stem(EQUIVALENTS.get(word, word))
         if stem in _STOP or (query and stem in _REQUEST_WORDS):
             continue
         result.append(_ALIAS.get(stem, stem).replace(",", "."))
@@ -173,7 +174,13 @@ class SearchEngine:
         rows = box[available]
         if not len(rows):
             return []
-        words = _words(scope.text)
+        def has_word(word):
+            stem = _stem(word)
+            column = self.lexical.vocabulary.get(_ALIAS.get(stem, stem))
+            return column is not None and self.lexical.weights[rows, column].nnz > 0
+
+        expanded = expand_query(scope.text, has_word)
+        words = _words(expanded)
         features = _features(words, query=True)
         if not features:
             if not words and not scope.bounded:

@@ -1,4 +1,4 @@
-"""Read-only TLS access to a Yandex Mail inbox."""
+"""Read-only TLS access to a selected Yandex Mail folder."""
 from __future__ import annotations
 
 from collections.abc import Iterator
@@ -75,12 +75,38 @@ def parse_address(value: str) -> Address:
 def _ok(response):
     status, data = response
     if status != "OK":
-        raise TransportError("Не удалось прочитать данные из входящих писем.")
+        raise TransportError("Не удалось прочитать данные из почтовой папки.")
     return data
 
 
+_LIST_ROW = re.compile(rb'^\(([^)]*)\) (?:NIL|"[^"]*") ("(?:[^"\\\r\n]|\\["\\])*"|[^\s"(){}%*\\]+)$', re.I)
+
+
+def _sent_folder(client) -> bytes:
+    # Keep the wire spelling (including quotes and modified UTF-7) for SELECT.
+    fallback = None
+    for row in _ok(client.list()):
+        match = _LIST_ROW.fullmatch(row) if isinstance(row, bytes) else None
+        if not match or any(byte < 32 or byte == 127 for byte in row):
+            continue
+        flags, name = match.groups()
+        flags = flags.lower().split()
+        if b"\\noselect" in flags:
+            continue
+        if b"\\sent" in flags:
+            return name
+        plain_name = name.strip(b'"')
+        # IMAP modified UTF-7 spelling of Отправленные.
+        if (plain_name == b"&BB4EQgQ,BEAEMAQyBDsENQQ9BD0ESwQ1-"
+                or plain_name.lower() in {b"sent", b"sent items", b"sent mail"}):
+            fallback = name
+    if fallback is None:
+        raise TransportError("Сервер не предоставил папку отправленных писем.")
+    return fallback
+
+
 @contextmanager
-def _inbox(provider: str, address: str, password: str):
+def _inbox(provider: str, address: str, password: str, folder: str = "inbox"):
     if provider != "yandex":
         raise TransportError("Подключение доступно только для Яндекс Почты.")
     account = parse_address(address)
@@ -111,11 +137,14 @@ def _inbox(provider: str, address: str, password: str):
                 reason="login_rejected",
             )
         stage = "select"
-        selected = _ok(client.select("INBOX", readonly=True))
+        if folder not in {"inbox", "sent"}:
+            raise TransportError("Неизвестная почтовая папка.")
+        name = _sent_folder(client) if folder == "sent" else "INBOX"
+        selected = _ok(client.select(name, readonly=True))
         if not selected or not isinstance(selected[0], bytes) or not selected[0].isdigit():
-            raise TransportError("Почтовый сервер не подтвердил открытие входящих писем.")
+            raise TransportError("Почтовый сервер не подтвердил открытие папки.")
         stage = "read"
-        yield client, int(selected[0])
+        yield client, int(selected[0]), name
     except (imaplib.IMAP4.error, OSError, EOFError, UnicodeError) as error:
         verify_code = getattr(error, "verify_code", None)
         diagnostics = f" verify_code={verify_code}" if verify_code is not None else ""
@@ -127,8 +156,8 @@ def _inbox(provider: str, address: str, password: str):
                 client.logout()
 
 
-def verify_account(provider: str, address: str, password: str) -> None:
-    with _inbox(provider, address, password):
+def verify_account(provider: str, address: str, password: str, folder: str = "inbox") -> None:
+    with _inbox(provider, address, password, folder):
         pass
 
 
@@ -142,17 +171,17 @@ def _uid_set(client, selected_size: int, max_messages: int | None = None) -> set
         else:
             rows = _ok(client.uid("FETCH", "1:*", "(UID)"))
         if not rows:
-            raise TransportError("Почтовый сервер не вернул полный список входящих писем.")
+            raise TransportError("Почтовый сервер не вернул полный список писем.")
         current = set()
         for row in rows:
             uid = _UID.search(row) if isinstance(row, bytes) else None
             if not uid or len(uid[1]) > 10 or not 0 < int(uid[1]) < 2**32:
-                raise TransportError("Почтовый сервер не вернул полный список входящих писем.")
+                raise TransportError("Почтовый сервер не вернул полный список писем.")
             current.add(int(uid[1]))
         return current
     rows = _ok(client.uid("SEARCH", None, "ALL"))
     if not rows or any(not isinstance(row, bytes) for row in rows):
-        raise TransportError("Почтовый сервер не вернул список входящих писем.")
+        raise TransportError("Почтовый сервер не вернул список писем.")
     items = b" ".join(rows).split()
     if any(len(s) > 10 or not s.isdigit() or not 0 < int(s) < 2**32 for s in items):
         raise TransportError("Почтовый сервер вернул некорректный список писем.")
@@ -233,7 +262,7 @@ def _day(internal_date: str, message_date: str) -> str | None:
     return None
 
 
-def _document(raw: bytes, metadata: bytes, mailbox: str, validity: str, uid: int, clipped: bool = False) -> dict:
+def _document(raw: bytes, metadata: bytes, mailbox: str, validity: str, uid: int, clipped: bool = False, *, sent: bool = False) -> dict:
     message = BytesParser(policy=policy.default).parsebytes(raw)
     def head(name):
         return " ".join(str(message.get(name, "")).split())[:512]
@@ -241,8 +270,9 @@ def _document(raw: bytes, metadata: bytes, mailbox: str, validity: str, uid: int
     day = _day(internal_date[1].decode("ascii", "replace") if internal_date else "", head("Date"))
     key = hashlib.sha256(f"{mailbox}\0{validity}\0{uid}".encode()).hexdigest()
     body = _body(message)
+    recipient = f"Кому: {head('To')}\n" if sent and head("To") else ""
     result = {"doc_id": "mail-" + key, "synthetic_user": mailbox, "doc_dt": day,
-              "doc": f"От: {head('From')}\nТема: {head('Subject')}\nТекст письма:\n{body[:MAX_BODY_CHARS]}"}
+              "doc": f"От: {head('From')}\n{recipient}Тема: {head('Subject')}\nТекст письма:\n{body[:MAX_BODY_CHARS]}"}
     if clipped or len(body) > MAX_BODY_CHARS:
         result["truncated"] = True
     return result
@@ -288,18 +318,21 @@ def _literals(rows):
 
 
 def fetch_inbox(provider: str, address: str, password: str, *, mailbox: str, known_validity: str | None,
-                known_uids: set[int], batch_size: int = 100, max_messages: int | None = None) -> SyncBatch:
+                known_uids: set[int], batch_size: int = 100, max_messages: int | None = None,
+                folder: str = "inbox") -> SyncBatch:
     """Fetch one newest-first batch. Repeat with the committed UID set while remaining is positive."""
     if type(batch_size) is not int or batch_size < 1:
         raise ValueError("Размер порции должен быть положительным целым числом.")
     if max_messages is not None and (type(max_messages) is not int or max_messages < 1):
         raise ValueError("Размер окна должен быть положительным целым числом.")
-    with _inbox(provider, address, password) as (client, selected_size):
+    with _inbox(provider, address, password, folder) as (client, selected_size, name):
         _, epoch = client.response("UIDVALIDITY")
         if (not epoch or not isinstance(epoch[0], bytes) or not re.fullmatch(rb"[1-9]\d{0,9}", epoch[0])
                 or int(epoch[0]) >= 2**32):
-            raise TransportError("Почтовый сервер не подтвердил версию папки входящих.")
+            raise TransportError("Почтовый сервер не подтвердил версию почтовой папки.")
         validity = epoch[0].decode("ascii")
+        if folder == "sent":
+            validity = name.hex() + ":" + validity
         current = _uid_set(client, selected_size, max_messages)
         known = known_uids if validity == known_validity else set()
         wanted = heapq.nlargest(batch_size, current - known)
@@ -315,7 +348,7 @@ def fetch_inbox(provider: str, address: str, password: str, *, mailbox: str, kno
                         if not full or not isinstance(raw, bytes) or int(full[1]) != len(raw):
                             continue
                         ident = int(uid[1])
-                        messages[ident] = _document(raw, metadata, mailbox, validity, ident, clipped)
+                        messages[ident] = _document(raw, metadata, mailbox, validity, ident, clipped, sent=folder == "sent")
             if set(wanted) != messages.keys():
                 # EXPUNGE may race with SEARCH. Surviving missing literals must be retried as a whole batch.
                 current = _uid_set(client, selected_size, max_messages)

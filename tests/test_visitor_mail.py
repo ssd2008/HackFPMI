@@ -61,10 +61,22 @@ class VisitorTests(unittest.TestCase):
                           5: letter("Обсерватория", "Оплата заказа SYN-11abcdef22. Сумма заказа 129.00 RUB.")},
             "second-app": {5: letter("Керамика", "Обжиг в гончарной мастерской.")},
         }
+        sent = raw_letter("Согласовали перенос Apache Spark на новый кластер.")
+        sent["To"] = "client@example.test"
+        sent.replace_header("Subject", "Проект Apache Spark")
+        sent_records = {5: sent.as_bytes()}
         records = self.records
         self.connections = []
 
         class Server(FakeIMAP):
+            def list(self):
+                return "OK", [b'(\\Sent) "/" "Outgoing Projects"']
+
+            def select(self, folder, *, readonly):
+                if folder == b'"Outgoing Projects"':
+                    self.records = sent_records
+                return super().select(folder, readonly=readonly)
+
             def login(self, address, password):
                 if password not in records:
                     raise imaplib.IMAP4.error("provider reply " + password)
@@ -158,6 +170,34 @@ class VisitorTests(unittest.TestCase):
         self.assertIn("129.00 RUB", opened["body"])
         self.assertEqual(files_before, {p.relative_to(self.directory) for p in self.directory.rglob("*")})
         self.assertTrue(all(("select", "INBOX", True) in c.calls for c in self.connections))
+
+    def test_sent_folder_search_recipient_and_uid_collision(self):
+        from mailsearch.dense import DenseIndex
+        try:
+            self.visitors.encoder = DenseIndex(self.regular_rows, self.directory / "synthetic-index")
+        except RuntimeError as exc:
+            if "Отсутствуют локальные веса" in str(exc):
+                self.skipTest(str(exc))
+            raise
+        headers = self.session()
+        self.assertEqual(self.connect(headers, "first-app").status_code, 200)
+        inbox = self.synced(headers)["id"]
+        sent = self.local.post("/api/visitor/accounts", headers={**headers, **EDIT}, json={
+            "provider": "yandex", "address": "Reader@example.test", "password": "first-app", "folder": "sent",
+        }).json()["account"]
+        self.synced(headers)
+        self.assertEqual(sent["folder"], "sent")
+        self.assertNotEqual(sent["id"], inbox)
+        scope = {"mailbox": sent["id"], "date": DATE}
+        for query in ("спарк", "client@example.test"):
+            hits = self.local.post("/api/search", json={**scope, "query": query}, headers=headers).json()["items"]
+            self.assertEqual([hit["subject"] for hit in hits], ["Проект Apache Spark"])
+        doc = hits[0]["id"]
+        self.assertEqual(hits[0]["recipient"], "client@example.test")
+        for box, status in [(inbox, 404), (sent["id"], 200)]:
+            response = self.local.get("/api/mail/" + doc, params={**scope, "mailbox": box}, headers=headers)
+            self.assertEqual(response.status_code, status)
+        self.assertTrue(any(("select", b'"Outgoing Projects"', True) in c.calls for c in self.connections))
 
     def test_revocation_timeout_and_logout_while_a_fetch_is_in_flight(self):
         headers = self.session()

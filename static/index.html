@@ -196,7 +196,7 @@
       </button>
     </div>
     <div class="accounts-content">
-      <p class="account-access">Сервер читает по IMAP до 500 последних входящих из вашего ящика. Письма и пароль приложения хранятся в памяти сервера до выхода, максимум один час.</p>
+      <p class="account-access">Сервер читает по IMAP до 500 последних писем из выбранной папки. Письма и пароль приложения хранятся в памяти сервера до выхода, максимум один час.</p>
       <p id="visitor-accounts-frequency" class="account-caption" hidden></p>
       <div id="visitor-accounts-list" aria-live="polite"></div>
       <div class="accounts-load-error" id="visitor-accounts-load-error" hidden>
@@ -207,6 +207,7 @@
         <summary><svg class="icon" aria-hidden="true"><use href="./static/icons.svg#plus"></use></svg>Подключить свой ящик</summary>
         <form id="visitor-account-form" autocomplete="off">
           <label>Адрес в Яндекс Почте<input type="email" id="visitor-account-address" required autocomplete="off" autocapitalize="none" spellcheck="false"></label>
+          <label>Папка для поиска<select id="visitor-account-folder"><option value="inbox">Входящие</option><option value="sent">Отправленные</option></select></label>
           <label>Ваш пароль приложения для IMAP<input type="password" id="visitor-account-password" required autocomplete="off" aria-describedby="visitor-account-password-help"></label>
           <p class="account-caption" id="visitor-account-password-help">Разрешите доступ по IMAP в настройках Яндекс Почты и <a href="https://passport.yandex.ru/security/app-passwords" target="_blank" rel="noopener noreferrer">создайте пароль приложения в Яндекс ID</a>.</p>
           <button type="submit" id="visitor-account-connect" class="primary">Подключить</button>
