@@ -16,6 +16,7 @@ class VisitorInbox(MailStore):
         self.encoder = encoder
         self.index_lock = index_lock
         self.engine = None
+        self.attachment_cache = {}
 
     def rank(self, query, at, limit, *, date_from=None, date_to=None):
         if not self.rows:

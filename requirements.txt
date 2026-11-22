@@ -13,3 +13,5 @@ safetensors==0.8.0
 huggingface-hub==1.33.0
 filelock==4.2.12
 certifi==2026.11.20
+pillow==13.0.0
+pymupdf==2.1

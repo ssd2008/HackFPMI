@@ -143,6 +143,43 @@ class VisitorTests(unittest.TestCase):
             self.assertEqual({box["id"] for box in listing["mailboxes"]}, {"vk-box"} | allowed)
         self.assertEqual(self.local.post("/api/local/send", json={}, headers={**first, **EDIT}).status_code, 404)
 
+    def test_opt_in_file_contents_in_private_search_and_reader(self):
+        from mailsearch.dense import DenseIndex
+        from mailsearch.live import AttachmentSearch
+        try:
+            self.visitors.encoder = DenseIndex(self.regular_rows, self.directory / "index")
+        except RuntimeError as exc:
+            if "Отсутствуют локальные веса" in str(exc):
+                self.skipTest(str(exc))
+            raise
+        state = self.app.state
+        state.attachments = AttachmentSearch(state.store, self.directory, self.directory)
+        self.addCleanup(state.attachments.close)
+        letter = raw_letter("См. файл")
+        letter.add_attachment("Кварцолит".encode(), maintype="text", subtype="plain", filename="report.txt")
+        self.records["first-app"] = {1: letter.as_bytes()}
+        headers = self.session()
+        self.assertEqual(self.connect(headers, "first-app").status_code, 200)
+        box = self.synced(headers)["id"]
+        query = {"mailbox": box, "date": DATE, "query": "Кварцолит"}
+
+        def search(**options):
+            result = self.local.post("/api/search", json={**query, **options}, headers=headers)
+            self.assertEqual(result.status_code, 200, result.text)
+            return result.json()["items"]
+
+        self.assertEqual(search(), [])
+        hits = search(include_attachments=True)
+        self.assertEqual(len(hits), 1)
+        self.assertEqual(search(include_attachments=True, date_from=DATE), [])
+        uri = "/api/mail/" + hits[0]["id"]
+        params = {"mailbox": box, "date": DATE}
+        plain = self.local.get(uri, headers=headers, params=params).json()
+        self.assertNotIn("Кварцолит", str(plain))
+        files = self.local.get(uri, headers=headers, params={**params, "include_attachments": True}).json()
+        self.assertEqual(files["attachments"][0]["description"], "Кварцолит")
+        self.assertNotIn("payload", files["attachments"][0])
+
     def test_genuine_search_and_citation_open_on_the_private_memory_index(self):
         from mailsearch.dense import DenseIndex
         try:

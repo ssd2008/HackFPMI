@@ -273,6 +273,24 @@ def _document(raw: bytes, metadata: bytes, mailbox: str, validity: str, uid: int
     recipient = f"Кому: {head('To')}\n" if sent and head("To") else ""
     result = {"doc_id": "mail-" + key, "synthetic_user": mailbox, "doc_dt": day,
               "doc": f"От: {head('From')}\n{recipient}Тема: {head('Subject')}\nТекст письма:\n{body[:MAX_BODY_CHARS]}"}
+    # Keep a bounded snapshot in the visitor session. Decode documents on explicit search only.
+    attachments = []
+    remaining = 96 * 1024
+    for part in message.walk():
+        if not (part.get_filename() or part.get_content_disposition() == "attachment"):
+            continue
+        name = str(part.get_filename() or "Вложение")[:255]
+        item = {"filename": name, "mime_type": part.get_content_type(), "partial": True}
+        if not clipped and not part.is_multipart():
+            payload = part.get_payload(decode=True)
+            if payload and len(payload) <= remaining:
+                item = {"filename": name, "mime_type": part.get_content_type(), "payload": payload}
+                remaining -= len(payload)
+        attachments.append(item)
+        if len(attachments) == 8:
+            break
+    if attachments:
+        result["attachments"] = attachments
     if clipped or len(body) > MAX_BODY_CHARS:
         result["truncated"] = True
     return result
