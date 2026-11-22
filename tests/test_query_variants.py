@@ -26,3 +26,24 @@ class QueryVariantTests(unittest.TestCase):
             for spelling in spellings:
                 with self.subTest(query=query, spelling=spelling):
                     self.assertEqual(_features(_words(query), query=True), _features(_words(spelling)))
+
+    def test_unlisted_names_in_both_directions_and_visible_candidate_collision(self):
+        from mailsearch.query_variants import transliteration_index, VARIANTS
+        vocabulary = {"gitlab", "grafana", "clickhouse", "redis", "falcon", "phalcon", "общежитие"}
+        names = transliteration_index(vocabulary)
+        for query, expected in [("гитлаб", "gitlab"), ("графана", "grafana"), ("кликхаус", "clickhouse"),
+                                ("obshchezhitie", "общежитие"), ("фалкон", "фалкон")]:
+            self.assertNotIn(query, VARIANTS)
+            self.assertEqual(expand_query(query, vocabulary.__contains__, names), expected)
+        self.assertEqual(expand_query("фалкон", {"phalcon"}.__contains__, names), "phalcon")
+        self.assertEqual(expand_query("графана", set().__contains__, names), "графана")
+        self.assertEqual(expand_query("редис", {"редис", "redis"}.__contains__, names), "редис")
+        protected = 'SYN-гитлаб "гитлаб" https://test.invalid/гитлаб графана@test.example'
+        self.assertEqual(expand_query(protected, vocabulary.__contains__, names), protected)
+
+    def test_phrase_abbreviations_work_in_both_directions(self):
+        from mailsearch.retrieval import _features, _words
+        for short, full in [("ТЗ", "технического задания"), ("КП", "коммерческое предложение"),
+                            ("Р/С", "расчетный счет"), ("ВКР", "выпускная квалификационная работа")]:
+            self.assertEqual(_features(_words(short)), _features(_words(full), query=True))
+        self.assertNotIn("abbr:техническое задание", _features(_words("техническое сложное задание")))

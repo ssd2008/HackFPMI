@@ -13,13 +13,13 @@ from scipy.sparse import csr_matrix
 
 from .dates import parse_date_scope
 from .dense import DenseIndex
-from .query_variants import EQUIVALENTS, expand_query
+from .query_variants import ABBREVIATION_PATTERN, EQUIVALENTS, PHRASES, expand_query, transliteration_index
 from .private_cache import stem_word, text_cache
 
 
 _EMAIL = r"[a-z0-9_.+%-]+@[a-z0-9.-]+\.[a-z]{2,}"
 _OPAQUE = r"(?:syn|l)-[a-z0-9]+(?:-[a-z0-9]+)*"
-_TOKEN = re.compile(rf"{_EMAIL}|{_OPAQUE}|\d+(?:[.,:/-]\d+)+|дог-р(?!\w)|[а-я]+|[a-z_][a-z_\d]*|\d+")
+_TOKEN = re.compile(rf"{_EMAIL}|{_OPAQUE}|\d+(?:[.,:/-]\d+)+|(?:{ABBREVIATION_PATTERN})(?!\w)|[а-я]+|[a-z_][a-z_\d]*|\d+")
 _SUBJECT = re.compile(r"(?im)^\s*(?:тема|subject)\s*:\s*([^\r\n]+)")
 
 
@@ -73,15 +73,32 @@ def _words(text: str) -> list[str]:
     return _TOKEN.findall(text.lower().replace("ё", "е"))
 
 
+# Match complete adjacent lexical terms before adding evidence for a known abbreviation.
+_PHRASE_TERMS = {phrase: tuple(_ALIAS.get(_stem(w), _stem(w)) for w in phrase.split())
+                 for phrase in set(PHRASES.values())}
+_PHRASE_STARTS = defaultdict(list)
+for _phrase, _terms in _PHRASE_TERMS.items():
+    _PHRASE_STARTS[_terms[0]].append((_terms, "abbr:" + _phrase))
+
+
 def _features(words: list[str], *, query: bool = False) -> list[str]:
     result = []
     for word in words:
         if len(word) == 1 and not word.isdigit():
             continue
+        if word in PHRASES:
+            result.extend(_PHRASE_TERMS[PHRASES[word]])
+            continue
         stem = _stem(EQUIVALENTS.get(word, word))
         if stem in _STOP or (query and stem in _REQUEST_WORDS):
             continue
         result.append(_ALIAS.get(stem, stem).replace(",", "."))
+    markers = []
+    for index, term in enumerate(result):
+        for phrase, marker in _PHRASE_STARTS.get(term, ()):
+            if tuple(result[index:index + len(phrase)]) == phrase:
+                markers.append(marker)
+    result.extend(markers)
     return result
 
 
@@ -149,6 +166,7 @@ class SearchEngine:
             boxes[doc["synthetic_user"]].append(i)
         self.boxes = {key: np.asarray(rows, dtype=np.int32) for key, rows in boxes.items()}
         self.lexical = LexicalIndex(documents)
+        self.transliterations = transliteration_index(self.lexical.vocabulary)
         self.dense = encoder.memory_index(documents) if encoder is not None else DenseIndex(documents, Path(cache_dir))
 
     def search(
@@ -176,10 +194,11 @@ class SearchEngine:
             return []
         def has_word(word):
             stem = _stem(word)
-            column = self.lexical.vocabulary.get(_ALIAS.get(stem, stem))
+            key = "abbr:" + PHRASES[word] if word in PHRASES else _ALIAS.get(stem, stem)
+            column = self.lexical.vocabulary.get(key)
             return column is not None and self.lexical.weights[rows, column].nnz > 0
 
-        expanded = expand_query(scope.text, has_word)
+        expanded = expand_query(scope.text, has_word, self.transliterations)
         words = _words(expanded)
         features = _features(words, query=True)
         if not features:
